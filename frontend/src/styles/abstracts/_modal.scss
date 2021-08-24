@@ -1,0 +1,207 @@
+.Modal {
+    width: 70vw;
+    height: 50vh;
+    max-height: 490px;
+    z-index: 300;
+    position: fixed;
+    background-color: $white;
+    display: flex;
+    bottom: 25vh;
+    right: 15vw;
+    align-items: center;
+    overflow: hidden;
+  
+    @include for-phone-only {
+      width: 80vw;
+      height: 85vh;
+      bottom: 5vh;
+      left: 10vw;
+      flex-direction: column;
+      max-height: 570px;
+      min-height: 500px;
+      padding-bottom: 5px;
+    }
+  
+    @include for-tablet-portrait-only {
+      width: 90vw;
+      right: 5vw;
+    }
+  }
+  
+  .Modal h1 {
+    @include subHeading;
+    font-size: 30px;
+    color: $green;
+  }
+  
+  .ModalContent {
+    // @include flexColumn;
+    // justify-content: center;
+    // height: 100%;
+    // padding: 0 2rem;
+  
+    // @include for-phone-only {
+    //   @include flexColumn;
+    //   justify-content: flex-start;
+    //   height: 100%;
+    //   padding: 10% 3% 0;
+    // }
+    padding: 2% 5%;
+  
+  }
+  
+  .ModalContentLease {
+    // @include flexColumn;
+    // justify-content: center;
+    // height: 100%;
+    padding: 2% 5%;
+  
+    // @include for-phone-only {
+    //   @include flexColumn;
+    //   justify-content: flex-start;
+    //   height: 100%;
+    //   padding: 10% 3% 0;
+    //   // min-height: 380px;
+    // }
+  }
+  
+  .ModalButton {
+    @include justifyAndAlignCenter;
+    display: flex;
+    text-align: center;
+    min-width: 90px;
+    height: 100%;
+    margin-right: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    max-height: 36px;
+    @include for-phone-only {
+      margin-right: unset;
+  
+    }
+  
+  }
+  
+  .ModalButtons {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    @include for-phone-only {
+      flex-direction: column;
+      width: 100%;
+      height: 15%;
+    }
+    @include for-tablet-landscape-only {
+      width: 100%;
+    }
+    @include for-tablet-portrait-only {
+      width: 100%;
+    }
+    @include  for-small-tablet-portrait-only{
+      flex-direction: column;
+      width: 100%;
+      height: 15%;
+    }
+  }
+  
+  .ModalHomeButton {
+    color: $white;
+    background-color: $green;
+    font-size: 14px;
+    font-family: "Akkurat";
+    padding: 0px 24px;
+  
+    @include for-phone-only {
+      padding: 10px;
+    }
+    @include for-tablet-landscape-only {
+      font-size: 12px;
+    }
+    @include for-tablet-portrait-only {
+      font-size: 10px;
+    }
+  
+  }
+  
+  .ModalHomeButton:hover {
+    transition: all 0.3s linear;
+    background-color: $blue;
+  }
+  
+  .ModalContinueButton:hover {
+    transition: all 0.3s linear;
+    border: $blue 1px solid;
+    color: $blue;
+  }
+  
+  .ModalContinueButton {
+    border: $green 1px solid;
+    font-size: 14px;
+    background-color: $white;
+    font-family: "Akkurat";
+    padding: 0px 24px;
+  
+    @include for-phone-only {
+      margin-top: 8px;
+      padding: 8px;
+    }
+    @include  for-small-tablet-portrait-only{
+      margin-top: 8px;
+      padding: 8px;
+    }
+  
+    @include for-tablet-landscape-only {
+      font-size: 12px;
+    }
+    @include for-tablet-portrait-only {
+      font-size: 10px;
+    }
+  
+  }
+  .ModalImage {
+    object-fit: cover;
+    height: 102%;
+    width: 40%;
+    min-width: 300px;
+    @include for-phone-only {
+      width: 100%;
+    }
+  }
+  
+  // @media screen and (min-width: $break) and (max-width: $midBreak) {
+  //   .ModalImage {
+  //     width: 100%;
+  //   }
+  // }
+  
+  // @media only screen and (max-width: $break) {
+  //   .Modal h1 {
+  //     height: 60%;
+  //     text-align: center;
+  //   }
+  //
+  //   .Modal {
+  //     width: 90vw;
+  //     height: 80vh;
+  //     bottom: 15vh;
+  //     left: 5vw;
+  //     flex-direction: column;
+  //   }
+  //   .ModalImage {
+  //     width: 100%;
+  //     height: 50%;
+  //     max-height: 60%;
+  //     transform: unset;
+  //   }
+  //   .ModalButtons {
+  //     width: 100%;
+  //     height: 20%;
+  //     display: flex;
+  //     justify-content: space-evenly;
+  //   }
+  //   .ModalButton {
+  //     height: 100%;
+  //     margin-right: 0;
+  //   }
+  // }
+  

@@ -1,0 +1,46 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/text";
+@import "abstracts/variables";
+@import "abstracts/input";
+@import "abstracts/modal";
+
+@import "base/base";
+@import "base/typography";
+@import "base/font";
+@import "base/innerImageAnimation";
+@import "base/risk";
+@import "base/realty";
+@import "base/realtyheader";
+@import "base/buttons";
+@import "base/contact";
+@import "base/footer";
+@import "base/layout";
+@import "base/responsive";
+@import "base/navigation";
+@import "base/parallex";
+@import "base/utility";
+@import "../components/layout/nutrution";
+
+@import "../components/product/product";
+
+@import "../Realty/main/maindesktop";
+@import "../Realty/main/maintablet";
+@import "../Realty/main/mainmobile";
+
+// @import "components/button";
+// @import "components/contact";
+
+// @import "layout/footer";
+// @import "layout/header";
+// @import "layout/navigation";
+// @import "layout/layout";
+// @import "layout/responsive";
+// @import "layout/Content";
+
+// @import "pages/home";
+// @import "pages/realestate";
+// @import "pages/career";
+// @import "pages/contact";
+// @import "pages/farm";
+// @import "pages/riskmanagement";

@@ -1,0 +1,1156 @@
+html::-webkit-scrollbar {
+    display: none;
+}
+.realEstate {
+    // carousel for md desktop
+
+    & i.fas {
+        font-size: x-large !important;
+    }
+    & .realty {
+        display: flex;
+        flex-direction: column;
+        min-height: 200vh;
+        // border: 1px solid orangered;
+        // background-color: #dddddd;
+        justify-content: flex-start;
+
+        @include for-tablet-landscape-only {
+            min-height: unset;
+            margin-bottom: 24rem;
+        }
+
+        & header.realty__heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            // border: 1px solid orchid;
+            // height: 15vh;
+            position: relative;
+            // margin-bottom: 2%;
+            height: 300px;
+
+            & .realty__image-svgThree {
+                display: flex;
+                flex-direction: row;
+                z-index: 999;
+                justify-content: flex-end;
+                // border: 2px solid;
+                /* width: 135px; */
+                align-self: flex-end;
+                position: absolute;
+                left: 2.5%;
+                top: 0;
+
+                & img {
+                    @include for-tablet-landscape-only {
+                        width: 100px;
+                        height: 149px;
+                    }
+                }
+            }
+
+            & div.realty__headerContainer {
+                display: flex;
+                flex-direction: column;
+                // justify-content: space-between;
+                text-align: center;
+                // border: 1px solid palegreen;
+
+                @include for-tablet-landscape-only {
+                    margin-left: 8.5rem;
+                }
+
+                & div.realty__smallTitle {
+                    color: $blue;
+                    font-size: 2.5rem;
+                    font-family: "Ginto bold";
+                    font-weight: bold;
+                    font-style: normal;
+
+                    @include for-tablet-landscape-only {
+                        font-size: 2.5rem;
+                    }
+
+                    & span {
+                        color: inherit;
+                        font-size: inherit;
+                        font-family: inherit;
+                        font-weight: inherit;
+                        font-style: inherit;
+                    }
+                }
+
+                & div.realty__bigTitle {
+                    color: $bluethick;
+                    font-size: 4.6rem;
+                    font-family: "GT Super Ds Trial Bd";
+                    font-weight: bold;
+                    font-style: normal;
+                    text-align: center;
+
+                    @include for-tablet-landscape-only {
+                        font-size: 5rem;
+                    }
+
+                    & h1 {
+                        color: inherit;
+                        font-size: inherit;
+                        font-family: inherit;
+                        font-weight: inherit;
+                        font-style: inherit;
+                        text-align: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    // REALTY SERVICES
+    & .realty_services {
+        @include for-tablet-landscape-only {
+            display: none;
+        }
+        display: flex;
+        flex-direction: column;
+        height: 1189px;
+        padding: unset !important;
+        position: relative;
+        justify-content: space-between;
+        // margin-top: 8%;
+
+        & .realty_services-svg {
+            background-image: url("../images/reaalty/Group10.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            right: 3%;
+            z-index: 999;
+            width: 266px;
+            height: 629px;
+            top: -25px;
+
+            &.realty__services-svgLeft {
+                left: 3%;
+                background-image: url("../images/reaalty/Group01.png");
+            }
+        }
+
+        & .realty__services-svgDivider {
+            background-image: url("../images/reaalty/Group9.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 199.59px;
+            height: 450.25px;
+            position: absolute;
+            top: -30px;
+            left: 39%;
+            transform: rotate(8deg) rotateX(45deg);
+            z-index: 9999;
+
+            &.realty__services-svgDividerLeft {
+                width: 190px;
+                height: 394px;
+                transform: none !important;
+                top: -7px;
+                left: 49.2%;
+                transform: rotate(50deg) rotateX(-45deg);
+                background-image: url("../images/reaalty/Group0.png");
+            }
+        }
+
+        & section.realty_services-header {
+            position: absolute;
+            top: 16.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 48.125rem;
+            width: 90%;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            border-bottom: 5px solid #707070;
+
+            &.realty_services-headerLeft {
+                flex-direction: row-reverse;
+            }
+
+            & .realty_services-content {
+                width: 46%;
+                height: 385px;
+                background-color: #ffffff;
+                box-sizing: border-box;
+                color: $bluethick;
+                padding: 30px 50px;
+                font-family: sans-serif;
+                display: flex;
+                flex-direction: column;
+                border-top: 5px solid #707070;
+                border-left: 5px solid #707070;
+                border-bottom: 5px solid #707070;
+                position: relative;
+
+                &.realty_services-contentLeft {
+                    border-right: 5px solid #707070;
+                    border-left: none;
+                    border-left: hidden;
+                }
+
+                & h1 {
+                    color: inherit;
+                    font-family: "GT Super Ds Trial Bd";
+                    font-weight: bold;
+                    text-align: left;
+                    letter-spacing: 0.45px;
+                    font-size: $xsub-heading-copy;
+                    text-transform: uppercase;
+                    margin-block-start: 0;
+                }
+                & .realty_services_content-text {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    // & span.realty_services_content-text-icon {
+
+                    // }
+
+                    & div.realty_services_content-paragraph {
+                        font-family: "Ginto regular";
+                        font-weight: normal;
+                        text-align: left;
+                        letter-spacing: 0.45px;
+                        font-size: $body-copy;
+                        margin-block-start: 0;
+                    }
+                }
+
+                & div.realty_services_content-banner {
+                    background-image: url("../images/reaalty/canada_USA.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 595px;
+                    height: 100px;
+                    margin-block-start: 0.83em;
+                    border-radius: 72px 72px 0px 0px;
+                }
+
+                & div.realty_services-subContent {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    position: absolute;
+                    bottom: -30%;
+                    z-index: -99;
+
+                    & div.realty_services-subsvg {
+                        background-image: url("../images/reaalty/Group8.png");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        width: 134px;
+                        height: 200px;
+                        margin-right: 5rem;
+                    }
+
+                    & div.realty_services-subtitle {
+                        align-self: flex-end;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                    }
+
+                    & div.realty_services-verticalLine {
+                        border-left: 5px solid #314862;
+                        margin-right: 2rem;
+                    }
+                    & div.services-subtitle {
+                        & h3 {
+                            font-family: "Ginto regular";
+                            font-size: $large-body-copy;
+                            color: $dark;
+                            font-weight: normal;
+                            line-height: 1.2;
+                            margin-block-end: 0;
+                            margin-block-start: 0;
+                        }
+                    }
+                }
+            }
+
+            & .realty_services-image {
+                width: 1187.5px;
+                height: 550px;
+                // background-color: #f00;
+                box-sizing: border-box;
+                background-image: url("../images/reaalty/all\ types/multi-family-home-1026481.jpg");
+                -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 25% 100%);
+                clip-path: polygon(0 0, 100% 0%, 100% 100%, 32% 220%);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: flex;
+                position: relative;
+                z-index: 9;
+
+                &.realty_services-imageLeft {
+                    clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+                    background-image: url("../images/reaalty/all\ types/multi-family-home-1026482.jpg");
+                }
+
+                & .realty_services-midsvg {
+                    background-image: url("../images/reaalty/dots/Group10.png");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    display: flex;
+                    position: absolute;
+                    bottom: 0;
+                    left: 15%;
+                    width: 134px;
+                    height: 80px;
+                    z-index: 9999;
+
+                    &#realty_services-midsvg-two {
+                        right: 25%;
+                        left: unset;
+                    }
+                }
+            }
+        }
+
+        & div.realty_services-option {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 10%;
+
+            & div.realty_services-option-boxItem {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                align-items: center;
+
+                & ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    position: absolute;
+                    z-index: 9999;
+                    bottom: 0;
+                    // padding-inline-start: 0!important;
+                    @include for-big-desktop-up {
+                        max-width: 95vw !important;
+                    }
+                    overflow-x: scroll;
+                    padding: 40px 0px 35px 40px;
+                    scroll-behavior: smooth;
+                    scroll-snap-type: mandatory;
+                    scroll-snap-align: center;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                        scroll-behavior: smooth;
+                        scroll-snap-type: mandatory;
+                        scroll-snap-align: center;
+                    }
+
+                    & li {
+                        display: block;
+                        list-style-type: none;
+                        float: left;
+                        margin-right: 2.5rem;
+                    }
+                    & li:last-child {
+                        padding-right: 40px;
+                    }
+                }
+            }
+
+            & div.realty_services-option-decoration {
+                width: 94vw;
+                height: 25rem;
+                background-color: #eff3ff;
+                position: absolute;
+                border-radius: 7rem;
+                z-index: 9;
+                bottom: -3rem;
+            }
+
+            & div.realty_services-option--boxContainer {
+                background: #ffffff;
+                // width: 250px;
+                // height: 350px;
+                border-radius: 8%;
+                /* clip-path: ellipse(69% 76% at 34% 70%); */
+                /* border-radius: 8% 60% 0% 0%; */
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                box-sizing: border-box;
+
+                & div.realty__services-option--innerBox {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 24rem;
+                    height: 31.5rem;
+                    // padding: 20px;
+
+                    & div.realty_services-option--imageContainer {
+                        width: 21rem;
+                        height: 14rem;
+                        border-radius: 8%;
+                        background: aliceblue;
+                        margin-bottom: 1rem;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: 50%;
+
+                        &.realty__services-option--imageOne {
+                            background-image: url("../images/reaalty/item1.jpg");
+                        }
+                        &.realty__services-option--imageTwo {
+                            background-image: url("../images/reaalty/Property-acquisition.jpg");
+                        }
+                        &.realty__services-option--imageThree {
+                            background-image: url("../images/reaalty/item3.jpg");
+                        }
+                        &.realty__services-option--imageFour {
+                            background-image: url("../images/reaalty/item4.jpg");
+                        }
+                        &.realty__services-option--imageFive {
+                            background-image: url("../images/reaalty/item5.jpg");
+                        }
+                        &.realty__services-option--imageSix {
+                            background-image: url("../images/reaalty/risk.jpg");
+                        }
+
+                        // LEFT
+
+                        &.realty__services-option--imageOneLeft {
+                            background-image: url("../images/reaalty/ads.jpg");
+                        }
+                        &.realty__services-option--imageTwoLeft {
+                            background-image: url("../images/reaalty/tenant-screening-services.gif");
+                        }
+                        &.realty__services-option--imageThreeLeft {
+                            background-image: url("../images/reaalty/lease-agreement.jpg");
+                        }
+                        &.realty__services-option--imageFourLeft {
+                            background-image: url("../images/reaalty/move-in.jpg");
+                        }
+                        &.realty__services-option--imageFiveLeft {
+                            background-image: url("../images/reaalty/payment.jpg");
+                        }
+                        &.realty__services-option--imageSixLeft {
+                            background-image: url("../images/reaalty/maintenance.jpg");
+                        }
+                        &.realty__services-option--imageSevenLeft {
+                            background-image: url("../images/reaalty/vendor.jpg");
+                        }
+                        &.realty__services-option--imageEightLeft {
+                            background-image: url("../images/reaalty/evictionH.jpg");
+                        }
+                        &.realty__services-option--imageNineLeft {
+                            background-image: url("../images/reaalty/leased-premise.jpg");
+                        }
+                        &.realty__services-option--imageTenLeft {
+                            background-image: url("../images/reaalty/finance.jpg");
+                        }
+                    }
+
+                    & div.realty_services-option--content {
+                        display: flex;
+                        flex-direction: row;
+                        width: 21rem;
+                        border-right: 2px solid #313962;
+                        border-bottom: 2px solid #313962;
+                        border-block-start-color: red;
+                        border-width: medium;
+                        height: 13.3rem;
+                        border-radius: 0 0 8% 8%;
+                        // padding-right: 10px;
+
+                        & div.realty__services-option-icon {
+                            margin-right: 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: fit-content;
+                            margin-top: 1.5rem;
+                        }
+
+                        & div.realty__services-option-itemTitle {
+                            font-family: "Ginto bold";
+                            font-weight: bold;
+                            text-align: center;
+                            font-size: $xsmall-body-copy;
+                            text-transform: capitalize;
+                            margin-bottom: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding-right: 1rem;
+
+                            &#services-option-itemTitle-long {
+                                overflow: scroll;
+                                height: 84px;
+                            }
+                            &#services-option-itemTitle-long::-webkit-scrollbar {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .realty_services--tablet {
+        @include for-tablet-landscape-only {
+            display: none;
+        }
+        display: flex;
+        flex-direction: column;
+        height: 1189px;
+        padding: 0 3% 0 3%;
+        position: relative;
+        justify-content: flex-start;
+        border: 0px solid red !important;
+        // margin-top: 8%;
+
+        & .realty_services-svg {
+            background-image: url("../images/reaalty/Group10.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            right: 3%;
+            z-index: 999;
+            width: 266px;
+            height: 629px;
+            top: -25px;
+
+            &.realty__services-svgLeft {
+                left: 3%;
+                background-image: url("../images/reaalty/Group01.png");
+            }
+        }
+
+        & .realty__services-svgDivider {
+            background-image: url("../images/reaalty/Group9.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 199.59px;
+            height: 450.25px;
+            position: absolute;
+            top: -30px;
+            left: 39%;
+            transform: rotate(8deg) rotateX(45deg);
+            z-index: 9999;
+
+            &.realty__services-svgDividerLeft {
+                width: 190px;
+                height: 394px;
+                transform: none !important;
+                top: -7px;
+                left: 49.2%;
+                transform: rotate(50deg) rotateX(-45deg);
+                background-image: url("../images/reaalty/Group0.png");
+            }
+        }
+
+        & section.realty_services-header {
+            position: absolute;
+            top: 16.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 48.125rem;
+            width: 90%;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            border-bottom: 5px solid #707070;
+
+            &.realty_services-headerLeft {
+                flex-direction: row-reverse;
+            }
+
+            & .realty_services-content {
+                width: 46%;
+                height: 385px;
+                background-color: #ffffff;
+                box-sizing: border-box;
+                color: $bluethick;
+                padding: 30px 50px;
+                font-family: sans-serif;
+                display: flex;
+                flex-direction: column;
+                border-top: 5px solid #707070;
+                border-left: 5px solid #707070;
+                border-bottom: 5px solid #707070;
+                position: relative;
+
+                &.realty_services-contentLeft {
+                    border-right: 5px solid #707070;
+                    border-left: none;
+                    border-left: hidden;
+                }
+
+                & h1 {
+                    color: inherit;
+                    font-family: "GT Super Ds Trial Bd";
+                    font-weight: bold;
+                    text-align: left;
+                    letter-spacing: 0.45px;
+                    font-size: $xsub-heading-copy;
+                    text-transform: uppercase;
+                    margin-block-start: 0;
+                }
+                & .realty_services_content-text {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    // & span.realty_services_content-text-icon {
+
+                    // }
+
+                    & div.realty_services_content-paragraph {
+                        font-family: "Ginto regular";
+                        font-weight: normal;
+                        text-align: left;
+                        letter-spacing: 0.45px;
+                        font-size: $body-copy;
+                        margin-block-start: 0;
+                    }
+                }
+
+                & div.realty_services_content-banner {
+                    background-image: url("../images/reaalty/canada_USA.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 595px;
+                    height: 100px;
+                    margin-block-start: 0.83em;
+                    border-radius: 72px 72px 0px 0px;
+                }
+
+                & div.realty_services-subContent {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    position: absolute;
+                    bottom: -30%;
+                    z-index: -99;
+
+                    & div.realty_services-subsvg {
+                        background-image: url("../images/reaalty/Group8.png");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        width: 134px;
+                        height: 200px;
+                        margin-right: 5rem;
+                    }
+
+                    & div.realty_services-subtitle {
+                        align-self: flex-end;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                    }
+
+                    & div.realty_services-verticalLine {
+                        border-left: 5px solid #314862;
+                        margin-right: 2rem;
+                    }
+                    & div.services-subtitle {
+                        & h3 {
+                            font-family: "Ginto regular";
+                            font-size: $large-body-copy;
+                            color: $dark;
+                            font-weight: normal;
+                            line-height: 1.2;
+                            margin-block-end: 0;
+                            margin-block-start: 0;
+                        }
+                    }
+                }
+            }
+
+            & .realty_services-image {
+                width: 1187.5px;
+                height: 550px;
+                // background-color: #f00;
+                box-sizing: border-box;
+                background-image: url("../images/reaalty/all\ types/multi-family-home-1026481.jpg");
+                -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 25% 100%);
+                clip-path: polygon(0 0, 100% 0%, 100% 100%, 32% 220%);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: flex;
+                position: relative;
+                z-index: 9;
+
+                &.realty_services-imageLeft {
+                    clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+                    background-image: url("../images/reaalty/all\ types/multi-family-home-1026482.jpg");
+                }
+
+                & .realty_services-midsvg {
+                    background-image: url("../images/reaalty/dots/Group10.png");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    display: flex;
+                    position: absolute;
+                    bottom: 0;
+                    left: 15%;
+                    width: 134px;
+                    height: 80px;
+                    z-index: 9999;
+
+                    &#realty_services-midsvg-two {
+                        right: 25%;
+                        left: unset;
+                    }
+                }
+            }
+        }
+
+        & div.realty_services-option {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 10%;
+
+            & div.realty_services-option-boxItem {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                align-items: center;
+
+                & ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    position: absolute;
+                    z-index: 9999;
+                    bottom: 0;
+                    // padding-inline-start: 0!important;
+                    max-width: 62vw;
+                    overflow-x: scroll;
+                    padding: 40px 0px 35px 40px;
+                    scroll-behavior: smooth;
+                    scroll-snap-type: mandatory;
+                    scroll-snap-align: center;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                        scroll-behavior: smooth;
+                        scroll-snap-type: mandatory;
+                        scroll-snap-align: center;
+                    }
+
+                    & li {
+                        display: block;
+                        list-style-type: none;
+                        float: left;
+                        margin-right: 2.5rem;
+                    }
+                    & li:last-child {
+                        padding-right: 40px;
+                    }
+                }
+            }
+
+            & div.realty_services-option-decoration {
+                width: 94vw;
+                height: 25rem;
+                background-color: #eff3ff;
+                position: absolute;
+                border-radius: 7rem;
+                z-index: 9;
+                bottom: -3rem;
+            }
+
+            & div.realty_services-option--boxContainer {
+                background: #ffffff;
+                // width: 250px;
+                // height: 350px;
+                border-radius: 8%;
+                /* clip-path: ellipse(69% 76% at 34% 70%); */
+                /* border-radius: 8% 60% 0% 0%; */
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                box-sizing: border-box;
+
+                & div.realty__services-option--innerBox {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 24rem;
+                    height: 31.5rem;
+                    // padding: 20px;
+
+                    & div.realty_services-option--imageContainer {
+                        width: 21rem;
+                        height: 14rem;
+                        border-radius: 8%;
+                        background: aliceblue;
+                        margin-bottom: 1rem;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: 50%;
+
+                        &.realty__services-option--imageOne {
+                            background-image: url("../images/reaalty/item1.jpg");
+                        }
+                        &.realty__services-option--imageTwo {
+                            background-image: url("../images/reaalty/Property-acquisition.jpg");
+                        }
+                        &.realty__services-option--imageThree {
+                            background-image: url("../images/reaalty/item3.jpg");
+                        }
+                        &.realty__services-option--imageFour {
+                            background-image: url("../images/reaalty/item4.jpg");
+                        }
+                        &.realty__services-option--imageFive {
+                            background-image: url("../images/reaalty/item5.jpg");
+                        }
+                        &.realty__services-option--imageSix {
+                            background-image: url("../images/reaalty/risk.jpg");
+                        }
+
+                        // LEFT
+
+                        &.realty__services-option--imageOneLeft {
+                            background-image: url("../images/reaalty/ads.jpg");
+                        }
+                        &.realty__services-option--imageTwoLeft {
+                            background-image: url("../images/reaalty/tenant-screening-services.gif");
+                        }
+                        &.realty__services-option--imageThreeLeft {
+                            background-image: url("../images/reaalty/lease-agreement.jpg");
+                        }
+                        &.realty__services-option--imageFourLeft {
+                            background-image: url("../images/reaalty/move-in.jpg");
+                        }
+                        &.realty__services-option--imageFiveLeft {
+                            background-image: url("../images/reaalty/payment.jpg");
+                        }
+                        &.realty__services-option--imageSixLeft {
+                            background-image: url("../images/reaalty/maintenance.jpg");
+                        }
+                        &.realty__services-option--imageSevenLeft {
+                            background-image: url("../images/reaalty/vendor.jpg");
+                        }
+                        &.realty__services-option--imageEightLeft {
+                            background-image: url("../images/reaalty/evictionH.jpg");
+                        }
+                        &.realty__services-option--imageNineLeft {
+                            background-image: url("../images/reaalty/leased-premise.jpg");
+                        }
+                        &.realty__services-option--imageTenLeft {
+                            background-image: url("../images/reaalty/finance.jpg");
+                        }
+                    }
+
+                    & div.realty_services-option--content {
+                        display: flex;
+                        flex-direction: row;
+                        width: 21rem;
+                        border-right: 2px solid #313962;
+                        border-bottom: 2px solid #313962;
+                        // border-block-start-color: red;
+                        border-width: medium;
+                        height: 13.3rem;
+                        border-radius: 0 0 8% 8%;
+                        // padding-right: 10px;
+
+                        & div.realty__services-option-icon {
+                            margin-right: 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: fit-content;
+                            margin-top: 1.5rem;
+                        }
+
+                        & div.realty__services-option-itemTitle {
+                            font-family: "Ginto bold";
+                            font-weight: bold;
+                            text-align: center;
+                            font-size: $xsmall-body-copy;
+                            text-transform: capitalize;
+                            margin-bottom: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding-right: 1rem;
+
+                            &#services-option-itemTitle-long {
+                                overflow: scroll;
+                                height: 84px;
+                            }
+                            &#services-option-itemTitle-long::-webkit-scrollbar {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & #carousel-investor {
+        background: unset !important;
+    }
+    & .carousel {
+        background: unset !important;
+    }
+}
+.realEstate-midD {
+    @include for-tablet-portrait-down {
+        background-color: $white;
+    }
+    & #carousel-investor {
+        background: unset !important;
+    }
+    & .carousel {
+        background: unset !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .realty_services .carousel {
+        border: unset !important;
+    }
+    .remove__bg {
+        background: unset !important;
+    }
+    .realty_services_content-text-icon i {
+        font-size: x-large;
+    }
+    .realEstate header.realEstate_header nav.realEstate_navigation ul li a {
+        padding: 5px 3px 8px !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1999px) {
+    .slide_container ul {
+        display: flex;
+        position: absolute;
+        z-index: 9999;
+        bottom: unset;
+        max-width: 80vw;
+        overflow-x: scroll;
+        padding: 4rem 0 3.5rem 4rem;
+        scroll-behavior: smooth;
+        -ms-scroll-snap-type: mandatory;
+        scroll-snap-type: mandatory;
+        scroll-snap-align: center;
+    }
+}
+.realEstate-midD {
+    @media (min-width: 1200px) {
+        .carousel {
+            height: auto !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .carousel {
+            flex-direction: column !important;
+            padding: unset !important;
+            justify-content: center !important;
+            max-width: 90vw;
+            width: 85vw;
+            -webkit-padding-start: unset;
+            padding-inline-start: unset;
+        }
+    }
+    .carousel {
+        height: inherit;
+        background: unset;
+    }
+    @media (min-width: 1200px) {
+        .flickity-viewport {
+            width: inherit;
+            height: 40rem !important;
+            padding-top: 4.5rem;
+        }
+        .flickity-slider {
+            max-height: 30rem;
+        }
+        ol.flickity-page-dots {
+            display: none;
+        }
+    }
+    @media (min-width: 1200px) and (max-width: 1999px) {
+        .slide_container ul li {
+            display: block;
+            list-style-type: none;
+            float: left;
+            margin-right: 2.5rem;
+            margin-top: 3.5rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        section.realty_services-header {
+            & .carousel-control-prev {
+                left: 2.5rem !important;
+            }
+        }
+    }
+    @media (min-width: 1200px) and (max-width: 1999px) {
+        .realty__services-option-icon i {
+            font-size: x-large;
+        }
+    }
+    @media (min-width: 1200px) {
+        .realty__services-option-icon {
+            & i {
+                font-size: x-large !important;
+            }
+        }
+    }
+}
+.realEstate {
+    @media (min-width: 1200px) {
+        .carousel {
+            height: auto !important;
+        }
+        .realEstate_rightContainer img.d-block.w-100 {
+            transform: translate(-5rem, -12rem) scale(1);
+        }
+        .btn--green-header {
+            background-color: #0f1742 !important;
+            border-color: #0f1742 !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .carousel {
+            flex-direction: column !important;
+            padding: unset !important;
+            justify-content: center !important;
+            max-width: 90vw;
+            width: 85vw;
+            -webkit-padding-start: unset;
+            padding-inline-start: unset;
+        }
+    }
+    @include for-big-desktop-up {
+        & .remove__bg .flickity-enabled .is-draggable {
+            max-width: 95vw !important;
+        }
+    }
+
+    .carousel {
+        height: inherit;
+        background: unset;
+    }
+    @media (min-width: 1200px) {
+        .flickity-viewport {
+            width: inherit;
+            height: 40rem !important;
+            padding-top: 4.5rem;
+        }
+        .flickity-slider {
+            max-height: 30rem;
+        }
+        ol.flickity-page-dots {
+            display: none;
+        }
+    }
+    @media (min-width: 1200px) and (max-width: 1999px) {
+        .slide_container ul li {
+            display: block;
+            list-style-type: none;
+            float: left;
+            margin-right: 2.5rem;
+            margin-top: 3.5rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        section.realty_services-header {
+            & .carousel-control-prev {
+                left: 2.5rem !important;
+            }
+        }
+    }
+    @media (min-width: 1200px) and (max-width: 1999px) {
+        .realty__services-option-icon i {
+            font-size: x-large;
+        }
+    }
+    @media (min-width: 1200px) {
+        .realty__services-option-icon {
+            & i {
+                font-size: x-large !important;
+            }
+        }
+    }
+}
+
+///////////
+
+/* pules effect */
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(70, 118, 250, 0.4);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 20px rgba(70, 118, 250, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(70, 118, 250, 0);
+    }
+}
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(70, 118, 250, 0.4);
+        box-shadow: 0 0 0 0 rgba(70, 118, 250, 0.4);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 20px rgba(70, 118, 250, 0);
+        box-shadow: 0 0 0 20px rgba(70, 118, 250, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(70, 118, 250, 0);
+        box-shadow: 0 0 0 0 rgba(70, 118, 250, 0);
+    }
+}
+@include for-big-desktop-up {
+    .realEstate {
+        & ul#listLoopA {
+            max-width: 95vw !important;
+        }
+    }
+}
+@include for-big-desktop-up {
+    .realEstate {
+        & ul#listLoopB {
+            max-width: 95vw !important;
+        }
+    }
+}
+
+@media (min-width: 2000px) {
+    main#main-realtyContainer {
+        max-width: 190rem !important;
+        margin: 0 auto !important;
+    }
+    .contactFormWrapper {
+        max-width: 190rem;
+        margin: 0 auto;
+    }
+    .realEstate header.realEstate_header nav.realEstate_navigation {
+        max-width: 190rem;
+        padding-left: 0 !important;
+    }
+    .realEstate header.realEstate_header section.realEstate_headerSection {
+        max-width: 190rem;
+        margin: 0 auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+div#swipeview {
+    border-radius: 0 0 1.5rem 1.5rem;
+}

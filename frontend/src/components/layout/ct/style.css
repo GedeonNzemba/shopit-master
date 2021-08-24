@@ -1,0 +1,142 @@
+button.slick-arrow.slick-next {
+    display: none !important;
+}
+.contactFormHeader {
+    margin-top: unset!important;
+}
+.react-swipeable-view-container {
+    height: 26rem;    
+}
+.remove_mt {
+    margin-top: unset!important;
+}
+.contactFormWrapper {
+    /* background-color: #ffffff; */
+    border: 0px solid transparent!important;
+}
+#ct_form .MuiButton-outlined {
+    border: 1px solid #f50057!important;
+}
+#ct_form svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+#ct_form .MuiStepIcon-text {
+    font-size: 1.3rem;
+}
+/* imaages */
+.audit_img-Style,
+.risk_img-Style {
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-attachment: fixed;
+     width: 120rem;
+     height: 36rem;
+     transform: translate(0rem, 10rem);
+}
+@media (max-width: 600px) {
+    .audit_img-Style,
+    .risk_img-Style {
+        transform: translate(0rem, 15rem);
+    }
+}
+#audit_img-One {
+    background-image: url('../../../images/risk/audittrue.jpg');
+}
+#audit_img-Two {
+    background-image: url('../../../images/risk/audittrue_a.jpg');
+}
+#audit_img-Three {
+    background-image: url('../../../images/risk/audittrue_b.jpg');
+}
+
+#risk_img-One {
+    background-image: url('../../../images/risk/risktrue.jpg');
+}
+#risk_img-Two {
+    background-image: url('../../../images/risk/risktrue_a.jpg');
+}
+#risk_img-Three {
+    background-image: url('../../../images/risk/risktrue_b.jpg');
+}
+/* .wowSlide1 {
+    background-image: url('../../../images/risk/ad.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100rem;
+    height: 36rem;
+}
+.wowSlide2 {
+    background-image: url('../../../images/risk/rsik.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100rem;
+    height: 36rem;
+} */
+
+img[src="data0/images/ad.jpg"] {
+    display: block !important;
+}
+#gmap_canvas {
+    visibility: unset!important;
+    border-radius: 1rem;
+}
+div#error_1e236c554fde815a32408bb900974745d78fa588 {
+    display: none;
+}
+
+#business {
+    background: #ffffff;
+}
+#message_part {
+    background: #ffffff;
+    height: 30.7rem;
+    /* overflow-y: auto; */
+}
+section#personal {
+    height:36rem;
+    background: #ffffff;
+}
+#personal label.MuiFormLabel-root {
+    font-size: 1.6rem!important;
+}
+#personal .MuiFormHelperText-root {
+    font-size: 1.6rem !important;
+}
+#ct_form .MuiTypography-body2 {
+    font-size: 1.2rem;
+}
+#ct_form input.MuiInputBase-input.MuiInput-input,
+.select__item-ct {
+    font-size: 1.6rem!important;
+}
+section#personal,
+section#business,
+section#message_part {
+    padding: 1em;
+    border-radius: 0 0 1.4rem 1.4rem;
+}
+#theStepper {
+    border-radius: 1.4rem 1.4rem 0 0;
+}
+section#business label,
+section#message_part label {
+    font-size: 1.6rem;
+}
+#swipeview .react-swipeable-view-container  div:nth-child(2){
+    overflow: hidden!important;
+}
+div#demo-simple-select {
+    font-size: 1.6rem;
+}
+#ct__spc {
+    margin-right: 1.6rem;
+}
+.react-swipeable-view-container div:last-child {
+    overflow: hidden!important;
+}
+.mCSB_dragger_bar,
+.mCSB_dragger_bar:active,
+.mCSB_dragger_bar:hover {
+background-color: #313962!important;
+}

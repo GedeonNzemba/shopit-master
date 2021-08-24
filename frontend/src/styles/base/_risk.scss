@@ -1,0 +1,1258 @@
+div.auditNrisk {
+    background-color: #f8f9fa;
+    border-top: 0.1px solid transparent;
+}
+@media (min-width: 900px) {
+    .switchside {
+        flex-direction: row-reverse !important;
+    }
+}
+div.riskHeader {
+    display: grid;
+    grid-template-columns: 48% auto;
+    column-gap: 2%;
+    width: 100%;
+    height: 90vh;
+    margin-top: 7.2rem;
+    background-color: $white;
+    position: relative;
+    padding-right: 0;
+    margin-right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 97%, 0 89%);
+
+    @media (max-height: 725px) {
+        height: calc(90rem + (100 - 90) * (100vh - 200px) / (740 - 200));
+    }
+
+    @media (max-width: 899px) {
+        display: none;
+    }
+
+    & div#risk_cycle-img {
+        width: 25rem;
+        height: 25rem;
+        background: #ffffffed;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        border-radius: 0 12rem 12rem 0;
+        z-index: 999;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url("../images/risk/RISK MANAG.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 25rem;
+            height: 25rem;
+        }
+    }
+
+    & section.riskHeader_content {
+        display: block;
+        height: fit-content;
+        padding-left: 5rem;
+        margin-top: -5rem;
+        // margin-top: 8%;
+        transform: translate(0%, 50%);
+        & .riskHeader_title {
+            width: 85%;
+            margin-bottom: 2.5rem;
+            h1 {
+                font-size: 4.5rem;
+                font-family: "Cairo", sans-serif;
+                font-weight: bold;
+                color: #000;
+                text-transform: uppercase;
+
+                & span#fa-underline {
+                    opacity: 1;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        bottom: 1.8rem;
+                        height: 1.5rem;
+                        background: $green;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+        & .riskHeader_sub-title {
+            width: 70%;
+            p {
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: #000;
+                font-family: "Cairo", sans-serif;
+            }
+        }
+    }
+    & section.riskHeader_image {
+        display: block;
+        & .flickity-viewport {
+            height: 65.5rem !important;
+        }
+        & .flickity-button {
+            display: none !important;
+        }
+        & .flickity-page-dots {
+            display: none !important;
+        }
+        & .riskHeader_imageRight-banner {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 66rem;
+            height: 65.5rem;
+        }
+        & #riskHeader_imgOne_Fs {
+            background-image: url("../images/risk/transformation.jpg");
+        }
+        & #riskHeader_imgOne {
+            background-image: url("../images/risk/1b.png");
+        }
+        & #riskHeader_imgTwo {
+            background-image: url("../images/risk/assurance.jpg");
+        }
+        & #riskHeader_imgThree {
+            background-image: url("../images/risk/2.jpg");
+        }
+        & #riskHeader_imgFour {
+            background-image: url("../images/risk/enterprise_banner.jpg");
+        }
+        & #riskHeader_imgFive {
+            background-image: url("../images/risk/audit.jpg");
+        }
+    }
+}
+
+// butons
+.riskHeader_btn {
+    margin-top: 2.5rem;
+    & .riskHeader_btn-left {
+        margin-right: 3.6rem;
+    }
+    & .riskHeader_btn-right {
+        & span {
+            color: #000 !important;
+        }
+    }
+}
+
+header.riskHeader__smallDesktop {
+    @media (min-width: 900px) {
+        display: none;
+    }
+    border-bottom-right-radius: 50% 25% !important;
+    border-bottom-left-radius: 50% 25%;
+    background-image: url("../images/risk/smalldesk.jpg");
+    background-size: 100% 140%;
+    background-repeat: no-repeat;
+    margin-bottom: 20rem;
+    width: 100%;
+    height: 100vh;
+    padding: 0 0 0 4rem;
+
+    @media (max-width: 699px) {
+        padding-left: 5rem;
+    }
+
+    @media (max-width: 375px) {
+        padding-left: 3rem;
+    }
+
+    & .__container {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        column-gap: 5%;
+        align-items: center;
+        height: 100%;
+        @media (max-width: 699px) {
+            grid-template-columns: 80%;
+            margin-top: -6rem;
+        }
+
+        @media (max-width: 375px) {
+            grid-template-columns: 90%;
+        }
+
+        & h3 {
+            line-height: 1.2;
+            text-rendering: optimizeLegibility;
+            text-transform: uppercase;
+            font-family: "Cairo", sans-serif;
+            font-weight: bold;
+            color: #d1d2d5;
+            font-size: calc(28px + (35.2 - 28) * (100vw - 375px) / (899 - 375));
+            -webkit-margin-after: 0;
+            margin-block-end: 0;
+            z-index: 999;
+            position: relative;
+            transition: 2s ease-out;
+            @media (max-width: 374px) {
+                font-size: 3.5rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 10rem;
+                height: 0.2rem;
+                background-color: chartreuse;
+                bottom: -1rem;
+                left: 0;
+                transition: 2s ease-in;
+            }
+        }
+
+        & .__content {
+            height: 35rem;
+            @media (max-width: 699px) {
+                height: fit-content;
+            }
+            position: relative;
+            & #__smallScreen_text {
+                @media (min-width: 700px) {
+                    transition: 2s ease-out;
+                    display: none;
+                }
+                width: 65%;
+                display: inline-block;
+                & p {
+                    color: white;
+                    word-break: break-word;
+                    font-size: 1.8rem;
+                    font-family: "Ginto regular";
+                    font-weight: normal;
+                    text-align: left;
+                    line-height: 1.2;
+                }
+            }
+            & .riskHeader_btn {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                @media (max-width: 699px) {
+                    position: relative;
+                }
+            }
+            & #sep_riskHeader_ct {
+                margin-bottom: 2.5rem;
+            }
+
+            & h1 {
+                text-align: left;
+                font-family: "Cairo", sans-serif;
+                font-size: calc(35.2px + (48 - 35.2) * (100vw - 375px) / (899 - 375));
+                font-weight: bold;
+                text-rendering: optimizeLegibility;
+                text-transform: capitalize;
+                color: #ffffff;
+                margin-bottom: 2rem;
+                @media (max-width: 374px) {
+                    font-size: 4.4rem;
+                }
+            }
+        }
+    }
+
+    & .__image {
+        display: block;
+        width: 80%;
+        @media (max-width: 699px) {
+            display: none;
+        }
+        & #riskHeader_illustr {
+            background-image: url("../images/risk/riskbanner.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 30rem;
+            float: right;
+            height: 30rem;
+            border-radius: 7rem;
+            // filter: drop-shadow(2px 4px 6px black);
+        }
+    }
+}
+
+@media (max-width: 899px) {
+    .riskHeader_btn .riskHeader_btn-right span {
+        color: unset !important;
+    }
+}
+
+.item-img {
+    height: 59rem;
+    width: 60rem;
+}
+.flickity-page-dots {
+    display: none;
+}
+
+// **************  RISK MAIN **************** //
+.risk-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15rem;
+    justify-content: center;
+
+    & .carousel-cell {
+        margin-right: 20px;
+    }
+
+    & .__innerItem-container-img {
+        display: block;
+        height: 100%;
+        width: 55%;
+        // border: 1px solid greenyellow;
+
+        & .main-carousel {
+            & .carousel-cell {
+                // min-width: 415px;
+                height: 60.8rem;
+            }
+        }
+    }
+
+    & .__innerItem-container-text {
+        width: 45%;
+        // height: 470px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        // border: 1px solid red;
+
+        justify-content: center;
+
+        &::after {
+            padding: 0;
+            margin: 0;
+            display: block; /* probably not really needed? */
+            content: "";
+            width: 50%;
+            height: 50%; /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+            background-color: transparent;
+            position: absolute;
+            border-right: 5px solid #313962;
+            border-bottom: 5px solid #313962;
+            right: 0;
+            transform: rotateY(45deg);
+            bottom: 0;
+        }
+
+        & ._inner-text-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0 10% 8%;
+
+            & ._item_text-header {
+                display: block;
+
+                & h1 {
+                    font-size: 4rem;
+                    font-family: "Ginto bold";
+                    color: $bluethick;
+                    text-transform: capitalize;
+                }
+            }
+
+            & ._item_text {
+                display: block;
+
+                & p {
+                    font-size: 1.9rem;
+                    font-family: "Ginto regular";
+                    line-height: 1.2;
+                }
+            }
+        }
+    }
+
+    & .item__btn {
+        margin-top: 2rem;
+
+        & button.btn.btn-success {
+            margin-left: 4rem;
+        }
+    }
+
+    & .carousel-cell img {
+        display: block;
+        overflow: hidden;
+    }
+    & .carousel-cell:not(.is-selected) img {
+        border-radius: 0% 25% 25% 0%;
+        opacity: 0.4;
+    }
+    & .carousel-cell.is-selected {
+        filter: drop-shadow(2px 4px 6px black);
+    }
+}
+// *********** RESPONSIVE CONTENT **************
+@media (max-width: 599px) {
+    .main-carousel {
+        display: none !important;
+    }
+}
+@media (min-width: 600px) {
+    .md-carousel {
+        display: none !important;
+    }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+    .carousel-cell img {
+        max-width: calc(430px + (450 - 430) * (100vw - 600px) / (899 - 600));
+        height: calc(430px + (450 - 430) * (100vw - 600px) / (899 - 600));
+    }
+
+    .carousel-cell img {
+        margin-right: 40px !important;
+    }
+}
+
+.background-img {
+    margin-bottom: 20rem;
+}
+@include for-tablet-landscape-up {
+    #risk-header_img-tablet {
+        display: none;
+    }
+    .background-img {
+        border-bottom-left-radius: unset;
+        background-image: url("https://media.gettyimages.com/vectors/abstract-business-colorful-waving-template-background-stock-abstract-vector-id1161680581?s=2048x2048");
+    }
+}
+@include for-tablet-portrait-down {
+    .risk-management__header-rs_img {
+        display: none;
+    }
+    section#risk-management__RightTopcontainer {
+        display: none;
+    }
+    .risk-management__rightContent {
+        display: none;
+    }
+    .react-reveal.fadeInUp.risk-management__rightContent {
+        display: none;
+    }
+    .risk-management__header-content {
+        height: 100% !important;
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap {
+        height: 100% !important;
+        padding-top: 10% !important;
+    }
+    .background-img {
+        border-bottom-right-radius: 50% 25% !important;
+        border-bottom-left-radius: 50% 25%;
+        background-image: url("https://media.gettyimages.com/vectors/city-night-view-in-blue-and-pink-colors-vector-id924741394?s=2048x2048");
+    }
+    .risk-management__leftWrap {
+        height: 100% !important;
+        padding-top: 10% !important;
+    }
+    .rs-subtitle h3 {
+        font-size: 4rem;
+
+        & #risk-management__Textline {
+            transform: translateY(-5px) !important;
+        }
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content h1 {
+        font-size: 4.1rem !important;
+    }
+    #risk-header_img-tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+    }
+    #risk-header_img_row-tablet {
+        width: fit-content;
+        height: fit-content;
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        bottom: 20%;
+        top: 20%;
+    }
+    .risk-management__header-rs_image {
+        // background-image: url("../images/AUDIT\ &\ RISK\ MANAGEMENT/RISK-MANAG-removebg.png");
+        background-repeat: no-repeat;
+        width: 37.6rem;
+        height: 37.6rem;
+        background-size: cover;
+        border-radius: 20%;
+        background-color: white;
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content .rs-subtitle {
+        margin-bottom: 1.5rem;
+    }
+    .risk-management__HeaderButton {
+        margin-top: 5.5rem;
+    }
+
+    // 744 and down
+    @media (max-width: 744px) {
+        div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content .rs-subtitle h3 {
+            width: max-content !important;
+            font-size: 4rem;
+        }
+        div.wraper-header_content-risk
+            .risk-management__leftWrap
+            .risk-management__header-content
+            .rs-subtitle
+            #risk-management__Textline {
+            transform: translateY(-5px);
+        }
+        div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content h1 {
+            font-size: 3.5rem !important;
+            width: 43rem;
+        }
+        .risk-management__HeaderButton .button {
+            width: max-content !important;
+        }
+
+        .risk-header_img_row-tablet {
+            right: 8rem;
+        }
+        .react-reveal.risk-management__header-rs_image {
+            width: 30rem;
+            height: 30rem;
+        }
+        .risk-management__header-content {
+            padding-left: 5rem;
+        }
+        div.wraper-header_content-risk .risk-management__leftWrap {
+            padding-top: 12% !important;
+        }
+        .risk-management__RightTopcontainer-tablet {
+            width: 100%;
+
+            & #risk-management__header-brief {
+                width: -webkit-max-content;
+                width: max-content;
+                display: flex;
+                flex-direction: column;
+                // padding: 2% 8% 5% 12%;
+                /* -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%); */
+                /* clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%); */
+                /* transform: translateY(0px); */
+                background: #ffffff;
+                height: -webkit-fit-content;
+                height: -moz-fit-content;
+                height: fit-content;
+                /* position: absolute; */
+                // bottom: 15rem;
+                // right: 0;
+                // border-top: 10px solid #314862;
+                // border-left: 10px solid #314862;
+            }
+        }
+        section#risk-management__RightTopcontainer-tablet {
+            width: 45rem;
+            height: 20rem;
+        }
+        div#risk-management__header-brief {
+            padding-top: 2rem;
+        }
+        section#risk-management__RightTopcontainer-tablet .risk-management__header-brief h2 {
+            color: white;
+            display: none;
+            font-size: 42px;
+            font-family: "GT Super Ds Trial Bd";
+            font-weight: bold;
+            text-align: left;
+            text-transform: uppercase;
+            line-height: 1.2;
+            -webkit-margin-after: 0;
+            margin-block-end: 0;
+        }
+        section#risk-management__RightTopcontainer-tablet .risk-management__header-brief p {
+            color: white;
+            word-break: break-word;
+            font-size: 2.8rem;
+            font-family: "Ginto regular";
+            font-weight: normal;
+            text-align: left;
+            line-height: 1.2;
+        }
+    }
+
+    // 699 and down
+    @media (max-width: 699px) {
+        .header_content-inner-rightTop {
+            display: none !important;
+        }
+        div.header_content-inner-rightTop {
+            display: none;
+        }
+
+        div.wraper-header_content-risk
+            .risk-management__leftWrap
+            .risk-management__header-content
+            .rs-subtitle
+            #risk-management__Textline {
+            transform: translateY(-5px) !important;
+        }
+        section#risk-management__RightTopcontainer-tablet {
+            height: 15rem;
+        }
+        section#risk-management__RightTopcontainer-tablet .risk-management__header-brief p {
+            word-break: break-word;
+        }
+    }
+
+    // 500 and down
+    @media (max-width: 500px) {
+        .wraper-header_content-risk {
+            height: 100% !important;
+            margin-top: -5rem;
+        }
+        #risk-header_content-small {
+            width: 45rem !important;
+            margin: 0 auto !important;
+            height: 40rem;
+            align-self: center;
+            padding: unset !important;
+        }
+        .risk-management__leftWrap {
+            display: none !important;
+        }
+        .risk-management__header-content {
+            display: flex;
+            flex-direction: column;
+            padding-left: 1rem !important;
+            width: fit-content;
+            margin: unset !important;
+            max-width: 45rem;
+            align-self: center;
+        }
+        .rs-subtitle {
+            display: block;
+            width: fit-content;
+            margin-bottom: 1.5rem;
+        }
+        .rs-subtitle h3 {
+            font-size: 4rem;
+            line-height: 1.2;
+            text-rendering: optimizeLegibility;
+            text-transform: uppercase;
+            font-family: "Ginto bold";
+            font-weight: bold;
+            color: #d1d2d5;
+            font-size: 3.5rem;
+            -webkit-margin-after: 0;
+            margin-block-end: 0;
+            z-index: 999;
+            // width: max-content;
+        }
+        hr#risk-management__Textline {
+            background-color: #686b71;
+            height: 0.5rem;
+            border: none;
+            -webkit-margin-before: 0;
+            margin-block-start: 0;
+            -webkit-margin-start: 0;
+            margin-inline-start: 0;
+            transform: translateY(-5px);
+            z-index: 9;
+        }
+        h1.react-reveal {
+            text-align: left;
+            font-family: "GT Super Ds Trial Bd";
+            font-size: 4.7rem;
+            font-weight: bold;
+            text-rendering: optimizeLegibility;
+            text-transform: uppercase;
+            color: #ffffff;
+            font-size: 3.5rem !important;
+            width: 43rem;
+        }
+        .risk-management__HeaderButton {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+        }
+        div#rs-line {
+            margin: 0 1rem;
+        }
+        .btn,
+        .btn:link,
+        .btn:visited {
+            padding: 1rem 3rem;
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 399px) {
+        .rs-subtitle h3 {
+            font-size: 3.2rem;
+        }
+        hr#risk-management__Textline {
+            height: 0.4rem;
+        }
+        h1.react-reveal {
+            width: fit-content;
+            font-size: 3.2rem;
+        }
+        section#risk-management__RightTopcontainer-tablet .risk-management__header-brief p {
+            font-size: 2.7rem;
+        }
+        div#risk-management__header-brief {
+            width: 40rem;
+        }
+        .btn,
+        .btn:link,
+        .btn:visited,
+        .BtnB,
+        .btnB:link,
+        .btnB:visited {
+            padding: 1rem 3rem;
+            font-size: 1.5rem;
+        }
+        #risk-header_content-small {
+            padding: 0 1rem !important;
+        }
+
+        @include equip {
+            #risk-header_content-small {
+                padding: 0 1rem !important;
+            }
+            // #risk-header_content-small {
+            //   width: 40rem;
+            //       margin-top: 5rem!important;
+            // }
+            .risk-management__header-content {
+                max-width: 40rem;
+                padding-left: unset !important;
+                width: 80vw !important;
+                height: 50rem !important;
+            }
+            #risk-header_content-small {
+                height: 50rem;
+                width: 80vw !important;
+                margin-top: 10rem !important;
+            }
+            section#risk-management__RightTopcontainer-tablet {
+                width: auto !important;
+            }
+            section#risk-management__RightTopcontainer-tablet .risk-management__header-brief p {
+                font-size: 5.5vw !important;
+            }
+            div#risk-management__header-brief {
+                width: unset !important;
+            }
+            #risk-header_content-col-small {
+                padding-left: unset !important;
+                padding-right: unset !important;
+            }
+            .rs-subtitle h3 {
+                font-size: 6.3vw;
+            }
+            hr#risk-management__Textline {
+                height: 0.3rem;
+            }
+            h1.react-reveal {
+                font-size: 6.5vw !important;
+            }
+        }
+    }
+}
+
+// 768
+@media (width: 768px) {
+    div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content .rs-subtitle {
+        width: max-content !important;
+    }
+}
+// 500 and up
+@media (min-width: 501px) and (max-width: 8000px) {
+    #risk-header_content-small {
+        display: none !important;
+    }
+}
+
+// 326 and down btn
+@media (max-width: 326px) {
+    div#rs-line {
+        margin: 1rem 0;
+    }
+    .risk-management__HeaderButton {
+        flex-direction: column;
+    }
+}
+
+// Risk Content
+@media (min-width: 900px) {
+    #risk-content-down {
+        display: none;
+    }
+}
+@media (max-width: 899px) {
+    #risk-content-up {
+        flex-direction: column;
+        // background: #e1e1e1;
+        // margin-bottom: 20rem;
+        // padding-bottom: 5rem;
+        height: auto;
+
+        & .main-carousel {
+            height: inherit;
+        }
+        .flickity-viewport {
+            max-height: -webkit-fill-available;
+        }
+        & .__innerItem-container-img {
+            width: 90%;
+            height: 473px;
+            margin: 0 auto 1rem;
+            // border: 2px solid red;
+        }
+
+        & .flickity-slider {
+            // left: 18.5rem !important;
+            max-width: inherit;
+            // background: cadetblue;
+        }
+
+        & .carousel-cell {
+            height: 473px;
+            // border-radius: 0% 25% 25% 0%;
+
+            // & .carousel-cell.is-selected {
+            //   border-radius: unset !important;
+            // }
+        }
+
+        // text
+        & .__innerItem-container-text {
+            width: 90%;
+            // border: 2px solid #ff00eb;
+            margin: 3.5rem auto 5rem;
+            height: 50rem;
+        }
+        &.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+            font-size: 2.5rem;
+        }
+        & ._inner-text-content {
+            padding: 0;
+        }
+
+        & #sub__off {
+            display: none;
+        }
+
+        &.risk-content .__innerItem-container-text::after {
+            right: -5rem;
+            bottom: -5rem;
+        }
+
+        &.risk-content .__innerItem-container-text ._inner-text-content ._item_text {
+            max-width: 90%;
+        }
+        &.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+            word-break: break-word;
+        }
+
+        // text responsive for risk content
+
+        & #sub_divider {
+            height: unset;
+        }
+    }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .carousel-cell img {
+        max-width: calc(430px + (450 - 430) * (100vw - 600px) / (899 - 600));
+        height: calc(430px + (450 - 430) * (100vw - 600px) / (899 - 600));
+    }
+
+    .carousel-cell img {
+        margin-right: 40px !important;
+    }
+}
+
+@media (max-width: 599px) {
+    .main-carousel {
+        display: none !important;
+    }
+}
+
+@media (min-width: 600px) {
+    .md-carousel {
+        display: none !important;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 599px) {
+    #risk-content-up {
+        & .__innerItem-container-img {
+            height: 400px;
+            margin: 0 auto 8rem;
+        }
+
+        & .carousel-cell img.item-img {
+            width: auto;
+            height: 350px;
+        }
+
+        & .md-carousel {
+            & .carousel-cell {
+                width: 66%;
+                height: auto;
+                // margin-right: 40px;
+
+                border-radius: 5px;
+            }
+        }
+        & .__innerItem-container-img {
+            width: 95%;
+        }
+
+        // & .carousel-cell:not(.is-selected) {
+        //     // border: 5px solid navy;
+        //     // margin-left: 30px;
+        //     // margin-right: 30px;
+        //     // margin: 0 30px;
+        // }
+    }
+}
+
+@media (max-width: 499px) {
+    #risk-content-up .carousel-cell img.item-img {
+        width: calc(40rem + (50 - 40) * (100vw - 375px) / (499 - 375));
+        height: calc(30.1rem + (40.1 - 30.1) * (100vw - 375px) / (499 - 375));
+    }
+    #risk-content-up .md-carousel .carousel-cell {
+        width: calc(40rem + (50 - 40) * (100vw - 375px) / (499 - 375));
+        height: calc(30.1rem + (40.1 - 30.1) * (100vw - 375px) / (499 - 375));
+    }
+}
+
+@media (max-width: 374px) {
+    #risk-content-up .carousel-cell img.item-img {
+        width: calc(30rem + (40 - 30) * (100vw - 300px) / (374 - 300));
+        height: calc(20.1rem + (30.1 - 20.1) * (100vw - 375px) / (499 - 375));
+    }
+    #risk-content-up .md-carousel .carousel-cell {
+        width: calc(30rem + (40 - 30) * (100vw - 300px) / (374 - 300));
+        height: calc(20.1rem + (30.1 - 20.1) * (100vw - 375px) / (499 - 375));
+    }
+}
+
+@media (max-width: 250px) {
+    #risk-content-up .carousel-cell img.item-img {
+        width: 85vw;
+        height: 70vw;
+    }
+    #risk-content-up .md-carousel .carousel-cell {
+        width: 85vw;
+        height: 70vw;
+    }
+}
+
+// risk content text responsive content
+@media (min-width: 100px) and (max-width: 800px) {
+    #risk-content-up.risk-content .__innerItem-container-text ._inner-text-content ._item_text {
+        max-width: 95% !important;
+    }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+    #risk-content-up {
+        & .__innerItem-container-text {
+            height: calc(65rem + (50 - 65) * (100vw - 600px) / (899 - 600));
+        }
+
+        & ._item_text {
+            max-width: 95% !important;
+        }
+
+        & .item-sub-wrap .sub-item p {
+            color: #000;
+        }
+
+        & .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+            font-size: calc(2.3rem + (2.5 - 2.3) * (100vw - 600px) / (899 - 600));
+        }
+    }
+}
+@media (min-width: 375px) and (max-width: 600px) {
+    #risk-content-up {
+        & .__innerItem-container-text {
+            height: 60rem;
+        }
+        & .item-sub-wrap {
+            width: 95%;
+        }
+
+        & .sub-item {
+            height: min-content;
+        }
+
+        & ._item_text {
+            height: 60rem;
+
+            &._item_text {
+                max-width: 100%;
+                height: 45rem;
+                overflow-y: scroll;
+                border: 1px solid blue;
+            }
+        }
+
+        & .flickity-viewport {
+            height: calc(240px + (350 - 240) * (100vw - 375px) / (599 - 375)) !important;
+        }
+
+        & .flickity-slider {
+            height: calc(240px + (350 - 240) * (100vw - 375px) / (599 - 375));
+        }
+
+        & .__innerItem-container-img {
+            height: calc(280px + (400 - 280) * (100vw - 375px) / (599 - 375)) !important;
+        }
+    }
+}
+
+@media (min-width: 300px) and (max-width: 374px) {
+    #risk-content-up.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        font-size: calc(2rem + (2.4 - 2) * (100vw - 300px) / (375 - 300));
+    }
+    #risk-content-up {
+        & .__innerItem-container-text {
+            height: 60rem;
+        }
+        & .item-sub-wrap {
+            width: 95%;
+        }
+
+        & .sub-item {
+            height: min-content;
+        }
+
+        & ._item_text {
+            height: 60rem;
+
+            &._item_text {
+                max-width: 100%;
+                height: 45rem;
+                overflow-y: scroll;
+                border: 1px solid blue;
+            }
+        }
+    }
+
+    #risk-content-up .__innerItem-container-img {
+        height: 210px;
+    }
+    #risk-content-up .flickity-viewport {
+        height: calc(210px + (240 - 210) * (100vw - 300px) / (374 - 300)) !important;
+    }
+    #risk-content-up .flickity-slider {
+        height: 240px;
+    }
+
+    #risk-content-up .md-carousel .carousel-cell {
+        width: calc(280px + (320 - 280) * (100vw - 300px) / (374 - 300));
+        height: calc(210px + (240 - 210) * (100vw - 300px) / (374 - 300));
+    }
+    #risk-content-up .carousel-cell img.item-img {
+        width: calc(280px + (320 - 280) * (100vw - 300px) / (374 - 300));
+        height: calc(210px + (240 - 210) * (100vw - 300px) / (374 - 300));
+    }
+}
+
+@media (min-width: 251px) and (max-width: 299px) {
+    #risk-content-up {
+        & .__innerItem-container-text {
+            height: 60rem;
+        }
+        & .item-sub-wrap {
+            width: 95%;
+        }
+
+        & .sub-item {
+            height: min-content;
+        }
+
+        & ._item_text {
+            height: 60rem;
+
+            &._item_text {
+                max-width: 100%;
+                height: 45rem;
+                overflow-y: scroll;
+                border: 1px solid blue;
+            }
+        }
+
+        #risk-content-up .md-carousel .carousel-cell {
+            width: 100vw;
+            height: 53vw;
+        }
+        #risk-content-up .carousel-cell img.item-img {
+            width: 100vw;
+            height: 53vw;
+        }
+    }
+
+    #risk-content-up .__innerItem-container-img {
+        height: 180px;
+    }
+    #risk-content-up .flickity-viewport {
+        height: 180px !important;
+    }
+    #risk-content-up .flickity-slider {
+        height: 180px;
+    }
+}
+
+@media (min-width: 240px) and (max-width: 375px) {
+    #risk-content-up .__innerItem-container-text {
+        margin-top: calc(5rem + (15 - 5) * (100vw - 240px) / (375 - 240));
+    }
+}
+
+@media (max-width: 375px) {
+    #risk-content-up.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        padding: 1.4rem;
+        font-size: calc(2.4rem + (2.5 - 2.4) * (100vw - 10px) / (374 - 10));
+    }
+    ._item_text {
+        border-right: 5px groove #313962 !important;
+        border-bottom: 5px groove #313962 !important;
+    }
+
+    .risk-content .__innerItem-container-text::after {
+        // border-right: 5px solid #313962;
+        // border-bottom: 5px solid #313962;
+        border-right: unset !important;
+        border-bottom: unset !important;
+    }
+
+    .item-sub-wrap {
+        width: 95%;
+    }
+    .item-sub-wrap .sub-item p {
+        font-weight: 400;
+        font-family: "Ginto regular";
+        text-transform: capitalize;
+        word-wrap: break-word;
+        font-size: calc(20px + (400vw - 1500px) / 1545);
+    }
+}
+
+// HEADER FOR RISK CONTENT
+@media (max-width: 899px) {
+    #risk-bg {
+        background-repeat: no-repeat !important;
+    }
+    .wraper-header_content-risk {
+        height: 100vh !important;
+        justify-content: center;
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap {
+        padding: 0 !important;
+        height: fit-content !important;
+        align-self: center;
+        margin-top: -10rem;
+    }
+    .header_content-inner-rightTop {
+        height: 37.5rem !important;
+        align-self: center;
+        margin-top: -18rem;
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content {
+        padding-left: unset !important;
+    }
+}
+
+@media (max-width: 699px) {
+    .wraper-header_content-risk {
+        justify-content: unset !important;
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap {
+        padding-top: 18% !important;
+        align-self: unset !important;
+        margin-top: unset !important;
+        height: unset !important;
+    }
+    div.wraper-header_content-risk .risk-management__leftWrap .risk-management__header-content {
+        padding-left: 6rem !important;
+    }
+}
+
+// risk banner call
+@media (max-width: 899px) {
+    .rs__appointement div.rs__appointement-wrap section div.rs__appointement-bg {
+        background-size: 100% 100% !important;
+    }
+    .rs__appointement
+        div.rs__appointement-wrap
+        section
+        div.rs__appointement-content
+        .rs__appointement-content_bottom
+        h1 {
+        width: max-content;
+    }
+}
+
+// *********** RESPONSIVE CONTENT ENDS **************
+
+.item-sub-wrap {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    margin: 1rem 0 2rem 0;
+    & .sub-item {
+        width: fit-content;
+        line-height: 1.2;
+
+        & p {
+            margin-block: 0;
+            @media (min-width: 374px) and (max-width: 1920px) {
+                font-size: calc(20px + (400vw - 1500px) / 1545);
+                font-weight: 400;
+                font-family: "Ginto regular";
+                text-transform: capitalize;
+                word-wrap: break-word;
+            }
+        }
+    }
+
+    & #sub_divider {
+        display: block;
+        margin: 0 1.4rem;
+        height: 5rem;
+        border-left: 0.3rem inset #314862;
+    }
+}
+
+// .carousel {
+//     background: #eee;
+// }
+
+// .carousel-cell {
+//     margin-right: 20px;
+//     overflow: hidden;
+// }
+
+// .carousel-cell img {
+//     display: block;
+//     height: 200px;
+// }
+
+// @media screen and (min-width: 768px) {
+//     .carousel-cell img {
+//         height: 400px;
+//     }
+// }

@@ -1,0 +1,362 @@
+// .js .loading::before {
+// 	content: "";
+// 	position: fixed;
+// 	z-index: 100000;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	background: $bluesolid;
+// }
+
+// .js .loading::after {
+// 	content: "";
+// 	position: fixed;
+// 	z-index: 100000;
+// 	top: 50%;
+// 	left: 50%;
+// 	width: 60px;
+// 	height: 60px;
+// 	margin: -30px 0 0 -30px;
+// 	pointer-events: none;
+// 	border-radius: 50%;
+// 	opacity: 0.4;
+// 	background: #c2c2c2;
+// 	animation: loaderAnim 0.7s linear infinite alternate forwards;
+// }
+
+// @keyframes loaderAnim {
+// 	to {
+// 		opacity: 1;
+// 		transform: scale3d(0.5, 0.5, 1);
+// 	}
+// }
+
+[data-scroll] {
+	will-change: transform;
+}
+
+.content {
+	// display: flex;
+	// flex-direction: column;
+	position: relative;
+	// align-items: center;
+	// padding: 12rem 0;
+	// counter-reset: figure;
+}
+
+.item {
+	margin: 10vh auto;
+	max-width: 100%;
+	position: relative;
+	will-change: transform;
+}
+.itemTablet {
+	position: relative;
+	will-change: transform;
+	margin: unset !important;
+	max-width: unset !important;
+}
+
+// .item::before {
+// 	counter-increment: figure;
+// 	content: counter(figure, decimal-leading-zero);
+// 	position: absolute;
+// 	font-family: paralucent, sans-serif;
+// 	font-size: 10rem;
+// 	color: #000;
+// 	bottom: calc(100% - 3rem);
+// }
+
+// .item:nth-child(even)::before {
+// 	right: 0;
+// }
+
+.item__img-wrap {
+	overflow: hidden;
+	will-change: transform;
+	position: relative;
+}
+#item__img-wrap--Tablet {
+	overflow: hidden;
+	will-change: transform;
+	position: relative;
+	width: fit-content;
+	height: auto;
+}
+
+.img-wrap {
+	--aspect-ratio: 1/1.5;
+	overflow: hidden;
+	width: 50rem;
+	margin: 0 auto;
+	// padding-bottom: calc(100% / (var(--aspect-ratio)));
+	max-width: calc(100% - 2rem);
+	will-change: transform;
+}
+
+.offReverse {
+	& .item__img-wrap {
+		--aspect-ratio: 8/10;
+		--image: url("../images/REALTY/all\ types/invest.jpg");
+	}
+}
+
+.onReverse {
+	& .item__img-wrap {
+		--aspect-ratio: 8/10;
+		--image: url("../images/REALTY/all\ types/architecture.jpg");
+	}
+}
+
+// .realEstate-image {
+// 	& .faTop {
+// 		--image: url("../images/reaalty/all types/estate_4.jpg");
+// 	}
+// }
+// .realEstate-image {
+// 	& .fbTop {
+// 		--image: url("../images/reaalty/all types/estate_6.jpg");
+// 	}
+// }
+// .realEstate-image {
+// 	& .fcTop {
+// 		--image: url("../images/reaalty/all types/estate_4.jpg");
+// 	}
+// }
+
+.item:nth-child(3) .item__img-wrap {
+	--aspect-ratio: 60/75;
+	--image: url(https://source.unsplash.com/random);
+}
+
+.item__img {
+	--overflow: 6rem;
+	// height: 48.65rem n;
+	// top: calc(-1 * var(--overflow));
+	// width: 70.1rem;
+	position: absolute;
+	background-image: var(--image);
+	background-size: 100% 100%;
+	// background-position: 50% 0%;
+	will-change: transform;
+	background-repeat: no-repeat;
+}
+
+.item__img--t1 {
+	--overflow: 6rem;
+}
+
+.itemTablet {
+	& #item__img-wrap--Tablet {
+		--aspect-ratio: 8/10;
+	}
+}
+
+.item__img--t2 {
+	--overflow: 8rem;
+}
+
+// res
+
+.contentRow {
+	& .itemWrapper {
+		& .itemInnerWrap {
+			& .item__img--t {
+				background-size: 100% 100%;
+				// height: 48.65rem;
+				// width: 70.1rem;
+				z-index: -1;
+			}
+		}
+	}
+}
+// @include for-tablet-landscape-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					width: calc(450px + (599.5 - 450) * (100vw - 900px) / (1199 - 900));
+// 					height: 486.38px;
+// 					@include for-ipad-pro-breakpoint {
+// 						background-size: cover;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-xsmall-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 486.38px;
+// 					width: calc(675px + (730.16 - 675) * (100vw - 1200px) / (1365 - 1200));
+// 					// width: 100%;
+// 					// background-size: 100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-small-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100%;
+// 					width: calc(683px + (767.5 - 683) * (100vw - 1366px) / (1535 - 1366));
+// 					// width: 100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-medium-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 556px;
+// 					width: calc(768px + (899.5 - 768) * (100vw - 1536px) / (1799 - 1536));
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-big-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 723px;
+// 					width: calc(900px + (1023.59 - 900) * (100vw - 1800px) / (2559 - 1800));
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-big-desktop-up {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 723px;
+// 					width: 1023.59px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// .contentRow {
+// 	& .itemWrapper {
+// 		& .itemInnerWrap {
+// 			& .item__img--t {
+// 				@include for-small-desktop-only {
+// 					width: 756px;
+// 					height: 360px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// @media (min-width: 1800px) {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					height: 723px !important;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// .contentRow {
+// 	& .itemWrapper {
+// 		& .itemInnerWrap {
+// 			@include for-small-desktop-only {
+// 				& .item__img--t {
+// 					width: 756px;
+// 					height: 556px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// @include for-xsmall-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 486.38px;
+// 					width: calc(675px + (730.16 - 675) * (100vw - 1200px) / (1365 - 1200));
+// 					// width: 100%;
+// 					// background-size: 100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-small-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100%;
+// 					width: calc(683px + (767.5 - 683) * (100vw - 1366px) / (1535 - 1366));
+// 					// width: 100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-medium-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 556px;
+// 					width: calc(768px + (899.5 - 768) * (100vw - 1536px) / (1799 - 1536));
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-big-desktop-only {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 723px;
+// 					width: calc(960px + (1023.59 - 960) * (100vw - 1800px) / (2559 - 1800));
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// @include for-big-desktop-up {
+// 	.contentRow {
+// 		& .itemWrapper {
+// 			& .itemInnerWrap {
+// 				& .item__img--t {
+// 					background-size: 100% 100%;
+// 					height: 723px;
+// 					width: 1023.59px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }

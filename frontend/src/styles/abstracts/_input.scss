@@ -1,0 +1,104 @@
+//Green input
+.fieldGreen {
+    position: relative;
+    margin: 0;
+    margin-right: 46px;
+    margin-bottom: 56px;
+}
+
+.fieldGreen input {
+    font-size: 18px;
+    padding: 10px;
+    width: 274px;
+    font: 400 17px "Ginto bold";
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $green;
+    padding-left: 0;
+    padding-bottom: 15px;
+    padding-top: 9px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.fieldGreen label {
+    font: 400 17px "Ginto bold";
+    color: $green;
+    position: absolute;
+    left: 0;
+    top: 13px;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+}
+
+.fieldGreen input:focus ~ label,
+.fieldGreen input:valid ~ label,
+form:focus ~ label {
+    top: -18px;
+    font: 400 14px "Ginto bold";
+    opacity: 0.59;
+}
+
+//Blue input
+.fieldBlue {
+    position: relative;
+    margin: 0;
+    margin-right: 46px;
+    margin-bottom: 56px;
+}
+
+.fieldBlue input {
+    font-size: 18px;
+    padding: 10px;
+    width: 274px;
+    font: 400 17px "Ginto bold";
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $blue;
+    padding-left: 0;
+    padding-bottom: 15px;
+    padding-top: 9px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.fieldBlue label {
+    font: 400 17px "Ginto bold";
+    color: $blue;
+    position: absolute;
+    left: 0;
+    top: 13px;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+}
+
+.fieldBlue input:focus ~ label,
+.fieldBlue input:valid ~ label,
+form:focus ~ label {
+    top: -18px;
+    font: 400 14px "Ginto bold";
+    opacity: 0.59;
+}
+
+
+.inputSection{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputInvalid{
+    font: 400 12px "Ginto bold";
+    color: rgb(185, 48, 30);
+    // margin: 0;
+    margin-top: -48px;
+    padding:0;
+    margin-bottom: 30.5px;
+
+}
