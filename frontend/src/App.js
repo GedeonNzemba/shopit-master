@@ -68,19 +68,7 @@ import RealEstate from './Realty/RealEstate'
 
 
 function App() {
-
-  // useEffect(() => {
-  //   const addFlickity = (url) => {
-  //     const script = document.createElement("script");
-  //     script.src = url;
-  //     script.async = true;
-  //     document.body.appendChild(script);
-  //   };
-
-
-  //   addFlickity("https://res.cloudinary.com/locataire/raw/upload/v1626126360/bootstrap/scroll_dk0a0i.js");
-
-  // }, []);
+  
 
 
 
