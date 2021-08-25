@@ -37,7 +37,7 @@ import Catego from './layout/Catego';
 import List from './layout/List';
 import Grid from './layout/Grid';
 import ProductList from './product/ProductList';
-import { Alert } from '@material-ui/lab';
+// import { Alert } from '@material-ui/lab';
 import { BiArrowBack } from "react-icons/bi";
 
 const { createSliderWithTooltip } = Slider;

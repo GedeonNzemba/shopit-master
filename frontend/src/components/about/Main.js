@@ -2,8 +2,7 @@ import React, { Fragment } from 'react'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card';
 import Banner from './Banner_svg'
-import Splide from '@splidejs/react-splide/dist/js/components/Splide';
-import SplideSlide from '@splidejs/react-splide/dist/js/components/SplideSlide';
+import {Splide, SplideSlide} from '@splidejs/react-splide';
 import './hover/hover.css'
 import IntroText from '../sectionIdentifier/IntroText';
 import Title from '../sectionIdentifier/Title';
