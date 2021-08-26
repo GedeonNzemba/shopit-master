@@ -8,8 +8,8 @@ const comp = props => {
 
                 <div className="footerSocialIconsContainer">
                     <div className="socialsHoverOrange">
-                        <a href="https://www.instagram.com/properliving/" target="_blank" rel="noreferrer">
-                            <svg
+                        <a href="https://www.linkedin.com/company/locataire-llc/" target="_blank" rel="noreferrer">
+                            {/* <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="15"
                                 height="15"
@@ -23,12 +23,27 @@ const comp = props => {
                                     transform="translate(0.005 -2.238)"
                                     fill="#FFF4DF"
                                 />
+                            </svg> */}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="15"
+                                width="15"
+                                fill="#000000"
+                                version="1.1" x="0px" y="0px" viewBox="0 0 128 128"
+                                style={{ margin: "10px", marginLeft: 0 }}
+                            >
+                                <g>
+                                    <rect x="35" y="49" width="8" height="40" />
+                                    <rect x="35" y="31" width="8" height="8" />
+                                    <path d="M63,74v-5c0-6.1,4.9-11,11-11s11,4.9,11,11v20h8V69c0-10.5-8.5-19-19-19c-4.1,0-7.9,1.3-11,3.5V49h-8v20v5v15h8V74z" fill="#FFF4DF" />
+                                    <path d="M127,1H1v126h126V1z M119,119H9V9h110V119z" fill="#FFF4DF" />
+                                </g>
                             </svg>
                         </a>
                     </div>
 
                     <div className="socialsHoverOrange">
-                        <a href="https://www.facebook.com/properlivingproperty" target="_blank" rel="noreferrer">
+                        <a href="https://www.facebook.com/locatairellc" target="_blank" rel="noreferrer">
 
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +83,7 @@ const comp = props => {
                         <div className="contactIconTextWrapper">
                             <a href="tel:0786803384">
                                 646-481-2004
-              </a>
+                            </a>
                         </div>
                     </div>
 
@@ -90,7 +105,7 @@ const comp = props => {
                         <div className="contactIconTextWrapper">
                             <a href="mailto: info@locataire.net">
                                 info@locataire.net
-              </a>
+                            </a>
                         </div>
                     </div>
 
@@ -113,9 +128,9 @@ const comp = props => {
 
                         <div className="contactIconTextWrapper">
                             Central Business District,
-              <br /> Newark, NJ, United States
-              <br /> 07102
-            </div>
+                            <br /> Newark, NJ, United States
+                            <br /> 07102
+                        </div>
                     </div>
                 </div>
             </div>

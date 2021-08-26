@@ -303,10 +303,15 @@ form:focus ~ label {
         & .contactFormInternalContainer {
             justify-self: unset;
             margin-left: 5rem;
+            margin-right: 5rem;
+            width: auto !important;
         }
     }
     #ct_form .MuiTypography-body2 {
         font-size: 1.6rem !important;
+    }
+    form#ct_form {
+        max-width: 100% !important;
     }
 
     .contactMapFooterLocation {
@@ -324,7 +329,7 @@ form:focus ~ label {
 
     .contactFormContainer {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 1fr;
         align-items: center;
     }
 
@@ -390,5 +395,41 @@ form#ct_form {
     }
     form#ct_form {
         max-width: calc(50rem + (30 - 50) * (100vw - 37.5rem) / (50 - 37.5));
+    }
+}
+
+// remove height of contact
+@media (max-width: 992px) {
+    #ct_form {
+        & .MuiBox-root.MuiBox-root-8 {
+            padding-top: unset !important;
+            @include for-phone-only-down {
+                margin-top: 1.4em;
+            }
+        }
+    }
+}
+@media (min-width: 1366px) {
+    .contactFormContainer {
+        grid-template-columns: 55% 45% !important;
+        justify-items: center !important;
+    }
+    .contactFormInternalContainer {
+        width: 90% !important;
+        padding: 5rem 0 0 0 !important;
+        margin: 0 !important;
+        justify-self: unset !important;
+    }
+    .contactFormMapDiv {
+        width: unset !important;
+        justify-self: unset !important;
+        padding: 5rem 0 0 0 !important;
+    }
+    form#ct_form {
+        max-width: 100rem;
+
+        & .MuiBox-root.MuiBox-root-8 {
+            margin-top: -4rem;
+        }
     }
 }

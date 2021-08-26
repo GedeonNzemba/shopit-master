@@ -1,27 +1,16 @@
 import React from "react"
-import Carousel from 'react-bootstrap/Carousel'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-// import { useStaticQuery, graphql } from "gatsby"
-// import IMG from "gatsby-image"
 import "../styles/Locataire.css"
 import "../styles/fonts/gt super/stylesheet.css"
 import "./realty_about_layout"
-// import ButtonFive from "../components/ButtonFive"
 import ButtonSeven from "../components/buttons/buttonSeven"
 import ContactBtn from "../components/buttons/Contact_btn"
 
 import Slick from "./Slick";
 import SlickInvestment from "./SlickInvestment";
-// import ScriptTag from 'react-script-tag';
-
 import image_1 from "../images/reaalty/all types/estate_1.jpg";
-import image_1C from "../images/reaalty/all types/realtyMob.jpg";
-import image_2C from "../images/reaalty/all types/realtyMob2.jpg";
-import image_3C from "../images/reaalty/all types/realtyMob3.jpg";
 import image_3 from '../images/reaalty/all types/estate_3.jpg'
-import image_4 from '../images/reaalty/all types/estate_4.jpg'
-import image_5 from '../images/reaalty/all types/estate_5.jpg'
 import image_6 from '../images/reaalty/all types/estate_6.jpg'
 import SlickProperty from "./SlickProperty";
 import { Col } from "react-bootstrap";
@@ -29,11 +18,8 @@ import { GiContract, GiAutoRepair } from 'react-icons/gi';
 import { FaChartLine } from 'react-icons/fa';
 import { RiSkullFill, RiCriminalLine } from 'react-icons/ri';
 import { HiUserRemove, HiDocumentReport } from 'react-icons/hi';
-import { BsHouseFill } from 'react-icons/bs';
-import { FcAdvertising, FcInspection } from 'react-icons/fc'
-import Media from 'react-bootstrap/Media';
-import { GrVmMaintenance, GrSystem } from 'react-icons/gr';
-import { FaBullhorn, FaTimes, FaHands, FaHammer, FaAtlas, FaCogs } from 'react-icons/fa';
+import { FcInspection } from 'react-icons/fc'
+import { FaBullhorn, FaTimes, FaHands, FaAtlas, FaCogs } from 'react-icons/fa';
 import '../styles/hover.css';
 import Navbar from "../components/Navbar"
 import Mobile from "./IMG/Mobile"
@@ -42,39 +28,6 @@ import MobileC from "./IMG/MobileC"
 
 
 export default function Realtymobile() {
-
-  // const data = useStaticQuery(graphql`
-  //     query {
-  //     realtyImg: file(relativePath: { eq: "realty/all types/invest.jpg" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 525, maxHeight: 501) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-
-  //     mobileOne: file(
-  //       relativePath: { eq: "realty/mobile/homeOne.jpg" }
-  //     ) {
-  //       childImageSharp {
-  //         fluid {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-
-
-  //   mobileTwo: file(
-  //     relativePath: { eq: "realty/mobile/homeTwo.jpg" }
-  //   ) {
-  //     childImageSharp {
-  //       fluid {
-  //         ...GatsbyImageSharpFluid
-  //       }
-  //     }
-  //   }
-  // }
-  //   `)
 
 
 
@@ -147,11 +100,7 @@ export default function Realtymobile() {
           <section className="realEstate-content" id="realty-list">
             <div className="realEstate-content_wrap" >
               <div className="realEstate-content_text">
-                {/* <p>
-                    Our core business includes management
-                    and administration of commercial and
-                    multifamily residential properties.
-              </p> */}
+
                 <p>
                   Our core business includes management
                   and administration of commercial and
@@ -170,9 +119,7 @@ export default function Realtymobile() {
               <div className="realEstate-content_btn-left">
                 <ButtonSeven title="learn more" />
               </div>
-              {/* <div className="realEstate-content_btn-right">
-                <ButtonSix name="contact us" />
-              </div> */}
+
             </div>
           </section>
 
@@ -672,120 +619,7 @@ export default function Realtymobile() {
 
             {/* SLIDER A ENDS */}
 
-            {/* <div className="realEstate-invest__services">
-                <div className="reaalEstate-invest_content">
-                  <div className="realEstate-invest__item-Wrap">
 
-                  <div className="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true }'>
-
-                  <div className="carousel-cell">
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-one_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Advertising and filling vacancies                      </p>
-                      </div>
-                    </div>
-                 </div>
-
-                    <div className="carousel">
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-two_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Tenant screening (credit, criminal background)
-                      </p>
-                      </div>
-                    </div>
-                    </div>
-
-                    <div className="carousel">
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-three_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Leases administration
-                      </p>
-                      </div>
-                    </div>
-                    </div>
-
-                    <div className="carousel">
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-four_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Move-in inspection walkthrough
-                      </p>
-                      </div>
-                    </div>
-                    </div>
-
-                    <div className="carousel">
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-five_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Rent payment
-                      </p>
-                      </div>
-                    </div>
-                    </div>
-
-                    <div className="carousel"></div>
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-six_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Repairs & maintenance
-                      </p>
-                      </div>
-                    </div>
-
-                    <div className="carousel"></div>
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-seven_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Vendor management
-                      </p>
-                      </div>
-                    </div>
-
-                    <div className="carousel"></div>
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-eight_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Evictions proceedings
-                      </p>
-                      </div>
-                    </div>
-
-                    <div className="carousel"></div>
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-nine_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Possession of leased premises
-                      </p>
-                      </div>
-                    </div>
-
-                    <div className="carousel"></div>
-                    <div className="realEstate-invest__item">
-                      <div className="realEstate-invest__item-image-ten_b realEstate-invest__item-image--prop" />
-                      <div className="realEstate-invest__item-content">
-                        <p>
-                          Financial reporting
-                      </p>
-                      </div>
-                    </div>
-
-                </div>
-                  </div>
-                </div>
-              </div> */}
           </section>
 
 

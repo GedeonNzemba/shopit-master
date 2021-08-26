@@ -506,3 +506,11 @@
         }
     }
 }
+
+@include for-big-desktop-up {
+    nav.realEstate_navigation {
+        left: 50% !important;
+        top: 1% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+}

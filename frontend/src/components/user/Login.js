@@ -20,7 +20,6 @@ const Login = ({ history, location }) => {
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
 
-    // react-hooks/exhaustive-deps
     useEffect(() => {
 
         if (isAuthenticated) {
@@ -31,8 +30,8 @@ const Login = ({ history, location }) => {
             alert.error(error);
             dispatch(clearErrors());
         }
-
-    }, [dispatch, alert, isAuthenticated, error, history])  // react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch, alert, isAuthenticated, error, history])  
 
     const submitHandler = (e) => {
         e.preventDefault();

@@ -68,9 +68,6 @@ import RealEstate from './Realty/RealEstate'
 
 
 function App() {
-  
-
-
 
   const [stripeApiKey, setStripeApiKey] = useState('');
 

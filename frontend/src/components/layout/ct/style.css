@@ -4,9 +4,9 @@ button.slick-arrow.slick-next {
 .contactFormHeader {
     margin-top: unset!important;
 }
-.react-swipeable-view-container {
+/* .react-swipeable-view-container {
     height: 26rem;    
-}
+} */
 .remove_mt {
     margin-top: unset!important;
 }
@@ -94,7 +94,7 @@ div#error_1e236c554fde815a32408bb900974745d78fa588 {
     /* overflow-y: auto; */
 }
 section#personal {
-    height:36rem;
+    /* height:36rem; */
     background: #ffffff;
 }
 #personal label.MuiFormLabel-root {

@@ -4496,10 +4496,16 @@ form:focus ~ label {
   .contactFormContainer .contactFormInternalContainer {
     justify-self: unset;
     margin-left: 5rem;
+    margin-right: 5rem;
+    width: auto !important;
   }
 
   #ct_form .MuiTypography-body2 {
     font-size: 1.6rem !important;
+  }
+
+  form#ct_form {
+    max-width: 100% !important;
   }
 
   .contactMapFooterLocation {
@@ -4517,7 +4523,7 @@ form:focus ~ label {
 
   .contactFormContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr;
     align-items: center;
   }
 
@@ -4600,6 +4606,42 @@ form#ct_form {
 @media (max-width: 500px) {
   form#ct_form {
     max-width: calc(50rem + (30 - 50) * (100vw - 37.5rem) / (50 - 37.5));
+  }
+}
+@media (max-width: 992px) {
+  #ct_form .MuiBox-root.MuiBox-root-8 {
+    padding-top: unset !important;
+  }
+}
+@media (max-width: 992px) and (max-width: 500px) {
+  #ct_form .MuiBox-root.MuiBox-root-8 {
+    margin-top: 1.4em;
+  }
+}
+@media (min-width: 1366px) {
+  .contactFormContainer {
+    grid-template-columns: 55% 45% !important;
+    justify-items: center !important;
+  }
+
+  .contactFormInternalContainer {
+    width: 90% !important;
+    padding: 5rem 0 0 0 !important;
+    margin: 0 !important;
+    justify-self: unset !important;
+  }
+
+  .contactFormMapDiv {
+    width: unset !important;
+    justify-self: unset !important;
+    padding: 5rem 0 0 0 !important;
+  }
+
+  form#ct_form {
+    max-width: 100rem;
+  }
+  form#ct_form .MuiBox-root.MuiBox-root-8 {
+    margin-top: -4rem;
   }
 }
 .footerWrapper {
@@ -9798,6 +9840,13 @@ div.realtyBSN .btn-header-mobile {
 
   .contactFormWrapper button span.MuiButton-label {
     margin-left: unset !important;
+  }
+}
+@media (min-width: 2559px) {
+  nav.realEstate_navigation {
+    left: 50% !important;
+    top: 1% !important;
+    transform: translate(-50%, -50%) !important;
   }
 }
 [data-scroll] {

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MAIN_DESKTOP from "./main/Main_Desktop";
-// import MAIN_TABLET from "./main/Main_Tablet";
-// import MAIN_MOBILE from "./main/Main_Mobile";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -10,8 +8,6 @@ import Helmet from "react-helmet";
 import "../styles/Locataire.css";
 import "../styles/fonts/gt super/stylesheet.css";
 import "./realty_about_layout";
-import ButtonSix from "../components/buttons/buttonSix";
-import ButtonSeven from "../components/buttons/buttonSeven";
 import ButtonEight from "../components/buttons/ButtonEight";
 import ButtonSevenB from "../components/buttons/buttonNine";
 import Realtymobile from "./Realtymb";
@@ -21,52 +17,32 @@ import image_6f from "../images/reaalty/header1.jpeg";
 import image_6fC from "../images/reaalty/all types/header1.jpeg";
 import image_3cC from "../images/reaalty/all types/header2.jpeg";
 import image_1aA from "../images/reaalty/all types/header3.jpeg";
-// import RealtyServices from "../components/RealtyServices";
 import { Col } from "react-bootstrap";
 import { GiContract, GiAutoRepair } from "react-icons/gi";
 import { FaChartLine } from "react-icons/fa";
 import { RiSkullFill, RiCriminalLine } from "react-icons/ri";
 import { HiUserRemove, HiDocumentReport } from "react-icons/hi";
 import { BsHouseFill } from "react-icons/bs";
-import { FcAdvertising, FcInspection } from "react-icons/fc";
+import { FcInspection } from "react-icons/fc";
 import Media from "react-bootstrap/Media";
 // import { GrVmMaintenance, GrSystem } from "react-icons/gr";
 import {
     FaBullhorn,
     FaTimes,
     FaHands,
-    FaHammer,
     FaAtlas,
     FaCogs,
 } from "react-icons/fa";
 import "../styles/hover.css";
 import logo from "../images/logo.png";
-import imgA from "../images/reaalty/Group8.png";
-import imgB from "../images/reaalty/Group8.png";
-import imgC from "../images/reaalty/Group8.png";
-import imgD from "../images/reaalty/Group8.png";
-import imgE from "../images/reaalty/Group8.png";
 import imgF from "../images/reaalty/all types/house_purshase.jpg";
-import imgG from "../images/reaalty/condominium-690086.jpg";
-import imgH from "../images/reaalty/interior-3778708.jpg";
-import imgI from "../images/reaalty/all types/estate_5.jpg";
-import imgJ from "../images/reaalty/all types/real-estate.jpg";
-import imgK from "../images/reaalty/all types/single-family-home (2).jpg";
-import imgL from "../images/reaalty/all types/estate_1.jpg";
-import Main_Tablet from "./main/Main_Tablet";
+
 
 export default function RealEstate() {
     useEffect(() => {
         const addFlickity = (url) => {
             const script = document.createElement("script");
             script.src = url;
-            script.async = true;
-            document.body.appendChild(script);
-        };
-
-        const addScrollEffect = (url) => {
-            const script = document.createElement("script");
-            script.scr = url;
             script.async = true;
             document.body.appendChild(script);
         };
@@ -85,46 +61,6 @@ export default function RealEstate() {
         };
     }, []);
 
-    // function useMediaQuery(query, defaultMatches = window.matchMedia(query)) {
-    //     const [matches, setMatches] = useState(defaultMatches);
-
-    //     useEffect(() => {
-    //         const media = window.matchMedia(query);
-    //         if (media.matches !== matches) setMatches(media.matches);
-    //         const listener = () => setMatches(media.matches);
-    //         media.addListener(listener);
-    //     }, [query]);
-
-    //     return matches;
-    // }
-
-    //     const data = useStaticQuery(graphql`
-    //     query {
-    //       realtyImg: file(relativePath: { eq: "REALTY/all types/invest.jpg" }) {
-    //         childImageSharp {
-    //           fluid(maxWidth: 525, maxHeight: 501) {
-    //             ...GatsbyImageSharpFluid
-    //           }
-    //         }
-    //       }
-
-    //       mobileOne: file(relativePath: { eq: "REALTY/mobile/homeOne.jpg" }) {
-    //         childImageSharp {
-    //           fluid {
-    //             ...GatsbyImageSharpFluid
-    //           }
-    //         }
-    //       }
-
-    //       mobileTwo: file(relativePath: { eq: "REALTY/mobile/homeTwo.jpg" }) {
-    //         childImageSharp {
-    //           fluid {
-    //             ...GatsbyImageSharpFluid
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `);
 
 
 
@@ -173,11 +109,6 @@ export default function RealEstate() {
                                     <ButtonEight name="contact us" />
                                 </div>
                             </nav>
-
-                            {/* <nav className="realEstate-navbar">
-            {/* not this <div className="realEstate-logo" />
-            <div id="burger" /> 
-          </nav> */}
 
                             <section className="realEstate_headerSection">
                                 <div className="realEstate_leftContainer">
@@ -286,22 +217,7 @@ export default function RealEstate() {
                                             </Col>
                                         </Row>
                                     </Container>
-                                    {/* <div className="realty__services-svgDivider"></div>
-                <div className="realty-content_left">
-                  <h1>investment service</h1>
-                  <div className="realty_services_content-paragraph">
-                    <p>
-                      Locataire offers to prospective partners opportunities
-                      to invest in dozens of high-growth residential and
-                      commercial properties in the United States, and Canada.
-                    </p>
-                      
-                   
-                </div>
-                </div>
-                <div className="realty-content_right">
-                  
-                </div> */}
+
                                 </div>
 
                                 <Container className="display_off">
