@@ -85,18 +85,18 @@ export default function RealEstate() {
         };
     }, []);
 
-    function useMediaQuery(query, defaultMatches = window.matchMedia(query)) {
-        const [matches, setMatches] = useState(defaultMatches);
+    // function useMediaQuery(query, defaultMatches = window.matchMedia(query)) {
+    //     const [matches, setMatches] = useState(defaultMatches);
 
-        useEffect(() => {
-            const media = window.matchMedia(query);
-            if (media.matches !== matches) setMatches(media.matches);
-            const listener = () => setMatches(media.matches);
-            media.addListener(listener);
-        }, [query]);
+    //     useEffect(() => {
+    //         const media = window.matchMedia(query);
+    //         if (media.matches !== matches) setMatches(media.matches);
+    //         const listener = () => setMatches(media.matches);
+    //         media.addListener(listener);
+    //     }, [query]);
 
-        return matches;
-    }
+    //     return matches;
+    // }
 
     //     const data = useStaticQuery(graphql`
     //     query {

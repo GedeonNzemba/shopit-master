@@ -9,7 +9,7 @@ import "../styles/fonts/gt super/stylesheet.css"
 import "./realty_about_layout"
 // import ButtonFive from "../components/ButtonFive"
 import ButtonSeven from "../components/buttons/buttonSeven"
-import Contact_btn from "../components/buttons/Contact_btn"
+import ContactBtn from "../components/buttons/Contact_btn"
 
 import Slick from "./Slick";
 import SlickInvestment from "./SlickInvestment";
@@ -105,11 +105,11 @@ export default function Realtymobile() {
                 </p>
               </div>
               <div className="realEstate-header-content__btn">
-                <Contact_btn name="contact us" />
+                <ContactBtn name="contact us" />
               </div>
             </div>
             <div className="realEstate-header-content__btn" id="realEstate-header-content__btn">
-              <Contact_btn name="contact us" />
+              <ContactBtn name="contact us" />
             </div>
           </section>
         </header>

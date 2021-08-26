@@ -56,7 +56,7 @@ const Catego = () => {
                         <ul>
                             {categories.map((category => (
                                 <li key={category}>
-                                    <a href="#">{category}</a>
+                                    <a href="/">{category}</a>
                                 </li>
                             )))}
                         </ul>
