@@ -17,6 +17,7 @@ import { Col } from "react-bootstrap";
 import imgG from "../../images/reaalty/condominium-690086.jpg";
 import imgH from "../../images/reaalty/interior-3778708.jpg";
 import imgI from "../../images/reaalty/all types/estate_5.jpg";
+import ButtonPrt from '../../components/buttons/ButtonPrt'
 
 
 function Main_Desktop() {
@@ -44,7 +45,7 @@ function Main_Desktop() {
 
 
     return (
-        <main id="main-realtyContainer" className="this_yes ">
+        <main id="main-realtyContainer" className="this_yes " style={{ paddingTop: '1.5rem' }}>
             <div className="realty" id="realty_about">
 
                 {/* HEDER FOR MAIN */}
@@ -161,7 +162,7 @@ function Main_Desktop() {
                                 id="realty__content_buttonWrap"
                             >
                                 <div className="realty__leftBtn">
-                                    <ButtonSeven title="learn more" />
+                                    <ButtonPrt title="learn more" />
 
 
                                 </div>
@@ -174,7 +175,7 @@ function Main_Desktop() {
                 </div>
 
                 {/* ----- INVESTMENT ARCH */}
-                <div className="realty_services" style={{ display: "none" }}>
+                <div className="realty_services" style={{ display: "none", paddingTop: '1.5rem' }} id="investmentService">
                     <span className="realty_services-svg"></span>
                     <div className="realty__services-svgDivider"></div>
                     <section className="realty_services-header">
@@ -500,7 +501,7 @@ function Main_Desktop() {
                 </div>
 
                 {/* ----- PROPERTY MANAGEMENT ---- */}
-                <div className="realty_services" style={{ display: "none" }}>
+                <div className="realty_services" style={{ display: "none", paddingTop: '1.5rem' }} id="PropertyService">
                     <span className="realty_services-svg realty__services-svgLeft"></span>
                     <div className="realty__services-svgDivider realty__services-svgDividerLeft"></div>
                     <section className="realty_services-header realty_services-headerLeft">

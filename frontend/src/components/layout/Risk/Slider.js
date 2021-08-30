@@ -3,11 +3,15 @@ import Slide from "react-slick";
 import Helmet from 'react-helmet';
 
 export default class Slider extends Component {
+    constructor(props) {
+        super(props);
+    };
+
     render() {
         const settings = {
             dots: false,
-            fade: true,
             infinite: true,
+            fade: this.props.fade,
             speed: 2000,
             slidesToShow: 1,
             slidesToScroll: 1,

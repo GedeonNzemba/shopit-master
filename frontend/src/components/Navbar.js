@@ -7,7 +7,7 @@ import "./Navbar.css";
 import { IconContext } from "react-icons";
 import logo from "../images/logo_main.png";
 
-function Navbar() {
+function Navbar(props) {
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -32,13 +32,47 @@ function Navbar() {
     }
   }, [])
 
+  // CHECK URL IS RISK MANAGEMENT
+  const [active, setActive] = useState(false);
+  const [changeIcon, setChangeIcon] = useState(false);
+
+  window.addEventListener('scroll', function () {
+    var el = document.getElementById('homeNavbar');
+    el.classList.contains('bar__bg') ? setChangeIcon(true) : setChangeIcon(false);
+
+  })
+
+
+  useEffect(() => {
+    const page = "http://localhost:3000/riskmanagement";
+    const activateBar = () => {
+      setActive(true);
+
+
+    }
+    const disactivateBar = () => {
+
+      setActive(false);
+      console.log("User not at real estate page.........active is false")
+    }
+
+
+    (window.location.href === page && window.innerWidth >= 900) ? activateBar() : disactivateBar();
+  }, [])
+
 
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar" id="homeNavbar">
           <div className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
+            {
+              active ? (
+                changeIcon ? <img src={props.iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                  : <img src={props.icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+              )
+                : <FaIcons.FaBars onClick={showSidebar} />
+            }
           </div>
 
           <Link to="/" className="logo">

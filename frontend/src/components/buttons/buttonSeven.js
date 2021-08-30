@@ -1,11 +1,12 @@
 import React from "react"
+import { Link } from 'react-scroll'
 import "../../styles/Locataire.css"
 
 const ButtonSeven = (props) => {
 
   return (
     <div className="button">
-      <a href="www.google.com" className="btn  " id="header-risk-btn-left">{props.title}</a>
+      <Link to="investmentService" className="btn" spy={true} smooth={true} id="header-risk-btn-left">{props.title}</Link>
     </div>
   )
 }

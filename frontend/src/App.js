@@ -65,9 +65,29 @@ import { Risk } from './components/Risk'
 import HeaderBSN from './components/HeaderBSN'
 import Contact from './components/layout/Contact'
 import RealEstate from './Realty/RealEstate'
+import scrollUp from './images/reaalty/scrollup.svg'
+import scrollUpHovered from './images/reaalty/scrollupHover.svg'
 
 
 function App() {
+
+  // The back-to-top button is hidden at the beginning
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  // This function will scroll the window to the top 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const [stripeApiKey, setStripeApiKey] = useState('');
 
@@ -85,6 +105,19 @@ function App() {
   }, [])
 
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
+
+
+  // SCROLL TO UP HOVER 
+  const [hover, setHover] = useState(false);
+
+  const handleMouseIn = () => {
+    setHover(true);
+  }
+
+  const handleMouseOut = () => {
+    setHover(false);
+  }
+
 
 
 
@@ -152,8 +185,18 @@ function App() {
           {!loading && (!isAuthenticated || user.role !== 'admin') && (
             <Contact />
           )}
-        </div>
 
+          {showButton && (
+            <div class="scrollWrap" onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut}>
+              <img
+                onClick={scrollToTop}
+                className={hover ? 'back-to-topHovered' : 'back-to-top'}
+                src={hover ? scrollUpHovered : scrollUp}
+                alt="scroll up"
+              />
+            </div>
+          )}
+        </div>
       </main>
     </Router>
   );

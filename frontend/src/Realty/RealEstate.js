@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MAIN_DESKTOP from "./main/Main_Desktop";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { Link } from "react-router-dom";
 // import { useStaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import "../styles/Locataire.css";
@@ -25,6 +26,7 @@ import { HiUserRemove, HiDocumentReport } from "react-icons/hi";
 import { BsHouseFill } from "react-icons/bs";
 import { FcInspection } from "react-icons/fc";
 import Media from "react-bootstrap/Media";
+import Styled from "styled-components";
 // import { GrVmMaintenance, GrSystem } from "react-icons/gr";
 import {
     FaBullhorn,
@@ -62,6 +64,46 @@ export default function RealEstate() {
     }, []);
 
 
+    // ACTIVE NAVIGATION ITEM
+    const Active = Styled.li`
+        & #activeA {
+            padding: 5px 3px 8px !important;
+            margin-bottom: 0;
+            position: relative;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+        & #activeA::after {
+            transform: scaleX(1);
+            transform-origin: left;
+            position: absolute;
+            content: "";
+            width: 10rem;
+            height: 2px;
+            top: 100%;
+            left: 0;
+            background: #4d6de6;
+            transition: transform 0.5s;
+    }
+  
+
+    `
+    const [active, setActive] = useState(false);
+    useEffect(() => {
+        const page = "http://localhost:3000/real-estate";
+        const activateNavItem = () => {
+            setActive(true);
+        }
+        const disactivateNavItem = () => {
+            setActive(false);
+            console.log("User not at real estate page.........active is false")
+        }
+
+        window.location.href === page ? activateNavItem() : disactivateNavItem();
+    }, [])
+
+
 
 
     return (
@@ -89,19 +131,19 @@ export default function RealEstate() {
                                 <div className="realEstate_navItem">
                                     <ul>
                                         <li>
-                                            <a href="www.google.com">home</a>
+                                            <Link to="/">Home</Link>
+                                        </li>
+                                        <Active>
+                                            <Link id={active ? "activeA" : ""} to="/real-estate">real estate</Link>
+                                        </Active>
+                                        <li>
+                                            <Link to="/farm">Livestock</Link>
                                         </li>
                                         <li>
-                                            <a href="www.google.com">real estate</a>
+                                            <Link to="/risk">risk management</Link>
                                         </li>
                                         <li>
-                                            <a href="www.google.com">livestock</a>
-                                        </li>
-                                        <li>
-                                            <a href="www.google.com">risk management</a>
-                                        </li>
-                                        <li>
-                                            <a href="www.google.com">career</a>
+                                            <Link to="/career">Career</Link>
                                         </li>
                                     </ul>
                                 </div>

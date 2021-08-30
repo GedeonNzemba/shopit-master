@@ -1,25 +1,15 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import Nav from "../../HeaderBSN"
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from '@material-ui/core';
 import Slider from './Slider'
 // import Styled from 'styled-components'
-import { Helmet } from 'react-helmet';
-import { useEffect } from 'react';
+import Helmet from "react-helmet"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-}));
+
 
 
 const Header = () => {
-    const classes = useStyles();
-
 
     const FlickityScript = (url) => {
         var script = document.createElement('script');
@@ -38,26 +28,15 @@ const Header = () => {
                 <div className="riskHeader_title">
                     <h1>
                         enhance the <span id="fa-underline">degree</span> of confidence
-                        </h1>
+                    </h1>
                 </div>
                 <div className="riskHeader_sub-title">
                     <p>
 
                         Locataire Risk Management provides tailored solutions to help private companies improve business strategies and practices.
-                        </p>
+                    </p>
                 </div>
-                <div className="riskHeader_btn">
-                    <Link to="/" className="riskHeader_btn-left">
-                        <Button variant="contained" color="primary" >
-                            Learn More
-                            </Button>
-                    </Link>
-                    <Link to="/" className="riskHeader_btn-right">
-                        <Button variant="outlined" color="primary" >
-                            Contact Us
-                            </Button>
-                    </Link>
-                </div>
+
             </div>
         )
     }
@@ -73,20 +52,9 @@ const Header = () => {
                 <div className="riskHeader_sub-title">
                     <p>
                         Achieved by our expression of an opinion on whether the financial statements are prepared in accordance with the applicable reporting framework.
-                        </p>
+                    </p>
                 </div>
-                <div className="riskHeader_btn">
-                    <Link to="/" className="riskHeader_btn-left">
-                        <Button variant="contained" color="primary" >
-                            Learn More
-                            </Button>
-                    </Link>
-                    <Link to="/" className="riskHeader_btn-right">
-                        <Button variant="outlined" color="primary" >
-                            Contact Us
-                            </Button>
-                    </Link>
-                </div>
+
             </div>
         )
     }
@@ -101,20 +69,9 @@ const Header = () => {
                 <div className="riskHeader_sub-title">
                     <p>
                         Extract insights from data, as well as third-party assurance to manage risks from the extended enterprise.
-                        </p>
+                    </p>
                 </div>
-                <div className="riskHeader_btn">
-                    <Link to="/" className="riskHeader_btn-left">
-                        <Button variant="contained" color="primary" >
-                            Learn More
-                            </Button>
-                    </Link>
-                    <Link to="/" className="riskHeader_btn-right">
-                        <Button variant="outlined" color="primary" >
-                            Contact Us
-                            </Button>
-                    </Link>
-                </div>
+
             </div>
         )
     }
@@ -129,20 +86,9 @@ const Header = () => {
                 <div className="riskHeader_sub-title">
                     <p>
                         We help clients transform the ways in which they leverage people, technology, data, business processes and controls to address their operational risks and drive business performance.
-                        </p>
+                    </p>
                 </div>
-                <div className="riskHeader_btn">
-                    <Link to="/" className="riskHeader_btn-left">
-                        <Button variant="contained" color="primary" >
-                            Learn More
-                            </Button>
-                    </Link>
-                    <Link to="/" className="riskHeader_btn-right">
-                        <Button variant="outlined" color="primary" >
-                            Contact Us
-                            </Button>
-                    </Link>
-                </div>
+
             </div>
         )
     }
@@ -157,20 +103,9 @@ const Header = () => {
                 <div className="riskHeader_sub-title">
                     <p>
                         We help clients evaluate and manage third-party risk related to outsourcing, and other business partnerships across the organization to maximize effectiveness.
-                        </p>
+                    </p>
                 </div>
-                <div className="riskHeader_btn">
-                    <Link to="/" className="riskHeader_btn-left">
-                        <Button variant="contained" color="primary" >
-                            Learn More
-                            </Button>
-                    </Link>
-                    <Link to="/" className="riskHeader_btn-right">
-                        <Button variant="outlined" color="primary" >
-                            Contact Us
-                            </Button>
-                    </Link>
-                </div>
+
             </div>
         )
     }
@@ -220,33 +155,23 @@ const Header = () => {
                 {/* image */}
                 <div id="risk_cycle-img" />
                 {/* image end */}
-                <section className="riskHeader_row riskHeader_content">
+                <section className="riskHeader_row riskHeader_content" id="riskHeader_content">
                     <Slider contentOne={<HeaderOne />} contentTwo={<HeaderTwo />} contentThree={<HeaderThree />} contentFour={<HeaderFour />} contentFive={<HeaderFive />} />
-                </section>
-
-                <section className="riskHeader_row riskHeader_image" style={{ zIndex: '1' }}>
-                    <div className="carousel" data-flickity='{ "autoPlay": 8000 }'>
-                        <div className="carousel-cell">
-                            <HeaderOneImageFS />
-                        </div>
-                        <div className="carousel-cell">
-                            <HeaderOneImage />
-                        </div>
-                        <div className="carousel-cell">
-                            <HeaderTwoImage />
-                        </div>
-                        <div className="carousel-cell">
-                            <HeaderThreeImage />
-                        </div>
-                        <div className="carousel-cell">
-                            <HeaderFourImage />
-                        </div>
-                        <div className="carousel-cell">
-                            <HeaderFiveImage />
-                        </div>
+                    <div className="riskHeader_btn">
+                        <Link to="/" className="riskHeader_btn-left">
+                            <Button variant="contained" color="primary" >
+                                Learn More
+                            </Button>
+                        </Link>
+                        <Link to="/" className="riskHeader_btn-right">
+                            <Button variant="outlined" color="primary" >
+                                Contact Us
+                            </Button>
+                        </Link>
                     </div>
                 </section>
 
+                <section className="riskHeader_row riskHeader_image" id="risk_header-video" style={{ zIndex: '1' }} />
             </div>
             <header className="riskHeader__smallDesktop">
                 <div className="__container">
@@ -264,12 +189,12 @@ const Header = () => {
                             <Link to="/" className="riskHeader_btn-left">
                                 <Button variant="contained" color="secondary" >
                                     Learn More
-                            </Button>
+                                </Button>
                             </Link>
                             <Link to="/" className="riskHeader_btn-right">
                                 <Button variant="contained" color="primary" >
                                     Contact Us
-                            </Button>
+                                </Button>
                             </Link>
                         </div>
                     </div>

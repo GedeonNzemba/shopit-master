@@ -36,6 +36,24 @@
     transform: rotate(360deg);
   }
 }
+.scrollWrap {
+ position: fixed;
+ right: .8rem;
+ bottom: 2rem;
+ cursor: pointer;
+}
+.back-to-topHovered {
+height: 7rem;
+object-fit: contain;
+z-index: 999;
+transition: 2s cubic-bezier(0.39, 0.58, 0.57, 1);
+}
+.back-to-top {
+  height: 7rem;
+  object-fit: contain;
+  z-index: 999;
+  transition: 2s cubic-bezier(0.39, 0.58, 0.57, 1);
+}
 /* body {
   padding-top: 10rem;
 } */
@@ -96,7 +114,7 @@ font-weight: 500;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: none!important;
 }
 ._bg {
 border: 1px solid #efefef;
@@ -1719,4 +1737,39 @@ h5 span.yourcarttitle {
     display: none!important;
   }
  
+}
+
+@media (min-width: 1700px) {
+  .scrollWrap {
+    right: 10rem !important;
+  }
+}
+
+/* ris header */
+@media (min-width: 1800px){
+  section#riskHeader_content {
+    transform: translate(0%, 85%) !important;
+  }
+  .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    line-height: 1.7!important;
+  }
+  .risk-content .__innerItem-container-text ._inner-text-content {
+    padding: 0% 10% 0%!important;
+  }
+
+  div.auditNrisk #risk_header-video {
+    background-size: 100% 100%!important;
+  }
+  .audit_img-Style, .risk_img-Style {
+    width: 100%!important;
+  }
+}
+
+@media (min-width: 2000px) {
+   div.realtyBSN nav {
+     justify-content: space-evenly;
+   }
+   section#riskHeader_content {
+     transform: translate(0%, 112%) !important;
+   }
 }

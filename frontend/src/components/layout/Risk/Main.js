@@ -1,25 +1,23 @@
 import React, { Fragment, useEffect } from 'react'
-import image1 from '../../../images/Spaces/Mobile/spacesMobileFourBedroom.jpg'
-import image2 from '../../../images/Spaces/Mobile/spacesMobileTwoBedroom.jpg'
-import image3 from '../../../images/Spaces/Mobile/spacesMobileStudioPlus.jpg'
-import image4 from '../../../images/Spaces/Mobile/spacesMobileFourBedroom.jpg'
-import image5 from '../../../images/Spaces/Mobile/spacesMobileTwoBedroom.jpg'
-import image6 from '../../../images/Spaces/Mobile/spacesMobileStudioPlus.jpg'
-import image7 from '../../../images/Spaces/Mobile/spacesMobileFourBedroom.jpg'
-import image8 from '../../../images/Spaces/Mobile/spacesMobileTwoBedroom.jpg'
-import image9 from '../../../images/Spaces/Mobile/spacesMobileStudioPlus.jpg'
-import image10 from '../../../images/Spaces/Mobile/spacesMobileFourBedroom.jpg'
-import image11 from '../../../images/Spaces/Mobile/spacesMobileTwoBedroom.jpg'
-import image12 from '../../../images/Spaces/Mobile/spacesMobileStudioPlus.jpg'
-import image13 from '../../../images/Spaces/Mobile/spacesMobileFourBedroom.jpg'
-import image14 from '../../../images/Spaces/Mobile/spacesMobileTwoBedroom.jpg'
-import image15 from '../../../images/Spaces/Mobile/spacesMobileStudioPlus.jpg'
-import image16 from '../../../images/Spaces/Mobile/spacesMobileFourBedroom.jpg'
-import image17 from '../../../images/Spaces/Mobile/spacesMobileTwoBedroom.jpg'
-import image18 from '../../../images/Spaces/Mobile/spacesMobileStudioPlus.jpg'
 import { Helmet } from 'react-helmet'
 import Styled from 'styled-components'
 import Slider from './Slider'
+
+import audit_1 from '../../../images/risk/audit_1.jpg'
+import audit_2 from '../../../images/risk/audit_2.jpg'
+import audit_3 from '../../../images/risk/audit_3.jpg'
+
+import assurance_1 from '../../../images/risk/assurance_1.jpg'
+import assurance_2 from '../../../images/risk/assurance_2.jpg'
+import assurance_3 from '../../../images/risk/assurance_3.jpg'
+
+import transform_1 from '../../../images/risk/transformation.jpg'
+import transform_2 from '../../../images/risk/operational risk and transformation.png'
+import transform_3 from '../../../images/risk/2.jpg'
+
+import audit_1a from '../../../images/risk/third.jpg'
+import audit_2a from '../../../images/risk/third_2.png'
+import audit_3a from '../../../images/risk/third_3.png'
 
 const Main = () => {
     const Img = Styled.img`
@@ -71,6 +69,7 @@ const Main = () => {
         )
     }
 
+
     return (
 
         <Fragment>
@@ -91,21 +90,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image1}
+                                src={audit_1}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image2}
+                                src={audit_2}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image3}
+                                src={audit_3}
                                 alt="test three"
                             />
                         </div>
@@ -114,21 +113,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image4}
+                                src={audit_1}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image5}
+                                src={audit_2}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image6}
+                                src={audit_3}
                                 alt="test three"
                             />
                         </div>
@@ -152,8 +151,8 @@ const Main = () => {
                             <div className="sub-item" id="sub-item">
                                 <p>
                                     internal revenue <br id="sub__off" />
-                    service ( IRS )
-                  </p>
+                                    service ( IRS )
+                                </p>
                             </div>
                         </div>
                         <div className="_item_text" id="_item_text">
@@ -162,17 +161,17 @@ const Main = () => {
                                 financial statements, to improve internal controls. This is
                                 achieved by our expression of an opinion on whether the
                                 financial statements are prepared in accordance with the
-                  applicable reporting framework. <br />
+                                applicable reporting framework. <br />
                                 <br />
-                  Our Audit services go beyond merely meeting statutory
-                  requirements. We help our clients perform better. We listen to
-                  their needs, think about the business implications and tailor
-                  our approach accordingly. Because the Audit professionals of
-                  Locataire take the time to understand our client's business as
-                  well as the industries in which they operate, we can help them
-                  identify major risks and opportunities over and above
-                  performance of the traditional financial reporting function.
-                </p>
+                                Our Audit services go beyond merely meeting statutory
+                                requirements. We help our clients perform better. We listen to
+                                their needs, think about the business implications and tailor
+                                our approach accordingly. Because the Audit professionals of
+                                Locataire take the time to understand our client's business as
+                                well as the industries in which they operate, we can help them
+                                identify major risks and opportunities over and above
+                                performance of the traditional financial reporting function.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -189,21 +188,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image7}
+                                src={assurance_1}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image8}
+                                src={assurance_2}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image9}
+                                src={assurance_3}
                                 alt="test three"
                             />
                         </div>
@@ -212,21 +211,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image10}
+                                src={assurance_1}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image11}
+                                src={assurance_2}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image12}
+                                src={assurance_3}
                                 alt="test three"
                             />
                         </div>
@@ -248,15 +247,15 @@ const Main = () => {
                                 Locataire Audit in order to understand fully our client's
                                 business, internal controls and risk spectrum. Before making
                                 Audit decisions we conduct objective diagnostic tests and
-                  analytical reviews. <br />
+                                analytical reviews. <br />
                                 <br />
-                  Our methods help enable our clients to meet the growing demand
-                  for enhanced disclosure and accountability. We work closely
-                  with our clients, yet independently, and encourage open
-                  communication. Locataire Audit goes beyond testing
-                  transactions and balances to providing insights that help our
-                  clients better understand their business.
-                </p>
+                                Our methods help enable our clients to meet the growing demand
+                                for enhanced disclosure and accountability. We work closely
+                                with our clients, yet independently, and encourage open
+                                communication. Locataire Audit goes beyond testing
+                                transactions and balances to providing insights that help our
+                                clients better understand their business.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -264,7 +263,7 @@ const Main = () => {
 
             {/* 3 */}
             <center style={{ marginTop: '5rem', marginBottom: '5rem' }}>
-                <Slider contentOne={Audit()} contentTwo={Audit_a()} contentThree={Audit_b()} contentFour={Audit_a()} contentFive={Audit_b()} />
+                <Slider fade="fade" contentOne={Audit()} contentTwo={Audit_a()} contentThree={Audit_b()} contentFour={Audit_a()} contentFive={Audit_b()} />
             </center>
             <div className="risk-content remove_mt" id="risk-content-up" style={{ marginTop: 'unset!important' }}>
                 <div className="__innerItem-container-img">
@@ -272,21 +271,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image13}
+                                src={transform_1}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image14}
+                                src={transform_2}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image15}
+                                src={transform_3}
                                 alt="test three"
                             />
                         </div>
@@ -295,21 +294,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image16}
+                                src={transform_1}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image17}
+                                src={transform_2}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image18}
+                                src={transform_3}
                                 alt="test three"
                             />
                         </div>
@@ -332,13 +331,13 @@ const Main = () => {
                                 Operational Risk and Transformation services help clients
                                 transform the ways in which they leverage people, technology,
                                 data, processes and controls to address their operational
-                  risks and drive performance. <br />
+                                risks and drive performance. <br />
                                 <br />
-                  Locataire develops frameworks that include common risk
-                  taxonomies, risk assessments and reporting, business and IT
-                  process and controls assessment methods, and enabling tools
-                  and technologies.
-                </p>
+                                Locataire develops frameworks that include common risk
+                                taxonomies, risk assessments and reporting, business and IT
+                                process and controls assessment methods, and enabling tools
+                                and technologies.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -350,21 +349,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image7}
+                                src={audit_1a}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image8}
+                                src={audit_2a}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image9}
+                                src={audit_3a}
                                 alt="test three"
                             />
                         </div>
@@ -373,21 +372,21 @@ const Main = () => {
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image10}
+                                src={audit_1a}
                                 alt="test one"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image11}
+                                src={audit_2a}
                                 alt="test two"
                             />
                         </div>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
-                                src={image12}
+                                src={audit_3a}
                                 alt="test three"
                             />
                         </div>
@@ -407,19 +406,19 @@ const Main = () => {
                             <p>
                                 we help clients evaluate and manage third-party risk related to outsourcing, and other business partnerships across the organization to maximize effectiveness <br />
                                 <br />
-                  Our methods help enable our clients to meet the growing demand
-                  for enhanced disclosure and accountability. We work closely
-                  with our clients, yet independently, and encourage open
-                  communication. Locataire Audit goes beyond testing
-                  transactions and balances to providing insights that help our
-                  clients better understand their business.
-                </p>
+                                Our methods help enable our clients to meet the growing demand
+                                for enhanced disclosure and accountability. We work closely
+                                with our clients, yet independently, and encourage open
+                                communication. Locataire Audit goes beyond testing
+                                transactions and balances to providing insights that help our
+                                clients better understand their business.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             <center style={{ marginTop: '5rem' }}>
-                <Slider contentOne={Risk()} contentTwo={Risk_a()} contentThree={Risk_b()} contentFour={Risk_a()} contentFive={Risk_b()} />
+                <Slider fade="fade" contentOne={Risk()} contentTwo={Risk_a()} contentThree={Risk_b()} contentFour={Risk_a()} contentFive={Risk_b()} />
             </center>
         </Fragment>
     )

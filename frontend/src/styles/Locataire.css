@@ -784,7 +784,19 @@ div.realty__image {
 }
 div.auditNrisk {
   background-color: #f8f9fa;
-  border-top: 0.1px solid transparent;
+}
+div.auditNrisk #risk_header-video {
+  background-image: url("../images/reaalty/head.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 899px) {
+  div.auditNrisk .carousel-cell {
+    margin: 0 1.5rem !important;
+  }
 }
 
 @media (min-width: 900px) {
@@ -794,12 +806,11 @@ div.auditNrisk {
 }
 div.riskHeader {
   display: grid;
-  grid-template-columns: 48% auto;
+  grid-template-columns: 48% 52%;
   -moz-column-gap: 2%;
        column-gap: 2%;
   width: 100%;
   height: 90vh;
-  margin-top: 7.2rem;
   background-color: #FFFFFF;
   position: relative;
   padding-right: 0;
@@ -881,10 +892,24 @@ div.riskHeader section.riskHeader_content .riskHeader_sub-title p {
   font-family: "Cairo", sans-serif;
 }
 div.riskHeader section.riskHeader_image {
+  width: 100%;
   display: block;
+}
+div.riskHeader section.riskHeader_image .carousel.flickity-enabled.is-draggable {
+  width: 100%;
 }
 div.riskHeader section.riskHeader_image .flickity-viewport {
   height: 65.5rem !important;
+  width: 100%;
+}
+div.riskHeader section.riskHeader_image .flickity-viewport .flickity-slider {
+  width: 100%;
+}
+div.riskHeader section.riskHeader_image .flickity-viewport .flickity-slider .carousel-cell.is-selected {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
 }
 div.riskHeader section.riskHeader_image .flickity-button {
   display: none !important;
@@ -895,7 +920,7 @@ div.riskHeader section.riskHeader_image .flickity-page-dots {
 div.riskHeader section.riskHeader_image .riskHeader_imageRight-banner {
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 66rem;
+  width: 70rem;
   height: 65.5rem;
 }
 div.riskHeader section.riskHeader_image #riskHeader_imgOne_Fs {
@@ -930,7 +955,7 @@ div.riskHeader section.riskHeader_image #riskHeader_imgFive {
 header.riskHeader__smallDesktop {
   border-bottom-right-radius: 50% 25% !important;
   border-bottom-left-radius: 50% 25%;
-  background-image: url("../images/risk/smalldesk.jpg");
+  background-image: linear-gradient(0deg, #4caf50, rgba(63, 81, 181, 0.72)), url("../images/risk/risk.png");
   background-size: 100% 140%;
   background-repeat: no-repeat;
   margin-bottom: 20rem;
@@ -1191,7 +1216,7 @@ header.riskHeader__smallDesktop .__image #riskHeader_illustr {
   }
 
   .carousel-cell img {
-    margin-right: 40px !important;
+    margin-right: 4rem !important;
   }
 }
 .background-img {
@@ -1668,7 +1693,7 @@ header.riskHeader__smallDesktop .__image #riskHeader_illustr {
   }
 
   .carousel-cell img {
-    margin-right: 40px !important;
+    margin-right: 4rem !important;
   }
 }
 @media (max-width: 599px) {
@@ -1764,19 +1789,14 @@ header.riskHeader__smallDesktop .__image #riskHeader_illustr {
     height: min-content;
   }
   #risk-content-up ._item_text {
-    height: 60rem;
+    height: auto;
   }
   #risk-content-up ._item_text._item_text {
     max-width: 100%;
-    height: 45rem;
-    overflow-y: scroll;
-    border: 1px solid blue;
-  }
-  #risk-content-up .flickity-viewport {
-    height: calc(240px + (350 - 240) * (100vw - 375px) / (599 - 375)) !important;
   }
   #risk-content-up .flickity-slider {
-    height: calc(240px + (350 - 240) * (100vw - 375px) / (599 - 375));
+    height: 100%;
+    top: -1.5rem;
   }
   #risk-content-up .__innerItem-container-img {
     height: calc(280px + (400 - 280) * (100vw - 375px) / (599 - 375)) !important;
@@ -1994,10 +2014,121 @@ header.riskHeader__smallDesktop .__image #riskHeader_illustr {
   border-left: 0.3rem inset #314862;
 }
 
+@media (max-width: 500px) {
+  .audit_img-Style,
+.risk_img-Style {
+    transform: translate(0rem, 0rem) !important;
+  }
+
+  .audit_img-Style,
+.risk_img-Style {
+    background-size: 100% 70% !important;
+    height: 25rem !important;
+  }
+}
+@media (min-width: 1500px) and (max-width: 1799px) {
+  section#riskHeader_content {
+    transform: translate(0%, 65%) !important;
+  }
+
+  .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    line-height: 1.7;
+  }
+
+  .risk-content .__innerItem-container-text ._inner-text-content {
+    padding: 0% 10% 0%;
+  }
+
+  .audit_img-Style,
+.risk_img-Style {
+    width: 100% !important;
+  }
+}
+@media (min-width: 2559px) {
+  section#riskHeader_content {
+    transform: translate(0%, 85%) !important;
+  }
+
+  .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    line-height: 1.7;
+  }
+
+  .risk-content .__innerItem-container-text ._inner-text-content {
+    padding: 0% 10% 0%;
+  }
+
+  div.auditNrisk #risk_header-video {
+    background-size: 100% 100%;
+  }
+}
+@media (min-width: 1500px) and (max-width: 1799px) {
+  .risk-content .carousel-cell {
+    margin-right: 3.2rem;
+  }
+
+  div.realtyBSN nav .realEstate_logoWrap {
+    padding-top: 1.5rem;
+  }
+}
+@media (min-width: 1800px) and (max-width: 1999px) {
+  .risk-content .carousel-cell {
+    margin-right: 4.2rem;
+  }
+}
+.risk-content .carousel-cell:not(.is-selected) img {
+  border-radius: 0;
+}
+
+@media (min-width: 1700px) {
+  .scrollWrap {
+    right: 10rem !important;
+  }
+}
+@media (min-width: 2000px) {
+  div#risk-content-up {
+    max-width: 180rem;
+    margin: 15rem auto 0 auto;
+  }
+
+  div.realtyBSN nav {
+    justify-content: space-evenly;
+  }
+
+  div.riskHeader section.riskHeader_content {
+    max-width: 100rem;
+  }
+
+  div.riskHeader div#risk_cycle-img {
+    top: 40%;
+  }
+
+  .risk-content .carousel-cell {
+    margin-right: 5.2rem;
+  }
+}
 div.realtyBSN {
   display: block;
   width: 100%;
   border-bottom: 0;
+}
+div.realtyBSN #active-nav a::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  background: #4d6de6;
+  transition: transform 0.5s;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+div.realtyBSN #active-nav a:hover {
+  outline-width: 0;
+}
+div.realtyBSN #active-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 div.realtyBSN .contactFormWrapper {
   background-color: #FFFFFF !important;
@@ -2063,11 +2194,11 @@ div.realtyBSN nav.realEstate_navigation {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1800px) and (max-width: 2559px) {
@@ -2102,11 +2233,11 @@ div.realtyBSN nav.realEstate_navigation {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1536px) and (max-width: 1799px) {
@@ -2141,11 +2272,11 @@ div.realtyBSN nav.realEstate_navigation {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1366px) and (max-width: 1535px) {
@@ -2155,8 +2286,6 @@ div.realtyBSN nav.realEstate_navigation {
     font-family: "GT Super Ds Trial Bd";
     color: #EFF3FF;
     z-index: 100;
-    position: absolute;
-    right: 0;
     padding-right: 3.5%;
     width: 100%;
     padding-left: 3.5%;
@@ -2180,11 +2309,11 @@ div.realtyBSN nav.realEstate_navigation {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1200px) and (max-width: 1365px) {
@@ -2225,15 +2354,15 @@ div.realtyBSN nav.realEstate_navigation {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
   }
 }
 @media (min-width: 1200px) and (max-width: 1365px) and (min-width: 1200px) and (max-width: 1365px) {
   div.realtyBSN nav.realEstate_navigation ul li a {
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1200px) {
@@ -2252,7 +2381,7 @@ div.realtyBSN nav.realEstate_navigation {
   }
 }
 div.realtyBSN nav .realEstate_logoWrap {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 @media (min-width: 1200px) and (max-width: 1365px) {
   div.realtyBSN nav .realEstate_logoWrap {
@@ -2260,8 +2389,8 @@ div.realtyBSN nav .realEstate_logoWrap {
   }
 }
 div.realtyBSN nav .realEstate_logoWrap img {
-  width: 236px;
-  height: 61px;
+  width: 18rem;
+  height: 6rem;
 }
 @media (min-width: 1366px) {
   div.realtyBSN nav .realEstate_logoWrap img {
@@ -2270,22 +2399,22 @@ div.realtyBSN nav .realEstate_logoWrap img {
 }
 @media (min-width: 1800px) and (max-width: 2559px) {
   div.realtyBSN nav .realEstate_logoWrap img {
-    width: 280px;
+    width: 19rem;
   }
 }
 @media (min-width: 1536px) and (max-width: 1799px) {
   div.realtyBSN nav .realEstate_logoWrap img {
-    width: 250px;
+    width: 17.5;
   }
 }
 @media (min-width: 1366px) and (max-width: 1535px) {
   div.realtyBSN nav .realEstate_logoWrap img {
-    width: 200px;
+    width: 16rem;
   }
 }
 @media (min-width: 1200px) and (max-width: 1365px) {
   div.realtyBSN nav .realEstate_logoWrap img {
-    width: 190px;
+    width: 15rem;
     height: unset;
   }
 }
@@ -2341,8 +2470,8 @@ div.realtyBSN nav .realEstate_contactBtn {
 }
 div.realtyBSN .realEstate_navItem ul li a {
   position: relative;
-  padding: 10px 10px 20px;
-  margin-top: 20px;
+  padding: 1rem 1rem 2rem;
+  margin-top: 2rem;
   text-decoration: none;
   transition: 0.5s;
   margin-bottom: 0;
@@ -2440,7 +2569,7 @@ div.realtyBSN .realEstate_navItem ul li a::after {
 }
 @media (min-width: 1200px) {
   .realEstate header.realEstate_header nav.realEstate_navigation {
-    padding-top: 24px;
+    padding-top: 2.4rem;
   }
 }
 @media (min-width: 900px) and (max-width: 1199px) {
@@ -2480,11 +2609,11 @@ div.realtyBSN .realEstate_navItem ul li a::after {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1800px) and (max-width: 2559px) {
@@ -2519,11 +2648,11 @@ div.realtyBSN .realEstate_navItem ul li a::after {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1536px) and (max-width: 1799px) {
@@ -2558,11 +2687,11 @@ div.realtyBSN .realEstate_navItem ul li a::after {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 202rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1366px) and (max-width: 1535px) {
@@ -2597,11 +2726,11 @@ div.realtyBSN .realEstate_navItem ul li a::after {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1200px) and (max-width: 1365px) {
@@ -2642,15 +2771,15 @@ div.realtyBSN .realEstate_navItem ul li a::after {
     color: #EFF3FF;
     margin-bottom: 0;
     position: relative;
-    padding: 10px 10px 20px;
-    margin-top: 20px;
+    padding: 1rem 1rem 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     transition: 0.5s;
   }
 }
 @media (min-width: 1200px) and (max-width: 1365px) and (min-width: 1200px) and (max-width: 1365px) {
   .realEstate header.realEstate_header nav.realEstate_navigation ul li a {
-    padding: 5px 3px 15px;
+    padding: 0.5rem 0.3rem 1.5rem;
   }
 }
 @media (min-width: 1200px) {
@@ -2677,8 +2806,8 @@ div.realtyBSN .realEstate_navItem ul li a::after {
   }
 }
 .realEstate header.realEstate_header nav .realEstate_logoWrap img {
-  width: 236px;
-  height: 61px;
+  width: 18rem;
+  height: 6rem;
 }
 @media (min-width: 1366px) {
   .realEstate header.realEstate_header nav .realEstate_logoWrap img {
@@ -2687,22 +2816,22 @@ div.realtyBSN .realEstate_navItem ul li a::after {
 }
 @media (min-width: 1800px) and (max-width: 2559px) {
   .realEstate header.realEstate_header nav .realEstate_logoWrap img {
-    width: 280px;
+    width: 20rem;
   }
 }
 @media (min-width: 1536px) and (max-width: 1799px) {
   .realEstate header.realEstate_header nav .realEstate_logoWrap img {
-    width: 250px;
+    width: 19rem;
   }
 }
 @media (min-width: 1366px) and (max-width: 1535px) {
   .realEstate header.realEstate_header nav .realEstate_logoWrap img {
-    width: 200px;
+    width: 17.5rem;
   }
 }
 @media (min-width: 1200px) and (max-width: 1365px) {
   .realEstate header.realEstate_header nav .realEstate_logoWrap img {
-    width: 190px;
+    width: 15rem;
     height: unset;
   }
 }
@@ -2906,32 +3035,32 @@ div.realtyBSN .realEstate_navItem ul li a::after {
   flex-direction: column;
   overflow: hidden;
   margin-top: 8rem;
-  filter: 0 0 20px 3px black !important;
+  filter: 0 0 2rem 3px black !important;
 }
 @media (min-width: 900px) and (max-width: 1199px) {
   .realEstate header.realEstate_header section .realEstate_rightContainer {
     margin-top: 12rem;
-    border-radius: 180px 0 60% 35%;
-    border-left: 17px solid #06d;
+    border-radius: 18rem 0 60% 35%;
+    border-left: 1.7rem solid #06d;
   }
 }
 @media (min-width: 1200px) {
   .realEstate header.realEstate_header section .realEstate_rightContainer {
     margin-top: 12rem;
-    border-radius: 180px 0 60% 35%;
-    border-left: 17px solid #06d;
+    border-radius: 18rem 0 60% 35%;
+    border-left: 1.7rem solid #06d;
   }
 }
 @media (min-width: 2559px) {
   .realEstate header.realEstate_header section .realEstate_rightContainer {
-    border-radius: 180px 0 60% 35%;
-    border-bottom: 10px solid #024EFF;
+    border-radius: 18rem 0 60% 35%;
+    border-bottom: 1rem solid #024EFF;
   }
 }
 @media (min-width: 1800px) and (max-width: 2559px) {
   .realEstate header.realEstate_header section .realEstate_rightContainer {
-    border-radius: 180px 0 60% 35%;
-    border-bottom: 10px solid #024EFF;
+    border-radius: 18rem 0 60% 35%;
+    border-bottom: 1rem solid #024EFF;
   }
 }
 @media (min-width: 1600px) {
@@ -2953,9 +3082,9 @@ div.realtyBSN .realEstate_navItem ul li a::after {
   margin: 0;
 }
 .realEstate header.realEstate_header section .realEstate_rightContainer .realEstate_headImage figure img {
-  width: 1300px;
-  height: 731px;
-  transform: translateX(-180px) translateY(5px);
+  width: 130rem;
+  height: 73.1rem;
+  transform: translateX(-18rem) translateY(5px);
 }
 @media (min-width: 1600px) {
   .realEstate header.realEstate_header section .realEstate_rightContainer .realEstate_headImage figure img {
@@ -2998,9 +3127,9 @@ div.realtyBSN .realEstate_navItem ul li a::after {
   align-self: flex-end;
   position: absolute;
   right: 0;
-  top: 78px;
-  width: 100px;
-  height: 149px;
+  top: 7.8rem;
+  width: 10rem;
+  height: 14.9rem;
 }
 .realEstate article.realty__article div.realty__article-content div.realty__innerWrap div.realty__image .realty__image-svgOne#realty__image-svgOne-two {
   left: 0;
@@ -3008,16 +3137,16 @@ div.realtyBSN .realEstate_navItem ul li a::after {
 }
 @media (min-width: 900px) and (max-width: 1199px) {
   .realEstate article.realty__article div.realty__article-content div.realty__innerWrap div.realty__image .realty__image-svgOne#realty__image-svgOne-two {
-    width: 100px;
-    height: 149px;
+    width: 10rem;
+    height: 14.9rem;
   }
 }
 .realEstate article.realty__article div.realty__article-content div.realty__innerWrap div.realty__image .realty__image-svgOne.svgabout-2 {
   align-self: flex-start;
   position: absolute;
-  left: 13px;
+  left: 1.3rem;
   right: unset;
-  top: 78px;
+  top: 7.8rem;
 }
 .realEstate article.realty__article div.realty__article-content div.realty__innerWrap div.realty__image .realty__image-svgTwo {
   display: flex;
@@ -3027,7 +3156,7 @@ div.realtyBSN .realEstate_navItem ul li a::after {
   /* width: 135px; */
   align-self: flex-end;
   position: absolute;
-  left: 400px;
+  left: 40rem;
   bottom: 0;
 }
 @media (min-width: 900px) and (max-width: 1199px) {
@@ -3042,7 +3171,7 @@ div.realtyBSN .realEstate_navItem ul li a::after {
   .realEstate article.realty__article div.realty__article-content div.realty__innerWrap div.realty__image .realty__about-img3 {
     margin: 0 auto 3rem auto;
     width: 90%;
-    height: 400px;
+    height: 40rem;
   }
 }
 .realEstate article.realty__article div.realty__article-content div.realty__innerWrap div.realty__content {
@@ -3204,8 +3333,8 @@ main.realEstate-about section.realEstate-image div.svg-Mobile-about_left {
     width: 60%;
   }
   main.investment_service section.investment_service-main div.investment_service-inner_img div.investment_service-image {
-    max-width: 600px;
-    max-height: 308px;
+    max-width: 60rem;
+    max-height: 30.8rem;
     background-image: url("../images/reaalty/desktop/invest.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -3237,7 +3366,7 @@ main.realEstate-about section.realEstate-image div.svg-Mobile-about_left {
     font-weight: normal;
     text-align: left;
     letter-spacing: 0.45px;
-    font-size: 20px;
+    font-size: 2rem;
     -webkit-margin-before: 0;
     margin-block-start: 0;
     font-size: 2.5rem;
@@ -3260,7 +3389,7 @@ main.realEstate-about section.realEstate-image div.svg-Mobile-about_left {
   .carousel-cell {
     width: auto;
     height: auto;
-    margin-right: 10px;
+    margin-right: 1rem;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -3268,10 +3397,6 @@ main.realEstate-about section.realEstate-image div.svg-Mobile-about_left {
 
   div.realEstate-content_icon span {
     display: none;
-  }
-
-  .flickity-viewport {
-    height: 37.5rem !important;
   }
 }
 @media (max-width: 899px) {
@@ -3294,7 +3419,7 @@ main.realEstate-about section.realEstate-image div.svg-Mobile-about_left {
   }
 }
 .realEstate_rightContainer {
-  filter: 0 0 20px 3px black !important;
+  filter: 0 0 2rem 3px black !important;
 }
 
 @media (min-width: 900px) and (max-width: 1299px) {
@@ -9363,6 +9488,9 @@ div.realtyBSN .btn-header-mobile {
   .menu-bars svg {
     width: 1.5em;
     height: 1.5em;
+  }
+  .menu-bars img#hamburgerTemp {
+    width: 5rem;
   }
 
   .mobile-logo {

@@ -1,4 +1,27 @@
 div.realtyBSN {
+    & #active-nav a {
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            top: 100%;
+            left: 0;
+            background: #4d6de6;
+            transition: transform 0.5s;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+
+        &:hover {
+            outline-width: 0;
+        }
+        &:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+
     .contactFormWrapper {
         background-color: $white !important;
     }
@@ -69,13 +92,13 @@ div.realtyBSN {
                             color: $decoration;
                             margin-bottom: 0;
                             position: relative;
-                            padding: 10px 10px 20px;
-                            margin-top: 20px;
+                            padding: 1rem 1rem 2rem;
+                            margin-top: 2rem;
                             text-decoration: none;
                             transition: 0.5s;
                             // border-bottom: 2px solid #001a7d;
 
-                            padding: 5px 3px 15px;
+                            padding: 0.5rem 0.3rem 1.5rem;
                         }
 
                         // & a::after {
@@ -128,13 +151,13 @@ div.realtyBSN {
                             color: $decoration;
                             margin-bottom: 0;
                             position: relative;
-                            padding: 10px 10px 20px;
-                            margin-top: 20px;
+                            padding: 1rem 1rem 2rem;
+                            margin-top: 2rem;
                             text-decoration: none;
                             transition: 0.5s;
                             // border-bottom: 2px solid #001a7d;
 
-                            padding: 5px 3px 15px;
+                            padding: 0.5rem 0.3rem 1.5rem;
                         }
 
                         // & a::after {
@@ -187,13 +210,13 @@ div.realtyBSN {
                             color: $decoration;
                             margin-bottom: 0;
                             position: relative;
-                            padding: 10px 10px 20px;
-                            margin-top: 20px;
+                            padding: 1rem 1rem 2rem;
+                            margin-top: 2rem;
                             text-decoration: none;
                             transition: 0.5s;
                             // border-bottom: 2px solid #001a7d;
 
-                            padding: 5px 3px 15px;
+                            padding: 0.5rem 0.3rem 1.5rem;
                         }
 
                         // & a::after {
@@ -219,8 +242,8 @@ div.realtyBSN {
                 // font-size: 17px;
                 color: $decoration;
                 z-index: 100;
-                position: absolute;
-                right: 0;
+                // position: absolute;
+                // right: 0;
                 // padding-top: 25px;
                 padding-right: 3.5%;
                 width: 100%;
@@ -246,13 +269,13 @@ div.realtyBSN {
                             color: $decoration;
                             margin-bottom: 0;
                             position: relative;
-                            padding: 10px 10px 20px;
-                            margin-top: 20px;
+                            padding: 1rem 1rem 2rem;
+                            margin-top: 2rem;
                             text-decoration: none;
                             transition: 0.5s;
                             // border-bottom: 2px solid #001a7d;
 
-                            padding: 5px 3px 15px;
+                            padding: 0.5rem 0.3rem 1.5rem;
                         }
 
                         // & a::after {
@@ -308,14 +331,14 @@ div.realtyBSN {
                             color: $decoration;
                             margin-bottom: 0;
                             position: relative;
-                            padding: 10px 10px 20px;
-                            margin-top: 20px;
+                            padding: 1rem 1rem 2rem;
+                            margin-top: 2rem;
                             text-decoration: none;
                             transition: 0.5s;
                             // border-bottom: 2px solid #001a7d;
 
                             @media (min-width: 1200px) and (max-width: 1365px) {
-                                padding: 5px 3px 15px;
+                                padding: 0.5rem 0.3rem 1.5rem;
                             }
                         }
 
@@ -352,31 +375,31 @@ div.realtyBSN {
         }
 
         .realEstate_logoWrap {
-            padding-top: 1rem;
+            padding-top: 0.5rem;
 
             @include for-xsmall-desktop-only {
                 padding-top: 0;
             }
 
             & img {
-                width: 236px;
-                height: 61px;
+                width: 18rem;
+                height: 6rem;
 
                 @media (min-width: 1366px) {
                     height: unset;
                 }
                 @include for-big-desktop-only {
-                    width: 280px;
+                    width: 19rem;
                 }
                 @include for-medium-desktop-only {
-                    width: 250px;
+                    width: 17.5;
                 }
                 @include for-small-desktop-only {
-                    width: 200px;
+                    width: 16rem;
                 }
 
                 @include for-xsmall-desktop-only {
-                    width: 190px;
+                    width: 15rem;
                     height: unset;
                 }
             }
@@ -436,14 +459,34 @@ div.realtyBSN {
                     & a {
                         padding: 5px 3px 8px !important;
                     }
+                    // &#active-nav #ActiveA {
+                    //     padding: 5px 3px 8px !important;
+                    //     margin-bottom: 0;
+                    //     position: relative;
+                    //     margin-top: 2rem;
+                    //     text-decoration: none;
+                    //     transition: 0.5s;
+                    //     &::after {
+                    //         transform: scaleX(1);
+                    //         transform-origin: left;
+                    //         position: absolute;
+                    //         content: "";
+                    //         width: 10rem;
+                    //         height: 2px;
+                    //         top: 100%;
+                    //         left: 0;
+                    //         background: #4d6de6;
+                    //         transition: transform 0.5s;
+                    //     }
+                    // }
                 }
             }
         }
     }
     & .realEstate_navItem ul li a {
         position: relative;
-        padding: 10px 10px 20px;
-        margin-top: 20px;
+        padding: 1rem 1rem 2rem;
+        margin-top: 2rem;
         text-decoration: none;
         transition: 0.5s;
         margin-bottom: 0;
@@ -533,7 +576,7 @@ div.realtyBSN {
                 // background-color: $green;
                 height: 10vh;
                 @media (min-width: 1200px) {
-                    padding-top: 24px;
+                    padding-top: 2.4rem;
                 }
                 @include for-tablet-landscape-only {
                     display: none;
@@ -573,13 +616,13 @@ div.realtyBSN {
                                 color: $decoration;
                                 margin-bottom: 0;
                                 position: relative;
-                                padding: 10px 10px 20px;
-                                margin-top: 20px;
+                                padding: 1rem 1rem 2rem;
+                                margin-top: 2rem;
                                 text-decoration: none;
                                 transition: 0.5s;
                                 // border-bottom: 2px solid #001a7d;
 
-                                padding: 5px 3px 15px;
+                                padding: 0.5rem 0.3rem 1.5rem;
                             }
 
                             // & a::after {
@@ -632,13 +675,13 @@ div.realtyBSN {
                                 color: $decoration;
                                 margin-bottom: 0;
                                 position: relative;
-                                padding: 10px 10px 20px;
-                                margin-top: 20px;
+                                padding: 1rem 1rem 2rem;
+                                margin-top: 2rem;
                                 text-decoration: none;
                                 transition: 0.5s;
                                 // border-bottom: 2px solid #001a7d;
 
-                                padding: 5px 3px 15px;
+                                padding: 0.5rem 0.3rem 1.5rem;
                             }
 
                             // & a::after {
@@ -691,13 +734,13 @@ div.realtyBSN {
                                 color: $decoration;
                                 margin-bottom: 0;
                                 position: relative;
-                                padding: 10px 10px 20px;
-                                margin-top: 20px;
+                                padding: 1rem 1rem 2rem;
+                                margin-top: 202rem;
                                 text-decoration: none;
                                 transition: 0.5s;
                                 // border-bottom: 2px solid #001a7d;
 
-                                padding: 5px 3px 15px;
+                                padding: 0.5rem 0.3rem 1.5rem;
                             }
 
                             // & a::after {
@@ -750,13 +793,13 @@ div.realtyBSN {
                                 color: $decoration;
                                 margin-bottom: 0;
                                 position: relative;
-                                padding: 10px 10px 20px;
-                                margin-top: 20px;
+                                padding: 1rem 1rem 2rem;
+                                margin-top: 2rem;
                                 text-decoration: none;
                                 transition: 0.5s;
                                 // border-bottom: 2px solid #001a7d;
 
-                                padding: 5px 3px 15px;
+                                padding: 0.5rem 0.3rem 1.5rem;
                             }
 
                             // & a::after {
@@ -812,14 +855,14 @@ div.realtyBSN {
                                 color: $decoration;
                                 margin-bottom: 0;
                                 position: relative;
-                                padding: 10px 10px 20px;
-                                margin-top: 20px;
+                                padding: 1rem 1rem 2rem;
+                                margin-top: 2rem;
                                 text-decoration: none;
                                 transition: 0.5s;
                                 // border-bottom: 2px solid #001a7d;
 
                                 @media (min-width: 1200px) and (max-width: 1365px) {
-                                    padding: 5px 3px 15px;
+                                    padding: 0.5rem 0.3rem 1.5rem;
                                 }
                             }
 
@@ -863,24 +906,24 @@ div.realtyBSN {
                 }
 
                 & img {
-                    width: 236px;
-                    height: 61px;
+                    width: 18rem;
+                    height: 6rem;
 
                     @media (min-width: 1366px) {
                         height: unset;
                     }
                     @include for-big-desktop-only {
-                        width: 280px;
+                        width: 20rem;
                     }
                     @include for-medium-desktop-only {
-                        width: 250px;
+                        width: 19rem;
                     }
                     @include for-small-desktop-only {
-                        width: 200px;
+                        width: 17.5rem;
                     }
 
                     @include for-xsmall-desktop-only {
-                        width: 190px;
+                        width: 15rem;
                         height: unset;
                     }
                 }
@@ -988,7 +1031,7 @@ div.realtyBSN {
                     // }
 
                     // @media (min-width: 1200px) {
-                    //     padding-top: calc(120px + (150 - 120) * (100vw - 1200px) / (1365 - 1200));
+                    //     padding-top: calc(12rem + (150 - 120) * (100vw - 1200px) / (1365 - 1200));
                     // }
 
                     @media (min-width: 940px) {
@@ -1123,27 +1166,27 @@ div.realtyBSN {
                 flex-direction: column;
                 overflow: hidden;
                 margin-top: 8rem;
-                filter: 0 0 20px 3px black !important;
+                filter: 0 0 2rem 3px black !important;
 
                 @include for-tablet-landscape-only {
                     margin-top: 12rem;
                     // border-radius: 280px 0 35% 35%;
-                    border-radius: 180px 0 60% 35%;
-                    border-left: 17px solid #06d;
+                    border-radius: 18rem 0 60% 35%;
+                    border-left: 1.7rem solid #06d;
                 }
                 @include for-xsmall-desktop-up {
                     margin-top: 12rem;
                     // border-radius: 280px 0 35% 35%;
-                    border-radius: 180px 0 60% 35%;
-                    border-left: 17px solid #06d;
+                    border-radius: 18rem 0 60% 35%;
+                    border-left: 1.7rem solid #06d;
                 }
                 @include for-big-desktop-up {
-                    border-radius: 180px 0 60% 35%;
-                    border-bottom: 10px solid $blue;
+                    border-radius: 18rem 0 60% 35%;
+                    border-bottom: 1rem solid $blue;
                 }
                 @include for-big-desktop-only {
-                    border-radius: 180px 0 60% 35%;
-                    border-bottom: 10px solid $blue;
+                    border-radius: 18rem 0 60% 35%;
+                    border-bottom: 1rem solid $blue;
                 }
 
                 @media (min-width: 1600px) {
@@ -1164,9 +1207,9 @@ div.realtyBSN {
                         margin: 0;
 
                         & img {
-                            width: 1300px;
-                            height: 731px;
-                            transform: translateX(-180px) translateY(5px);
+                            width: 130rem;
+                            height: 73.1rem;
+                            transform: translateX(-18rem) translateY(5px);
                             @media (min-width: 1600px) {
                                 transform: unset;
                             }
@@ -1218,26 +1261,26 @@ div.realtyBSN {
                         align-self: flex-end;
                         position: absolute;
                         right: 0;
-                        top: 78px;
-                        width: 100px;
-                        height: 149px;
+                        top: 7.8rem;
+                        width: 10rem;
+                        height: 14.9rem;
 
                         &#realty__image-svgOne-two {
                             left: 0;
                             right: unset;
 
                             @include for-tablet-landscape-only {
-                                width: 100px;
-                                height: 149px;
+                                width: 10rem;
+                                height: 14.9rem;
                             }
                         }
 
                         &.svgabout-2 {
                             align-self: flex-start;
                             position: absolute;
-                            left: 13px;
+                            left: 1.3rem;
                             right: unset;
-                            top: 78px;
+                            top: 7.8rem;
                         }
                     }
 
@@ -1250,7 +1293,7 @@ div.realtyBSN {
                         /* width: 135px; */
                         align-self: flex-end;
                         position: absolute;
-                        left: 400px;
+                        left: 40rem;
                         bottom: 0;
 
                         @include for-tablet-landscape-only {
@@ -1263,7 +1306,7 @@ div.realtyBSN {
                         @include for-small-tablet-portrait-only {
                             margin: 0 auto 3rem auto;
                             width: 90%;
-                            height: 400px;
+                            height: 40rem;
                         }
                     }
                 }
@@ -1437,8 +1480,8 @@ main.investment_service {
                 width: 60%;
 
                 & div.investment_service-image {
-                    max-width: 600px;
-                    max-height: 308px;
+                    max-width: 60rem;
+                    max-height: 30.8rem;
                     background-image: url("../images/reaalty/desktop/invest.jpg");
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -1473,7 +1516,7 @@ main.investment_service {
                         font-weight: normal;
                         text-align: left;
                         letter-spacing: 0.45px;
-                        font-size: 20px;
+                        font-size: 2rem;
                         -webkit-margin-before: 0;
                         margin-block-start: 0;
                         font-size: 2.5rem;
@@ -1501,7 +1544,7 @@ main.investment_service {
     .carousel-cell {
         width: auto;
         height: auto;
-        margin-right: 10px;
+        margin-right: 1rem;
         // background: #8C8;
         border-radius: 5px;
         display: flex;
@@ -1513,9 +1556,9 @@ main.investment_service {
         display: none;
     }
 
-    .flickity-viewport {
-        height: 37.5rem !important;
-    }
+    // .flickity-viewport {
+    //     height: 37.5rem !important;
+    // }
 }
 
 @include for-tablet-portrait-down {
@@ -1549,7 +1592,7 @@ main.investment_service {
 }
 
 .realEstate_rightContainer {
-    filter: 0 0 20px 3px black !important;
+    filter: 0 0 2rem 3px black !important;
 }
 
 @media (min-width: 900px) and (max-width: 1299px) {

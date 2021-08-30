@@ -1,6 +1,20 @@
 div.auditNrisk {
     background-color: #f8f9fa;
-    border-top: 0.1px solid transparent;
+    // border-top: 0.1px solid transparent;
+
+    & #risk_header-video {
+        background-image: url("../images/reaalty/head.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        width: 100%;
+        height: 100%;
+    }
+    @media (max-width: 899px) {
+        .carousel-cell {
+            margin: 0 1.5rem !important;
+        }
+    }
 }
 @media (min-width: 900px) {
     .switchside {
@@ -9,11 +23,11 @@ div.auditNrisk {
 }
 div.riskHeader {
     display: grid;
-    grid-template-columns: 48% auto;
+    grid-template-columns: 48% 52%;
     column-gap: 2%;
     width: 100%;
     height: 90vh;
-    margin-top: 7.2rem;
+    // margin-top: 7.2rem;
     background-color: $white;
     position: relative;
     padding-right: 0;
@@ -57,6 +71,7 @@ div.riskHeader {
         margin-top: -5rem;
         // margin-top: 8%;
         transform: translate(0%, 50%);
+
         & .riskHeader_title {
             width: 85%;
             margin-bottom: 2.5rem;
@@ -94,9 +109,25 @@ div.riskHeader {
         }
     }
     & section.riskHeader_image {
+        width: 100%;
         display: block;
+        & .carousel.flickity-enabled.is-draggable {
+            width: 100%;
+        }
         & .flickity-viewport {
             height: 65.5rem !important;
+            width: 100%;
+
+            & .flickity-slider {
+                width: 100%;
+
+                & .carousel-cell.is-selected {
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
         }
         & .flickity-button {
             display: none !important;
@@ -107,7 +138,7 @@ div.riskHeader {
         & .riskHeader_imageRight-banner {
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            width: 66rem;
+            width: 70rem;
             height: 65.5rem;
         }
         & #riskHeader_imgOne_Fs {
@@ -150,7 +181,7 @@ header.riskHeader__smallDesktop {
     }
     border-bottom-right-radius: 50% 25% !important;
     border-bottom-left-radius: 50% 25%;
-    background-image: url("../images/risk/smalldesk.jpg");
+    background-image: linear-gradient(0deg, #4caf50, rgb(63 81 181 / 72%)), url("../images/risk/risk.png");
     background-size: 100% 140%;
     background-repeat: no-repeat;
     margin-bottom: 20rem;
@@ -412,7 +443,7 @@ header.riskHeader__smallDesktop {
     }
 
     .carousel-cell img {
-        margin-right: 40px !important;
+        margin-right: 4rem !important;
     }
 }
 
@@ -877,7 +908,7 @@ header.riskHeader__smallDesktop {
     }
 
     .carousel-cell img {
-        margin-right: 40px !important;
+        margin-right: 4rem !important;
     }
 }
 
@@ -999,22 +1030,23 @@ header.riskHeader__smallDesktop {
         }
 
         & ._item_text {
-            height: 60rem;
+            height: auto;
 
             &._item_text {
                 max-width: 100%;
-                height: 45rem;
-                overflow-y: scroll;
-                border: 1px solid blue;
+                // height: 45rem;
+                // overflow-y: scroll;
+                // border: 1px solid blue;
             }
         }
 
-        & .flickity-viewport {
-            height: calc(240px + (350 - 240) * (100vw - 375px) / (599 - 375)) !important;
-        }
+        // & .flickity-viewport {
+        //     transform: translate(0rem, 0.5rem) !important;
+        // }
 
         & .flickity-slider {
-            height: calc(240px + (350 - 240) * (100vw - 375px) / (599 - 375));
+            height: 100%;
+            top: -1.5rem;
         }
 
         & .__innerItem-container-img {
@@ -1256,3 +1288,85 @@ header.riskHeader__smallDesktop {
 //         height: 400px;
 //     }
 // }
+
+@media (max-width: 500px) {
+    .audit_img-Style,
+    .risk_img-Style {
+        transform: translate(0rem, 0rem) !important;
+    }
+    .audit_img-Style,
+    .risk_img-Style {
+        background-size: 100% 70% !important;
+        height: 25rem !important;
+    }
+}
+
+// 1500
+@media (min-width: 1500px) and (max-width: 1799px) {
+    section#riskHeader_content {
+        transform: translate(0%, 65%) !important;
+    }
+    .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        line-height: 1.7;
+    }
+    .risk-content .__innerItem-container-text ._inner-text-content {
+        padding: 0% 10% 0%;
+    }
+    .audit_img-Style,
+    .risk_img-Style {
+        width: 100% !important;
+    }
+}
+@include for-big-desktop-up {
+    section#riskHeader_content {
+        transform: translate(0%, 85%) !important;
+    }
+    .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        line-height: 1.7;
+    }
+    .risk-content .__innerItem-container-text ._inner-text-content {
+        padding: 0% 10% 0%;
+    }
+    div.auditNrisk #risk_header-video {
+        background-size: 100% 100%;
+    }
+}
+@media (min-width: 1500px) and (max-width: 1799px) {
+    .risk-content .carousel-cell {
+        margin-right: 3.2rem;
+    }
+    div.realtyBSN nav .realEstate_logoWrap {
+        padding-top: 1.5rem;
+    }
+}
+@media (min-width: 1800px) and (max-width: 1999px) {
+    .risk-content .carousel-cell {
+        margin-right: 4.2rem;
+    }
+}
+.risk-content .carousel-cell:not(.is-selected) img {
+    border-radius: 0;
+}
+@media (min-width: 1700px) {
+    .scrollWrap {
+        right: 10rem !important;
+    }
+}
+@media (min-width: 2000px) {
+    div#risk-content-up {
+        max-width: 180rem;
+        margin: 15rem auto 0 auto;
+    }
+    div.realtyBSN nav {
+        justify-content: space-evenly;
+    }
+    div.riskHeader section.riskHeader_content {
+        max-width: 100rem;
+    }
+    div.riskHeader div#risk_cycle-img {
+        top: 40%;
+    }
+    .risk-content .carousel-cell {
+        margin-right: 5.2rem;
+    }
+}
