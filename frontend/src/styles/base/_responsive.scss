@@ -2960,6 +2960,12 @@ div.realty_services-option {
 }
 
 @include for-tablet-landscape-only {
+    .loading {
+        & .carousel-cell {
+            width: min-content !important;
+            margin: 0 5rem !important;
+        }
+    }
     div.realEstate-invest__item {
         border-radius: 15px;
     }
@@ -2987,10 +2993,6 @@ div.realty_services-option {
         padding: 2rem;
         // box-shadow: inset 0 0 5px #333!important;
         background-color: #313962 !important;
-    }
-    .carousel-cell {
-        width: min-content !important;
-        margin: 0 5rem !important;
     }
 
     .container_height {

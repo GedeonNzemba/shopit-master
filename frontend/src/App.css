@@ -1019,6 +1019,9 @@ background-color: #ffffff;
     justify-content: space-evenly;
     margin: unset!important;
 }
+.auditNrisk .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary span {
+  margin-left: unset!important;
+}
 
 div.img_list.img-container img {
     height: 19rem;
@@ -1772,4 +1775,15 @@ h5 span.yourcarttitle {
    section#riskHeader_content {
      transform: translate(0%, 112%) !important;
    }
+}
+@media (max-width: 500px) {
+  #risk-content-up .__innerItem-container-text {
+    height: unset!important;
+  }
+  #risk-content-up .__innerItem-container-text {
+    height: unset!important;
+  }
+  img#logo {
+    width: 21rem;
+  }
 }

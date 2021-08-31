@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import Styled from 'styled-components'
 import Slider from './Slider'
 
 import audit_1 from '../../../images/risk/audit_1.jpg'
@@ -20,10 +19,6 @@ import audit_2a from '../../../images/risk/third_2.png'
 import audit_3a from '../../../images/risk/third_3.png'
 
 const Main = () => {
-    const Img = Styled.img`
-        width: 1000px;
-        height: 36rem;
-    `
 
     const loadWowScript = (url) => {
         var script = document.createElement('script');
@@ -134,7 +129,7 @@ const Main = () => {
                     </div>
                 </div>
 
-                <div className="__innerItem-container-text">
+                <div className="__innerItem-container-text" id="__innerItem-container-text">
                     <div className="_inner-text-content">
                         <div className="_item_text-header">
                             <h1>audit</h1>

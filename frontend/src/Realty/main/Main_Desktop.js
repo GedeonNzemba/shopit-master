@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ButtonSeven from '../../components/buttons/buttonSeven'
 import ButtonSix from '../../components/buttons/buttonSix'
 import imgA from "../../images/reaalty/Group8.png"

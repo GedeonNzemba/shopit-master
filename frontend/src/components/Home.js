@@ -11,10 +11,10 @@ import Loader from './layout/Loader'
 
 import Category from './layout/Category'
 import Dash from './layout/Dash'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import TopSell from './components/product/TopSell.json'
 import Topsell from './product/Topsell'
-import { Accordion, Button, Card } from 'react-bootstrap'
+import { Accordion, Card } from 'react-bootstrap'
 import chick from '../images/delivery.png'
 import NutritionHero from './layout/Nutrition_hero'
 import { HiViewGrid } from 'react-icons/hi'
@@ -22,7 +22,6 @@ import { FaListUl } from "react-icons/fa";
 // import FaThList from 'react-icons/fa'
 
 import Select from './layout/Select'
-import CategoriesData from './layout/categories.json'
 
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -30,31 +29,14 @@ import { useAlert } from 'react-alert';
 import { getProducts } from '../actions/productActions'
 import Styled from 'styled-components'
 import '../styles/Locataire.css'
-import { Helmet } from 'react-helmet';
 
-import { StrollableContainer, Stroller, Strollable, StrollCaptor } from "react-stroller";
-import Catego from './layout/Catego';
-import List from './layout/List';
-import Grid from './layout/Grid';
+import { StrollableContainer } from "react-stroller";
 import ProductList from './product/ProductList';
 // import { Alert } from '@material-ui/lab';
-import Shop from './Shop';
 import { BiArrowBack } from 'react-icons/bi';
 
 
 
-// style for product
-const ProductLayout = Styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 3rem;
-    max-width: 130rem;
-    margin: 0 auto;
-    padding: 0 1.6rem;
-`
-const Section = Styled.section`
-    padding: 10rem 0 5rem 0;
-`
 
 
 
@@ -114,16 +96,6 @@ const Home = ({ match }) => {
             "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
             "atl": "nnFiNyv"
         }
-    ]
-
-    const homecategories = [
-        'Poultry',
-        'Fresh Eggs',
-        'Pigsty',
-        'Goats, Sheep & mammals',
-        'Park Animals',
-        'Purebred Seed - ARTIFICIAL INSEMINATION',
-        'Food & Livestock Products'
     ]
 
     const productSize = [

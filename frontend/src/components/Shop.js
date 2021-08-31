@@ -22,20 +22,14 @@ import { FaListUl } from "react-icons/fa";
 // import FaThList from 'react-icons/fa'
 
 import Select from './layout/Select'
-import CategoriesData from './layout/categories.json'
 
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
 import { getProducts } from '../actions/productActions'
-import Styled from 'styled-components'
 import '../styles/Locataire.css'
-import { Helmet } from 'react-helmet';
 
-import { StrollableContainer, Stroller, Strollable, StrollCaptor } from "react-stroller";
-import Catego from './layout/Catego';
-import List from './layout/List';
-import Grid from './layout/Grid';
+import { StrollableContainer } from "react-stroller";
 import ProductList from './product/ProductList';
 // import { Alert } from '@material-ui/lab';
 import { BiArrowBack } from "react-icons/bi";
@@ -53,7 +47,6 @@ const Shop = ({ match }) => {
     const [color, setColor] = useState('')
     const [category, setCategory] = useState('')
     const [rating, setRating] = useState(0)
-    const [shopnow, setShopnow] = useState(false)
 
     const categories = [
         {
@@ -124,7 +117,7 @@ const Shop = ({ match }) => {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { loading, products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.products)
+    const { products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.products)
 
     const keyword = match.params.keyword
 

@@ -58,7 +58,7 @@ const ForgotPassword = () => {
                 {'Copyright © '}
                 <Link color="inherit" href="https://locataire.net/">
                     Locataire LLC
-      </Link>{' '}
+                </Link>{' '}
                 {new Date().getFullYear()}
                 {'.'}
             </Typography>
@@ -129,13 +129,13 @@ const ForgotPassword = () => {
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Reset Password
-                            </Typography>
+                    </Typography>
                     <form className={classes.form} Validate onSubmit={submitHandler}>
                         <TextField
                             variant="outlined"
                             margin="normal"
                             required
-                            fullWidth
+                            fullwidth
                             id="email"
                             label="Email Address"
                             name="email"
@@ -153,7 +153,7 @@ const ForgotPassword = () => {
 
                         <Button
                             type="submit"
-                            fullWidth
+                            fullwidth
                             variant="contained"
                             color="primary"
                             className={classes.submit}
@@ -161,7 +161,7 @@ const ForgotPassword = () => {
                             disabled={loading ? true : false}
                         >
                             Send Email
-                                </Button>
+                        </Button>
 
                     </form>
                 </div>

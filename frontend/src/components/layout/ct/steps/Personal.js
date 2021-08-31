@@ -17,10 +17,10 @@ const ContactInformation = props => {
             </Box>
 
             <Box paddingBottom={2}>
-                <Field name="email" label="Email" component={TextField} fullWidth id="email" />
+                <Field name="email" label="Email" component={TextField} fullwidth id="email" />
             </Box>
             <Box paddingBottom={2}>
-                <Field name="yourRole" label="Your Role" component={TextField} fullWidth id="yourRole" />
+                <Field name="yourRole" label="Your Role" component={TextField} fullwidth id="yourRole" />
             </Box>
         </section>
     );

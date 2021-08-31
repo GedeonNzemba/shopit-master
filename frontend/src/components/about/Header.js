@@ -2,14 +2,12 @@ import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
-import header_img from '../../images/all.png'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import image_1 from "../../images/all.png";
 import image_2 from "../../images/about_1.png";
 import image_3 from "../../images/about_2.png";
 import image_4 from "../../images/about_3.png";
-import image_5 from "../../images/about_4.png";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,7 +52,7 @@ const Header = () => {
                                 <p id="Fabout_inner-text">
                                     The farm is located in Pointe-Noire, a port city
                                     and oil industry hub in the Republic of the Congo
-                            </p>
+                                </p>
                             </div>
 
                             <div className={classes.root + ' Fabout_btn'}>

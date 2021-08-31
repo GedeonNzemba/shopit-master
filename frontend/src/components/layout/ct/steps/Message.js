@@ -32,7 +32,7 @@ const Message = props => {
                     value={subject}
                     onChange={handleChange}
                     label='Subject'
-                    fullWidth
+                    fulwWidth
                 >
 
                     <MenuItem value='Locataire Real-Estate' className="select__item-ct">Locataire Real-Estate</MenuItem>
@@ -57,7 +57,7 @@ const Message = props => {
                     rows={4}
                     defaultValue="your message"
                     variant="outlined"
-                    fullWidth
+                    fulwWidth
 
                 />
             </Box>

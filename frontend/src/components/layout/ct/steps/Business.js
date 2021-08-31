@@ -16,7 +16,7 @@ const Business = props => {
                         name="address"
                         label="Address"
                         component={TextField}
-                        fullWidth
+                        fullwidth
                         id="address"
                     />
                 </Box>
@@ -41,7 +41,7 @@ const Business = props => {
                         name="companyWebsite"
                         label="Company Website"
                         component={TextField}
-                        fullWidth
+                        fullwidth
                         id="companyWebsite"
                     />
                 </Box>

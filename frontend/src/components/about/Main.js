@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react'
-import CardDeck from 'react-bootstrap/CardDeck'
-import Card from 'react-bootstrap/Card';
-import Banner from './Banner_svg'
-import {Splide, SplideSlide} from '@splidejs/react-splide';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import './hover/hover.css'
 import IntroText from '../sectionIdentifier/IntroText';
 import Title from '../sectionIdentifier/Title';
@@ -29,7 +26,7 @@ const Main = () => {
                     <div className="content_text">
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quos suscipit numquam asperiores aspernatur debitis dolores! Facilis tempora velit nesciunt repudiandae illum animi non fugiat laborum tenetur, culpa dolorem qui nisi eaque inventore esse. Eveniet iure similique, impedit aperiam numquam optio ipsa aliquid atque reiciendis libero, aut minus maiores voluptatibus expedita nostrum minima nisi, commodi odio illum aliquam est cupiditate
-                       </p>
+                        </p>
                     </div>
                 </div>
                 <div className="content_right">
@@ -120,7 +117,7 @@ const Main = () => {
                     <div className="product_listing__text">
                         <p className="about_product_text">
                             The farm is located in Pointe-Noire, a port city and oil industry hub in the Republic of the Congo.
-                        The farm is located in Pointe-Noire, a port city and oil industry hub in the <span id="color_highlight">Republic of the Congo</span>
+                            The farm is located in Pointe-Noire, a port city and oil industry hub in the <span id="color_highlight">Republic of the Congo</span>
                         </p>
                     </div>
                     <div className="product_listing__list-wrapper">

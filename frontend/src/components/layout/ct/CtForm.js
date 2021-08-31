@@ -172,7 +172,7 @@ const CtForm = (props) => {
                                 return <Component key={index} />;
                             })}
                         </SwipeableViews>
-                        <Box paddingTop={2} display='flex' fullWidth>
+                        <Box paddingTop={2} display='flex' fullwidth>
                             <Button
                                 disabled={activeStep === 0 || isSubmitting}
 

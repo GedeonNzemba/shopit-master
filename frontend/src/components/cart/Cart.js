@@ -15,7 +15,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Inpute from '@material-ui/core/Input';
 import { ButtonGroup, TextField } from '@material-ui/core'
 import Button from '@material-ui/core/Button';
-import { createMuiTheme } from '@material-ui/core/styles';
+// import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import Icon from '@material-ui/core/Icon';
@@ -27,7 +28,7 @@ import Shop from '../Shop'
 
 
 
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         primary: {
             // Purple and green play nicely together.#4CAF50
@@ -376,7 +377,7 @@ display: inline-block;
 
                                                                             <Small id="passwordHelpBlock" className="form-text text-muted text-center">
                                                                                 (Note, 0 piece)
-                                                                    </Small>
+                                                                            </Small>
                                                                         </div>
                                                                     </Dflex>
                                                                     <Dflex className="d-flex justify-content-between align-items-center">
@@ -391,7 +392,7 @@ display: inline-block;
                                                                                 // startIcon={<DeleteIcon />}
                                                                                 >
                                                                                     Shop Now
-                                                                            </Button>
+                                                                                </Button>
                                                                             </Link>
                                                                             <Button
                                                                                 variant="contained"
@@ -470,7 +471,7 @@ display: inline-block;
 
                                                                             <Small id="passwordHelpBlock" className="form-text text-muted text-center">
                                                                                 (Note, 0 piece)
-                                                                    </Small>
+                                                                            </Small>
                                                                         </div>
                                                                     </Dflex>
                                                                     <Dflex className="d-flex justify-content-between align-items-center">
@@ -485,7 +486,7 @@ display: inline-block;
                                                                                 // startIcon={<DeleteIcon />}
                                                                                 >
                                                                                     Shop Now
-                                                                            </Button>
+                                                                                </Button>
                                                                             </Link>
                                                                             <Button
                                                                                 variant="contained"
@@ -518,11 +519,11 @@ display: inline-block;
                                                             <li
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                                 Subtotal
-                                                                                <span>      <Skeleton variant="text" width="80px" /></span>
+                                                                <span>      <Skeleton variant="text" width="80px" /></span>
                                                             </li>
                                                             <li className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
                                                                 Estimated Delivery Tax
-                                                                                <span><Skeleton variant="text" width="80px" /></span>
+                                                                <span><Skeleton variant="text" width="80px" /></span>
                                                             </li>
                                                             <li
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
@@ -660,7 +661,7 @@ display: inline-block;
 
                                                                                     <Small id="passwordHelpBlock" className="form-text text-muted text-center">
                                                                                         (Note, {item.quantity} piece)
-                                                                    </Small>
+                                                                                    </Small>
                                                                                 </div>
                                                                             </Dflex>
                                                                             <Dflex className="d-flex justify-content-between align-items-center">
@@ -673,7 +674,7 @@ display: inline-block;
                                                                                         startIcon={<DeleteIcon />}
                                                                                     >
                                                                                         Remove Item
-                                                                            </Button>
+                                                                                    </Button>
                                                                                     <Button
                                                                                         variant="contained"
                                                                                         color="primary"
@@ -682,7 +683,7 @@ display: inline-block;
                                                                                         style={{ display: 'none' }}
                                                                                     >
                                                                                         Move to wishlist
-                                                                            </Button>
+                                                                                    </Button>
                                                                                 </div>
                                                                                 <p className="mb-0"><span style={{ fontWeight: '500' }}><strong>${item.price}</strong></span></p>
                                                                             </Dflex>
@@ -695,8 +696,8 @@ display: inline-block;
 
 
                                                         <p className="text-primary mb-0"><i className="fas fa-info-circle mr-1"></i> Do not delay the
-                                                        purchase, adding
-                                                        items to your cart does not mean booking them.</p>
+                                                            purchase, adding
+                                                            items to your cart does not mean booking them.</p>
 
                                                     </div>
                                                 </Cart>
@@ -727,11 +728,11 @@ display: inline-block;
                                                             <li
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                                 Subtotal
-                                                                                <span>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span>
+                                                                <span>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span>
                                                             </li>
                                                             <li className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
                                                                 Estimated Delivery Tax
-                                                                                <span>Free</span>
+                                                                <span>Free</span>
                                                             </li>
                                                             <li
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">

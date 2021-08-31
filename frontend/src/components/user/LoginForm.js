@@ -27,7 +27,7 @@ function Copyright() {
             {'Copyright © '}
             <Link color="inherit" href="https://locaataire.net/">
                 Locatair LLC
-      </Link>{' '}
+            </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
@@ -146,7 +146,7 @@ export default function Register({ history }) {
                                 type="name"
                                 variant="outlined"
                                 required
-                                fullWidth
+                                fullwidth
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
@@ -158,7 +158,7 @@ export default function Register({ history }) {
                             <TextField
                                 variant="outlined"
                                 required
-                                fullWidth
+                                fullwidth
                                 id="lastName"
                                 label="Last Name"
                                 type="name"
@@ -175,7 +175,7 @@ export default function Register({ history }) {
                             <TextField
                                 variant="outlined"
                                 required
-                                fullWidth
+                                fullwidth
                                 id="email"
                                 label="Email Address"
                                 name="email"
@@ -194,7 +194,7 @@ export default function Register({ history }) {
                             <TextField
                                 variant="outlined"
                                 required
-                                fullWidth
+                                fullwidth
                                 name="password"
                                 label="Password"
                                 type="password"
@@ -259,19 +259,19 @@ export default function Register({ history }) {
                     <Button
                         id="register_button"
                         type="submit"
-                        fullWidth
+                        fullwidth
                         variant="contained"
                         color="primary"
                         className={classes.submit}
                         disabled={loading ? true : false}
                     >
                         Sign Up
-          </Button>
+                    </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="#" variant="body2">
                                 Already have an account? Sign in
-              </Link>
+                            </Link>
                         </Grid>
                     </Grid>
                 </form>
