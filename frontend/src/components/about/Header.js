@@ -5,8 +5,7 @@ import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import image_1 from "../../images/all.png";
-import image_2 from "../../images/about_1.png";
-import image_3 from "../../images/about_2.png";
+import image_3 from "../../images/abb.png";
 import image_4 from "../../images/about_3.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +21,6 @@ const Header = () => {
 
     const about_images = [
         image_1,
-        image_2,
         image_3,
         image_4
     ]

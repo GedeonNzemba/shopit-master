@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import Header from "../components/layout/Header"
 import './layout/mCustomscrollbar.css'
 import Paginatione from 'react-js-pagination'
 import Slider from 'rc-slider'
@@ -153,7 +152,6 @@ const Shop = ({ match }) => {
     return (
         <Fragment>
             <MetaData title={'Shop'} />
-            <Header />
             <div className="category-container farmStyle">
                 <Block>
                     <StrollableContainer draggable>
@@ -309,9 +307,11 @@ const Shop = ({ match }) => {
                         {/* filter item */}
                         <div className="filter__item">
                             <div className="row">
-                                <div className="back_home">
-                                    <BiArrowBack />
-                                </div>
+                                <Link to="/">
+                                    <div className="back_home">
+                                        <BiArrowBack />
+                                    </div>
+                                </Link>
                                 <div className="col-lg-4 col-md-5">
                                     <div className="filter__sort">
                                         <Select />

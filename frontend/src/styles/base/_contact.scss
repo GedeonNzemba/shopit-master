@@ -433,3 +433,21 @@ form#ct_form {
         }
     }
 }
+section#personal,
+section#business,
+section#message_part {
+    padding: 0 2.4rem 2.4rem 2.4rem;
+}
+
+form#ct_form {
+    position: relative;
+    & .MuiBox-root .MuiBox-root-8 {
+        position: absolute;
+        @include for-tablet-landscape-only {
+            bottom: -3rem;
+        }
+        @include for-xsmall-desktop-up {
+            bottom: 0;
+        }
+    }
+}

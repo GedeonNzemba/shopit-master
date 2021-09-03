@@ -295,6 +295,91 @@ form:focus ~ label {
   }
 }
 
+#farmSHOP .hero_news {
+  background-image: url("../images/banner.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+#farmSHOP #poultry_banner {
+  background-image: url("../images/category/poultry_banner.png");
+  background-repeat: no-repeat;
+  background-size: 100% 42%;
+  width: 100%;
+  height: 28rem;
+  background-attachment: fixed;
+}
+#farmSHOP .poultry {
+  display: grid;
+  grid-template-columns: 30rem auto;
+  -moz-column-gap: 1.6rem;
+       column-gap: 1.6rem;
+  margin: 1.6rem auto 2rem auto;
+  max-width: 95%;
+}
+#farmSHOP .poultry .category_list .mgt {
+  margin-bottom: 4rem;
+}
+#farmSHOP .poultry .category_list .filterbycategory #category-list-wrapper {
+  display: block;
+  overflow-y: scroll;
+  max-height: 25rem;
+  padding: 0.8rem 0 0.8rem 0;
+}
+#farmSHOP .poultry .category_list .filterbycategory #category-list-wrapper .category-item {
+  display: flex;
+  justify-content: flex-start;
+  line-height: 2;
+}
+#farmSHOP .poultry .category_list .filterbycategory #category-list-wrapper .category-item:hover {
+  cursor: pointer;
+  transition: 0.5s all;
+  background-color: #28a745;
+}
+#farmSHOP .poultry .category_list .filterbycategory #category-list-wrapper .category-item:hover .category-name p {
+  color: #FFFFFF;
+}
+#farmSHOP .poultry .category_list .filterbycategory #category-list-wrapper .category-item .category-name p {
+  color: #484848;
+  text-transform: lowercase;
+  font-size: 1.6rem;
+  margin-bottom: 0 !important;
+}
+#farmSHOP .poultry .category_list .filterbycategory #category-list-wrapper .category-item img.category-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 1rem;
+  margin-left: 0.8rem;
+  place-self: center;
+}
+#farmSHOP .poultry .category_list .filterbysize #category-size-wrapper {
+  display: block;
+  max-height: 25rem;
+  padding: 0.8rem 0 0.8rem 0;
+}
+#farmSHOP .poultry .category_list .filterbysize #category-size-wrapper .size-item {
+  display: block;
+  line-height: 2;
+}
+#farmSHOP .poultry .category_list .filterbysize #category-size-wrapper .size-item:hover {
+  cursor: pointer;
+  transition: 0.5s all;
+  background-color: #28a745;
+}
+#farmSHOP .poultry .category_list .filterbysize #category-size-wrapper .size-item:hover p {
+  color: #FFFFFF;
+}
+#farmSHOP .poultry .category_list .filterbysize #category-size-wrapper .size-item p {
+  margin-left: 0.8rem;
+}
+#farmSHOP .poultry .category_list .filterbyrating #category-rating-wrapper {
+  display: block;
+  max-height: 25rem;
+  padding: 0.8rem 0 0.8rem 0;
+}
+#farmSHOP .poultry .category_list .filterbyrating #category-rating-wrapper .rating-outer {
+  font-size: 2rem;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -2005,6 +2090,7 @@ header.riskHeader__smallDesktop .__image #riskHeader_illustr {
   display: block;
   margin: 0 1.4rem;
   height: 5rem;
+  border-left: 0.3rem inset #314862;
 }
 
 @media (max-width: 239px) {
@@ -4834,6 +4920,29 @@ form#ct_form {
     margin-top: -4rem;
   }
 }
+section#personal,
+section#business,
+section#message_part {
+  padding: 0 2.4rem 2.4rem 2.4rem;
+}
+
+form#ct_form {
+  position: relative;
+}
+form#ct_form .MuiBox-root .MuiBox-root-8 {
+  position: absolute;
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  form#ct_form .MuiBox-root .MuiBox-root-8 {
+    bottom: -3rem;
+  }
+}
+@media (min-width: 1200px) {
+  form#ct_form .MuiBox-root .MuiBox-root-8 {
+    bottom: 0;
+  }
+}
+
 .footerWrapper {
   display: flex;
   flex-direction: row;

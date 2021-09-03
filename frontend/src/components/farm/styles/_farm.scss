@@ -1,0 +1,104 @@
+@import "../../../styles/abstracts/variables";
+#farmSHOP {
+    & .hero_news {
+        background-image: url("../images/banner.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    // CATEGORY
+    & #poultry_banner {
+        background-image: url("../images/category/poultry_banner.png");
+        background-repeat: no-repeat;
+        background-size: 100% 42%;
+        width: 100%;
+        height: 28rem;
+        background-attachment: fixed;
+    }
+
+    & .poultry {
+        display: grid;
+        grid-template-columns: 30rem auto;
+        column-gap: 1.6rem;
+        margin: 1.6rem auto 2rem auto;
+        max-width: 95%;
+
+        & .category_list {
+            & .mgt {
+                margin-bottom: 4rem;
+            }
+
+            & .fiterbyprice {
+            }
+            & .filterbycategory {
+                & #category-list-wrapper {
+                    display: block;
+                    overflow-y: scroll;
+                    max-height: 25rem;
+                    padding: 0.8rem 0 0.8rem 0;
+                    & .category-item {
+                        display: flex;
+                        justify-content: flex-start;
+                        line-height: 2;
+                        &:hover {
+                            cursor: pointer;
+                            transition: 0.5s all;
+                            background-color: #28a745;
+                            & .category-name p {
+                                color: $white;
+                            }
+                        }
+                        & .category-name {
+                            & p {
+                                color: $dark;
+                                text-transform: lowercase;
+                                font-size: 1.6rem;
+                                margin-bottom: 0 !important;
+                            }
+                        }
+                        & img.category-icon {
+                            width: 1.6rem;
+                            height: 1.6rem;
+                            margin-right: 1rem;
+                            margin-left: 0.8rem;
+                            place-self: center;
+                        }
+                    }
+                }
+            }
+            & .filterbysize {
+                & #category-size-wrapper {
+                    display: block;
+                    max-height: 25rem;
+                    padding: 0.8rem 0 0.8rem 0;
+                    & .size-item {
+                        display: block;
+                        line-height: 2;
+                        &:hover {
+                            cursor: pointer;
+                            transition: 0.5s all;
+                            background-color: #28a745;
+                            & p {
+                                color: $white;
+                            }
+                        }
+                        & p {
+                            margin-left: 0.8rem;
+                        }
+                    }
+                }
+            }
+            & .filterbyrating {
+                & #category-rating-wrapper {
+                    display: block;
+                    max-height: 25rem;
+                    padding: 0.8rem 0 0.8rem 0;
+
+                    & .rating-outer {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}

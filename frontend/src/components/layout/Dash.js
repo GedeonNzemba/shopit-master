@@ -17,7 +17,7 @@ const Dash = () => {
                             <span>attention to hygiene</span>
                             <div className="dash_thumbnail">
                                 We follow strict guidelines
-                        </div>
+                            </div>
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@ const Dash = () => {
                             <span> Organic products</span>
                             <div className="dash_thumbnail">
                                 Food safety management standards
-                        </div>
+                            </div>
                         </div>
                     </div>
 

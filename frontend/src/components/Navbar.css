@@ -120,6 +120,9 @@ ul.nav-menu-items span {
     margin-left: 16px;
 }
 
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
+    display: none;
+}
+html::-webkit-scrollbar {
     display: none;
 }

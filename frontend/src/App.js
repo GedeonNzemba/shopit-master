@@ -5,6 +5,10 @@ import "./route.css"
 import './styles/Locataire.css'
 
 import Home from './components/Home'
+
+// Category
+import Poultry from './components/farm/Category/Poultry'
+
 import ProductDetails from './components/product/ProductDetails'
 
 // Cart Imports
@@ -56,6 +60,7 @@ import Contact from './components/layout/Contact'
 import RealEstate from './Realty/RealEstate'
 import scrollUp from './images/reaalty/scrollup.svg'
 import scrollUpHovered from './images/reaalty/scrollupHover.svg'
+import Header from './components/layout/Header'
 
 
 function App() {
@@ -114,8 +119,8 @@ function App() {
     <Router>
       <main>
         <div className="App">
-          <div id="farmSHOP">
-            {/* <Header /> */}
+          <div className="farmStyle" id="farmSHOP">
+            <Header />
             <Route path="/" component={Home} exact />
 
             <div className="container container-fluid"  >
@@ -145,6 +150,8 @@ function App() {
             <Route path="/cart" component={Cart} exact />
             <Route path="/about" component={About} exact />
             <Route path="/farm" component={Farm} exact />
+
+            <Route path="/product-category/poultry" component={Poultry} exact />
 
 
           </div>

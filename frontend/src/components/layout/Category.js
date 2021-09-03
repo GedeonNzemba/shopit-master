@@ -35,7 +35,7 @@ const Category = () => {
                                 <img src={item.icon} alt={item.alt} />
                             </span>
                             <span className="category_item__title col">
-                                <Link to="/">
+                                <Link to={item.page}>
                                     {item.title}
                                 </Link>
                             </span>

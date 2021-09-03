@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from "../../HeaderBSN"
 import Button from '@material-ui/core/Button';
-import { Link } from '@material-ui/core';
+import { Link } from 'react-scroll'
 import Slider from './Slider'
 // import Styled from 'styled-components'
 import Helmet from "react-helmet"
@@ -158,13 +158,13 @@ const Header = () => {
                 <section className="riskHeader_row riskHeader_content" id="riskHeader_content">
                     <Slider contentOne={<HeaderOne />} contentTwo={<HeaderTwo />} contentThree={<HeaderThree />} contentFour={<HeaderFour />} contentFive={<HeaderFive />} />
                     <div className="riskHeader_btn">
-                        <Link to="/" className="riskHeader_btn-left">
+                        <Link to="risk-content-up" spy={true} smooth={true} className="riskHeader_btn-left">
                             <Button variant="contained" color="primary" >
                                 Learn More
                             </Button>
                         </Link>
-                        <Link to="/" className="riskHeader_btn-right">
-                            <Button variant="outlined" color="primary" >
+                        <Link to="contactFormWrapper" spy={true} smooth={true} className="riskHeader_btn-right">
+                            <Button variant="outlined" color="primary" id="risk_btnContact">
                                 Contact Us
                             </Button>
                         </Link>
