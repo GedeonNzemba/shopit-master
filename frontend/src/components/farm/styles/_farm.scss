@@ -100,5 +100,127 @@
                 }
             }
         }
+
+        & .breadcrumb {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            height: auto;
+            box-shadow: 0px -1px 10px 5px #e9ecef;
+            background-color: unset !important;
+            padding: 0.75rem 2rem;
+
+            & .crumb {
+                display: flex;
+                width: fit-content;
+
+                & .back-to-farm {
+                    place-self: center;
+                    margin-right: 1.8rem;
+                    img {
+                        width: 3rem;
+                    }
+                }
+                & .crumb-wrap {
+                    place-self: center;
+                    display: flex;
+                    & nav {
+                        background-color: unset !important;
+                        & a {
+                            font-size: 1.5rem;
+                            text-transform: lowercase;
+                            color: $dark;
+                            margin-bottom: 0 !important;
+                        }
+                    }
+                    .forward-slash {
+                        margin-left: 0.8rem;
+                        margin-right: 0.8rem;
+                    }
+                }
+
+                & .userFilter {
+                    display: flex;
+                    width: fit-content;
+                    place-self: center;
+                    & h4 {
+                        font-size: 1.6rem;
+                        text-decoration: underline;
+                        margin-block-end: 0;
+                        margin-block-start: 0;
+                        color: $dark;
+                        place-self: center;
+                        height: fit-content;
+                    }
+                    & .remove_filter {
+                        margin-left: 1.2rem;
+                        & span {
+                            font-size: 1.4rem;
+                            margin-right: 1.2rem;
+                        }
+                    }
+                }
+            }
+
+            & .products-view {
+                display: flex;
+                justify-content: space-between;
+
+                & #gridView {
+                    display: block;
+                    height: fit-content;
+                    place-self: center;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    & svg {
+                        font-size: 2.5rem;
+
+                        &.active_grid {
+                            color: $greenLightFour;
+                        }
+                    }
+                }
+            }
+            & #listView {
+                display: block;
+                height: fit-content;
+                margin-left: 1.5rem;
+                place-self: center;
+                &:hover {
+                    cursor: pointer;
+                }
+                & svg {
+                    font-size: 2.5rem;
+
+                    &.active_list {
+                        color: $greenLightFour;
+                    }
+                }
+            }
+        }
+
+        & .main_products {
+            .poultry_products {
+                margin-top: 1.6rem;
+                box-shadow: 0px -1px 10px 5px #e9ecef;
+            }
+        }
     }
+
+    .listMode {
+        padding: 0.75rem;
+    }
+
+    #addCardList {
+        background-color: $greenLight;
+    }
+
+    .MuiButton-label span {
+        color: $white !important;
+    }
+}
+
+.not-active {
+    color: unset;
 }

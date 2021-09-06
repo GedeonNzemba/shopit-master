@@ -30,16 +30,18 @@ const Category = () => {
             <ul className="category_render-wrap">
                 {CategoriesData.map((item, key) => {
                     return (
-                        <li className="row category_item__icon" key={key}>
-                            <span className="catg_icon col">
-                                <img src={item.icon} alt={item.alt} />
-                            </span>
-                            <span className="category_item__title col">
-                                <Link to={item.page}>
+                        <Link to={item.page}>
+                            <li className="row category_item__icon" key={key}>
+                                <span className="catg_icon col">
+                                    <img src={item.icon} alt={item.alt} />
+                                </span>
+                                <span className="category_item__title col">
+
                                     {item.title}
-                                </Link>
-                            </span>
-                        </li>
+
+                                </span>
+                            </li>
+                        </Link>
                     );
                 })}
             </ul>

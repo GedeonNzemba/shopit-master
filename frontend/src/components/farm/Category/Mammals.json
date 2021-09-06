@@ -1,0 +1,79 @@
+[
+    {
+        "name": "sahel goat",
+        "price": 135.83,
+        "size": "",
+        "SKU": "LCMOO1",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880596/Fresh%20Eggs/mammals/sahel_goat_xyeega.png"
+    },
+    {
+        "name": "dwarf goat",
+        "price": 108.67,
+        "size": "",
+        "SKU": "LCMOO2",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880588/Fresh%20Eggs/mammals/dwaf_goat_wh0pp4.png"
+    },
+    {
+        "name": "cameroon sheep",
+        "price": 135.83,
+        "size": "",
+        "SKU": "LCMOO3",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880590/Fresh%20Eggs/mammals/cameroon_goat_enn5gz.png"
+    },
+    {
+        "name": "caprins sahel goat",
+        "price": 108.67,
+        "size": "",
+        "SKU": "LCMOO4",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880589/Fresh%20Eggs/mammals/CAPRIN_DU_SAHEL_etbxiv.jpg"
+    },
+    {
+        "name": "ovins caprins",
+        "price": 108.67,
+        "size": "",
+        "SKU": "LCMOO5",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880589/Fresh%20Eggs/mammals/ovin_goat_gme3ze.png"
+    },
+    {
+        "name": "sheep touabir",
+        "price": 108.67,
+        "size": "",
+        "SKU": "LCMOO6",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880588/Fresh%20Eggs/mammals/mouton-tabaski-fete-mouton_g9ccdw.jpg"
+    },
+    {
+        "name": "sheep targui",
+        "price": 108.67,
+        "size": "",
+        "SKU": "LCMOO7",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880590/Fresh%20Eggs/mammals/MOUTON_TARGUI_dpr2m5.jpg"
+    },
+    {
+        "name": "maradi's goat",
+        "price": 108.67,
+        "size": "",
+        "SKU": "LCMOO8",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880589/Fresh%20Eggs/mammals/CHEVRE_DE_MARADI_v2pq5l.jpg"
+    },
+    {
+        "name": "White Rabbit",
+        "price": 0,
+        "size": "",
+        "SKU": "LCMO11",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880593/Fresh%20Eggs/mammals/lapin_blanc_dfcfay.jpg"
+    },
+    {
+        "name": "blue rabbit from vienna",
+        "price": 1.81,
+        "size": 0,
+        "SKU": "LCMO12",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880588/Fresh%20Eggs/mammals/lapin-bleu-de-vienne-race-reproduction-a-vendre_o3cur1.jpg"
+    },
+    {
+        "name": "belgian hare rabbit",
+        "price": 0,
+        "size": "",
+        "SKU": "LCMO13",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880590/Fresh%20Eggs/mammals/lapin-lievre-belge-reproduction-elevage-a-vendre_lvcahj.jpg"
+    }
+]

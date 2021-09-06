@@ -1,28 +1,17 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/Locataire.css'
 import Styled from 'styled-components'
 import { Button } from '@material-ui/core'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
-import { Carousel } from 'react-bootstrap'
-
-import Loader from '../layout/Loader'
-import MetaData from '../layout/MetaData'
-import ListReviews from '../review/ListReviews'
-
-import { useAlert } from 'react-alert'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProductDetails, newReview, clearErrors } from '../../actions/productActions'
-import { addItemToCart } from '../../actions/cartActions'
-import { NEW_REVIEW_RESET } from '../../constants/productConstants'
 
 // style for product
 const Productlist = Styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 4.5rem;
-    padding: 1rem;
-        position: relative;
+    position: relative;
         
 `
 const ProductName = Styled.h6`
@@ -55,19 +44,6 @@ const SidebarSpan = Styled.div`
 `
 
 const ProductList = ({ product, col }) => {
-
-    // const [quantity, setQuantity] = useState(1)
-    // const [rating, setRating] = useState(0);
-    // const [comment, setComment] = useState('');
-
-    // const dispatch = useDispatch();
-    // const alert = useAlert();
-
-    // const { loading, error, product } = useSelector(state => state.productDetails)
-    // const { user } = useSelector(state => state.auth)
-    // const { error: reviewError, success } = useSelector(state => state.newReview)
-
-
 
     return (
 
@@ -103,7 +79,7 @@ const ProductList = ({ product, col }) => {
                         </RatingOuter>
                     </Star>
                     <AddToCard>
-                        <Button variant="contained" color="secondary">ADD TO CARD</Button>
+                        <Button variant="contained" color="primary" id="addCardList" startIcon={<ShoppingCartIcon />}>ADD TO CARD</Button>
                     </AddToCard>
                 </RightContent>
             </Link>

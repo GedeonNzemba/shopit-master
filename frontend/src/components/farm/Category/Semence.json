@@ -1,0 +1,51 @@
+[
+    {
+        "name": "FRESH PIG SEED",
+        "price": 45.19,
+        "size": "1 dose",
+        "SKU": "INSAO1",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920999/Fresh%20Eggs/purebred%20seed/FRESH_PIG_seed_1_v2ourp.png"
+    },
+    {
+        "name": "FROZEN SWINE SEED",
+        "price": 54.24,
+        "size": "1 dose",
+        "SKU": "INSAO2",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920886/Fresh%20Eggs/purebred%20seed/FROZEN_SWINE_SEED_qyic8l.png"
+    },
+    {
+        "name": "CHEVRE SEED",
+        "price": 0,
+        "size": "1 dose",
+        "SKU": "INSAO3",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/CHEVRE_SEED_wkbo1q.png"
+    },
+    {
+        "name": "MARON CATTLE SEED",
+        "price": 0,
+        "size": "1 dose",
+        "SKU": "INSAO4",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920880/Fresh%20Eggs/purebred%20seed/MARON_CATTLE_SEED_gxfoom.jpg"
+    },
+    {
+        "name": "BLACK CATTLE SEED",
+        "price": 0,
+        "size": "1 dose",
+        "SKU": "INSAO5",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/BLACK_CATTLE_SEED_byucd6.jpg"
+    },
+    {
+        "name": "WHITE LIVESTOCK SEED",
+        "price": 0,
+        "size": "1 dose",
+        "SKU": "INSAO6",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920881/Fresh%20Eggs/purebred%20seed/WHITE_BETAIL_SEED_kpm2mz.jpg"
+    },
+    {
+        "name": "CROSSBRED CATTLE SEED",
+        "price": 0,
+        "size": "1 dose",
+        "SKU": "INSAO6",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630920881/Fresh%20Eggs/purebred%20seed/CROSSBRED_tcbhut.jpg"
+    }
+]

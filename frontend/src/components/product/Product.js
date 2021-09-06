@@ -98,9 +98,7 @@ const Product = ({ product, col }) => {
 
         <div className="product farmStyle">
             <div className="img-container">
-                {/* <Link to={`/product/${product._id}`} > */}
                 <img src={product.images[0].url} alt="products" />
-                {/* </Link> */}
                 <div className="addCart">
                     <i className="fas fa-shopping-cart"></i>
                 </div>

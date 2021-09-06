@@ -8,6 +8,12 @@ import Home from './components/Home'
 
 // Category
 import Poultry from './components/farm/Category/Poultry'
+import FreshEggs from './components/farm/Category/Eggs'
+import Pigsty from './components/farm/Category/Pigsty'
+import Mammals from './components/farm/Category/Mammals'
+import ParkedAnimals from './components/farm/Category/ParkedAnimals'
+import Purebred from './components/farm/Category/Purebred'
+import LivestockFood from './components/farm/Category/LivestockFood'
 
 import ProductDetails from './components/product/ProductDetails'
 
@@ -152,6 +158,11 @@ function App() {
             <Route path="/farm" component={Farm} exact />
 
             <Route path="/product-category/poultry" component={Poultry} exact />
+            <Route path="/product-category/fresh-eggs" component={FreshEggs} exact />
+            <Route path="/product-category/goat-sheep-mamals" component={Mammals} exact />
+            <Route path="/product-category/park-animals" component={ParkedAnimals} exact />
+            <Route path="/product-category/purebred" component={Purebred} exact />
+            <Route path="/product-category/livestock-food" component={LivestockFood} exact />
 
 
           </div>

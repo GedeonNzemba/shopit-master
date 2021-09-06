@@ -90,9 +90,9 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-contained
 .not-active .product {
   width: min-content;
 }
-.MuiButton-containedSecondary {
+/* .MuiButton-containedSecondary {
   background-color: var(--primary)!important;
-}
+} */
 .rc-slider-mark-text {
   font-family: 'Cairo', sans-serif;
   font-weight: 700!important;
@@ -1018,6 +1018,15 @@ background-color: #ffffff;
 }
 .auditNrisk .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary span {
   margin-left: unset!important;
+}
+#farmSHOP .poultry .main_products .poultry_products {
+  background-color: #ffffff!important;
+}
+#farmSHOP .poultry .breadcrumb {
+   background-color: #ffffff!important;
+}
+button.clear_filter.btn.btn-outlined {
+  font-size: 1.4rem;
 }
 
 div.img_list.img-container img {

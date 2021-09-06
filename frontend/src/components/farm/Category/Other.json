@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Beef",
+        "price": 0,
+        "size": "",
+        "SKU": "LAP01",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880705/Fresh%20Eggs/other/beef_qijpww.png"
+    },
+    {
+        "name": "Cow",
+        "price": 0,
+        "size": "",
+        "SKU": "LAP02",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880673/Fresh%20Eggs/other/cow_bvxmbh.png"
+    },
+    {
+        "name": "PAON BLEU",
+        "price": 0,
+        "size": "",
+        "SKU": "LAP03",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880703/Fresh%20Eggs/other/paon_q9jyqt.jpg"
+    },
+    {
+        "name": "PAON NIGRIPENNE",
+        "price": 0,
+        "size": "",
+        "SKU": "LAP04",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630880935/Fresh%20Eggs/other/NIGRIPENNE_nyyz64.jpg"
+    },
+]

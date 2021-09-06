@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import ShopPage from '../components/farm/Shop'
 // import Header from "../components/layout/Header"
 import './layout/mCustomscrollbar.css'
 import Paginatione from 'react-js-pagination'

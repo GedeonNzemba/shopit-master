@@ -345,7 +345,7 @@ nav#sidebar {
 }
 
 /* Pagination */
-.page-item.active .page-link {
+/* .page-item.active .page-link {
   background-color: #fa9c23;
   border-color: #fa9c23;
 }
@@ -356,7 +356,7 @@ nav#sidebar {
 
 .page-link:hover {
   color: #fa9c23;
-}
+} */
 
 /* Admin Sidebar */
 
@@ -561,13 +561,21 @@ td.MuiTableCell-root {
     color: var(--black_A);
     background: #f8f9fad4;
 }
-.page-item.disabled .page-link {
+/* .page-item.disabled .page-link {
     color: #fff!important;
     pointer-events: none;
     cursor: pointer;
     cursor: auto;
     background-color: #3f51b5!important;
     border-color: unset!important;
+} */
+.page-item.active .page-link {
+  color: unset;
+  background-color: unset!important;
+  border-color: unset!important;
+  padding: unset!important;
+  border: unset!important;
+  margin-left: unset!important;
 }
 .list_wrap h1 {
   position: relative;

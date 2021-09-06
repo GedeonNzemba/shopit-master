@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Landrace",
+        "price": 3.62,
+        "size": "verrat",
+        "SKU": "LPR1",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869029/Fresh%20Eggs/pigsty/landrace_verrat_iiy5mo.png"
+    },
+    {
+        "name": "Landrace",
+        "price": 4.53,
+        "size": "trout",
+        "SKU": "LPR2",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869029/Fresh%20Eggs/pigsty/landrace_verrat_iiy5mo.png"
+    },
+    {
+        "name": "Large white",
+        "price": 3.62,
+        "size": "verrat",
+        "SKU": "LPR3",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/large_white_tk6obh.png"
+    },
+    {
+        "name": "Large white",
+        "price": 4.53,
+        "size": "trout",
+        "SKU": "LPR4",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/large_white_tk6obh.png"
+    },
+    {
+        "name": "Duroc",
+        "price": 4.53,
+        "size": "verrat",
+        "SKU": "LPR5",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+    },
+    {
+        "name": "Duroc",
+        "price": 5.43,
+        "size": "trout",
+        "SKU": "LPR6",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+    },
+    {
+        "name": "Pietrain",
+        "price": 5.43,
+        "size": "verrat",
+        "SKU": "LPR7",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869027/Fresh%20Eggs/pigsty/pietrain_zqorfi.jpg"
+    },
+    {
+        "name": "chester",
+        "price": 5.43,
+        "size": "trout",
+        "SKU": "LPR8",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869028/Fresh%20Eggs/pigsty/chester_xynaaf.jpg"
+    },
+    {
+        "name": "crus",
+        "price": 6.34,
+        "size": "verrat",
+        "SKU": "LPR9",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630869029/Fresh%20Eggs/pigsty/crus_lnljzj.png"
+    }
+]

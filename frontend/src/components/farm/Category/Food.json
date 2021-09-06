@@ -1,0 +1,114 @@
+[
+    {
+        "name": "SOYBEAN MEAL",
+        "price": 0,
+        "size": "1 T",
+        "SKU": "LMAT1",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630922069/Fresh%20Eggs/alimentation/soybean-meal_1_1_pwzbei.jpg"
+    },
+    {
+        "name": "CONCENTRATE FLESH",
+        "price": 0,
+        "size": "1 T",
+        "SKU": "LMAT2",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_CHAIR_iyahqa.jpg"
+    },
+    {
+        "name": "CONCENTRATE LAYING HENS",
+        "price": 0,
+        "size": "1 T",
+        "SKU": "LMAT3",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_PONTE_qkoeb5.jpg"
+    },
+    {
+        "name": "PREMIX LAYING HENS",
+        "price": 0,
+        "size": "1 T",
+        "SKU": "LMAT4",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924216/Fresh%20Eggs/alimentation/PREMIX_PONTE_v0o5me.jpg"
+    },
+    {
+        "name": "PREMIX FLESH",
+        "price": 0,
+        "size": "1 T",
+        "SKU": "LMAT5",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_CHAIR_iyahqa.jpg"
+    },
+    {
+        "name": "YELLOW CORN",
+        "price": 406.93,
+        "size": "1 T",
+        "SKU": "LMAT6",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/MAIS_JAUNE_e25s6m.jpg"
+    },
+    {
+        "name": "ALVEOLE FOR 12 EGGS",
+        "price": 0,
+        "size": "",
+        "SKU": "LMAT7",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924219/Fresh%20Eggs/alimentation/ALVEOLE_POUR_12_OEUFS_kdhm72.jpg"
+    },
+    {
+        "name": "ALVEOLE FOR 30 EGGS",
+        "price": 0.18,
+        "size": "",
+        "SKU": "LMAT8",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924218/Fresh%20Eggs/alimentation/ALVEOLE_POUR_30_OEUFS_kdj0tk.png"
+    },
+    {
+        "name": "ALVEOLE FOR 24 EGGS",
+        "price": 0.18,
+        "size": "",
+        "SKU": "LMAT9",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924218/Fresh%20Eggs/alimentation/ALVEOLE_POUR_30_OEUFS_kdj0tk.png"
+    },
+    {
+        "name": "POULTRY DRINKERS",
+        "price": 0,
+        "size": "3L",
+        "SKU": "LMAT10",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/ABREUVOIR_VOLAILLES_ucwsxx.jpg"
+    },
+    {
+        "name": "POULTRY DRINKERS",
+        "price": 0,
+        "size": "5L",
+        "SKU": "LMAT11",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/ABREUVOIR_VOLAILLES_ucwsxx.jpg"
+    },
+    {
+        "name": "POULTRY DRINKERS",
+        "price": 0,
+        "size": "10L",
+        "SKU": "LMAT12",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/ABREUVOIR_VOLAILLES_ucwsxx.jpg"
+    },
+    {
+        "name": "FEEDERS",
+        "price": 0,
+        "size": "",
+        "SKU": "LMAT13",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924222/Fresh%20Eggs/alimentation/MANGEOIRES_o3z4f6.jpg"
+    },
+    {
+        "name": "PONTE BATTERIES",
+        "price": 0,
+        "size": "",
+        "SKU": "LMAT14",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924224/Fresh%20Eggs/alimentation/BATTERIES_DE_PONTE_p8wxna.gif"
+    },
+    {
+        "name": "BRIDGE CAGE",
+        "price": 0,
+        "size": "",
+        "SKU": "LMAT15",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924223/Fresh%20Eggs/alimentation/CAGE_DE_PONTES_mll8xv.png"
+    },
+    {
+        "name": "MANURE",
+        "price": 0,
+        "size": "",
+        "SKU": "LMAT16",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/fumier-de-cheval_wpzcjg.jpg"
+    }
+]

@@ -1,0 +1,51 @@
+[
+    {
+        "name": "12 CHICKEN EGG WHITES",
+        "price": 1.81,
+        "size": "Medium",
+        "SKU": "LOE1",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630864943/Fresh%20Eggs/eggs/White-Eggs_solunk.jpg"
+    },
+    {
+        "name": "12 HEN EGGS MARON",
+        "price": 1.81,
+        "size": "Medium",
+        "SKU": "LOE2",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630865685/Fresh%20Eggs/eggs/Screenshot_2016-03-12_at_3.14.52_PM_hyblbi.png"
+    },
+    {
+        "name": "24 CHICKEN EGGS",
+        "price": 3.80,
+        "size": "Medium",
+        "SKU": "LOE3",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630865247/Fresh%20Eggs/eggs/24_egg_xe1vqw.png"
+    },
+    {
+        "name": "30 CHICKEN EGGS",
+        "price": 4.16,
+        "size": "Medium",
+        "SKU": "LOE4",
+        "image": "https: //res.cloudinary.com/locataire/image/upload/v1630864875/Fresh%20Eggs/eggs/30_medium_eggs_wvwwvj.png"
+    },
+    {
+        "name": "30 CHICKEN EGGS",
+        "price": 4.34,
+        "size": "Large",
+        "SKU": "LOE5",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630864877/Fresh%20Eggs/eggs/30_egg_large_mphphi.png"
+    },
+    {
+        "name": "12 QUAIL EGGS",
+        "price": 3.62,
+        "size": "",
+        "SKU": "LOE6",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630864876/Fresh%20Eggs/eggs/12_quail_egg_meyllz.png"
+    },
+    {
+        "name": "12 DUCK EGGS",
+        "price": 4.53,
+        "size": "",
+        "SKU": "LOE7",
+        "image": "https://res.cloudinary.com/locataire/image/upload/v1630864876/Fresh%20Eggs/eggs/12_duck_egg_rppncx.png"
+    }
+]
