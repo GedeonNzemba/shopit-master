@@ -5,6 +5,7 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures')
 const cloudinary = require('cloudinary')
 
+
 // Create new product   =>   /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
@@ -39,11 +40,72 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
+// Get all random products  =>   /api/v1/admin/products
+exports.getRandomProducts = catchAsyncErrors(async (req, res, next) => {
+
+    const products = await Product.aggregate([{ $sample: { size: 6 } }])
+
+    res.status(200).json({
+        success: true,
+        products
+    })
+
+})
+exports.getHomeLivestock = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 6;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Livestock' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
+exports.getHomePoultry = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 6;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Poultry' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
 
 // Get all products   =>   /api/v1/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 12;
+    const resPerPage = 13;
     const productsCount = await Product.countDocuments();
 
     const apiFeatures = new APIFeatures(Product.find(), req.query)

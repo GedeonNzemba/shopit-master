@@ -12,6 +12,25 @@ import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
 
 const ProcessOrder = ({ match }) => {
 
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
+
     const [status, setStatus] = useState('');
 
     const alert = useAlert();
@@ -55,20 +74,20 @@ const ProcessOrder = ({ match }) => {
     return (
         <Fragment>
             <MetaData title={`Process Order # ${order && order._id}`} />
-            <div className="row">
+            <div className="row" id="admin_allProducts">
                 <div className="col-12 col-md-2">
                     <Sidebar />
                 </div>
 
-                <div className="col-12 col-md-10">
+                <div className="col-12 col-md-10 main_products_list" style={{ marginBottom: '5rem', marginTop: '3rem' }}>
                     <Fragment>
                         {loading ? <Loader /> : (
                             <div className="row d-flex justify-content-around">
                                 <div className="col-12 col-lg-7 order-details">
 
-                                    <h2 className="my-5">Order # {order._id}</h2>
+                                    <h2 className="my-5 adim_title">Order # {order._id}</h2>
 
-                                    <h4 className="mb-4">Shipping Info</h4>
+                                    <h4 className="mb-4 ">Shipping Info</h4>
                                     <p><b>Name:</b> {user && user.name}</p>
                                     <p><b>Phone:</b> {shippingInfo && shippingInfo.phoneNo}</p>
                                     <p className="mb-4"><b>Address:</b>{shippingDetails}</p>
@@ -124,6 +143,7 @@ const ProcessOrder = ({ match }) => {
                                             name='status'
                                             value={status}
                                             onChange={(e) => setStatus(e.target.value)}
+                                            style={{ height: 'auto!important' }}
                                         >
                                             <option value="Processing">Processing</option>
                                             <option value="Shipped">Shipped</option>

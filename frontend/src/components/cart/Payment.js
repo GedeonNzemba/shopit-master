@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
+import './payment.css'
 
 import MetaData from '../layout/MetaData'
 import CheckoutSteps from './CheckoutSteps'
@@ -23,6 +24,7 @@ const options = {
 }
 
 const Payment = ({ history }) => {
+
 
     const alert = useAlert();
     const stripe = useStripe();
@@ -121,16 +123,29 @@ const Payment = ({ history }) => {
         }
     }
 
+    useEffect(() => {
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('pay_cart_page');
+
+
+        return () => {
+            app.classList.remove('pay_cart_page');
+        }
+    }, [])
+
     return (
         <Fragment>
             <MetaData title={'Payment'} />
 
             <CheckoutSteps shipping confirmOrder payment />
 
-            <div className="row wrapper">
+
+
+            <div className="row wrapper form_pay_wrap">
                 <div className="col-10 col-lg-5">
-                    <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-4">Card Info</h1>
+                    <form className="shadow-lg pay_form" onSubmit={submitHandler}>
+                        <h1 className="mb-4 pay_title">Card Info</h1>
                         <div className="form-group">
                             <label htmlFor="card_num_field">Card Number</label>
                             <CardNumberElement
@@ -173,6 +188,7 @@ const Payment = ({ history }) => {
                     </form>
                 </div>
             </div>
+            <br />
 
         </Fragment>
     )

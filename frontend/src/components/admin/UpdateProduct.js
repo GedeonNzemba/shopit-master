@@ -10,6 +10,25 @@ import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
 
 const UpdateProduct = ({ match, history }) => {
 
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
+
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
@@ -148,16 +167,16 @@ const UpdateProduct = ({ match, history }) => {
     return (
         <Fragment>
             <MetaData title={'Update Product'} />
-            <div className="row">
+            <div className="row" id="admin_allProducts">
                 <div className="col-12 col-md-2">
                     <Sidebar />
                 </div>
 
-                <div className="col-12 col-md-10">
+                <div className="col-12 col-md-10 main_products_list" style={{ marginBottom: '5rem' }}>
                     <Fragment>
                         <div className="wrapper my-5">
                             <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4">Update Product</h1>
+                                <h1 className="mb-4 adim_title">Update Product</h1>
 
                                 <div className="form-group">
                                     <label htmlFor="name_field">Name</label>
@@ -251,7 +270,7 @@ const UpdateProduct = ({ match, history }) => {
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
                                             Choose Images
-                                 </label>
+                                        </label>
                                     </div>
 
                                     {oldImages && oldImages.map(img => (
@@ -272,7 +291,7 @@ const UpdateProduct = ({ match, history }) => {
                                     disabled={loading ? true : false}
                                 >
                                     UPDATE
-                            </button>
+                                </button>
 
                             </form>
                         </div>

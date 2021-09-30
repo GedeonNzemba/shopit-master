@@ -7,7 +7,6 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 
 import * as Yup from 'yup';
-import Recaptcha from 'react-recaptcha';
 
 const Message = props => {
     const [subject, setSubject] = useState('');

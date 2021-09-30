@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import './dashboard.css'
 
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
@@ -12,6 +13,25 @@ import { allOrders } from '../../actions/orderActions'
 import { allUsers } from '../../actions/userActions'
 
 const Dashboard = () => {
+
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
 
     const dispatch = useDispatch();
 
@@ -57,14 +77,14 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="row pr-4">
+                            <div className="row pr-4" style={{ marginTop: '1.6rem' }}>
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
                                             <div className="text-center card-font-size dashboard-title">Products<br /> <b>{products && products.length}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
-                                            <span className="float-left">View Details</span>
+                                            <span className="float-left view_details">View Details</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
                                             </span>
@@ -79,7 +99,7 @@ const Dashboard = () => {
                                             <div className="text-center card-font-size dashboard-title">Orders<br /> <b>{orders && orders.length}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
-                                            <span className="float-left ">View Details</span>
+                                            <span className="float-left view_details ">View Details</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
                                             </span>
@@ -94,7 +114,7 @@ const Dashboard = () => {
                                             <div className="text-center card-font-size dashboard-title">Users<br /> <b>{users && users.length}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
-                                            <span className="float-left">View Details</span>
+                                            <span className="float-left view_details">View Details</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
                                             </span>

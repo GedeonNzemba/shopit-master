@@ -26,11 +26,11 @@
 
 #cart_count {
   background-color: var(--primary);
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.2rem;
-  color: black;
+  padding: 0.2rem 0.8rem;
+  border-radius:50% 50%;
+  color: #ffffff;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
 }
 .avatar-wrap {
     /* border: 1px solid red; */
@@ -288,12 +288,10 @@ nav#sidebar {
     padding: 6rem 2rem 2rem 2rem  !important;
 }
 #dashboard_main-wrap {
-    position: absolute;
-    top: 0;
     /* border: 1px solid red; */
     width: 100vw;
     padding-top: 5rem;
-    height: 90vh;
+    height: 100vh;
 }
 #main_dashboard-info {
   padding-top: 6rem;
@@ -364,7 +362,6 @@ nav#sidebar {
   display: flex;
   width: 100%;
   align-items: stretch;
-  min-height: 100vh;
   font-weight: normal;
 
   margin-top: 0;
@@ -379,6 +376,8 @@ nav#sidebar {
   background: #232f3e;
   color: #fff;
   transition: all 0.3s;
+  padding-top: 5rem;
+  padding-left: 1rem;
 }
 #sidebar.active {
   margin-left: -250px;
@@ -398,19 +397,30 @@ nav#sidebar {
 #sidebar .sidebar-header {
   padding: 20px;
   background: #232f3e;
+      height: 100%;
+}
+div#col-md-2 {
+  max-height: 94.5vh;
+  overflow: hidden;
 }
 #sidebar ul.components {
-  padding: 5px 0px;
   border-bottom: 1px solid #232f3e;
 }
 
+
 #sidebar ul li a {
-  padding: 10px;
-  font-size: 1.1em;
-  display: block;
-  color: white;
-  text-decoration: none;
+font-size: 1.1em;
+display: block;
+color: white;
+text-decoration: none;
+line-height: unset !important;
 }
+.ul#productSubmenu li a {
+  font-size: 1.4rem;
+}
+
+
+
 #sidebar ul li a:hover {
   color: #232f3e;
   background: #fff;
@@ -548,18 +558,19 @@ td.MuiTableCell-root {
     bottom: -1rem;
     right: 0;
 }
-#topsell__list {
-  background-image: url('./images/hero.jpg');
-  background-repeat: repeat;
-    background-size: contain;
-    clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%);
 
-}
 .dataTables_wrapper  tbody {
     font-family: "Cairo", sans-serif;
     font-weight: 400;
     color: var(--black_A);
     background: #f8f9fad4;
+}
+#topsell__list {
+  margin: 3rem 0;
+}
+input#search_field {
+  padding-left: 5rem !important;
+  border: unset !important;
 }
 /* .page-item.disabled .page-link {
     color: #fff!important;
@@ -601,7 +612,7 @@ td.MuiTableCell-root {
     background-image: url('./images/stock.jpg');
 background-repeat: repeat;
     background-size: contain;   
-     height: 60vh;
+     height: 65vh;
     display: flex;
     flex-direction: column;
     max-height: 100%;
@@ -623,11 +634,17 @@ background-repeat: repeat;
     /* padding-top: 7%;
     padding-left: 3%;
     padding-right: 3%; */
-    background-color: var(--white);
+    
     /* background-image: url('./images/man.jpg'); */
 background-repeat: repeat;
     background-size: contain;
     background-position-x: -27rem;
+}
+.listOrder_bg {
+background-color: #d2d2d2f9;
+}
+.listOrder_bg #contactFormWrapper {
+  background-color: unset!important;
 }
 .list_wrappe {
     display: grid;
@@ -647,9 +664,97 @@ div.productD__wrapper {
   grid-template-columns: 1fr 1fr;
   column-gap: 5rem;
 }
-section.productD__image {
-  border: 1px solid red;
+
+.productD_main .carousel {
+            border: unset !important;
+        }
+    
+/* ORDER DETAILS */
+div#order_details_wrapper {
+  padding: 12rem 8rem;
 }
-section.productD__content {
-  border: 1px solid rgb(25, 0, 255);
+h1.my-5.order_id_nb {
+  font-size: 3rem;
+  margin: 0 0 2rem 0 !important;
+  color: #ffffff;
 }
+h4.mb-4.order_title_info {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiTableContainer-root.css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+  margin-top: 2rem;
+}
+.order_details_bg {
+  background: rgb(0 0 0 / 65%) url('./images/admin.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}
+ .order_details_bg #contactFormWrapper {
+  background-color: unset!important;
+ }
+ th.MuiTableCell-root.MuiTableCell-body.MuiTableCell-sizeMedium.css-ljka08-MuiTableCell-root {
+   background: unset !important;
+ }
+ /* PROFILE */
+ .user_profile_page {
+   padding-top: 8%;
+    background: url('./images/profile.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+ }
+ .user_profile_page #contactFormWrapper {
+   background-color: unset !important;
+ }
+ .user_update_profile {
+   background: rgb(0 0 0 / 32%) url('./images/user_update.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+ }
+ .user_update_profile #contactFormWrapper {
+   background-color: unset !important;
+ }
+
+ .updateprofile_title {
+  font-size: 3rem;
+ }
+ .label_name {
+font-size: 1.6rem;
+font-weight: 600;
+margin-bottom: 1rem;
+ }
+ .updateProfile_formGp {
+   margin-bottom: 2rem;
+ }
+ .updateProfile_formGp input {
+   font-size: 1.6rem!important;
+ }
+ .updateProfile_formGp .custom-file-label {
+   height: unset !important;
+ }
+ .updateProfile_formGp .custom-file-label::after {
+   height: unset !important;
+ }
+ button.btn.update-btn.btn-block.mt-4.mb-3 {
+   background: #061311!important;
+ }
+ .set_pass {
+    background: #061311 !important;
+    margin-top: 2rem;
+ }
+ .new_password_reset {
+   margin-bottom: 1rem;
+   margin-top: 2rem;
+ }
+ .new_passUP {
+       padding-top: 18rem;
+       padding-bottom: 8%;
+       padding-left: 8rem;
+ }

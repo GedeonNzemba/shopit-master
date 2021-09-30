@@ -1,6 +1,5 @@
 import React from 'react'
 import { Fragment, useEffect } from 'react'
-import Styled from './styles/styleHeader'
 import { } from './styles/styleHeader'
 const Header = () => {
 

@@ -1,8 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import MobileBanner from './MobileBanner'
+import Helmet from 'react-helmet'
 // import Header from "../components/layout/Header"
 import './layout/mCustomscrollbar.css'
 import Paginatione from 'react-js-pagination'
+import axios from 'axios';
 import Slider from 'rc-slider'
+import Button from '@material-ui/core/Button';
+import Linke from 'react-scroll/modules/components/Link'
+
 import 'rc-slider/assets/index.css';
 
 import MetaData from './layout/MetaData'
@@ -27,13 +33,25 @@ import Select from './layout/Select'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
 import { getProducts } from '../actions/productActions'
-import Styled from 'styled-components'
 import '../styles/Locataire.css'
 
 import { StrollableContainer } from "react-stroller";
 import ProductList from './product/ProductList';
 // import { Alert } from '@material-ui/lab';
-import { BiArrowBack } from 'react-icons/bi';
+// import estate from '../images/estate.svg';
+// import risk from '../images/risk.svg';
+// import shopnow from '../images/shopnow.ico';
+// import aboutFarm from '../images/farm.svg';
+import poultrybanner from '../images/POULTRY MEAT BANNER.png';
+import poultrybannerVideo from '../images/NUTRITION SLIDE.mp4';
+
+import { ArtifficialSVG, FresheggsSVG, Shop, LivestockSVG, ParkSVG, PigstySVG, SheepSVG, Health, About, Realty, AuditRisk, Mammals, Career } from '../SVG/Svg';
+import purebred from '../images/featured/purebred.gif';
+
+import DayOld from '../images/featured/Day Old Chick.png'
+import HatchingEgg from '../images/featured/hatching.png'
+
+
 
 
 
@@ -52,6 +70,8 @@ const Home = ({ match }) => {
     const [color, setColor] = useState('')
     const [category, setCategory] = useState('')
     const [rating, setRating] = useState(0)
+    const [livestock, setLivestock] = useState([])
+    const [poultry, setPoultry] = useState([])
 
 
     // const backHome = document.getElementById('back_home');
@@ -165,10 +185,314 @@ const Home = ({ match }) => {
     const [view, setView] = useState();
     console.log(view)
 
+    useEffect(() => {
+        let livestock_link = `/api/v1/home/livestock`
+        let poultry_link = `/api/v1/home/poultry`
+
+        async function getLivestockProduct() {
+            const { data } = await axios.get(livestock_link);
+            setLivestock(data.products)
+        }
+        async function getPoultryProduct() {
+            const { data } = await axios.get(poultry_link);
+            setPoultry(data.products)
+        }
+
+        getPoultryProduct();
+        getLivestockProduct();
+    }, [])
 
 
 
-    // MALLE
+    //CATEGORY PREVIEW
+    const CategoryPreview = (props) => {
+        return (
+            <div className={props.styleName}>
+                <section className="header_category_preview">
+                    <div className="preview_title">
+                        <h3>{props.title}</h3>
+                        <span>&#124;</span>
+                        <h3>{props.subtitle}</h3>
+                    </div>
+                    <div className="preview_shop">
+                        {props.shopTitlte} <span>&#62;</span>
+                    </div>
+                </section>
+                <div className="nutrition_product_preview">
+
+                    {
+                        poultry.map((livestock) => (
+                            <Product key={livestock._id} product={livestock} col={5} />
+                        ))
+                    }
+                </div>
+            </div>
+        )
+    }
+    const NutritionProduct = (props) => {
+        return (
+            <div className={props.styleName}>
+                <section className="header_category_preview">
+                    <div className="preview_title">
+                        <h3>{props.title}</h3>
+                        <span>&#124;</span>
+                        <h3>{props.subtitle}</h3>
+                    </div>
+                    <div className="preview_shop">
+                        {props.shopTitlte} <span>&#62;</span>
+                    </div>
+                </section>
+                <div className="nutrition_product_preview">
+
+                    {
+                        livestock.map((livestock) => (
+                            <Product key={livestock._id} product={livestock} col={5} />
+                        ))
+                    }
+                </div>
+            </div>
+        )
+    }
+
+
+
+    // FEATURED CATEGORY
+    const FeaturedCategory = () => {
+        return (
+            <div className="col featured_category">
+                <h3 className="fc_title">Featured Categories</h3>
+                <div className="ft_cat_select">
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/purebred-seed'>
+                                <ArtifficialSVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Artificial Insemination</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/fresh-eggs'>
+                                <FresheggsSVG />
+
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Fresh Eggs</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/livestock'>
+
+                                <LivestockSVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Livestock</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='//product-category/park-animals'>
+
+                                <ParkSVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Park Animals</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/pigsty'>
+
+                                <PigstySVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Pigsty</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/goat-sheep-mammals'>
+
+                                <SheepSVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Goats, Sheep and Others</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const MainPlace = () => {
+        return (
+            <div className="col featured_category">
+                {/* <h3 className="fc_title">Featured Categories</h3> */}
+                <div className="ft_cat_select" style={{ marginTop: 'unset' }}>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/health'>
+                                <Health />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Health Care</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/about'>
+                                <About />
+
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>About Farm</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/real-estate'>
+
+                                <Realty />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Real Estate</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/rikmanagement'>
+
+                                <AuditRisk />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Audit and Risk Management</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/goat-sheep-mammals'>
+
+                                <Mammals />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Goats, Sheep and Others</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/career'>
+
+                                <Career />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Locataire Career</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const Purebred = () => {
+        return (
+            <div className="purebred_container" style={{ marginTop: '6rem' }}>
+                <div className="purebred_banner">
+                    <img src={purebred} alt="purebred pig seed" />
+                </div>
+                <div className="purebred_content">
+                    <h1>purebred seed - artificial insemination</h1>
+                    <p>
+                        We sell fresh (pure blood) pig seeds or refrigerated high
+                        qualities for artificial reproduction of pure bred and
+                        crossbred. The boars Duroc, Landrace, Berkshire, offered
+                        are intended to produce hybrid soars. These are elite
+                        genetic strains from recognized and accredited
+                        insemination centers in the United States.
+                    </p>
+                </div>
+                <br />
+                <Link to="/product-category/purebred-seed" className="lBanner__btn shop_now">
+                    <Button variant="contained" color="secondary" className="btn-shop">
+                        Discover More
+                    </Button>
+                </Link>
+            </div>
+        )
+    }
+
+    const Hatching = () => {
+        return (
+            <div className="row hatching_wrap">
+                <div className="col hatching_banner_left" >
+                    <img src={DayOld} alt="hatching eggs banner" />
+                </div>
+                <div className="col hatching_banner_right" >
+                    <img src={HatchingEgg} alt="hatching eggs banner" />
+                </div>
+            </div>
+        )
+    }
+
+    const EggSection = () => {
+        return (
+            <section className="bBanner">
+                <div className="bBanner__left bBanner__img onHoverBanner">
+                    <div className="bBanner__content sub_-text">
+                        <span style={{ color: "#7fad39" }}>profit more</span>
+                        <div className="bBanner_title sub_-text">
+                            <h2 style={{ color: "#ffffff" }}>poultry meat</h2>
+                        </div>
+                        <div className="bBanner_text">
+                            <p style={{ color: "#ffffff" }}>
+                                we sell domestic and commercial chickens, turkeys, ducks, guinea fowl, and geese.
+                                Various crossbred chickens are also available
+                            </p>
+                        </div>
+                        <Link to="/product-category/poultry" className="lBanner__btn shop_now">
+                            <Button variant="contained" color="secondary" className="btn-shop">
+                                shop now
+                            </Button>
+                        </Link>
+                        {/* <Link to="/" className="lBanner__btn shop_now">shop now</Link> */}
+                    </div>
+                </div>
+
+                <div className="bBanner__right bBanner__img onHoverBanner">
+                    <div className="bBanner__content sub_-text">
+                        <span>profit more</span>
+                        <div className="bBanner_title">
+                            <h2>fresh eggs</h2>
+                        </div>
+                        <div className="bBanner_text">
+                            <p>
+                                we sell clean, sound and odor-free fresh eggs. The eggs are brown, white
+                                and weigh an average of 62.9 grams (or 2.21 ounces).
+                            </p>
+                        </div>
+                        <Link to="/product-category/fresh-eggs" className="lBanner__btn shop_now">
+                            <Button variant="contained" color="secondary" className="btn-shop">
+                                shop now
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 
 
 
@@ -418,73 +742,82 @@ const Home = ({ match }) => {
                             // start
                             <>
 
-                                {/* // shopnow ?
-                                    //     (
-                                    //         <>
-                                    //             {loading ? <Loader /> : (<ShopPage />)}
-
-                                    //         </>
-                                    //     ) */}
-
-
-
-
-
-
                                 {loading ? <Loader />
                                     :
                                     (
                                         <main className="farm_wrapper" id="farmhome">
-                                            <div className="farm_inner-wrap row">
-                                                <div className="top_container">
-                                                    <div className="home_category">
-                                                        <div className="inner_category _bg">
-                                                            <Category />
-                                                        </div>
+                                            {window.screen.width <= 500 ?
+                                                (
+                                                    <div className="mobile__banner">
+                                                        <Helmet>
+                                                            <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                                                            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+                                                        </Helmet>
+                                                        <MobileBanner />
                                                     </div>
-                                                    <div className="hero_news">
-                                                        {/* <Wow /> */}
-                                                    </div>
-                                                    <div className="conv_farm">
-                                                        <Dash />
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                )
 
-                                            <section className="farm_select">
-                                                <Link to="/farm" >
+                                                : window.screen.width <= 768 ?
+                                                    (
+                                                        <>
+                                                        </>
+                                                    )
+
+                                                    :
+                                                    (
+                                                        <div className="farm_inner-wrap row">
+                                                            <div className="top_container">
+                                                                <div className="home_category">
+                                                                    <div className="inner_category _bg">
+                                                                        <Category />
+                                                                    </div>
+                                                                </div>
+                                                                <div className="hero_news">
+                                                                    {/* <Wow /> */}
+                                                                </div>
+                                                                <div className="conv_farm">
+                                                                    <Dash />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+
+                                            }
+
+                                            <section className={window.screen.width <= 768 ? "farm_select__mobile" : "farm_select"}>
+                                                <Link to="/about" >
                                                     <div className="farm_select_item row _bg">
                                                         <div className="_select_item-icon no-paddding col">
-                                                            <img src="https://zz.jumia.is/cms/Home-page-content/Quiklinks_DT_NewArrivals_22102020.png" alt="JrpQaneBH" />
+                                                            <About />
                                                         </div>
                                                         <div className="_select_item-text col">
                                                             <span className="select_text">
-                                                                new products
+                                                                About Farm
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </Link>
-                                                <Link to="/about">
+                                                <Link to="/shop">
                                                     <div className="farm_select_item row _bg">
                                                         <div className="_select_item-icon col">
-                                                            <img src="https://zz.jumia.is/cms/Home-page-content/Artboard-2.jpg" alt="RrIYoAvdMnOUUQVC" />
+                                                            <Shop />
                                                         </div>
                                                         <div className="_select_item-text col">
                                                             <span className="select_text">
-                                                                Get to know the farm
+                                                                Shop Now
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </Link>
 
-                                                <Link to="/shop">
+                                                <Link to="/real-estate">
                                                     <div className="farm_select_item row _bg" >
                                                         <div className="_select_item-icon col">
-                                                            <img src="https://zz.jumia.is/cms/Home-page-content/Quiklinks_DT_Brands_22102020.png" alt="DSQTLDiG" />
+                                                            <Realty />
                                                         </div>
                                                         <div className="_select_item-text col">
                                                             <span className="select_text" >
-                                                                shop all products
+                                                                Real Estate
                                                             </span>
                                                         </div>
                                                     </div>
@@ -492,28 +825,32 @@ const Home = ({ match }) => {
                                                 <Link to="/riskmanagement">
                                                     <div className="farm_select_item farm_select_item  _bg full-width row">
                                                         <div className="_select_item-icon col">
-                                                            <img src="https://zz.jumia.is/cms/Home-page-content/jumia-global.png" alt="LlTNBvqoGCCPaiFxNIdh" />
+                                                            <AuditRisk />
                                                         </div>
                                                         <div className="_select_item-text col">
                                                             <span className="select_text">
-                                                                locataire global
+                                                                Audit &#38; Risk Management
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </Link>
                                             </section>
 
+                                            <EggSection />
+
+                                            {/* TOP SELLERS */}
                                             <section className="farm_topSell-wrap">
-                                                <header><h2>Top sellers</h2></header>
-                                                <div className="container-fluid row">
+                                                <header><h2>Our Top sellers</h2></header>
+                                                <div className="container-fluid row" style={{ padding: '0', margin: '0' }}>
                                                     {/* <div className="topSell_item"></div> */}
                                                     <Topsell />
 
                                                 </div>
                                             </section>
 
+                                            {/* VEGETABLES */}
                                             <section className="farm_lBanner">
-                                                <div className="farm_lBanner__leftWrap">
+                                                <div className="farm_lBanner__leftWrap onHoverBanner">
                                                     <aside className="__leftWrap_content">
                                                         <div className="lBanner__top-subTitle">
                                                             <span>fresh products</span>
@@ -529,10 +866,15 @@ const Home = ({ match }) => {
                                                                 food safety management standards such as the International Standard ISO 22000.
                                                             </p>
                                                         </div>
-                                                        <Link to="/" className="lBanner__btn shop_now">shop now</Link>
+                                                        <Link to="/shop" className="lBanner__btn shop_now">
+                                                            <Button variant="contained" color="secondary" className="btn-shop">
+                                                                shop now
+                                                            </Button>
+                                                        </Link>
+                                                        {/* <Link to="/" className="lBanner__btn shop_now">shop now</Link> */}
                                                     </aside>
                                                 </div>
-                                                <aside className="farm_lBanner__rightWrap">
+                                                <aside className="farm_lBanner__rightWrap onHoverBanner">
                                                     <div className="__rightWrap-imgWrap">
                                                         <img src={chick} alt="chick" className="__rightWrap-img" />
                                                     </div>
@@ -541,10 +883,16 @@ const Home = ({ match }) => {
                                                             Delivery at the expense of the customer. do not hesitate to contact us
                                                         </p>
                                                     </div>
-                                                    <Link to="/" className="lBanner__btn shop_now">contact us</Link>
+                                                    <Linke to="contactFormWrapper" className="lBanner__btn shop_now">
+                                                        <Button variant="outlined" color="primary" className="btn-contact">
+                                                            contact us
+                                                        </Button>
+                                                    </Linke>
+                                                    {/* <Link to="/" className="lBanner__btn shop_now">contact us</Link> */}
                                                 </aside>
                                             </section>
 
+                                            {/* PRODUCTS */}
                                             <section className="fProduct">
                                                 <div className="fProduct-wrap">
                                                     <h2>featured product</h2>
@@ -564,59 +912,50 @@ const Home = ({ match }) => {
                                                 </div>
                                             </section>
 
-                                            <section className="bBanner">
-                                                <div className="bBanner__left bBanner__img">
-                                                    <div className="bBanner__content sub_-text">
-                                                        <span style={{ color: "#7fad39" }}>profit more</span>
-                                                        <div className="bBanner_title sub_-text">
-                                                            <h2 style={{ color: "#ffffff" }}>poultry meat</h2>
-                                                        </div>
-                                                        <div className="bBanner_text">
-                                                            <p style={{ color: "#ffffff" }}>
-                                                                we sell domestic and commercial chickens, turkeys, ducks, guinea fowl, and geese.
-                                                                Various crossbred chickens are also available
-                                                            </p>
-                                                        </div>
-                                                        <Link to="/" className="lBanner__btn shop_now">shop now</Link>
-                                                    </div>
-                                                </div>
 
-                                                <div className="bBanner__right bBanner__img">
-                                                    <div className="bBanner__content sub_-text">
-                                                        <span>profit more</span>
-                                                        <div className="bBanner_title">
-                                                            <h2>fresh eggs</h2>
-                                                        </div>
-                                                        <div className="bBanner_text">
-                                                            <p>
-                                                                we sell clean, sound and odor-free fresh eggs. The eggs are brown, white
-                                                                and weigh an average of 62.9 grams (or 2.21 ounces).
-                                                            </p>
-                                                        </div>
-                                                        <Link to="/" className="lBanner__btn shop_now">shop now</Link>
-                                                    </div>
-                                                </div>
-                                            </section>
-
+                                            {/* NUTRITION */}
                                             <section className="nutrition_slider">
                                                 <div className="animal_nutrition-image">
-                                                    <NutritionHero />
-                                                </div>
-                                                <div className="animal_nutrition-content">
-                                                    <h2>animal nutrition</h2>
-                                                    <p>
-                                                        we sell animal feed, protein meals, grain, oilseeds,
-                                                        concentrates and other commodities to local
-                                                        farmers and livestock producers.
-                                                    </p>
-                                                    <Link to="/" className="lBanner__btn shop_now">shop now</Link>
+                                                    <Link to="/product-category/livestock-food">
+                                                        <NutritionHero video={poultrybannerVideo} />
+                                                    </Link>
                                                 </div>
                                             </section>
+                                            <NutritionProduct styleName="category_preview" title="nutrition" subtitle="shop the look" shopTitlte="Sell all" />
 
-                                            <section className="animal_nutrition">
 
-                                            </section>
+                                            <FeaturedCategory />
+                                            <br />
 
+                                            <div className="col poultry_banner_wrapper" style={{ padding: 'unset!important' }}>
+                                                <div className="inner_poultry_wrap">
+                                                    <Link to="/product-category/poultry" className="onHoverBanner">
+                                                        <img className="poultrybanner" src={poultrybanner} alt="poultry banner" />
+                                                    </Link>
+                                                </div>
+
+                                                <CategoryPreview styleName="category_preview" title="Poultry Meat" subtitle="shop the look" shopTitlte="Sell all" />
+
+                                            </div>
+
+
+
+
+
+
+                                            {/* <CategoryPreview styleName="category_preview" title="nutrition" subtitle="shop the look" shopTitlte="Sell all" />
+
+                                            <br /> */}
+
+
+
+                                            <Purebred />
+                                            <br />
+
+                                            <Hatching />
+
+                                            <MainPlace />
+                                            <br />
                                         </main>
                                     )
                                 }

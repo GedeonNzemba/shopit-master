@@ -33,23 +33,33 @@ import {
 
 } from '../constants/productConstants'
 
-export const getProducts = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+//category
+export const getProductsCategory = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+    let pageTitle = document.title;
+    const livestock = 'Food | Livestock - Locataire';
+    const poultry = 'Poultry - Locataire';
+    const pigsty = 'Pigsty - Locataire';
+    const mammals = 'Mammals - Locataire';
+    const park = 'Park - Locataire';
+    const purebred = 'Purebred SEED : ARTIFICIAL INSEMINATION';
+    const eggs = 'Fresh Eggs - Locataire';
+
     try {
 
         dispatch({ type: ALL_PRODUCTS_REQUEST })
 
-        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
+        let link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}`
 
         if (name) {
-            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&name=${name}&ratings[gte]=${rating}`
+            link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}name=${name}&ratings[gte]=${rating}`
         }
 
         if (size) {
-            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}&size=${size}`
+            link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}&size=${size}`
         }
 
         if (color) {
-            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}&color=${color}`
+            link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}&color=${color}`
         }
 
         const { data } = await axios.get(link)
@@ -66,6 +76,65 @@ export const getProducts = (keyword = '', currentPage = 1, price, name, rating =
         })
     }
 }
+
+export const getRandomProducts = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/sales/products`
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+export const getProducts = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}`
+
+        if (name) {
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${name}&ratings[gte]=${rating}`
+        }
+
+        if (size) {
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}`
+        }
+
+        if (color) {
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}`
+        }
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
 
 export const newProduct = (productData) => async (dispatch) => {
     try {
@@ -208,6 +277,8 @@ export const getAdminProducts = () => async (dispatch) => {
         })
     }
 }
+
+
 
 // Get product reviews
 export const getProductReviews = (id) => async (dispatch) => {

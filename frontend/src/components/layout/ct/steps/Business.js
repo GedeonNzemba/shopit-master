@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 import { TextField } from 'formik-material-ui';
-import { Grid, Box } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import * as Yup from 'yup';
 
 const Business = props => {

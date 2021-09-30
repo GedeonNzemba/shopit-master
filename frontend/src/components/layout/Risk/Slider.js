@@ -3,9 +3,9 @@ import Slide from "react-slick";
 import Helmet from 'react-helmet';
 
 export default class Slider extends Component {
-    constructor(props) {
-        super(props);
-    };
+    // constructor() {
+    //     super();
+    // };
 
     render() {
         const settings = {

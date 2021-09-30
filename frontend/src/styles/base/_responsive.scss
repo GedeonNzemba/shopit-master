@@ -2161,9 +2161,11 @@ div.realEstate-invest__item {
 }
 
 @include for-xsmall-desktop-up {
-    .carousel {
-        position: relative;
-        border: 8px solid #0ea;
+    .realtyBSN {
+        .carousel {
+            position: relative;
+            border: 8px solid #0ea;
+        }
     }
     .auditNrisk {
         & .carousel {
@@ -3628,6 +3630,19 @@ div.realty_services-option {
     .risk-management__HeaderButton {
         flex-direction: column;
     }
+}
+
+// MOBILE RESPONSIVE FARM
+@media (max-width: 500px) {
+    .mobile__banner {
+        margin: 5.4rem auto 0 auto;
+    }
+}
+.farm_select__mobile {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
+    column-gap: 0.8rem;
+    row-gap: 0.8rem;
 }
 // .realEstate .realty_services div.realty_services-option div.realty_services-option-boxItem ul#listLoopA {
 //     @media (min-width: 1800px) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
 import { Button, Step, StepLabel, Stepper, Box } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
@@ -7,11 +7,10 @@ import ContactInformation from './steps/Personal';
 import OrgInformation from './steps/Business';
 import Message from './steps/Message';
 import './style.css'
-import Recaptcha from 'react-recaptcha';
+// import Recaptcha from 'react-recaptcha';
 import swal from 'sweetalert'
 import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
-import mCustomCss from '../../../images/mC/jquery.mCustomScrollbar.css';
 
 
 
@@ -45,9 +44,6 @@ const CtForm = (props) => {
     const ActiveStep = steps[activeStep];
     const validationSchema = ActiveStep.validationSchema;
 
-    const handleSubmit = (event) => {
-
-    }
 
 
 

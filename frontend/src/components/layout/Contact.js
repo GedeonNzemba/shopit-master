@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react"
+import React, { Fragment, useEffect } from "react"
 import "../../styles/Locataire.css"
 import Footer from "./Footer"
 import ContactB from './ct/CtForm'

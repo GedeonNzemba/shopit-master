@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { Fragment } from 'react'
+import React from 'react'
 import Header from '../components/layout/Risk/Header'
 import Main from '../components/layout/Risk/Main'
 import Bootstrap from './Boostrapp'

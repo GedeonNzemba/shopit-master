@@ -111,36 +111,36 @@ const Header = () => {
     }
 
 
-    const HeaderOneImageFS = () => {
-        return (
-            <div className="riskHeader_imageRight-banner" id="riskHeader_imgOne_Fs" />
-        )
-    }
-    const HeaderOneImage = () => {
-        return (
-            <div className="riskHeader_imageRight-banner" id="riskHeader_imgOne" />
-        )
-    }
-    const HeaderTwoImage = () => {
-        return (
-            <div className="riskHeader_imageRight-banner" id="riskHeader_imgTwo" />
-        )
-    }
-    const HeaderThreeImage = () => {
-        return (
-            <div className="riskHeader_imageRight-banner" id="riskHeader_imgThree" />
-        )
-    }
-    const HeaderFourImage = () => {
-        return (
-            <div className="riskHeader_imageRight-banner" id="riskHeader_imgFour" />
-        )
-    }
-    const HeaderFiveImage = () => {
-        return (
-            <div className="riskHeader_imageRight-banner" id="riskHeader_imgFive" />
-        )
-    }
+    // const HeaderOneImageFS = () => {
+    //     return (
+    //         <div className="riskHeader_imageRight-banner" id="riskHeader_imgOne_Fs" />
+    //     )
+    // }
+    // const HeaderOneImage = () => {
+    //     return (
+    //         <div className="riskHeader_imageRight-banner" id="riskHeader_imgOne" />
+    //     )
+    // }
+    // const HeaderTwoImage = () => {
+    //     return (
+    //         <div className="riskHeader_imageRight-banner" id="riskHeader_imgTwo" />
+    //     )
+    // }
+    // const HeaderThreeImage = () => {
+    //     return (
+    //         <div className="riskHeader_imageRight-banner" id="riskHeader_imgThree" />
+    //     )
+    // }
+    // const HeaderFourImage = () => {
+    //     return (
+    //         <div className="riskHeader_imageRight-banner" id="riskHeader_imgFour" />
+    //     )
+    // }
+    // const HeaderFiveImage = () => {
+    //     return (
+    //         <div className="riskHeader_imageRight-banner" id="riskHeader_imgFive" />
+    //     )
+    // }
 
 
 

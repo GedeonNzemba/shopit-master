@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
-import { DataGrid } from '@material-ui/data-grid';
 
 
 const useStyles = makeStyles((theme) => ({

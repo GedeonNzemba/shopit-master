@@ -1,29 +1,8 @@
-import React, { Fragment, useState } from 'react'
-import { GiRoastChicken, GiGoat, GiSyringe } from 'react-icons/gi'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
 import CategoriesData from './categories.json'
 
 const Category = () => {
-
-
-    const [category, setCategory] = useState('');
-
-
-
-    const icon = [
-        <GiRoastChicken />,
-        <img src={require('./eggs.svg')} alt="eggs" />,
-        <img src={require('./pig.svg')} alt="pig" />,
-        <GiGoat />,
-        <img src={require('./paw-solid.svg')} alt="paw" />,
-        <GiSyringe />,
-        < img src={require('./paw-solid.svg')} alt="paw" />
-    ]
-
-
-
-
-
 
     return (
         <Fragment>

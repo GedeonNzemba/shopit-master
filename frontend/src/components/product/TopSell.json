@@ -1,143 +1,230 @@
 [
     {
-        "name" : "Cable Boom Microphone - Volume Control for Playstation PS4 or Xbox",
-        "price" : "27.99",
-        "description" : "DESIGN INFO - 3.5mm male to 2.5mm male audio cable adapter with Upgraded Flexible, Detachable Boom Mic which also enables rotary Volume Control and Mute Switch. SteelFlex Arm for perfect microphone positioning. INPUT COMPATIBILITY - Devices supporting 3.5mm audio output such as gaming PS4 / Xbox One controller, PC, Laptop, iPhone and Android Phone.",
-        "ratings" : 4.1,
-        "images" : [{
-            "public_id" : "products/eahhtj1bkn1k9gjgd3hn",
-            "url" : "https://res.cloudinary.com/locataire/image/upload/v1616486893/products/yeptdulm45fkfwmrwmee.png"
-        }],
-        "id": "6059a1f2d2963f34ccebf3f0",
-        "category" : "Accessories",
-        "seller" : "Amazon",
-        "stock" : 1123,
-        "numOfReviews" : 6,
-        "reviews": []
-    },
-    {
-        "name" : "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black ",
-        "price" : "496.95",
-        "description" : "You don't need to be a photographer to know a great photo when you see one. And you don't need to be a photographer to take a great photo—you just need the D3500. It's as easy to use as a point-and-shoot, but it takes beautiful DSLR photos and videos that get noticed. It feels outstanding in your hands, sturdy and balanced with controls where you want them. It's compact, durable and versatile, ideal for travel. And it works seamlessly with compatible smartphones, making it easier than ever to share your great photos. Even if you've never picked up a DSLR camera, you can take beautiful pictures with D3500.",
-        "ratings" : 4.7,
-        "images" : [{
-            "public_id" : "products/camera_ridc0i",
-            "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487009/products/dek8iuqrgg4cne9ofqwy.png"
-        }],
-        "category" : "Cameras",
-        "seller" : "Amazon",
-        "stock" : 131,
-        "numOfReviews" : 222,
-        "reviews": []
-    },
-    {
-        "name" : "Apple MacBook Air (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray ",
-        "price" : "949.99",
-        "description" : "Stunning 13.3-inch Retina display with True Tone technology, Backlit Magic Keyboard and Touch ID, Tenth-generation, Intel Core i3 processor, Intel Iris Plus Graphics, Fast SSD storage, 8GB of memory, Stereo speakers with wider stereo sound",
-        "ratings" : 4.9,
-        "images" : [{
-            "public_id" : "products/macbook_o2cj2k",
-            "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487309/products/cu6rrqyijm76ajhvmdyy.png"
-        }],
-        "category" : "Laptops",
-        "seller" : "Amazon",
-        "stock" : 0,
-        "numOfReviews" : 56,
-        "reviews": []
-    },
-    {
-        "name" : "Kauffman Orchards Homegrown McIntosh Apples",
-        "price" : "2.75",
-        "description" : "McIntosh is a pretty red/green apple with white flesh Homegrown in Kauffman's orchard in healthy Lancaster County soil McIntosh apples are famous for snacking, pies, salads, and applesauce Protected with soft, high-density foam for safe shipping to your door Not for sale to California, Oregon, or Washington due to state laws governing fresh produce",
-        "ratings" : 5,
-        "images" : [
+        "name": "Sheep seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO3",
+        "images": [
             {
-                "public_id" : "products/wmoa49q9e70ze9xtcra2",
-                "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487602/products/igojtxprnfshepxcz9nw.png"
-            },
-            {
-                "public_id" : "products/i0k1wdwi5hrpmzwxvsds",
-                "url" : "https://res.cloudinary.com/bookit/image/upload/v1606293152/products/i0k1wdwi5hrpmzwxvsds.jpg" 
-            },
-            {
-                "public_id" : "products/bshmuo9qisfhz4azvnsd",
-                "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487794/products/rpvxdqauvevzajj1srzo.png"
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/CHEVRE_SEED_wkbo1q.png"
             }
-    ],
-        "category" : "Food",
-        "seller" : "Kauffman's Fruit Farm & Market",
-        "stock" : 500,
-        "numOfReviews" : 1,
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
         "reviews": []
     },
     {
-        "name" : "Cable Boom Microphone - Volume Control for Playstation PS4 or Xbox",
-        "price" : "27.99",
-        "description" : "DESIGN INFO - 3.5mm male to 2.5mm male audio cable adapter with Upgraded Flexible, Detachable Boom Mic which also enables rotary Volume Control and Mute Switch. SteelFlex Arm for perfect microphone positioning. INPUT COMPATIBILITY - Devices supporting 3.5mm audio output such as gaming PS4 / Xbox One controller, PC, Laptop, iPhone and Android Phone.",
-        "ratings" : 4.1,
-        "images" : [{
-            "public_id" : "products/eahhtj1bkn1k9gjgd3hn",
-            "url" : "https://res.cloudinary.com/locataire/image/upload/v1616486893/products/yeptdulm45fkfwmrwmee.png"
-        }],
-        "category" : "Accessories",
-        "seller" : "Amazon",
-        "stock" : 1123,
-        "numOfReviews" : 6,
-        "reviews": []
-    },
-    {
-        "name" : "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black ",
-        "price" : "496.95",
-        "description" : "You don't need to be a photographer to know a great photo when you see one. And you don't need to be a photographer to take a great photo—you just need the D3500. It's as easy to use as a point-and-shoot, but it takes beautiful DSLR photos and videos that get noticed. It feels outstanding in your hands, sturdy and balanced with controls where you want them. It's compact, durable and versatile, ideal for travel. And it works seamlessly with compatible smartphones, making it easier than ever to share your great photos. Even if you've never picked up a DSLR camera, you can take beautiful pictures with D3500.",
-        "ratings" : 4.7,
-        "images" : [{
-            "public_id" : "products/camera_ridc0i",
-            "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487009/products/dek8iuqrgg4cne9ofqwy.png"
-        }],
-        "category" : "Cameras",
-        "seller" : "Amazon",
-        "stock" : 131,
-        "numOfReviews" : 222,
-        "reviews": []
-    },
-    {
-        "name" : "Apple MacBook Air (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray ",
-        "price" : "949.99",
-        "description" : "Stunning 13.3-inch Retina display with True Tone technology, Backlit Magic Keyboard and Touch ID, Tenth-generation, Intel Core i3 processor, Intel Iris Plus Graphics, Fast SSD storage, 8GB of memory, Stereo speakers with wider stereo sound",
-        "ratings" : 4.9,
-        "images" : [{
-            "public_id" : "products/macbook_o2cj2k",
-            "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487309/products/cu6rrqyijm76ajhvmdyy.png"
-        }],
-        "category" : "Laptops",
-        "seller" : "Amazon",
-        "stock" : 0,
-        "numOfReviews" : 56,
-        "reviews": []
-    },
-    {
-        "name" : "Kauffman Orchards Homegrown McIntosh Apples",
-        "price" : "2.75",
-        "description" : "McIntosh is a pretty red/green apple with white flesh Homegrown in Kauffman's orchard in healthy Lancaster County soil McIntosh apples are famous for snacking, pies, salads, and applesauce Protected with soft, high-density foam for safe shipping to your door Not for sale to California, Oregon, or Washington due to state laws governing fresh produce",
-        "ratings" : 5,
-        "images" : [
+        "name": "Maron cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO4",
+        "images": [
             {
-                "public_id" : "products/wmoa49q9e70ze9xtcra2",
-                "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487602/products/igojtxprnfshepxcz9nw.png"
-            },
-            {
-                "public_id" : "products/i0k1wdwi5hrpmzwxvsds",
-                "url" : "https://res.cloudinary.com/bookit/image/upload/v1606293152/products/i0k1wdwi5hrpmzwxvsds.jpg" 
-            },
-            {
-                "public_id" : "products/bshmuo9qisfhz4azvnsd",
-                "url" : "https://res.cloudinary.com/locataire/image/upload/v1616487794/products/rpvxdqauvevzajj1srzo.png"
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920880/Fresh%20Eggs/purebred%20seed/MARON_CATTLE_SEED_gxfoom.jpg"
             }
-    ],
-        "category" : "Food",
-        "seller" : "Kauffman's Fruit Farm & Market",
-        "stock" : 500,
-        "numOfReviews" : 1,
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
         "reviews": []
+    },
+    {
+        "name": "Black cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO5",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/BLACK_CATTLE_SEED_byucd6.jpg"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Duroc",
+        "sku": "LPR5",
+        "size": "verrat",
+        "price": 4.53,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR5",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Duroc",
+        "sku": "LPR6",
+        "size": "trout",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR6",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Pietrain",
+        "sku": "LPR7",
+        "size": "verrat",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR7",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869027/Fresh%20Eggs/pigsty/pietrain_zqorfi.jpg"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Concentrate flesh",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT2",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_CHAIR_iyahqa.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Food & Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Concentrate laying hens",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT3",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_PONTE_qkoeb5.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Food & Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Premix laying hens",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT4",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924216/Fresh%20Eggs/alimentation/PREMIX_PONTE_v0o5me.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Food & Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "sahel goat",
+        "price": 135.83,
+        "size": "",
+        "sku": "LCMOO1",
+        "description": "",
+        "ratings": 5,
+        "category": "Mammals",
+        "seller": "Locataire Farm",
+        "stock": 20,
+        "numOfReviews": 2,
+        "reviews": [],
+        "images": [
+            {
+                "public_id": "LCMO01",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630880596/Fresh%20Eggs/mammals/sahel_goat_xyeega.png"
+            }
+        ]
+    },
+    {
+        "name": "dwarf goat",
+        "price": 108.67,
+        "size": "",
+        "sku": "LCMOO2",
+        "description": "",
+        "ratings": 5,
+        "category": "Mammals",
+        "seller": "Locataire Farm",
+        "stock": 20,
+        "numOfReviews": 2,
+        "reviews": [],
+        "images": [
+            {
+                "public_id": "LCMO02",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630880588/Fresh%20Eggs/mammals/dwaf_goat_wh0pp4.png"
+            }
+        ]
+    },
+    {
+        "name": "cameroon sheep",
+        "price": 135.83,
+        "size": "",
+        "sku": "LCMOO3",
+        "description": "",
+        "ratings": 5,
+        "category": "Mammals",
+        "seller": "Locataire Farm",
+        "stock": 20,
+        "numOfReviews": 2,
+        "reviews": [],
+        "images": [
+            {
+                "public_id": "LCMO03",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630880590/Fresh%20Eggs/mammals/cameroon_goat_enn5gz.png"
+            }
+        ]
     }
 ]

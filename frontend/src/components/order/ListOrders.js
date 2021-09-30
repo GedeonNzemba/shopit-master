@@ -12,15 +12,12 @@ import { Button } from '@material-ui/core'
 import Topsell from '../product/Topsell'
 import { getOrderDetails } from '../../actions/orderActions'
 
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,15 +49,32 @@ const useStyles = makeStyles((theme) => ({
 
 const ListOrders = ({ match }) => {
 
+    useEffect(() => {
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('listOrder_bg');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        return () => {
+            newPass.style.display = 'block';
+            upProfil.style.display = 'block';
+            app.classList.remove('listOrder_bg');
+
+        }
+    }, [])
+
     const classes = useStyles();
-    const theme = useTheme();
 
 
     const alert = useAlert();
     const dispatch = useDispatch();
 
     const { order = {} } = useSelector(state => state.orderDetails)
-    const { shippingInfo, orderItems, paymentInfo, user, totalPrice, orderStatus } = order
+    const { orderItems } = order
 
     const { loading, error, orders } = useSelector(state => state.myOrders);
 
@@ -156,7 +170,7 @@ const ListOrders = ({ match }) => {
                                                     </Typography>
                                                     <Typography variant="subtitle1" color="textSecondary">
                                                         Mac Miller
-                                                </Typography>
+                                                    </Typography>
                                                 </CardContent>
                                             </div>
                                             <CardMedia

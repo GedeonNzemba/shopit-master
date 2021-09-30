@@ -33,6 +33,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.16",
     "nodemailer": "^6.4.16",
+    "react-credit-cards": "^0.8.3",
+    "react-owl-carousel2": "^0.3.0",
     "react-slick": "^0.28.1",
     "stripe": "^8.128.0",
     "typescript": "^4.2.3",

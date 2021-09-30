@@ -6,8 +6,24 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { updatePassword, clearErrors } from '../../actions/userActions'
 import { UPDATE_PASSWORD_RESET } from '../../constants/userConstants'
+import login_bg from "../../images/login.jpg"
+
 
 const UpdatePassword = ({ history }) => {
+
+    useEffect(() => {
+
+        const app = document.getElementsByClassName('App')[0];
+        const footer = document.getElementsByClassName('contactFormWrapper')[0];
+
+        footer.style.backgroundColor = 'unset'
+
+        app.style.backgroundImage = `url(${login_bg})`
+        app.style.backgroundSize = 'cover'
+        app.style.backgroundRepeat = 'no-repeat'
+        app.style.backgroundAttachment = 'fixed'
+
+    }, [])
 
     const [oldPassword, setOldPassword] = useState('')
     const [password, setPassword] = useState('')
@@ -50,7 +66,7 @@ const UpdatePassword = ({ history }) => {
         <Fragment>
             <MetaData title={'Change Password'} />
 
-            <div className="row wrapper">
+            <div className="row wrapper remove_footer_bg">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
                         <h1 className="mt-2 mb-5">Update Password</h1>

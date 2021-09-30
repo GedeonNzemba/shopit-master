@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { MDBDataTable } from 'mdbreact'
 
 import MetaData from '../layout/MetaData'
-import Loader from '../layout/Loader'
+// import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
 
 import { useAlert } from 'react-alert'
@@ -11,6 +11,25 @@ import { getProductReviews, deleteReview, clearErrors } from '../../actions/prod
 import { DELETE_REVIEW_RESET } from '../../constants/productConstants'
 
 const ProductReviews = () => {
+
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
 
     const [productId, setProductId] = useState('')
 
@@ -132,7 +151,7 @@ const ProductReviews = () => {
                                         className="btn btn-primary btn-block py-2"
                                     >
                                         SEARCH
-								    </button>
+                                    </button>
                                 </ form>
                             </div>
 
@@ -147,8 +166,8 @@ const ProductReviews = () => {
                                 hover
                             />
                         ) : (
-                                <p className="mt-5 text-center">No Reviews.</p>
-                            )}
+                            <p className="mt-5 text-center">No Reviews.</p>
+                        )}
 
 
                     </Fragment>

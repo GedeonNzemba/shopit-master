@@ -58,7 +58,7 @@ transition: 2s cubic-bezier(0.39, 0.58, 0.57, 1);
   padding-top: 10rem;
 } */
 html, body {
-   background-color: #d0d0d0;
+   background-color: #ececec;
 }
 input:hover, 
 input:focus,
@@ -111,6 +111,9 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-contained
 font-family: "Cairo", sans-serif;  
 font-weight: 500;
 
+}
+#farmSHOP a:hover {
+ color: unset!important;
 }
 
 a:hover {
@@ -465,8 +468,8 @@ padding-left: unset;
   height: fit-content;
   line-height: 2;
 }
-.dash-item__inner {
-
+p.ctg-name {
+  margin-bottom: 0;
 }
 .dash-item__icon img{
   width: 34px;
@@ -555,6 +558,11 @@ section.farm_select {
 .farm_select_item:not(.full-width) {
     max-width: 25rem;
 }
+@media (max-width: 768px) {
+  .farm_select_item:not(.full-width) {
+    max-width: 100%;
+  }
+}
 ._select_item-icon  {
   padding-right: 0!important;
   margin-right: 0!important;
@@ -609,10 +617,6 @@ span.select_item--text{
   margin-top: 3rem;
   border-radius: 4px;
   padding-top: 1.5rem;
-  background-image: url('./images/leafa.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0rem -24rem;
 }
 .farm_topSell-wrap header {
   padding-left: 1.5rem;
@@ -621,14 +625,30 @@ span.select_item--text{
 .splide__slide {
   border-radius: 4px;
 }
+/* .top-sellers_rail {
+  overflow-x: scroll;
+} */
+.our-top-sellers {
+     /* display: grid;
+     grid-auto-flow: column;
+     grid-gap: 5rem; */
+     /* width: 100%; */
+     overflow: hidden;
+     padding: 0 1.4rem;
+     /* padding-left: 1.5rem;
+     padding-right: 1.5rem; */
+
+}
+.nutrition_product_preview {
+  padding: 0.800rem;
+}
 
 .farm_topSell-wrap h2 {
      font-family: 'Cairo', sans-serif;
     text-transform: capitalize;
     font-weight: 700;
     font-size: 3rem;
-    color: #f8f9fa;
-    filter: drop-shadow(2px 4px 6px black);
+    color: #222222;
 }
 #topsell {
   border-radius: unset;
@@ -676,12 +696,27 @@ section.farm_topSell-wrap li.splide__slide {
     padding-left: unset;
 }
 
+  .onHoverBanner:hover {
+    transform: scale(1.005);
+  }
+  .onHoverBanner:focus {
+    transform: scale(1.005);
+  }
+
+.btn-shop {
+  background-color: #02843d!important;
+}
+.btn-contact span{
+  color: unset !important;
+}
 section.farm_lBanner {
   width: 100%;
   display: grid;
   grid-template-columns: 70% 25%;
   column-gap: 5%;
   margin-top: 5rem;
+  padding: .800rem;
+  background-color: #ffffff;
 }
 div.farm_lBanner__leftWrap {
   position: relative;
@@ -729,7 +764,7 @@ a.lBanner__btn {
   font-family: 'Cairo', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #7fad39!important;
+  /* background-color: #7fad39!important; */
   padding: 1rem 2rem 1rem;
   letter-spacing: 2px;
   text-decoration: none;
@@ -774,20 +809,19 @@ img.__rightWrap-img {
     font-family: "Cairo", sans-serif;
 }
 a.lBanner__btn.shop_now:hover {
-    background-color: rgb(62 88 15)!important;
+    /* background-color: rgb(62 88 15)!important; */
     cursor: pointer;
 }
 /* products main */
 .fProduct {
   display: block;
   margin-top: 10rem;
-    background-image: url('./images/leafaa.jpg');
-background-repeat: no-repeat;
-background-size: 100% 100%;
+  background-color: #ffffff;
 }
 .fProduct-wrap {
   display: flex;
   flex-direction: column;
+  padding: 1.6rem;
   /* justify-content: center; */
 }
 .fProduct-wrap h2 {
@@ -820,12 +854,13 @@ background-size: 100% 100%;
 }
 /* Bottom banner */
 section.bBanner {
-      background-color: #e9ecef;
-    height: 65vh;
+      /* background-color: #e9ecef; */
+    /* height: 65vh; */
     display: flex;
     justify-content: space-between;
-    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+    /* clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%); */
     margin-top: 8rem;
+    margin-bottom: 8rem;
 }
 .bBanner__left {
   display: block;
@@ -833,12 +868,14 @@ section.bBanner {
   padding: 1.5rem 0;
 }
 .bBanner__right.bBanner__img {
-  background-image: url('./images/egg.jpg');
+  background-image: url('./images/eggsb.png');
   background-repeat: no-repeat;
-  background-size: 100% 85%;
+  background-size: cover;
   width: 50%;
   height: 30rem;
       align-self: center;
+      border: .800rem solid white;
+          background-position-x: -20rem;
 }
 .bBanner__right {
   display: block;
@@ -852,13 +889,32 @@ section.bBanner {
     font-size: 3.6rem;
     font-family: 'Cairo',sans-serif;
 } */
-.bBanner__left.bBanner__img {
-  background-image: url('./images/meat.jpg');
+.poultrybanner {
+    width: 100%;
+    object-fit: fill;
+
+}
+.poutry-meat-banner {
+  background: rgb(0 0 0 / 75%) url('./images/POULTRY MEAT BANNER.png');
   background-repeat: no-repeat;
-  background-size: 100% 85%;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 30rem;
+  align-self: center;
+}
+.bBanner__left.bBanner__img {
+  background: rgb(0 0 0 / 75%) url('./images/poultryb.png');
+  background-repeat: no-repeat;
+  background-size:cover;
   width: 45%;
   height: 30rem;
       align-self: center;
+      border: .800rem solid white;
+}
+@media (max-width: 768px) {
+  .bBanner__left.bBanner__img {
+    background-blend-mode: soft-light;
+  }
 }
 .bBanner_text {
     line-height: 2rem;
@@ -870,16 +926,18 @@ section.bBanner {
   flex-direction: column;
   padding-right: 1.5rem;
   max-width: 25rem;
+  top: 50%;
+  transform: translate(0%, -50%);
 }
 .bBanner_text p {
-    color: var(--black_A);
+    color: #ffffff;
     font-family: 'Cairo', sans-serif;
     font-weight: 400;
     font-size: 1.6rem;
-    -webkit-text-stroke-width: thin
+    -webkit-text-stroke-width: thin;
 }
 .bBanner_title h2 {
-    color: var(--black_A);
+    color: #ffffff;
     font-weight: 700;
     text-transform: capitalize;
     font-size: 3.6rem;
@@ -887,16 +945,16 @@ section.bBanner {
 }
 /* animal nutrition */
 .nutrition_slider{
-  display: grid;
+  /* display: grid;
   grid-template-columns: 66% 30%;
   column-gap: 4%;
   height: auto;
-  /* margin-top: 8rem; */
+  /* margin-top: 8rem; 
   height: 70vh;
   align-items: center;
-  margin-top: unset;
+  margin-top: unset; */
     background-color: #ffffff;
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
+    margin-top: 6rem;
 }
 .animal_nutrition-content h2 {
       /* text-align: center; */
@@ -919,9 +977,17 @@ section.bBanner {
   height: 47rem;
 } */
 .animal_nutrition-image {
-height: 28rem
+height: 30rem;
+width: auto;
+overflow: hidden;
 }
-
+.inner_poultry_wrap {
+  width: 100%;
+      margin-bottom: 1.8rem;
+      margin-top: 5rem;
+      padding: .800rem;
+      background-color: white;
+}
 .animal_nutrition-content p {
   color: #6f6f6f;
     font-family: 'Cairo', sans-serif;
@@ -940,8 +1006,35 @@ height: 28rem
     text-align: right;
     /* margin-bottom: 15px; */
 }
+.filter__sort {
+  width: 16rem;
+}
+.filter__found {
+  width: max-content;
+}
+.utilbar a#dropDownMenuButton .btn {
+  background-color: #272727c7;
+}
+.utilbar a#dropDownMenuButton span {
+  color: #ffffff;
+}
+.utilbar a#dropDownMenuButton {
+  background-image: linear-gradient(to left top, #02843d, #576215, #5e421b, #482c26, #231f20);
+  transition: 1s cubic-bezier(1, 0.4, 0.45, 0.94);
+}
+.utilbar .dropdown-toggle::after {
+  border-right: .3em solid #02843d0d!important;
+  border-left: .3em solid #02843d0d!important;
+}
+.utilbar a#dropDownMenuButton:hover {
+  transition: 1s cubic-bezier(1, 0.4, 0.45, 0.94);
+  background-image: linear-gradient(to right top, #02843d, #576215, #5e421b, #482c26, #231f20);
+}
+.utilbar a#dropDownMenuButton:hover::after {
+  color: #4caf50 !important;
+}
 label + .MuiInput-formControl {
-    margin-top: 26px !important;
+    margin-top: 2.6rem !important;
 }
 div.price.price_list span {
   color: var(--black_A);
@@ -1285,6 +1378,10 @@ background-color: #77db97;
   overflow: hidden;
   width: 0;
 }
+.poultry_banner_wrapper {
+  padding: unset!important;
+  width: 100%;
+}
 .product__list:hover {
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%)!important;
     transform: scale(1.01)!important;
@@ -1400,9 +1497,13 @@ div.profiler_image {
 padding-top: 5rem;
 }
 div.profile_image div.MuiPaper-root {
-    width: 15rem!important;
+    width: 100%!important;
     /* height: 25rem; */
     border-radius: 50%!important;
+}
+.MuiCardMedia-root.makeStyles-media-19 {
+  width: 100%!important;
+  height: 18rem!important;
 }
 div.profile_content{
   display: block;
@@ -1449,18 +1550,18 @@ span.profile__join {
     /* padding-bottom: 1.4rem; */
 }
 #profile_main_main {
-      padding-top: 8%;
+      /* padding-top: 8%; */
     height: 100vh;
-    background: #f8f9fa;
+    /* background: #f8f9fa; */
     /* border: 1px solid red; */
     /* max-width: 100vw; */
     width: 100%;
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    right: 0;
-        background-image: url('./images/profile.jpg');
+    right: 0; */
+        /* background-image: url('./images/profile.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 #profile_email-card {
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
@@ -1794,3 +1895,130 @@ h5 span.yourcarttitle {
   }
 }
 
+
+.main_products {
+  height: fit-content;
+}
+.page-link {
+  padding: 0!important;
+}
+#farmSHOP .poultry .category_list .filterbysize #category-size-wrapper {
+  overflow-y: scroll!important;
+}
+a.dropdown-item {
+  font-size: 1.8rem !important;
+}
+
+/* LOGIN */
+.css-1vhaqj4-MuiButtonBase-root-MuiButton-root {
+  font-size: 1.6rem!important;
+}
+fieldset.PrivateNotchedOutline-root-6.MuiOutlinedInput-notchedOutline {
+  font-size: 1.6rem!important;
+}
+input#email {
+  font-size: 1.6rem;
+}
+input#lastName {
+  font-size: 1.6rem;
+}
+input#firstName {
+  font-size: 1.6rem;
+}
+#input#password {
+  font-size: 1.6rem;
+}
+.css-wpssva-MuiTypography-root-MuiLink-root {
+  font-size: 1.5rem!important;
+  text-decoration: none!important;
+   color: #007bff !important;
+}
+.css-ijul54-MuiTypography-root {
+  display: none !important;
+}
+.css-4jz4pb-MuiGrid-root a {
+  color: #007bff!important;
+}
+.MuiGrid-root.MuiGrid-item.css-13i4rnv-MuiGrid-root a {
+  color: #007bff!important;
+}
+label.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root {
+  margin: 2rem 0 2rem 0!important;
+}
+.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-undefined.css-11lq3yg-MuiGrid-root {
+  margin-top: 2rem!important;
+}
+
+.new_password .MuiFormControl-root.MuiTextField-root.MuiFormControl-marginNormal {
+  width: 54%;
+}
+.new_password {
+  padding-top: 8% !important;
+  padding-bottom: 8% !important;
+}
+.reset-password {
+  margin-right: 4rem!important;
+}
+
+/* PRODUCT PAGE */
+
+.css-e53awj-MuiStack-root button.MuiButton-root {
+  font-size: 1.5rem!important;
+}
+
+@media( min-width: 100px) {
+  .productD_main .carousel.slide {
+    border: unset!important;
+  }
+}
+#rev_comment {
+    font-size: 1.6rem;
+}
+#outlined-multiline-static .MuiInputBase-root {
+  font-size: 1.6rem!important;
+}
+.model-body .form-control {
+  font-size: 1.6rem !important;
+}
+button#add_to_card {
+  font-size: 1.4rem;
+}
+.modal-body textarea#review {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+#wrap_qpt {
+  display: none!important;
+}
+fieldset.MuiOutlinedInput-notchedOutline.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: #9c27b0;
+}
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  font-size: 1.1rem;
+}
+/* SHIPPING */
+#shipping_info .MuiInputLabel-root {
+  font-size: 1.6rem!important;
+}
+#shipping_info .MuiInputBase-root {
+  font-size: 1.6rem !important;
+}
+.country_item * {
+  font-size: 1.6rem!important;
+}
+.country_item:hover {
+  cursor: pointer;
+}
+form.MuiBox-root.MuiBox-root-16 {
+  margin-top: 6rem;
+  margin-bottom: 10rem;
+}
+.shipping_page #contactFormWrapper {
+  margin-top: 10rem;
+}
+.confirm_order_page #contactFormWrapper {
+  margin-top: 10rem;
+}
+#login_page #contactFormWrapper {
+  background-color: unset!important;
+}

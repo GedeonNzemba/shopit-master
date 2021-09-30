@@ -13,6 +13,25 @@ import { DELETE_ORDER_RESET } from '../../constants/orderConstants'
 
 const OrdersList = ({ history }) => {
 
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
+
     const alert = useAlert();
     const dispatch = useDispatch();
 
@@ -96,14 +115,14 @@ const OrdersList = ({ history }) => {
     return (
         <Fragment>
             <MetaData title={'All Orders'} />
-            <div className="row">
+            <div className="row" id="admin_allProducts">
                 <div className="col-12 col-md-2">
                     <Sidebar />
                 </div>
 
-                <div className="col-12 col-md-10">
+                <div className="col-12 col-md-10 main_products_list">
                     <Fragment>
-                        <h1 className="my-5">All Orders</h1>
+                        <h1 className="my-5 adim_title">All Orders</h1>
 
                         {loading ? <Loader /> : (
                             <MDBDataTable

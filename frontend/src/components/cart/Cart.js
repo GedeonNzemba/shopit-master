@@ -6,7 +6,6 @@ import "./cart.module.css"
 
 import MetaData from '../layout/MetaData'
 
-import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
 import { Helmet } from 'react-helmet'
@@ -24,7 +23,6 @@ import Icon from '@material-ui/core/Icon';
 
 import { ThemeProvider } from '@material-ui/styles';
 import Bank from '../Bank'
-import Shop from '../Shop'
 
 
 
@@ -296,10 +294,23 @@ display: inline-block;
         document.body.appendChild(scripte);
     }
 
+
     useEffect(() => {
         CartScript();
 
     }, [])
+
+    useEffect(() => {
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('cartPage');
+
+
+        return () => {
+            app.classList.remove('cartPage');
+        }
+    }, [])
+
 
     return (
         <Fragment>

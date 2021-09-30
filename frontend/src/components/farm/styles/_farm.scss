@@ -1,5 +1,17 @@
 @import "../../../styles/abstracts/variables";
 #farmSHOP {
+    & .remove_footer_bg {
+        padding-top: 8% !important;
+        padding-bottom: 8% !important;
+    }
+
+    & #remove_footer_bg {
+        padding-top: 6% !important;
+        padding-bottom: 8% !important;
+        & .MuiFormControl-root.MuiTextField-root {
+            width: 100% !important;
+        }
+    }
     & .hero_news {
         background-image: url("../images/banner.png");
         background-repeat: no-repeat;
@@ -8,12 +20,13 @@
 
     // CATEGORY
     & #poultry_banner {
-        background-image: url("../images/category/poultry_banner.png");
+        background-image: url("../images/ab.png");
         background-repeat: no-repeat;
         background-size: 100% 42%;
         width: 100%;
         height: 28rem;
         background-attachment: fixed;
+        filter: brightness(0.5);
     }
 
     & .poultry {
@@ -219,8 +232,447 @@
     .MuiButton-label span {
         color: $white !important;
     }
+
+    // FEATURED CATEGORIES
+    .featured_category {
+        width: 100%;
+        padding: 1.5rem;
+        background-color: $white;
+        height: auto;
+        margin-top: 6rem;
+        margin-bottom: 5rem;
+        & h3 {
+            color: $dark;
+            font-weight: 700;
+            font-size: 1.75rem;
+            text-align: left;
+            line-height: 1.4;
+            width: fit-content;
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -0.8rem;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 3px;
+                width: 50px;
+                background: $greenLight;
+            }
+        }
+        & .ft_cat_select {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-column: 1.4rem;
+            padding: 0 !important;
+            margin-top: 2rem;
+            border: unset;
+            background: unset;
+
+            .ft_cat_item {
+                display: block;
+                height: auto;
+                width: fit-content;
+                text-align: center;
+                z-index: 10;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &:hover {
+                    box-shadow: 0 0 12px 0 #0000001f;
+                }
+                & .ft_cat-img {
+                    display: block;
+                    height: 10.6rem;
+                    margin-bottom: 1rem;
+                    & svg {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: fill;
+                    }
+                }
+                & .ft_cat-title {
+                    display: block;
+                    text-align: center;
+                    & span {
+                        color: $dark;
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+
+    // PUREBRED
+    .purebred_container {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+        text-align: center;
+        background-color: $white;
+        & .purebred_banner {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            margin-bottom: 2rem;
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+        }
+        & .purebred_content {
+            text-align: center;
+            display: block;
+            h1 {
+                font-size: 2.4rem;
+                font-weight: 900;
+                color: $dark;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            p {
+                color: $dark;
+                font-size: 1.4rem;
+                font-weight: 400;
+                word-break: break-word;
+                max-width: 70%;
+                letter-spacing: 0.2rem;
+                text-align: left;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    // HATCHING EGGS
+    .hatching_wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        width: 100%;
+        margin-top: 2rem;
+        & .hatching_banner_left {
+            height: auto;
+            display: block;
+            padding: 2rem;
+            background-color: $white;
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+        }
+        & .hatching_banner_right {
+            padding: 2rem;
+            height: auto;
+            display: block;
+            background-color: $white;
+
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+        }
+    }
+
+    .farm_select {
+        & ._select_item-icon {
+            height: 3.5rem;
+            & svg {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+        }
+    }
+    .farm_select__mobile {
+        & ._select_item-icon {
+            height: 3.5rem;
+            & svg {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+        }
+    }
 }
 
 .not-active {
     color: unset;
+}
+
+// POULTRY NUTRITION & category of products
+.nutrition_product_preview {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 0.8rem;
+    width: 100%;
+    // padding: 0.8rem;
+    justify-content: center;
+}
+.category_preview {
+    display: block;
+    background-color: $white;
+    margin-top: 1.5rem;
+    & .header_category_preview {
+        display: flex;
+        justify-content: space-between;
+        background-color: #478118;
+        border-radius: 0.5rem;
+        padding: 0.8rem 1rem;
+        & .preview_title {
+            display: flex;
+            height: fit-content;
+            padding-left: 0.8rem;
+            h3 {
+                color: $white;
+                font-weight: 700;
+                text-transform: capitalize;
+                font-size: 1.6rem;
+                line-height: 2;
+                &:last-child {
+                    font-weight: 500;
+                }
+            }
+            span {
+                margin: 0 0.8rem;
+                font-weight: bold;
+                color: $white;
+                line-height: 2;
+            }
+        }
+        & .preview_shop {
+            padding-right: 0.8rem;
+            color: $white;
+            font-size: 1.6rem;
+            font-weight: 500;
+            position: relative;
+            text-transform: capitalize;
+            height: fit-content;
+            line-height: 2;
+        }
+    }
+}
+
+// PRODUCT PAGE
+.productD__wrapper {
+    & .MuiButton-root {
+        font-size: 1.5rem !important;
+    }
+    & #add_to_card {
+        background-color: #02843d;
+        color: $white;
+    }
+    & h1 {
+        text-transform: capitalize;
+        color: $dark;
+        font-size: 3.5rem;
+        font-weight: 600;
+    }
+    .rating_wrapp {
+        margin: 1.2rem 0;
+        .rating-outer {
+            font-size: 2rem;
+        }
+        span#no_of_reviews {
+            font-size: 1.6rem;
+        }
+    }
+    #input_quantity {
+        font-size: 1.6rem;
+        width: 40%;
+    }
+    .price_wrap {
+        width: fit-content;
+        margin-bottom: 4rem;
+        p#product_price {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+    .product_status {
+        margin-top: 3rem;
+        p {
+            font-size: 1.8rem;
+            color: $dark;
+        }
+    }
+    span#stock_status {
+        font-weight: bold;
+    }
+    article.product_description {
+        margin-top: 3rem;
+        h4 {
+            width: fit-content;
+            font-size: 1.8rem;
+        }
+    }
+    .product_size p {
+        font-size: 1.8rem;
+        color: $dark;
+    }
+    .css-e53awj-MuiStack-root {
+        margin-bottom: 4rem;
+    }
+    .productD_main {
+        & .carousel {
+            border: unset !important;
+        }
+    }
+
+    .MuiInput-root.MuiInput-underline.MuiInputBase-root.MuiInputBase-colorPrimary.Mui-error.css-a88p61-MuiInputBase-root-MuiInput-root {
+        width: 6rem;
+        text-align: center;
+    }
+    input#input_quantity {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .reviews.w-75 h3 {
+        font-size: 2.5rem;
+    }
+    .review_user {
+        font-size: 1.4rem;
+    }
+    .rating-outer {
+        font-size: 1.5rem;
+    }
+    p.review_comment {
+        font-size: 1.7rem;
+    }
+}
+
+// CART
+.cartPage {
+    background-image: url("../images/cartbg.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+
+    & #contactFormWrapper {
+        background-color: unset !important;
+    }
+}
+.shipping_page {
+    background-image: url("../images/cartbg.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-top: 8rem;
+
+    & #contactFormWrapper {
+        background-color: unset !important;
+    }
+}
+.confirm_order_page {
+    background-image: url("../images/cartbg.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-top: 8rem;
+
+    & #contactFormWrapper {
+        background-color: unset !important;
+    }
+}
+.payment_page {
+    background-image: url("../images/cartbg.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-top: 8rem;
+    transition: 1s ease-in;
+
+    & #contactFormWrapper {
+        transition: 1s ease-out;
+        background-color: unset !important;
+    }
+}
+.pay_cart_page {
+    transition: 1s ease-in;
+    background-image: url("../images/pay.png");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-top: 8rem;
+
+    & #contactFormWrapper {
+        transition: 1s ease-out;
+        background-color: unset !important;
+    }
+}
+.shipConfirm {
+    transition: 1s ease-in;
+    background-image: url("../images/shipConfirm.png");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-top: 8rem;
+
+    & #contactFormWrapper {
+        transition: 1s ease-out;
+        background-color: unset !important;
+    }
+}
+.order_succ {
+    transition: 1s ease-in;
+    background-image: url("../images/pay_success.png");
+    background-size: contain;
+    background-repeat: round;
+    padding-top: 8rem;
+    background-attachment: fixed;
+    background-position-x: -25rem;
+
+    & #contactFormWrapper {
+        transition: 1s ease-out;
+        background-color: unset !important;
+    }
+}
+main.MuiContainer-root.MuiContainer-maxWidthXs.css-nzinn5-MuiContainer-root {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.order_succ-inner {
+    padding-bottom: 5rem;
+    height: 50rem;
+    position: relative;
+}
+.login_page {
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 0%), #f8f9fa), url("../images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.forgot_password_page {
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 0%), #7e7e7e), url("../images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.register_page {
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 0%), rgb(67, 94, 76)), url("../images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#shipping_wrapper {
+    margin: 0 auto;
+    max-width: 80%;
+    height: 100%;
+}
+button#checkout_btn {
+    font-size: 1.6rem;
+}
+.shipping_info {
+    font-size: 3.5rem;
+}
+.order_summary {
+    font-size: 2.5rem;
+}
+.confirm_order_summary {
+    margin: 0 auto;
+    max-width: 90%;
+}
+.row.confirm_order_wrap.d-flex.justify-content-between {
+    max-width: 90%;
+    margin: 0 auto;
 }

@@ -44,7 +44,7 @@ const UpdateProfile = ({ history }) => {
             })
         }
 
-    }, [])
+    }, [dispatch, error, history, isUpdated, user, alert])
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -70,17 +70,33 @@ const UpdateProfile = ({ history }) => {
         reader.readAsDataURL(e.target.files[0])
 
     }
+
+    useEffect(() => {
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('user_update_profile');
+
+
+        return () => {
+            newPass.style.display = 'block';
+            app.classList.remove('user_update_profile');
+        }
+    }, [])
     return (
         <Fragment>
             <MetaData title={'Update Profile'} />
 
-            <div className="row wrapper">
+            <div className="row wrapper new_passUP">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                        <h1 className="mt-2 mb-5">Update Profile</h1>
+                        <h1 className="mt-2 mb-5 updateprofile_title">Update Profile</h1>
 
-                        <div className="form-group">
-                            <label htmlFor="email_field">Name</label>
+                        <div className="form-group updateProfile_formGp">
+                            <label htmlFor="email_field label_name">Name</label>
                             <input
                                 type="name"
                                 id="name_field"
@@ -91,8 +107,8 @@ const UpdateProfile = ({ history }) => {
                             />
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="email_field">Email</label>
+                        <div className="form-group updateProfile_formGp">
+                            <label htmlFor="email_field label_name">Email</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -103,8 +119,8 @@ const UpdateProfile = ({ history }) => {
                             />
                         </div>
 
-                        <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
+                        <div className='form-group updateProfile_formGp'>
+                            <label htmlFor='avatar_upload label_name'>Avatar</label>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>

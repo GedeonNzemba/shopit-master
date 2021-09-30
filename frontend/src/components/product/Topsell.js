@@ -1,54 +1,91 @@
-import React from 'react'
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-import { Link } from 'react-router-dom';
-import TopSell from './TopSell.json'
+import React, { useEffect, useState } from 'react'
+import '../../styles/Locataire.css'
+import OwlCarousel from 'react-owl-carousel2';
+import './topstyle.css';
+// import Slider from "react-slick";
+
+import axios from 'axios';
+
+import Product from './Product';
+
 
 
 
 const Topsell = () => {
+
+    const options = {
+        items: 4,
+        nav: false,
+        rewind: true,
+        autoplay: true,
+        dots: false
+    };
+
+    const [randomProducts, setRandomProducts] = useState([]);
+
+    useEffect(() => {
+        let link = `/api/v1/sales/products`
+
+        async function getRandomProducts() {
+            const { data } = await axios.get(link);
+            setRandomProducts(data.products)
+        }
+
+        getRandomProducts();
+
+        // const loadScript = (url) => {
+        //     const script = document.createElement('script');
+        //     script.src = url;
+        //     script.async = true;
+        //     document.body.appendChild(script);
+        // }
+        // const loadStyles = (css) => {
+        //     const styled = document.createElement('link');
+        //     styled.href = css;
+        //     styled.type = 'text/css';
+        //     styled.async = true;
+        //     document.body.appendChild(styled);
+
+        // }
+
+        // loadScript('https://npmcdn.com/flickity@2/dist/flickity.pkgd.js');
+        // loadStyles('https://npmcdn.com/flickity@2/dist/flickity.css')
+    }, [])
+
+
+
+
+
     return (
-        <>
-            <Splide
-                options={{
-                    rewind: true,
-                    width: '103%',
-                    gap: '4rem',
-                    perPage: 3
-                }}
-                onArrowsMounted={(splide, prev, next) => { console.log(prev, next) }}
-            >
-                <>
-                    {
-                        TopSell.map((product, index) => (
-                            <SplideSlide className="product farmStyle" key={index}>
-                                <div className="img-container">
-                                    <Link to={`/product/${product._id}`} >
-                                        <img src={product.images[0].url} alt="products" id="topsell" />
-                                    </Link>
-                                    <div className="addCart">
-                                        <i className="fas fa-shopping-cart"></i>
-                                    </div>
-
-                                    <div className="side-icons">
-                                        <span><i className="fas fa-search"></i></span>
-                                        <span><i className="far fa-heart"></i></span>
-                                        <span><i className="fas fa-sliders-h"></i></span>
-                                    </div>
+        <div className="our-top-sellers">
+            {window.screen.width <= 768 ?
+                (
+                    <OwlCarousel options={options}  >
+                        {
+                            randomProducts.map(product => (
+                                <div >
+                                    <Product key={product._id} product={product} col={4} />
                                 </div>
-                                <div className="bottom">
-                                    <Link to={`/product/${product.id}`}>{product.name}</Link>
-                                    <div className="price" style={{ overflow: 'hidden' }}>
-                                        <span>${product.price}</span>
-                                    </div>
-                                </div>
-                            </SplideSlide>
-                        ))
-                    }
+                            ))
+                        }
+                    </OwlCarousel>
+                )
 
-                </>
-            </Splide>
-        </>
+                :
+                (
+                    <div class="nutrition_product_preview home_sale_products">
+
+                        {
+                            randomProducts.map(product => (
+
+                                <Product key={product._id} product={product} col={4} />
+                            ))
+                        }
+                    </div>
+                )
+            }
+        </div>
+
     )
 }
 

@@ -1,12 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import '../../layout/mCustomscrollbar.css'
 import Crumb from './breadcrumb/Breadcrumb'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MetaData from '../../layout/MetaData'
-import Product from '../../product/Product'
-import Loader from '../../layout/Loader'
-import { Accordion, Button, Card } from 'react-bootstrap'
-import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Buttone from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -15,7 +12,7 @@ import { Range } from 'rc-slider'
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
-import { getProducts } from '../../../actions/productActions'
+import { getProductsCategory } from '../../../actions/productActions'
 import '../../../styles/Locataire.css'
 
 import ProductList from '../../product/ProductList';
@@ -83,7 +80,7 @@ export default function Eggs({ match }) {
             return alert.error(error)
         }
 
-        dispatch(getProducts(keyword, currentPage, price, name, rating, size, color));
+        dispatch(getProductsCategory(keyword, currentPage, price, name, rating, size, color));
 
 
     }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color])
@@ -98,9 +95,7 @@ export default function Eggs({ match }) {
         count = filteredProductsCount
     }
 
-    const Block = ({ children }) => (
-        <div style={{ height: "100vh", position: "relative" }}>{children}</div>
-    );
+
 
     const [grid, setGrid] = useState(true);
     const [list, setList] = useState();
@@ -123,26 +118,18 @@ export default function Eggs({ match }) {
 
 
     const productSize = [
-        '2 KG',
-        '0 KG',
+        'Medium',
+        'Large',
     ]
 
     const names = [
         "12 CHICKEN EGG WHITES",
         "12 HEN EGGS MARON",
-        "Laying Hens",
-        "broiler chickens",
-        "rooster",
-        "mullard duck - barbarian",
-        "runner duck",
-        "ornamental duck",
-        "white goose",
-        "grey goose",
-        "quail",
-        "chapon",
-        "bronze turkey",
-        "pigeons",
-        "guinea fowl",
+        "24 CHICKEN EGGS",
+        "30 CHICKEN EGGS",
+        "30 CHICKEN EGGS",
+        "12 QUAIL EGGS",
+        "12 DUCK EGGS"
     ]
 
     // const productColor = [
@@ -241,7 +228,7 @@ export default function Eggs({ match }) {
                         </Link>
                     </div>
                     <div className="crumb-wrap">
-                        <Crumb navigationA="/" nameA="farm" nameB="poultry" />
+                        <Crumb navigationA="/" nameA="farm" nameB="Fresh Eggs" />
                     </div>
                     {
                         name || size || rating ?
@@ -295,7 +282,7 @@ export default function Eggs({ match }) {
 
     return (
         <>
-            <MetaData title={'Poultry Category'} />
+            <MetaData title={'Fresh Eggs'} />
             <div id="poultry_banner" />
             <div className="poultry">
                 <div className="filter_category">
@@ -306,12 +293,12 @@ export default function Eggs({ match }) {
 
                     <div className="poultry_products">
                         <div className={grid ? "row producstWrapper" : "col listMode"}>
-                            {console.log(products)}
+                            {console.log("NAME:" + name)}
 
                             {
                                 grid ?
                                     (
-                                        products.filter(product => product.category === 'Fresh Eggs').map((eggProduct) => (
+                                        products.map((eggProduct) => (
                                             // <ProductList key={eggProduct._id} product={eggProduct} col={4} />
 
                                             <div className="product farmStyle" key={eggProduct._id}>
@@ -340,7 +327,7 @@ export default function Eggs({ match }) {
                                     :
 
                                     (
-                                        products.filter(product => product.category === 'Fresh Eggs').map((eggProduct) => (
+                                        products.map((eggProduct) => (
                                             <ProductList key={eggProduct._id} product={eggProduct} col={4} />
                                         ))
                                     )
@@ -350,6 +337,24 @@ export default function Eggs({ match }) {
                         </div>
                     </div>
 
+                    {resPerPage <= count && (
+                        <div className="d-flex justify-content-center mt-5 paginationWrapper">
+                            <Paginatione
+                                activePage={currentPage}
+                                itemsCountPerPage={resPerPage}
+                                totalItemsCount={products.length}
+                                onChange={setCurrentPageNo}
+                                nextPageText={'Next'}
+                                prevPageText={'Prev'}
+                                firstPageText={'First'}
+                                lastPageText={'Last'}
+                                itemClass="page-item"
+                                linkClass="page-link"
+                            />
+
+                        </div>
+                    )}
+
 
                 </div>
 
@@ -357,23 +362,7 @@ export default function Eggs({ match }) {
 
 
             </div>
-            {resPerPage <= count && (
-                <div className="d-flex justify-content-center mt-5 paginationWrapper">
-                    <Paginatione
-                        activePage={currentPage}
-                        itemsCountPerPage={resPerPage}
-                        totalItemsCount={productsCount}
-                        onChange={setCurrentPageNo}
-                        nextPageText={'Next'}
-                        prevPageText={'Prev'}
-                        firstPageText={'First'}
-                        lastPageText={'Last'}
-                        itemClass="page-item"
-                        linkClass="page-link"
-                    />
 
-                </div>
-            )}
         </>
     )
 }

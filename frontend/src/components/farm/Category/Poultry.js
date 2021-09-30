@@ -1,12 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import '../../layout/mCustomscrollbar.css'
 import Crumb from './breadcrumb/Breadcrumb'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MetaData from '../../layout/MetaData'
-import Product from '../../product/Product'
-import Loader from '../../layout/Loader'
-import { Accordion, Button, Card } from 'react-bootstrap'
-import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core/styles';
+
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Buttone from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -15,7 +13,7 @@ import { Range } from 'rc-slider'
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
-import { getProducts } from '../../../actions/productActions'
+import { getProductsCategory } from '../../../actions/productActions'
 import '../../../styles/Locataire.css'
 
 import ProductList from '../../product/ProductList';
@@ -23,6 +21,7 @@ import backToFarm from '../../../images/category/forwardslash.svg'
 import { HiViewGrid } from 'react-icons/hi'
 import { FaListUl } from 'react-icons/fa'
 import { createTheme } from '@material-ui/core/styles';
+import Categories from './Category.json';
 
 
 const theme = createTheme({
@@ -83,7 +82,7 @@ export default function Poultry({ match }) {
             return alert.error(error)
         }
 
-        dispatch(getProducts(keyword, currentPage, price, name, rating, size, color));
+        dispatch(getProductsCategory(keyword, currentPage, price, name, rating, size, color));
 
 
     }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color])
@@ -98,9 +97,7 @@ export default function Poultry({ match }) {
         count = filteredProductsCount
     }
 
-    const Block = ({ children }) => (
-        <div style={{ height: "100vh", position: "relative" }}>{children}</div>
-    );
+
 
     const [grid, setGrid] = useState(true);
     const [list, setList] = useState();
@@ -127,23 +124,23 @@ export default function Poultry({ match }) {
         '0 KG',
     ]
 
-    const names = [
-        "laying chick",
-        "chick flesh",
-        "Laying Hens",
-        "broiler chickens",
-        "rooster",
-        "mullard duck - barbarian",
-        "runner duck",
-        "ornamental duck",
-        "white goose",
-        "grey goose",
-        "quail",
-        "chapon",
-        "bronze turkey",
-        "pigeons",
-        "guinea fowl",
-    ]
+    // const names = [
+    //     "laying chick",
+    //     "chick flesh",
+    //     "Laying Hens",
+    //     "broiler chickens",
+    //     "rooster",
+    //     "mullard duck - barbarian",
+    //     "runner duck",
+    //     "ornamental duck",
+    //     "white goose",
+    //     "grey goose",
+    //     "quail",
+    //     "chapon",
+    //     "bronze turkey",
+    //     "pigeons",
+    //     "guinea fowl",
+    // ]
 
     // const productColor = [
     //     'Grey',
@@ -190,15 +187,15 @@ export default function Poultry({ match }) {
                 <section className="filterbycategory mgt">
                     <h2 style={{ marginBottom: "1rem" }}>filter by category</h2>
                     <div id="category-list-wrapper">
-                        {names.map(name => (
-                            <div className="category-item" key={name} onClick={() => setName(name)}>
-                                {/* <img
+                        {Categories.map(category => (
+                            <div className="category-item" key={category.atl} onClick={() => setName(category.title)}>
+                                <img
                                     className="category-icon"
-                                    src={name.icon}
-                                    alt={name.atl}
-                                /> */}
-                                {name}
-                                {/* <p onClick={() => setName(name)} className="ctg-name">{</p> */}
+                                    src={category.icon}
+                                    alt={category.atl}
+                                />
+
+                                <p className="ctg-name">{category.title}</p>
                             </div>
                         ))}
                     </div>
@@ -241,7 +238,7 @@ export default function Poultry({ match }) {
                         </Link>
                     </div>
                     <div className="crumb-wrap">
-                        <Crumb navigationA="/" nameA="farm" nameB="poultry" />
+                        <Crumb navigationA="/" nameA="farm" nameB="Poultry" />
                     </div>
                     {
                         name || size || rating ?
@@ -295,7 +292,7 @@ export default function Poultry({ match }) {
 
     return (
         <>
-            <MetaData title={'Poultry Category'} />
+            <MetaData title='Poultry' />
             <div id="poultry_banner" />
             <div className="poultry">
                 <div className="filter_category">
@@ -310,7 +307,7 @@ export default function Poultry({ match }) {
                             {
                                 grid ?
                                     (
-                                        products.filter(product => product.category === 'Poultry').map((poultryItem) => (
+                                        products.map((poultryItem) => (
                                             // <ProductList key={poultryItem._id} product={poultryItem} col={4} />
 
                                             <div className="product farmStyle" key={poultryItem._id}>
@@ -339,7 +336,7 @@ export default function Poultry({ match }) {
                                     :
 
                                     (
-                                        products.filter(product => product.category === 'Poultry').map((poultryItem) => (
+                                        products.map((poultryItem) => (
                                             <ProductList key={poultryItem._id} product={poultryItem} col={4} />
                                         ))
                                     )
@@ -349,6 +346,24 @@ export default function Poultry({ match }) {
                         </div>
                     </div>
 
+                    {resPerPage <= count && (
+                        <div className="d-flex justify-content-center mt-5 paginationWrapper">
+                            <Paginatione
+                                activePage={currentPage}
+                                itemsCountPerPage={resPerPage}
+                                totalItemsCount={products.length}
+                                onChange={setCurrentPageNo}
+                                nextPageText={'Next'}
+                                prevPageText={'Prev'}
+                                firstPageText={'First'}
+                                lastPageText={'Last'}
+                                itemClass="page-item"
+                                linkClass="page-link"
+                            />
+
+                        </div>
+                    )}
+
 
                 </div>
 
@@ -356,23 +371,7 @@ export default function Poultry({ match }) {
 
 
             </div>
-            {resPerPage <= count && (
-                <div className="d-flex justify-content-center mt-5 paginationWrapper">
-                    <Paginatione
-                        activePage={currentPage}
-                        itemsCountPerPage={resPerPage}
-                        totalItemsCount={productsCount}
-                        onChange={setCurrentPageNo}
-                        nextPageText={'Next'}
-                        prevPageText={'Prev'}
-                        firstPageText={'First'}
-                        lastPageText={'Last'}
-                        itemClass="page-item"
-                        linkClass="page-link"
-                    />
 
-                </div>
-            )}
         </>
     )
 }

@@ -40,17 +40,31 @@ const NewPassword = ({ history, match }) => {
         dispatch(resetPassword(match.params.token, formData))
     }
 
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('user_update_profile');
+
+
+        return () => {
+            upProfil.style.display = 'block';
+            app.classList.remove('user_update_profile');
+        }
+    }, [])
+
     return (
         <Fragment>
 
             <MetaData title={'New Password Reset'} />
 
-            <div className="row wrapper">
+            <div className="row wrapper new_passUP">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
                         <h1 className="mb-3">New Password</h1>
 
-                        <div className="form-group">
+                        <div className="form-group new_password_reset">
                             <label htmlFor="password_field">Password</label>
                             <input
                                 type="password"
@@ -61,7 +75,7 @@ const NewPassword = ({ history, match }) => {
                             />
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group new_password_reset">
                             <label htmlFor="confirm_password_field">Confirm Password</label>
                             <input
                                 type="password"
@@ -75,7 +89,7 @@ const NewPassword = ({ history, match }) => {
                         <button
                             id="new_password_button"
                             type="submit"
-                            className="btn btn-block py-3">
+                            className="btn btn-block py-3 set_pass">
                             Set Password
                         </button>
 

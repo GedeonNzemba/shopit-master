@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 
@@ -7,32 +7,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { register, clearErrors } from '../../actions/userActions'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Btn from '@mui/material/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function Copyright() {
-
-
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://locaataire.net/">
-                Locatair LLC
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -125,11 +111,22 @@ export default function Register({ history }) {
 
     const classes = useStyles();
 
+    useEffect(() => {
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('register_page');
+
+
+        return () => {
+            app.classList.remove('register_page');
+        }
+    }, [])
+
     return (
         <Container component="main" maxWidth="xs">
             <MetaData title={'Register User'} />
             <CssBaseline />
-            <div className={classes.paper}>
+            <div className={classes.paper} id="remove_footer_bg">
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
@@ -265,16 +262,14 @@ export default function Register({ history }) {
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="#" variant="body2">
-                                Already have an account? Sign in
+                            <Link to="/login" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
+                                <Btn variant="outlined"> Already have an account? Sign in</Btn>
                             </Link>
                         </Grid>
                     </Grid>
                 </form>
             </div>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
+
         </Container>
     );
 }

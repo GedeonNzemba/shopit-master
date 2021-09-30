@@ -1,0 +1,46 @@
+@media (max-width: 1199px) {
+    #popup {
+        z-index: 999;
+    }
+    .user_cart-col {
+        place-self: center;
+    }
+    .user_cart-row {
+        & span {
+            margin-left: unset !important;
+        }
+    }
+    .pd {
+        padding: 2rem 3rem 2rem 3rem !important;
+    }
+    .inner_header {
+        grid-template-columns: auto 1fr auto;
+        justify-content: space-between;
+    }
+    form#search_form {
+        & button#search_btn {
+            line-height: 0rem !important;
+            color: $white !important;
+        }
+    }
+    @media (max-width: 500px) {
+        .searchbar {
+            display: none;
+        }
+        .inner_header {
+            display: flex !important;
+            & .navbrand.col {
+                max-width: fit-content !important;
+            }
+            & .utilbar.col {
+                max-width: fit-content !important;
+            }
+        }
+
+        .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.css-3bmhjh-MuiPaper-root-MuiPopover-paper {
+            width: 30rem;
+            right: 2rem !important;
+            left: unset !important;
+        }
+    }
+}

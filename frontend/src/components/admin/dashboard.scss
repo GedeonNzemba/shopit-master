@@ -1,0 +1,185 @@
+// sidebar\\\\\\
+#dashboard_main-wrap {
+    margin-bottom: 8rem;
+}
+.dashboard_main {
+    background: #232f24;
+    & #contactFormWrapper {
+        background-color: unset !important;
+    }
+}
+#col-md-2 {
+    margin-right: 0;
+    padding-right: 0;
+    z-index: 1;
+}
+#dashboard_header-title {
+    font-size: 4rem !important;
+    color: #ffffff;
+}
+#main_dashboard-info .card-body {
+    padding: 2.25rem !important;
+}
+.dashboard-title {
+    font-size: 2.4rem !important;
+}
+.view_details {
+    font-size: 1.4rem;
+    line-height: 2.4;
+    font-weight: bolder;
+}
+// a.card-footer.text-white.clearfix.small.z-1 {
+//     filter: drop-shadow(2px 4px 6px black);
+// }
+.sidebar-wrapper {
+    // new
+    & div#sidebar {
+        height: 100%;
+        background: unset;
+    }
+    #sidebar ul li a {
+        font-size: 1.1em;
+        display: block;
+        color: white;
+        text-decoration: none;
+        line-height: unset !important;
+    }
+    ul#productSubmenu li a {
+        font-size: 1.4rem !important;
+    }
+
+    // old
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    font-weight: 400;
+    margin-top: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+    & div#sidebar {
+        min-width: 100%;
+        max-width: 100%;
+        background: #232f3e;
+        color: #fff;
+        transition: all 0.3s;
+        display: block;
+        position: relative !important;
+
+        & ul.components {
+            padding-top: 0 !important;
+            line-height: 3;
+
+            &.list-unstyled {
+                // padding-left: 0;
+                list-style: none;
+            }
+
+            & li a {
+                padding: 1rem;
+                font-size: 1.1em;
+                display: block;
+                color: #fff;
+                text-decoration: none;
+
+                & i {
+                    margin-right: 0.3rem;
+                }
+            }
+
+            & li a:hover {
+                color: #232f3e;
+                background: #fff;
+            }
+        }
+    }
+}
+h1.my-5.adim_title {
+    font-size: 3rem;
+    color: #ffffff;
+}
+#admin_allProducts {
+    padding-top: 7rem;
+
+    .main_products_list {
+        & .h1.my-5.adim_title {
+            font-size: 3rem;
+            color: #ffffff;
+        }
+
+        .shadow-lg {
+            background: #ffffff !important;
+            padding: 1.4rem !important;
+            text-align: left !important;
+            max-width: 100rem !important;
+            margin: 0 auto !important;
+            border-radius: 1.5rem !important;
+        }
+    }
+
+    & .dataTables_wrapper.dt-bootstrap4.px-3 {
+        margin-bottom: 5rem;
+    }
+    .dataTables_paginate {
+        & .page-item a.page-link.page-link {
+            color: #ffffff;
+            background: #000000;
+            border: unset;
+        }
+        & .page-item a.page-link.page-link {
+            color: #ffffff;
+            background: #000000;
+            border: unset;
+        }
+        & li.active a.page-link.page-link {
+            color: #ffffff !important;
+            background: #000000 !important;
+            border: 1px solid #ffffff !important;
+            margin-left: 1rem !important;
+            padding: 0 1rem 0 1rem !important;
+        }
+        & .page-item:not(.page-item:first-child, .page-item:last-child) a.page-link.page-link {
+            color: #ffffff;
+            background: #000000;
+            border: 1px solid #ffffff;
+            margin-left: 1rem;
+            line-height: 2;
+            padding: 0 1rem 0 1rem !important;
+        }
+        & li.page-item:last-child {
+            margin-left: 1rem;
+        }
+    }
+    .dataTables_wrapper.dt-bootstrap4.px-3 .row:last-child {
+        margin-top: 3rem;
+    }
+    form.shadow-lg {
+        & h1.mb-4.adim_title {
+            font-size: 3rem;
+        }
+        .form-group {
+            margin-bottom: 2.5rem !important;
+            & label {
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+            & input {
+                font-size: 1.5rem !important;
+            }
+        }
+        textarea#description_field {
+            height: auto !important;
+        }
+
+        img.mt-3.mr-2 {
+            width: 11rem;
+            height: 10.4rem;
+        }
+        button#login_button {
+            color: #ffffff;
+            background: #000000;
+        }
+    }
+}
