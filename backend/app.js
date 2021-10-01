@@ -1,5 +1,9 @@
+const dotenv = require('dotenv')
+dotenv.config({ path: __dirname + '/config/config.env' });
+
 const express = require('express');
 const app = express();
+
 
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -10,7 +14,7 @@ const path = require('path')
 const errorMiddleware = require('./middlewares/errors')
 
 // Setting up config file 
-if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
+if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'config/config.env' })
 // dotenv.config({ path: 'backend/config/config.env' })
 
 app.use(express.json());
@@ -38,6 +42,8 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
         res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
     })
 }
+
+
 
 
 // Middleware to handle errors

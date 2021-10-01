@@ -130,7 +130,7 @@ function App() {
 
 
   return (
-    <Router>
+    <Router basename="/">
       <main>
         <div className='App'>
           <div className="farmStyle" id="farmSHOP">
