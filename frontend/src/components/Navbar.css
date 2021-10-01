@@ -126,3 +126,8 @@ body::-webkit-scrollbar {
 html::-webkit-scrollbar {
     display: none;
 }
+@media (max-width: 899px) {
+    .menu-bars img#hamburgerTemp {
+        width: 5rem;
+    }
+}

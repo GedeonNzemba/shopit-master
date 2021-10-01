@@ -62,7 +62,7 @@ const HeaderBSN = () => {
                 <div className="realEstate_navItem">
                     <ul>
                         <li>
-                            <Link to="/realestate">home</Link>
+                            <Link to="/">home</Link>
                         </li>
                         <Active >
                             <Link id={active ? "activeA" : ""} to="/riskmanagement">risk management</Link>
@@ -70,9 +70,6 @@ const HeaderBSN = () => {
                         {/* <li>
                         <Link to="/">livestock</a>
                     </li> */}
-                        <li>
-                            <Link to="/">farm</Link>
-                        </li>
                         <li>
                             <Link to="/about">about</Link>
                         </li>

@@ -42,6 +42,7 @@ import imgF from "../images/reaalty/all types/house_purshase.jpg";
 
 export default function RealEstate() {
     useEffect(() => {
+        document.getElementById('homeView').style.display = 'none'
         const addFlickity = (url) => {
             const script = document.createElement("script");
             script.src = url;
@@ -50,6 +51,10 @@ export default function RealEstate() {
         };
 
         addFlickity("https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js");
+
+        return () => {
+            document.getElementById('homeView').style.display = 'block'
+        }
     }, []);
 
     useEffect(() => {
@@ -137,10 +142,10 @@ export default function RealEstate() {
                                             <Link id={active ? "activeA" : ""} to="/real-estate">real estate</Link>
                                         </Active>
                                         <li>
-                                            <Link to="/farm">Livestock</Link>
+                                            <Link to="/riskmanagement">risk management</Link>
                                         </li>
                                         <li>
-                                            <Link to="/risk">risk management</Link>
+                                            <Link to="/about">about</Link>
                                         </li>
                                         <li>
                                             <Link to="/career">Career</Link>

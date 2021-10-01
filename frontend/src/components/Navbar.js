@@ -7,7 +7,7 @@ import "./Navbar.css";
 import { IconContext } from "react-icons";
 import logo from "../images/logo_main.png";
 
-function Navbar(props) {
+function Navbar({ icon, iconB }) {
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -33,7 +33,7 @@ function Navbar(props) {
   }, [])
 
   // CHECK URL IS RISK MANAGEMENT
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   const [changeIcon, setChangeIcon] = useState(false);
 
   window.addEventListener('scroll', function () {
@@ -43,22 +43,24 @@ function Navbar(props) {
   })
 
 
-  useEffect(() => {
-    const page = "http://localhost:3000/riskmanagement";
-    const activateBar = () => {
-      setActive(true);
+  // useEffect(() => {
+  //   const page = "http://localhost:3000/riskmanagement";
+  //   const activateBar = () => {
+  //     setActive(true);
 
 
-    }
-    const disactivateBar = () => {
+  //   }
+  //   const disactivateBar = () => {
 
-      setActive(false);
-      console.log("User not at real estate page.........active is false")
-    }
+  //     setActive(false);
+  //     console.log("User not at real estate page.........active is false")
+  //   }
 
 
-    (window.location.href === page && window.innerWidth >= 900) ? activateBar() : disactivateBar();
-  }, [])
+  //   (window.location.href === page && window.innerWidth >= 900) ? activateBar() : disactivateBar();
+  // }, [])
+
+  // window.screen.width >= 900 ? activateBar() : disactivateBar()
 
 
   return (
@@ -67,9 +69,9 @@ function Navbar(props) {
         <div className="navbar" id="homeNavbar">
           <div className="menu-bars">
             {
-              active ? (
-                changeIcon ? <img src={props.iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
-                  : <img src={props.icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+              window.screen.width >= 900 ? (
+                changeIcon ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                  : <img src={icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
               )
                 : <FaIcons.FaBars onClick={showSidebar} />
             }

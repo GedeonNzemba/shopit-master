@@ -102,7 +102,7 @@ const Header = () => {
 
     return (
         <Fragment>
-            <header className="farm-header" style={{ zIndex: '999' }} id="homeView">
+            <header className="farm-header" id="homeView">
                 <section className="wrapper">
                     <div className="inner_header  row">
 
