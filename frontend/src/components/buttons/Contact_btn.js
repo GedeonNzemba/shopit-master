@@ -1,5 +1,6 @@
 import React from "react"
 import "../../styles/Locataire.css"
+import { Link } from "react-scroll"
 
 const Contact_btn = (props) => {
 
@@ -10,7 +11,7 @@ const Contact_btn = (props) => {
     //     <button className="getStarted-btn " type="button" id="buttonSix">Get Started</button>
     // </a>
     <div className="button">
-      <a href="www.google.com" className="btn-header-mobile btn--green-header-mobile">{props.name}</a>
+      <Link to="contactFormWrapper" className="btn-header-mobile btn--green-header-mobile" spy={true} smooth={true}>{props.name}</Link>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React from "react"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import "../styles/Locataire.css"
+import { Link } from 'react-scroll'
 import "../styles/fonts/gt super/stylesheet.css"
 import "./realty_about_layout"
 import ButtonSeven from "../components/buttons/buttonSeven"
@@ -25,6 +26,8 @@ import Navbar from "../components/Navbar"
 import Mobile from "./IMG/Mobile"
 import MobileB from "./IMG/MobileB"
 import MobileC from "./IMG/MobileC"
+import hamburger from "../images/reaalty/hamburger.svg"
+import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
 
 
 export default function Realtymobile() {
@@ -33,13 +36,10 @@ export default function Realtymobile() {
 
   return (
     <>
-      <Navbar />
       <div className="realEstate-midD reset-this">
-
+        <Navbar iconB={hamburger} icon={hamburgerLight} />
         {/* TOP HEADER */}
         <header className="realEstate_header" >
-
-
 
           <section className="realEstate-header_section">
             <div className="svg-Mobile-header_top" />
@@ -115,12 +115,16 @@ export default function Realtymobile() {
                 </p>
               </div>
             </div>
-            <div className="realEstate-content_btn">
-              <div className="realEstate-content_btn-left">
-                <ButtonSeven title="learn more" />
-              </div>
+            <Link to="realEstate-title__two" spy={true} smooth={true} >
+              <div className="realEstate-content_btn">
+                <div className="realEstate-content_btn-left">
+                  <ButtonSeven title="learn more" />
 
-            </div>
+
+                </div>
+
+              </div>
+            </Link>
           </section>
 
 

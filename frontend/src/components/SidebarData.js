@@ -14,7 +14,7 @@ export const SidebarData = [
   },
   {
     title: "Farm",
-    path: "/farm",
+    path: "/",
     icon: <StoreIcon />,
     cName: "nav-text",
   },

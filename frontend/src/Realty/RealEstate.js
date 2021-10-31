@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MAIN_DESKTOP from "./main/Main_Desktop";
+import Navbar from "../components/Navbar"
+import hamburger from "../images/reaalty/hamburger.svg"
+import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -41,7 +44,9 @@ import imgF from "../images/reaalty/all types/house_purshase.jpg";
 
 
 export default function RealEstate() {
+
     useEffect(() => {
+
         document.getElementById('homeView').style.display = 'none'
         const addFlickity = (url) => {
             const script = document.createElement("script");
@@ -53,7 +58,7 @@ export default function RealEstate() {
         addFlickity("https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js");
 
         return () => {
-            document.getElementById('homeView').style.display = 'block'
+            document.getElementById('homeView').style.display = 'block';
         }
     }, []);
 
@@ -114,7 +119,8 @@ export default function RealEstate() {
     return (
         <div className="loading">
             <main>
-                <div data-scroll>
+                <div data-scroll style={{ position: 'relative' }}>
+                    <Realtymobile />
                     <Helmet>
                         <link
                             rel="stylesheet"
@@ -122,12 +128,13 @@ export default function RealEstate() {
                             href="https://npmcdn.com/flickity@2/dist/flickity.css"
                         />
                     </Helmet>
-                    <Realtymobile />
                     <div className="realEstate this_yes">
                         <Helmet>
                             <script src="../static/wowslider.js" type="text/javascript" />
                         </Helmet>
                         {/* top header */}
+                        <Navbar iconB={hamburger} icon={hamburgerLight} />
+
                         <header className="realEstate_header ">
                             <nav className="realEstate_navigation">
                                 <div className="realEstate_logoWrap">
@@ -237,12 +244,9 @@ export default function RealEstate() {
                         </header>
 
                         {/* ABOUT LOCATAIRE */}
-                        <br />
-                        <br />
-                        <br />
+
                         <MAIN_DESKTOP />
-                        <br />
-                        <br />
+
 
                         <main id="main-realtyContainer" className="this_yes ">
                             {/* TABLET */}

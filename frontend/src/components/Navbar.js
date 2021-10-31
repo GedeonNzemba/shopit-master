@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import * as FaIcons from "react-icons/fa";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import logo from "../images/logo_main.png";
+import logoB from "../images/logoblack.png";
+import { MobileRealty } from '../SVG/Svg'
 
 function Navbar({ icon, iconB }) {
 
@@ -14,72 +15,66 @@ function Navbar({ icon, iconB }) {
   const showSidebar = () => setSidebar(!sidebar);
 
   // Apply background color to navbar on scroll event
+
+  const [changeIcon, setChangeIcon] = useState();
+  function listernForScroll() {
+    document.getElementsByClassName('bar__bg')[0] ? setChangeIcon(true) : setChangeIcon(false);
+  }
+  document.addEventListener('scroll', listernForScroll)
+
   useEffect(() => {
-    var navbar = document.getElementById('homeNavbar');
-    document.addEventListener('scroll', () => {
-      console.log('Scrolling: ' + window.scrollY);
-      if (window.scrollY > 300) {
-        navbar.classList.add('bar__bg');
-      } else if (window.scrollY < 300) {
-        navbar.classList.remove('bar__bg');
-      }
-    })
+    var riskHeader = document.getElementsByClassName('navbar')[0];
+    riskHeader.style.position = 'fixed'
 
     return () => {
-      if (window.scrollY < 300) {
-        navbar.classList.remove('bar__bg');
-      }
+      riskHeader.style.position = 'sticky'
     }
   }, [])
 
-  // CHECK URL IS RISK MANAGEMENT
-  // const [active, setActive] = useState(false);
-  const [changeIcon, setChangeIcon] = useState(false);
-
-  window.addEventListener('scroll', function () {
-    var el = document.getElementById('homeNavbar');
-    el.classList.contains('bar__bg') ? setChangeIcon(true) : setChangeIcon(false);
-
-  })
+  const [screen, setScreen] = useState()
+  const app = document.getElementById('root');
+  let minScreen = app.clientWidth;
 
 
-  // useEffect(() => {
-  //   const page = "http://localhost:3000/riskmanagement";
-  //   const activateBar = () => {
-  //     setActive(true);
 
 
-  //   }
-  //   const disactivateBar = () => {
-
-  //     setActive(false);
-  //     console.log("User not at real estate page.........active is false")
-  //   }
-
-
-  //   (window.location.href === page && window.innerWidth >= 900) ? activateBar() : disactivateBar();
-  // }, [])
-
-  // window.screen.width >= 900 ? activateBar() : disactivateBar()
 
 
   return (
-    <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar" id="homeNavbar">
+    <Fragment style={{ position: 'sticky!important' }}>
+      <IconContext.Provider value={{ color: "#fff" }} >
+        <div className="navbar homeNav" >
           <div className="menu-bars">
-            {
-              window.screen.width >= 900 ? (
+            <div className="br-log">
+              {
                 changeIcon ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
                   : <img src={icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
-              )
-                : <FaIcons.FaBars onClick={showSidebar} />
-            }
+              }
+            </div>
+            <div className="br-log">
+              <img src={iconB} className="mobile-risk-burger" onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+            </div>
+            {/* {
+              !screen ?
+                (
+                  changeIcon ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                    : <img src={icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                )
+                :
+                (
+                  <img src={iconB} className="mobile-risk-burger" onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                )
+
+            } */}
           </div>
 
           <Link to="/" className="logo">
             <figure className="logo">
-              <img src={logo} alt="Locataire logo" id="logo" />
+              {changeIcon ?
+                <img src={logo} alt="Locataire logo" id="logo" />
+                :
+                <img src={logo} alt="Locataire logo" id="logo" />
+              }
             </figure>
           </Link>
         </div>
@@ -104,7 +99,7 @@ function Navbar({ icon, iconB }) {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </Fragment>
   );
 }
 

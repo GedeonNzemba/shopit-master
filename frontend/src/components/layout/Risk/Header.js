@@ -186,12 +186,12 @@ const Header = () => {
                         </div>
 
                         <div className="riskHeader_btn">
-                            <Link to="/" className="riskHeader_btn-left">
+                            <Link to="risk-content-up" className="riskHeader_btn-left">
                                 <Button variant="contained" color="secondary" >
                                     Learn More
                                 </Button>
                             </Link>
-                            <Link to="/" className="riskHeader_btn-right">
+                            <Link to="contactFormWrapper" className="riskHeader_btn-right">
                                 <Button variant="contained" color="primary" >
                                     Contact Us
                                 </Button>

@@ -1,5 +1,17 @@
 const express = require('express');
 const app = express();
+const compression = require('compression');
+
+app.use(compression({
+    level: 6,
+    threshold: 10 * 1000,
+    filter: (req, res) => {
+        if (req.headers['x-no-compression']) {
+            return false
+        }
+        return compression.filter(req, res)
+    }
+}))
 
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')

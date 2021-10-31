@@ -5,11 +5,101 @@
     justify-content: space-between;
     padding: 0 3%;
     align-items: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: -webkit-fill-available;
     z-index: 9999;
     transition: 1s ease-out;
+}
+
+@media (max-width: 899px) {
+    .realEstate-header-content {
+        margin: 0 10rem!important;
+    }
+    .realEstate-midD header section.realEstate-header_section {
+        padding: 5rem 0 0 0;
+    }
+    .realEstate-midD.reset-this {
+        background: #314862;
+    }
+    header.realEstate_header {
+        background: #ffffff;
+    }
+    main.realEstate-about {
+        background: #ffffff;
+    }
+}
+@media (max-width: 500px) {
+    .realEstate-header-content {
+        margin: 0 4.5rem !important;
+        max-width: 77.5% !important;
+        height: 60vh !important;
+    }
+   
+}
+@media (max-width: 375px) {
+    .navbar.homeNav .menu-bars svg {
+            width: 1.5em;
+            height: 1.5em;
+    }
+}
+@media (max-width: 992px) {
+    .MuiInputBase-root.MuiInput-root.MuiInput-underline {
+        width: 100%;
+    }
+    textarea#messageField {
+        font-size: 1.6rem;
+    }
+    .MuiFormControl-root.MuiTextField-root {
+        width: 65%;
+    }
+    section#personal,
+    section#business,
+    section#message_part {
+        padding: 2.5rem;
+    }
+}
+@media (max-width: 700px) {
+    .realEstate-midD header section.realEstate-header_section {
+        padding: unset!important;
+    }
+    figure.logo>img {
+        width: 12em;
+    }
+    img#logo {
+        width: 16.5em;
+        height: unset!important
+    }
+    header.riskHeader__smallDesktop {
+        border-top: .1px solid #673ab7;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+    .realEstate.this_yes {
+        background: #314862;
+    }
+    div#homeNavbar {
+        background: transparent;
+    }
+    header.realEstate_header {
+        background: #ffffff;
+    }
+    main#main-realtyContainer {
+        background: #ffffff;
+    }
+    img.d-block.w-100 {
+        width: 100% !important;
+        height: 100vh;
+        object-fit: fill;
+        object-position: center;
+    }
+    .carousel-caption {
+        display: none;
+    }
+    figure.logo img {
+        height: 5.5rem;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -27,9 +117,9 @@
     .menu-bars {
         font-size: 3rem;
     }
-    figure.logo>img {
+    /* figure.logo>img {
         width: 12em;
-    }
+    } */
 }
 @media (max-width: 320px) {
    .realEstate-header-content__btn {
@@ -54,7 +144,7 @@
 .bar__bg {
     transition: 1s ease-in;
     /* background-color: #313962; */
-    background-color: #313962e3;
+    background-color: #313962e3!important;
         filter: drop-shadow(2px 4px 6px black);
 }
 
@@ -128,6 +218,6 @@ html::-webkit-scrollbar {
 }
 @media (max-width: 899px) {
     .menu-bars img#hamburgerTemp {
-        width: 5rem;
+        width: 4.2rem;
     }
 }

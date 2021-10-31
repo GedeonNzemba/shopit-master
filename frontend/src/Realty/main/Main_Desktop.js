@@ -45,7 +45,7 @@ function Main_Desktop() {
 
 
     return (
-        <main id="main-realtyContainer" className="this_yes " style={{ paddingTop: '1.5rem' }}>
+        <main id="main-realtyContainer" className="this_yes " style={{ paddingTop: '16%' }}>
             <div className="realty" id="realty_about">
 
                 {/* HEDER FOR MAIN */}
@@ -147,13 +147,9 @@ function Main_Desktop() {
                             <div className="realty__textWrap" id="realty__textWrap">
                                 <div className="realty__text-container">
                                     <p style={{ marginBottom: "0" }}>
-                                        Our core business includes management and
-                                        administration of commercial and multifamily
-                                        residential properties, and our primary business
-                                        objective is to maximize the total return to property
-                                        owners, through strategic acquisition, re-development,
-                                        re-lease and management of these properties for
-                                        maximum cash flow.
+                                        Our team understand financial services, wealth management, and the extend of risks relative to return on
+                                        investment property owners are willing to withstand. We are committed to helping our clients preserve
+                                        wealth for yourself, and your family, and to prepare for future responsibilities as wealth owners and leaders.
                                     </p>
                                 </div>
                             </div>

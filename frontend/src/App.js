@@ -5,6 +5,7 @@ import "./route.css"
 import './styles/Locataire.css'
 
 import Home from './components/Home'
+import Career from './components/Career/Career'
 
 // Category
 import Poultry from './components/farm/Category/Poultry'
@@ -73,22 +74,23 @@ function App() {
   // const [products, setProducts]
 
   // The back-to-top button is hidden at the beginning
-  const [showButton, setShowButton] = useState(false);
+  // const [showButton, setShowButton] = useState();
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.pageYOffset > 300) {
+  //       setShowButton(true);
+  //     } else {
+  //       setShowButton((prevState) => prevState = false);
+  //     }
+  //   });
+  // }, []);
 
   // This function will scroll the window to the top 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
 
   const [stripeApiKey, setStripeApiKey] = useState('');
 
@@ -189,6 +191,7 @@ function App() {
             <Route path="/shop" component={Shop} exact />
             <Route path="/cart" component={Cart} exact />
             <Route path="/about" component={About} exact />
+            <Route path="/career" component={Career} exact />
             <Route path="/farm" component={Farm} exact />
 
             <Route path="/product-category/poultry" component={Poultry} exact />
@@ -231,7 +234,7 @@ function App() {
           <Contact />
           {/* )} */}
 
-          {showButton && (
+          {/* {showButton && (
             <div class="scrollWrap" onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut}>
               <img
                 onClick={scrollToTop}
@@ -240,7 +243,8 @@ function App() {
                 alt="scroll up"
               />
             </div>
-          )}
+          )
+          } */}
         </div>
       </main>
     </Router>
@@ -250,3 +254,19 @@ function App() {
 export default App;
 
 
+// useEffect(() => {
+//   const page = "http://localhost:3000/riskmanagement";
+//   const activateBar = () => {
+//     setActive(true);
+
+
+//   }
+//   const disactivateBar = () => {
+
+//     setActive(false);
+//     console.log("User not at real estate page.........active is false")
+//   }
+
+
+//   (window.location.href === page && window.innerWidth >= 900) ? activateBar() : disactivateBar();
+// }, [])

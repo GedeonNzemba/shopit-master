@@ -1883,17 +1883,14 @@ h5 span.yourcarttitle {
      transform: translate(0%, 112%) !important;
    }
 }
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   #risk-content-up .__innerItem-container-text {
-    height: unset!important;
+    height: auto!important;
   }
   #risk-content-up .__innerItem-container-text {
-    height: unset!important;
+    height: auto!important;
   }
-  img#logo {
-    width: 21rem;
-  }
-}
+} */
 
 
 .main_products {
@@ -2021,4 +2018,10 @@ form.MuiBox-root.MuiBox-root-16 {
 }
 #login_page #contactFormWrapper {
   background-color: unset!important;
+}
+
+/* CAREER */
+.career__page {
+  text-align: center;
+  margin: 35% 0;
 }

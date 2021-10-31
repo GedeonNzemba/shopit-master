@@ -81,7 +81,7 @@ const Main = () => {
 
             <div className="risk-content" id="risk-content-up">
                 <div className="__innerItem-container-img">
-                    <div className="main-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -104,7 +104,7 @@ const Main = () => {
                             />
                         </div>
                     </div>
-                    <div className="md-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="md-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -129,7 +129,7 @@ const Main = () => {
                     </div>
                 </div>
 
-                <div className="__innerItem-container-text" id="__innerItem-container-text">
+                <div className="__innerItem-container-text mobile-text-wrap" id="__innerItem-container-text">
                     <div className="_inner-text-content">
                         <div className="_item_text-header">
                             <h1>audit</h1>
@@ -179,7 +179,7 @@ const Main = () => {
 
             <div className="risk-content switchside" id="risk-content-up">
                 <div className="__innerItem-container-img">
-                    <div className="main-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -202,7 +202,7 @@ const Main = () => {
                             />
                         </div>
                     </div>
-                    <div className="md-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="md-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -262,7 +262,7 @@ const Main = () => {
             </center>
             <div className="risk-content remove_mt" id="risk-content-up" style={{ marginTop: 'unset!important' }}>
                 <div className="__innerItem-container-img">
-                    <div className="main-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -285,7 +285,7 @@ const Main = () => {
                             />
                         </div>
                     </div>
-                    <div className="md-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="md-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -340,7 +340,7 @@ const Main = () => {
 
             <div className="risk-content switchside" id="risk-content-up">
                 <div className="__innerItem-container-img">
-                    <div className="main-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"
@@ -363,7 +363,7 @@ const Main = () => {
                             />
                         </div>
                     </div>
-                    <div className="md-carousel" data-flickity='{ "wrapAround": true }'>
+                    <div className="md-carousel" data-flickity='{ "wrapAround": true, "autoPlay": 5500, "imagesLoaded": true  }'>
                         <div className="carousel-cell">
                             <img
                                 className="item-img img-resp"

@@ -17,7 +17,7 @@ html::-webkit-scrollbar {
 
         @include for-tablet-landscape-only {
             min-height: unset;
-            margin-bottom: 24rem;
+            padding-bottom: 24rem;
         }
 
         & header.realty__heading {

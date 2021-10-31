@@ -543,7 +543,7 @@ div.realtyBSN {
         background-repeat: no-repeat;
         background-size: 100% 100%;
         height: 100vh;
-        margin-bottom: 10%;
+        // margin-bottom: 10%;
 
         @include for-tablet-landscape-only {
             height: 100vh;
@@ -993,7 +993,7 @@ div.realtyBSN {
                 justify-content: center;
 
                 @include for-tablet-landscape-only {
-                    margin-top: -10rem;
+                    margin-top: -15rem;
                 }
                 @include for-xsmall-desktop-up {
                     margin-top: -15rem;
@@ -1096,6 +1096,10 @@ div.realtyBSN {
                             margin-block-end: 0;
                             margin-block-start: 0;
 
+                            @media (min-width: 900px) and (max-width: 1199px) {
+                                width: fit-content !important;
+                            }
+
                             @include for-tablet-landscape-up {
                                 width: max-content;
                             }
@@ -1169,7 +1173,7 @@ div.realtyBSN {
                 filter: 0 0 2rem 3px black !important;
 
                 @include for-tablet-landscape-only {
-                    margin-top: 12rem;
+                    margin-top: 2rem;
                     // border-radius: 280px 0 35% 35%;
                     border-radius: 18rem 0 60% 35%;
                     border-left: 1.7rem solid #06d;
