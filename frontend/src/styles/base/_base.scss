@@ -1,0 +1,33 @@
+html {
+    font-size: 62.5%;
+}
+
+@media (max-width: 1199px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media (max-width: 56.25em) {
+    html {
+        font-size: 50%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+}
+
+@media (max-width: 56.25em) {
+    body {
+        padding: 0 !important;
+    }
+}
+
+body {
+    font-family: "Ginto regular", sans-serif;
+    font-weight: 400;
+    /*font-size: 16px;*/
+    line-height: 1.2;
+    color: $dark;
+}

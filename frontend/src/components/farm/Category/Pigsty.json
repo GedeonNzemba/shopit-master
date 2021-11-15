@@ -1,0 +1,173 @@
+[
+    {
+        "name": "Landrace",
+        "sku": "LPR1",
+        "size": "verrat",
+        "price": 3.62,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR1",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869029/Fresh%20Eggs/pigsty/landrace_verrat_iiy5mo.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Landrace",
+        "sku": "LPR2",
+        "size": "trout",
+        "price": 4.53,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR2",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869029/Fresh%20Eggs/pigsty/landrace_verrat_iiy5mo.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Large white",
+        "sku": "LPR3",
+        "size": "verrat",
+        "price": 3.62,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR3",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/large_white_tk6obh.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Large white",
+        "sku": "LPR4",
+        "size": "trout",
+        "price": 4.53,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/large_white_tk6obh.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Duroc",
+        "sku": "LPR5",
+        "size": "verrat",
+        "price": 4.53,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR5",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Duroc",
+        "sku": "LPR6",
+        "size": "trout",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR6",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Pietrain",
+        "sku": "LPR7",
+        "size": "verrat",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR7",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869027/Fresh%20Eggs/pigsty/pietrain_zqorfi.jpg"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "chester",
+        "sku": "LPR8",
+        "size": "trout",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR8",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869028/Fresh%20Eggs/pigsty/chester_xynaaf.jpg"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "crus",
+        "sku": "LPR9",
+        "size": "verrat",
+        "price": 6.34,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR9",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869029/Fresh%20Eggs/pigsty/crus_lnljzj.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    }
+]

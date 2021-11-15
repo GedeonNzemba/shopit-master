@@ -1,0 +1,403 @@
+@media (min-width: 700px) {
+  a.MuiChip-root.WithStyles\(ForwardRef\(Chip\)\)-root-32.MuiChip-clickable {
+    place-self: center;
+  }
+
+  .remove_filter {
+    display: flex;
+  }
+  .remove_filter span {
+    place-self: center;
+  }
+}
+.isNull {
+  transition: 0.5s ease-out;
+  position: fixed;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 34rem;
+  height: 100vh;
+}
+@media (max-width: 360px) {
+  .isNull {
+    width: 67%;
+  }
+}
+
+.filter_shop {
+  left: 0% !important;
+  transition: 0.5s ease-in;
+}
+
+.category-page::after {
+  background: rgba(0, 0, 0, 0.8);
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9;
+}
+
+#category-page {
+  position: relative;
+}
+#category-page span {
+  margin-left: unset !important;
+}
+
+#category__filter {
+  display: flex;
+  justify-content: flex-end;
+  place-self: center;
+}
+#category__filter .clear_filter {
+  margin-right: 2rem;
+}
+
+@media (max-width: 420px) {
+  div#remove_filter {
+    width: 90vw;
+    place-self: center;
+  }
+}
+.poultry .breadcrumb {
+  z-index: 9 !important;
+}
+@media (max-width: 347px) {
+  .poultry .breadcrumb {
+    padding-bottom: 2rem;
+    flex-direction: column;
+  }
+  .poultry .breadcrumb .products-view {
+    display: flex;
+    justify-content: flex-end;
+    place-self: flex-end;
+  }
+}
+@media (min-width: 700px) and (max-width: 899px) {
+  .poultry .breadcrumb {
+    width: calc(412px + (600 - 412) * (100vw - 700px) / (899 - 700)) !important;
+  }
+}
+@media (max-width: 699px) {
+  .poultry .breadcrumb {
+    width: calc(340px + (656 - 340) * (100vw - 375px) / (699 - 375)) !important;
+  }
+}
+@media (max-width: 374px) {
+  .poultry .breadcrumb {
+    width: 92vw !important;
+  }
+}
+@media (max-width: 374px) and (max-width: 332px) {
+  .poultry .breadcrumb {
+    padding: 2rem;
+    flex-direction: column;
+  }
+  .poultry .breadcrumb .products-view {
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 374px) {
+  .poultry .poultry_products {
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+  }
+}
+@media (max-width: 899px) {
+  .poultry .listMode {
+    width: calc(413px + (584 - 413) * (100vw - 700px) / (899 - 700));
+  }
+}
+@media (max-width: 699px) {
+  .poultry .listMode {
+    width: calc(560px + (656 - 560) * (100vw - 600px) / (699 - 600));
+  }
+}
+@media (max-width: 599px) {
+  .poultry .listMode {
+    width: calc(463px + (560 - 463) * (100vw - 500px) / (599 - 500));
+  }
+}
+@media (max-width: 500px) {
+  .poultry .listMode {
+    width: calc(389px + (463 - 389) * (100vw - 425px) / (500 - 425));
+    width: calc(340px + (388 - 340) * (100vw - 375px) / (424 - 375));
+  }
+}
+@media (max-width: 500px) and (max-width: 424px) {
+  .poultry .listMode .img-container img {
+    height: 16.5rem;
+  }
+}
+@media (max-width: 500px) and (max-width: 374px) {
+  .poultry .listMode a#link_list {
+    display: flex;
+  }
+  .poultry .listMode a#link_list .listMode .bottom {
+    place-self: center;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1365px) {
+  .poultry .main_products {
+    display: flex;
+    flex-direction: column;
+  }
+  .poultry .main_products .breadcrumb {
+    width: 100%;
+    flex: 1;
+  }
+  .poultry .main_products .poultry_products {
+    flex: 1;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    place-self: center;
+  }
+  .poultry .main_products .poultry_products .listMode {
+    padding: 1.5rem;
+    width: 70vw;
+  }
+  .poultry .main_products .poultry_products .producstWrapper {
+    padding: 1.5rem;
+    grid-template-columns: 19rem 19rem 19rem 19rem;
+  }
+}
+@media (min-width: 1400px) {
+  .poultry .main_products {
+    display: flex;
+    flex-direction: column;
+  }
+  .poultry .main_products .poultry_products {
+    align-self: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (min-width: 1366px) and (max-width: 1535px) {
+  .poultry .producstWrapper {
+    padding: 1.5rem;
+    grid-template-columns: 19rem 19rem 19rem 19rem auto;
+  }
+}
+@media (min-width: 1366px) and (max-width: 1535px) and (min-width: 1390px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
+  }
+}
+@media (max-width: 1800px) and (min-width: 1800px) {
+  .poultry .poultry_products {
+    display: flex;
+    justify-content: center;
+  }
+  .poultry .producstWrapper {
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+    padding: 6rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (min-width: 1536px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
+  }
+}
+@media (min-width: 1920px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .poultry .producstWrapper .product {
+    width: 19rem;
+  }
+}
+@media (min-width: 2000px) {
+  .poultry {
+    max-width: 190rem;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .poultry .main_products {
+    display: flex;
+    flex-direction: column;
+  }
+  .poultry .main_products .breadcrumb {
+    width: 100%;
+    flex: 1;
+  }
+  .poultry .main_products .poultry_products {
+    flex: 1;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    place-self: center;
+  }
+  .poultry .main_products .poultry_products .listMode {
+    padding: 1.5rem !important;
+    width: calc(560px + (810 - 560) * (100vw - 900px) / (1199 - 900));
+  }
+  .poultry .main_products .poultry_products .producstWrapper {
+    padding: 1.5rem;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) and (max-width: 1050px) {
+  .poultry .main_products .poultry_products .producstWrapper {
+    grid-template-columns: 19rem 19rem 19rem;
+  }
+}
+@media (max-width: 899px) {
+  .poultry {
+    grid-template-columns: 25rem auto;
+  }
+  .poultry.cat_fielter {
+    grid-template-columns: 1fr !important;
+    justify-content: center;
+  }
+  .poultry span.rc-slider-mark-text.rc-slider-mark-text-active {
+    margin: 0;
+  }
+  .poultry .main_products {
+    display: flex;
+    flex-direction: column;
+  }
+  .poultry .main_products .breadcrumb {
+    width: 100%;
+    flex: 1;
+  }
+  .poultry .main_products .poultry_products {
+    flex: 1;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    place-self: center;
+  }
+  .poultry .main_products .poultry_products .listMode {
+    padding: 1.5rem !important;
+  }
+}
+@media (max-width: 899px) and (max-width: 374px) {
+  .poultry .main_products .poultry_products .listMode {
+    width: unset !important;
+  }
+}
+@media (max-width: 899px) {
+  .poultry .producstWrapper {
+    padding: 1.5rem;
+    grid-template-columns: 19rem 19rem 19rem 17rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 15rem 15rem 15rem 15rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 565px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 15rem 15rem 15rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 425px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 17rem 17rem !important;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 340px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 15rem 15rem !important;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 299px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 19rem 19rem !important;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) {
+  .poultry .producstWrapper .img-container img {
+    height: 16.5rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 565px) {
+  .poultry .producstWrapper .img-container img {
+    height: 15.5rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 425px) {
+  .poultry .producstWrapper .img-container img {
+    height: 17rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 340px) {
+  .poultry .producstWrapper .img-container img {
+    height: 15rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 680px) and (max-width: 299px) {
+  .poultry .producstWrapper .img-container img {
+    height: 19rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 500px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 15rem 15rem 15rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 299px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 19rem !important;
+  }
+}
+@media (min-width: 700px) and (max-width: 767px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 15rem 15rem 15rem;
+  }
+  .poultry .producstWrapper .img-container img {
+    width: 15rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 799px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 17rem 17rem 17rem;
+  }
+  .poultry .producstWrapper .img-container img {
+    width: 17rem;
+  }
+}
+@media (min-width: 800px) and (max-width: 898px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 19rem 19rem 19rem;
+  }
+  .poultry .producstWrapper .img-container img {
+    width: 19rem;
+  }
+}
+@media (min-width: 899px) and (max-width: 899px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 17rem 17rem 17rem 17rem;
+  }
+  .poultry .producstWrapper .img-container img {
+    width: 17rem;
+  }
+}
+@media (min-width: 1051px) and (max-width: 1169px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 17rem 17rem 17rem 17rem;
+  }
+  .poultry .producstWrapper .img-container img {
+    width: 17rem;
+  }
+}
+@media (min-width: 1170px) and (max-width: 1199px) {
+  .poultry .producstWrapper {
+    grid-template-columns: 17rem 17rem 17rem 17rem 17rem;
+  }
+  .poultry .producstWrapper .img-container img {
+    width: 17rem;
+  }
+}/*# sourceMappingURL=category_responsive.css.map */

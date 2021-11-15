@@ -1,0 +1,71 @@
+/* PAY FORM */
+.shadow-lg {
+    background: #f2f2f2!important;
+    padding: 1.4rem!important;
+    text-align: left!important;
+    max-width: 45rem!important;
+    border-radius: 1.5rem!important;
+}
+.form_pay_wrap {
+    margin: 5rem 0 7rem 0!important;
+}
+.pay_title {
+    font-size: 3rem!important;
+}
+.pay_form label {
+    font-size: 1.8rem!important;
+}
+.form-control {
+    height: calc(3.25rem + 2px)!important;
+    padding: .800rem 1rem!important;
+}
+
+button#pay_btn {
+    background: #3f51b5!important;
+    color: #ffffff!important;
+    margin-top: 4rem!important;
+    line-height: 1.2!important;
+}
+.succes_msg h2 {
+    font-size: 4.5rem;
+    width: fit-content;
+    margin-bottom: 2.5rem;
+    color: #000000;
+    line-height: 1;
+}
+.succes_msg {
+    width: 30%;
+    position: absolute;
+    top: 0;
+    right: 15rem;
+   transform: translate(10rem, 20rem);
+}
+
+/* MY ORDER */
+a.page-link.page-link span {
+    line-height: 2;
+    padding: 0 2rem;
+}
+.dataTables_info {
+    color: #ffffff;
+    font-weight: bold;
+}
+li.disabled.page-item:hover {
+    cursor: pointer;
+}
+
+/* temp */
+
+#sidebar ul li a:hover {
+    background: unset !important;
+    color: unset !important;
+}
+.sidebar-wrapper {
+    background: #333333;
+}
+.col-12.col-lg-7.order-details {
+    background: aliceblue;
+}
+.col-12.col-lg-3.mt-5 * {
+    font-size: 1.6rem!important;
+}

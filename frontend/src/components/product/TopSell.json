@@ -1,0 +1,230 @@
+[
+    {
+        "name": "Sheep seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO3",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/CHEVRE_SEED_wkbo1q.png"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Maron cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO4",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920880/Fresh%20Eggs/purebred%20seed/MARON_CATTLE_SEED_gxfoom.jpg"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Black cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO5",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/BLACK_CATTLE_SEED_byucd6.jpg"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Duroc",
+        "sku": "LPR5",
+        "size": "verrat",
+        "price": 4.53,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR5",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Duroc",
+        "sku": "LPR6",
+        "size": "trout",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR6",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869030/Fresh%20Eggs/pigsty/duroc_hkny53.png"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Pietrain",
+        "sku": "LPR7",
+        "size": "verrat",
+        "price": 5.43,
+        "description": "If you are looking for a fast-growing meat bird, our Jumbo White Cornish Cross Broilers should be your first choice. Also known as Cornish X, Cornish Cross, Cornish Rock Cross, Jumbo Broilers, Cornish Game Hens, or White Broilers, these meat chickens will be ready for processing in just 7 to 8 short weeks. Meyer Hatchery’s first-generation stock have been selected for fast feathering, steady growth, optimal feed conversion ratios and broad breasts. Meyer Hatchery's Cornish Cross are typically of the Ross 308 and Cobb 500 strain. Both strains have yellow legs, skin, and feathers (the Cobb may have black flecks). Other strains may be substituted or added to meet consumer demand as needed.",
+        "ratings": 3,
+        "images": [
+            {
+                "public_id": "LPR7",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630869027/Fresh%20Eggs/pigsty/pietrain_zqorfi.jpg"
+            }
+        ],
+        "category": "Pigsty",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 2,
+        "reviews": []
+    },
+    {
+        "name": "Concentrate flesh",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT2",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_CHAIR_iyahqa.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Food & Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Concentrate laying hens",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT3",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_PONTE_qkoeb5.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Food & Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Premix laying hens",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT4",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924216/Fresh%20Eggs/alimentation/PREMIX_PONTE_v0o5me.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Food & Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "sahel goat",
+        "price": 135.83,
+        "size": "",
+        "sku": "LCMOO1",
+        "description": "",
+        "ratings": 5,
+        "category": "Mammals",
+        "seller": "Locataire Farm",
+        "stock": 20,
+        "numOfReviews": 2,
+        "reviews": [],
+        "images": [
+            {
+                "public_id": "LCMO01",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630880596/Fresh%20Eggs/mammals/sahel_goat_xyeega.png"
+            }
+        ]
+    },
+    {
+        "name": "dwarf goat",
+        "price": 108.67,
+        "size": "",
+        "sku": "LCMOO2",
+        "description": "",
+        "ratings": 5,
+        "category": "Mammals",
+        "seller": "Locataire Farm",
+        "stock": 20,
+        "numOfReviews": 2,
+        "reviews": [],
+        "images": [
+            {
+                "public_id": "LCMO02",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630880588/Fresh%20Eggs/mammals/dwaf_goat_wh0pp4.png"
+            }
+        ]
+    },
+    {
+        "name": "cameroon sheep",
+        "price": 135.83,
+        "size": "",
+        "sku": "LCMOO3",
+        "description": "",
+        "ratings": 5,
+        "category": "Mammals",
+        "seller": "Locataire Farm",
+        "stock": 20,
+        "numOfReviews": 2,
+        "reviews": [],
+        "images": [
+            {
+                "public_id": "LCMO03",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630880590/Fresh%20Eggs/mammals/cameroon_goat_enn5gz.png"
+            }
+        ]
+    }
+]

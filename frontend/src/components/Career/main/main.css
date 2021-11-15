@@ -1,0 +1,208 @@
+.career__main {
+  padding: 4rem;
+  background-color: #ffffff;
+  position: relative;
+  margin-bottom: 10rem;
+}
+.career__main .career__line {
+  display: block;
+  position: absolute;
+  background-image: url("../../../images/line.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35rem;
+  height: 35rem;
+  z-index: 9;
+  bottom: -25rem;
+  right: 50rem;
+}
+@media (min-width: 2000px) {
+  .career__main .career__line {
+    right: 115rem;
+  }
+}
+@media (min-width: 1440px) {
+  .career__main .career__line {
+    transform: rotate(356deg) translate(-7%, 0%);
+  }
+}
+@media (min-width: 993px) {
+  .career__main .career__line {
+    transform: rotate(356deg) translate(35%, 0%);
+    bottom: -36rem;
+  }
+}
+@media (min-width: 700px) and (max-width: 992px) {
+  .career__main .career__line {
+    right: 45%;
+    transform: rotate(347deg) translate(2%, 0%);
+  }
+}
+@media (min-width: 501px) and (max-width: 699px) {
+  .career__main .career__line {
+    transform: rotate(343deg) translate(15%, 0%);
+  }
+}
+@media (max-width: 500px) {
+  .career__main .career__line {
+    width: 25rem;
+    height: 25rem;
+    bottom: -22rem;
+    transform: rotate(353deg) translate(90%, 0%);
+  }
+}
+@media (max-width: 425px) {
+  .career__main .career__line {
+    transform: rotate(353deg) translate(135%, 0%);
+  }
+}
+@media (max-width: 360px) {
+  .career__main .career__line {
+    transform: rotate(353deg) translate(200%, 0%);
+  }
+}
+
+.ourWho {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media (min-width: 2000px) {
+  .ourWho {
+    max-width: 190rem;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 500px) {
+  .ourWho {
+    flex-direction: column;
+  }
+}
+.ourWho .ourWho__item {
+  width: 45%;
+  padding: 2rem;
+}
+@media (max-width: 500px) {
+  .ourWho .ourWho__item {
+    width: 100%;
+  }
+}
+.ourWho .ourWho__item h3 {
+  color: #313962;
+  font-family: "GT Super Ds Trial Bd";
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-size: 3.5rem;
+  line-height: 2;
+  text-transform: capitalize;
+}
+.ourWho .ourWho__item p {
+  color: #484844;
+  font-family: "Ginto regular";
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.benifits {
+  text-align: center;
+  display: block;
+  margin-top: 8rem;
+}
+@media (max-width: 500px) {
+  .benifits {
+    margin-bottom: 10rem;
+  }
+}
+@media (min-width: 2000px) {
+  .benifits {
+    max-width: 190rem;
+    margin: 0 auto;
+  }
+}
+.benifits .benifits__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-content: center;
+}
+.benifits .benifits__wrapper .benifits__heading {
+  text-align: center;
+  justify-self: center;
+  display: block;
+  max-width: 70%;
+  margin-bottom: 5rem;
+  place-self: center;
+}
+.benifits .benifits__wrapper .benifits__heading h2 {
+  color: #313962;
+  font-family: "GT Super Ds Trial Bd";
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-size: 3.5rem;
+  line-height: 2;
+  text-transform: capitalize;
+}
+.benifits .benifits__wrapper .benifits__heading p {
+  color: #484844;
+  font-family: "Ginto regular";
+  font-weight: 400;
+  font-size: 2rem;
+}
+.benifits .benifits__wrapper .benifits__tips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 12rem;
+       column-gap: 12rem;
+  row-gap: 12rem;
+  justify-items: center;
+}
+@media (max-width: 500px) {
+  .benifits .benifits__wrapper .benifits__tips {
+    grid-template-columns: 1fr;
+    -moz-column-gap: unset;
+         column-gap: unset;
+    row-gap: 5rem;
+  }
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip {
+  width: 100%;
+  height: 100%;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip .tips__icon-wrap {
+  display: block;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip .tips__icon-wrap ul {
+  display: inline-flex;
+  list-style: none;
+  list-style-type: none;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip .tips__icon-wrap ul li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  list-style-type: none;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip .tips__icon-wrap ul li:first-child {
+  margin-right: 1.6rem;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip .tips__icon-wrap ul li img {
+  width: 100%;
+  height: 4rem;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip .tips__icon-wrap ul li h3 {
+  color: #313962;
+  font-family: "Ginto bold";
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.8;
+}
+.benifits .benifits__wrapper .benifits__tips .benifits__tip p {
+  color: #484844;
+  font-family: "Ginto regular";
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: justify;
+}/*# sourceMappingURL=main.css.map */

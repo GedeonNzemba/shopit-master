@@ -1,0 +1,121 @@
+[
+    {
+        "name": "Fress pig seed",
+        "price": 45.19,
+        "size": "1 dose",
+        "sku": "INSAO1",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920999/Fresh%20Eggs/purebred%20seed/FRESH_PIG_seed_1_v2ourp.png"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Frozen swine seed",
+        "price": 54.24,
+        "size": "1 dose",
+        "sku": "INSAO2",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920886/Fresh%20Eggs/purebred%20seed/FROZEN_SWINE_SEED_qyic8l.png"
+            }
+        ]
+    },
+    {
+        "name": "Sheep seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO3",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/CHEVRE_SEED_wkbo1q.png"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Maron cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO4",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920880/Fresh%20Eggs/purebred%20seed/MARON_CATTLE_SEED_gxfoom.jpg"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Black cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO5",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920879/Fresh%20Eggs/purebred%20seed/BLACK_CATTLE_SEED_byucd6.jpg"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "White livestock seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO6",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920881/Fresh%20Eggs/purebred%20seed/WHITE_BETAIL_SEED_kpm2mz.jpg"
+            }
+        ],
+        "ratings": 5,
+        "description": "",
+        "category": "Purebred",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 3,
+        "reviews": []
+    },
+    {
+        "name": "Crossbred cattle seed",
+        "price": 0,
+        "size": "1 dose",
+        "sku": "INSAO6",
+        "images": [
+            {
+                "public_id": "LOE4",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630920881/Fresh%20Eggs/purebred%20seed/CROSSBRED_tcbhut.jpg"
+            }
+        ]
+    }
+]

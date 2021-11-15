@@ -1,0 +1,84 @@
+.footerWrapper {
+    @include flexRow;
+}
+.footerPhoneNumber {
+    margin: 5px 5px 5px 10px;
+}
+.footerEmail {
+    margin: 5px;
+}
+.lightFooter {
+    color: $white;
+    background-color: $bluethick;
+    display: flex;
+    justify-content: center;
+    color: $white;
+    width: 100%;
+    padding: 5px 4% 5px 4%;
+    font-family: "Ginto bold";
+    font-size: 12px;
+}
+
+.footerContainer {
+    border-top: 1px solid $white;
+    width: 100%;
+    // padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    @include for-tablet-portrait-down {
+        border-top: none;
+    }
+}
+
+.footerSocialIconsContainer {
+    @include flexRow;
+    justify-content: space-between;
+}
+.footerContactIconsContainer {
+    @include flexRow;
+}
+
+.iconTextWrapper {
+    margin: 5px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerMobileNansenAddress {
+    align-items: flex-start;
+    text-align: left;
+    @include for-tablet-portrait-up {
+        display: none;
+    }
+}
+
+.contactIconTextWrapper {
+    font-size: 15px;
+    margin-left: 15px;
+    a {
+        color: $white;
+    }
+}
+
+@media only screen and (max-width: $break) {
+    .footerSocialIconsContainer {
+        display: none;
+        width: 100%;
+    }
+    .lightFooter {
+        @include justifyAndAlignCenter;
+        // border-top: 0px solid #fff5e0;
+        text-align: center;
+        padding: 1%;
+    }
+    .footerContactIconsContainer {
+        @include flexColumn;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}

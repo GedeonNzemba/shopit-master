@@ -1,0 +1,453 @@
+.contactFormContainer {
+    background-color: $bluethick;
+    // width: 100vw;
+    min-height: 100%;
+}
+.contactFormMap img {
+    max-width: 50.25rem;
+    max-height: 50.1rem;
+}
+.contactForm {
+    @include bodyCopy();
+    @include flexColumn;
+    color: $white;
+}
+
+.locationsContactFormWrapper .contactFormHeader {
+    @include for-tablet-landscape-only {
+        margin-top: 30vh;
+    }
+
+    @include for-ipad-pro-breakpoint {
+        margin-top: 200px;
+    }
+
+    @include for-xsmall-desktop-up {
+        margin-top: 15vh;
+    }
+}
+
+.contactMapFooterLocation {
+    margin-top: 5px;
+    font-family: "Ginto regular";
+    font-weight: 100;
+    font-size: 12px;
+    color: $white;
+}
+
+.contactFormHeader {
+    @include justifyAndAlignCenter;
+    font-family: "Ginto bold";
+    display: flex;
+    text-align: center;
+    background-color: $bluethick;
+    color: $white;
+    max-width: 250px;
+    padding: 15px;
+    margin-top: 10vh;
+    font-size: $body-copy;
+}
+
+.contactFormContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: "Ginto regular";
+}
+
+.contactFormWrapper {
+    @include flexColumn;
+    overflow: hidden;
+    // padding: 0 1%;
+    // margin: 0 -1%;
+}
+
+.contactFormHeading {
+    color: white;
+    font-family: "GT Super Ds Trial Bd";
+    font-weight: bold;
+    padding: 10px;
+    padding-left: 0px;
+    font-size: $xlarge-body-copy;
+    text-transform: uppercase;
+}
+
+.contactFormInputWrapper {
+    @include flexRow;
+    justify-content: space-between;
+    width: 100%;
+
+    @include for-tablet-portrait-down {
+        flex-direction: column;
+    }
+
+    @include for-tablet-landscape-only {
+        flex-direction: column;
+    }
+}
+
+@mixin inputType {
+    border: none;
+    border-bottom: 0.5px solid $white;
+    background-color: $bluethick;
+    color: $white;
+    padding: 5px;
+    width: 100%;
+}
+
+.firstName {
+    @include inputType();
+    font-size: 18px;
+}
+
+.lastName {
+    @include inputType();
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.email {
+    @include inputType();
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.message {
+    @include inputType();
+    font-family: "Ginto regular";
+    margin-top: 30px;
+    resize: none;
+    font-size: 18px;
+}
+
+.formButton {
+    background-color: $white;
+    color: $bluethick;
+    max-width: 150px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    // margin-top: 30px;
+}
+
+.inputSectionFirstname {
+    margin-right: 16px;
+
+    @include for-tablet-portrait-down {
+        margin-right: 0px;
+    }
+}
+
+.fieldContact {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    margin-right: 46px;
+    margin-bottom: 56px;
+
+    @include for-tablet-portrait-down {
+        margin-right: 0px;
+        margin-bottom: 32px;
+    }
+}
+
+.fieldContact input {
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    font: 400 17px "Ginto bold";
+    color: $white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $white;
+    padding-left: 0;
+    padding-bottom: 15px;
+    padding-top: 9px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.fieldContact textarea {
+    resize: none;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    font: 400 17px "Ginto bold";
+    color: $white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $white;
+    padding-left: 0;
+    padding-bottom: 15px;
+    padding-top: 9px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.fieldContact label {
+    font: 400 17px "Ginto regular";
+    color: $white;
+    position: absolute;
+    left: 0;
+    top: 13px;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+}
+
+.fieldContact input:focus ~ label,
+.fieldContact input:valid ~ label,
+form:focus ~ label {
+    top: -18px;
+    font: 400 14px "Ginto regular";
+    opacity: 0.59;
+}
+
+.fieldContact textarea:focus ~ label,
+.fieldContact textarea:valid ~ label,
+form:focus ~ label {
+    top: -18px;
+    font: 400 14px "Ginto regular";
+    opacity: 0.59;
+}
+
+.contactFormMap {
+    width: 100%;
+    height: 100%;
+    max-width: 525px;
+    max-height: 501px;
+}
+.contactFormMapDiv {
+    width: 50%;
+    padding: 5%;
+    padding-bottom: 0;
+}
+
+.contactFormInternalContainer {
+    width: 50%;
+    padding: 5%;
+    padding-bottom: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.bttn {
+    border: none;
+    font-family: "Ginto regular";
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 10px 70px;
+    display: inline-block;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    width: fit-content;
+}
+
+.btn-7 {
+    background: $white;
+    color: $bluethick;
+    // border-radius: 7px;
+    box-shadow: 0 5px $white;
+}
+.btn-7h:before {
+    position: absolute;
+    left: 0;
+    width: 40%;
+    line-height: 0.8;
+    color: $white;
+}
+
+.bttn:before,
+.icon-heart:after,
+.icon-star:after,
+.icon-plus:after,
+.icon-file:before {
+    font-family: "Ginto regular";
+    // speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bttn:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+@media only screen and (max-width: $break) {
+    .contactFormHeader {
+        display: none;
+    }
+    .contactFormContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        & .contactFormInternalContainer {
+            justify-self: unset;
+            margin-left: 5rem;
+            margin-right: 5rem;
+            width: auto !important;
+        }
+    }
+    #ct_form .MuiTypography-body2 {
+        font-size: 1.6rem !important;
+    }
+    form#ct_form {
+        max-width: 100% !important;
+    }
+
+    .contactMapFooterLocation {
+        display: none;
+    }
+
+    .contactFormMap {
+        display: none;
+    }
+
+    .contactFormMapDiv {
+        padding: 0;
+        margin: 0;
+    }
+
+    .contactFormContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+
+    .contactFormInternalContainer {
+        width: 90%;
+        padding: 5%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+}
+
+div#selectSubject {
+    font-size: 1.6rem !important;
+}
+#ct_form .MuiTypography-body2 {
+    font-size: 1.6rem;
+}
+.contactFormMapDiv {
+    width: fit-content !important;
+    justify-self: center !important;
+}
+form#ct_form {
+    max-width: 50rem;
+}
+.contactFormInternalContainer {
+    padding-left: unset !important;
+    padding-right: unset !important;
+    width: fit-content !important;
+    justify-self: center;
+}
+.contactFormMap {
+    width: fit-content !important;
+    max-width: fit-content !important;
+    max-height: fit-content !important;
+    & iframe[width] {
+        width: 50.1rem !important;
+    }
+    & iframe[height] {
+        height: 50.12rem !important;
+    }
+}
+@include for-phone-only-down {
+    .contactFormContainer {
+        padding-left: 1.3rem;
+    }
+    footer.lightFooter {
+        padding-left: 1.3rem;
+    }
+    .contactFormContainer .contactFormInternalContainer {
+        margin-left: 1rem;
+    }
+    #ct_form {
+        & #theStepper {
+            @media (max-width: 499px) {
+                padding: 0.8rem !important;
+            }
+            & .MuiStep-root {
+                & span.MuiStepLabel-root {
+                    margin-left: unset !important;
+                }
+            }
+        }
+    }
+    form#ct_form {
+        max-width: calc(50rem + (30 - 50) * (100vw - 37.5rem) / (50 - 37.5));
+    }
+}
+
+// remove height of contact
+@media (max-width: 992px) {
+    #ct_form {
+        & .MuiBox-root.MuiBox-root-8 {
+            padding-top: unset !important;
+            @include for-phone-only-down {
+                margin-top: 1.4em;
+            }
+        }
+    }
+}
+@media (min-width: 1366px) {
+    .contactFormContainer {
+        grid-template-columns: 55% 45% !important;
+        justify-items: center !important;
+    }
+    .contactFormInternalContainer {
+        width: 90% !important;
+        padding: 5rem 0 0 0 !important;
+        margin: 0 !important;
+        justify-self: unset !important;
+    }
+    .contactFormMapDiv {
+        width: unset !important;
+        justify-self: unset !important;
+        padding: 5rem 0 0 0 !important;
+    }
+    form#ct_form {
+        max-width: 100rem;
+
+        & .MuiBox-root.MuiBox-root-8 {
+            margin-top: -4rem;
+        }
+    }
+}
+section#personal,
+section#business,
+section#message_part {
+    padding: 0 2.4rem 2.4rem 2.4rem;
+}
+
+form#ct_form {
+    position: relative;
+    & .MuiBox-root .MuiBox-root-8 {
+        position: absolute;
+        @include for-tablet-landscape-only {
+            bottom: -3rem;
+        }
+        @include for-xsmall-desktop-up {
+            bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "shopit",
+  "version": "1.0.0",
+  "description": "full ecommerce site using mern",
+  "main": "server.js",
+  "scripts": {
+    "start": "SET node backend/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
+    "seeder": "node backend/utils/seeder.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "author": "Ghulam Abbas",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/styles": "^4.11.3",
+    "@material-ui/utils": "^4.11.2",
+    "@splidejs/react-splide": "^0.4.4",
+    "@syncfusion/ej2-inputs": "^18.4.47",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.23.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.16",
+    "nodemailer": "^6.4.16",
+    "react-credit-cards": "^0.8.3",
+    "react-owl-carousel2": "^0.3.0",
+    "react-slick": "^0.28.1",
+    "stripe": "^8.128.0",
+    "typescript": "^4.2.3",
+    "typewriter-effect": "^2.17.0",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "compression": "^1.7.4",
+    "nodemon": "^2.0.6"
+  }
+}

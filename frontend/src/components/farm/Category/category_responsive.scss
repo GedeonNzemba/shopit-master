@@ -1,0 +1,373 @@
+@import "../../../styles/abstracts/mixins";
+// CATEGORY SIDEBAR STYLES STARTS
+@media (min-width: 700px) {
+    a.MuiChip-root.WithStyles\(ForwardRef\(Chip\)\)-root-32.MuiChip-clickable {
+        place-self: center;
+    }
+    .remove_filter {
+        display: flex;
+        & span {
+            place-self: center;
+        }
+    }
+}
+.isNull {
+    // display: none;
+    transition: .5s ease-out;
+    position: fixed;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 34rem;
+    height: 100vh;
+    @media (max-width: 360px) {
+        width: 67%;
+    }
+}
+ .filter_shop {
+    left: 0%!important;
+    transition: .5s ease-in;
+}
+
+.category-page::after {
+    background: rgb(0 0 0 / 80%);
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+}
+
+
+#category-page {
+    position: relative;
+    & span {
+        margin-left: unset!important;
+    }
+}
+#category__filter {
+    display: flex;
+    justify-content: flex-end;
+    place-self: center;
+    & .clear_filter {
+        margin-right: 2rem;
+    }
+}
+@media (max-width: 420px) {
+    div#remove_filter {
+        width: 90vw;
+        place-self: center;
+    }
+}
+// CATEGORY SIDEBAR STYLES ENDS
+
+.poultry {
+    .breadcrumb {
+        z-index: 9!important;
+        @media (max-width: 347px) {
+            padding-bottom: 2rem;
+            flex-direction: column;
+
+            & .products-view {
+                display: flex;
+                justify-content: flex-end;
+                place-self: flex-end;
+            }
+        }
+    }
+    @media (min-width: 700px) and (max-width: 899px){
+        & .breadcrumb {
+            width: calc(412px + (600 - 412) * (100vw - 700px) / (899 - 700)) !important; 
+        }
+    }
+    @media (max-width: 699px){
+        & .breadcrumb {
+            width: calc(340px + (656 - 340) * (100vw - 375px) / (699 - 375))!important; 
+        }
+    }
+    @media (max-width: 374px){
+        & .breadcrumb {
+            width: 92vw!important; 
+           @media (max-width: 332px) {
+            padding: 2rem;
+            flex-direction: column;
+            & .products-view {
+                justify-content: flex-end;
+            }
+           }
+        }
+        & .poultry_products {
+            width: fit-content!important; 
+        }
+    }
+    
+    .listMode {
+        @media (max-width: 899px) {
+            width: calc(413px + (584 - 413) * (100vw - 700px) / (899 - 700));            
+        }
+        @media (max-width: 699px) {
+            width: calc(560px + (656 - 560) * (100vw - 600px) / (699 - 600));            
+        }
+        @media (max-width: 599px) {
+            width: calc(463px + (560 - 463) * (100vw - 500px) / (599 - 500));            
+        }
+        @media (max-width: 500px) {
+            width: calc(389px + (463 - 389) * (100vw - 425px) / (500 - 425));
+            width: calc(340px + (388 - 340) * (100vw - 375px) / (424 - 375));
+            .img-container img {
+                @media (max-width: 424px) {
+                    height: 16.5rem;
+                }
+            }  
+            
+            @media (max-width: 374px) {
+                a#link_list {
+                    display: flex;
+
+                    & .listMode .bottom {
+                        place-self: center;
+                    }
+                }
+            }
+        }
+    }
+   
+
+    @include for-xsmall-desktop-only {
+        & .main_products {
+            display: flex;
+            flex-direction: column;
+
+            & .breadcrumb {
+                width: 100%;
+                flex: 1;
+            }
+
+            & .poultry_products {
+                flex: 1;
+                width: min-content;
+                place-self: center;
+
+                & .listMode {
+                    padding: 1.5rem;
+                    width: 70vw;
+                }
+
+                & .producstWrapper {
+                    padding: 1.5rem;
+                    grid-template-columns: 19rem 19rem 19rem 19rem;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1400px) {
+        & .main_products {
+            display: flex;
+            flex-direction: column;
+
+            & .poultry_products {
+                align-self: center;
+                width: fit-content;
+            }
+        }
+    }
+
+    @include for-small-desktop-only {
+        & .producstWrapper {
+            padding: 1.5rem;
+            grid-template-columns: 19rem 19rem 19rem 19rem auto;
+            @media (min-width: 1390px) {
+                grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
+            }
+        }
+    }
+
+    @media (max-width: 1800px) and (min-width: 1800px) {
+        & .poultry_products {
+            display: flex;
+            justify-content: center;
+        }
+        & .producstWrapper {
+            column-gap: 7rem;
+            padding: 6rem;
+            width: fit-content;
+        }
+    }
+
+    @include for-medium-desktop-up {
+        & .producstWrapper {
+            grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
+        }
+    }
+
+    @media (min-width: 1920px) {
+        & .producstWrapper {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            & .product {
+                width: 19rem;
+            }
+        }
+    }
+
+    @media (min-width: 2000px) {
+        & {
+            max-width: 190rem;
+        }
+    }
+
+    @include for-tablet-landscape-only {
+        & .main_products {
+            display: flex;
+            flex-direction: column;
+
+            & .breadcrumb {
+                width: 100%;
+                flex: 1;
+            }
+
+            & .poultry_products {
+                flex: 1;
+                width: fit-content;
+                place-self: center;
+
+                & .listMode {
+                    padding: 1.5rem !important;
+                    width: calc(560px + (810 - 560) * (100vw - 900px) / (1199 - 900));
+                }
+
+                & .producstWrapper {
+                    padding: 1.5rem;
+                    // grid-template-columns: 17rem 17rem 17rem 17rem;
+
+                    @media (max-width: 1050px) {
+                        grid-template-columns: 19rem 19rem 19rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @include for-tablet-portrait-down {
+        & {
+            grid-template-columns: 25rem auto;
+        }
+        &.cat_fielter {
+            grid-template-columns: 1fr !important;
+            justify-content: center;
+        }
+        & span.rc-slider-mark-text.rc-slider-mark-text-active {
+            margin: 0;
+        }
+        & .main_products {
+            display: flex;
+            flex-direction: column;
+
+            & .breadcrumb {
+                width: 100%;
+                flex: 1;
+            }
+
+            & .poultry_products {
+                flex: 1;
+                width: fit-content;
+                place-self: center;
+
+                & .listMode {
+                    padding: 1.5rem !important;
+                    @media (max-width: 374px) {
+                        width: unset!important;
+                    }
+                }
+            }
+        }
+
+        & .producstWrapper {
+            padding: 1.5rem;
+            grid-template-columns: 19rem 19rem 19rem 17rem;
+            
+
+            @media (max-width: 680px) {
+                grid-template-columns: 15rem 15rem 15rem 15rem;
+                @media (max-width: 565px) {
+                    grid-template-columns: 15rem 15rem 15rem;
+                }
+                @media (max-width: 425px) {
+                    grid-template-columns: 17rem 17rem!important;
+                }
+                @media (max-width: 340px) {
+                    grid-template-columns: 15rem 15rem!important;
+                }
+                @media (max-width: 299px) {
+                    grid-template-columns: 19rem 19rem!important;
+                }
+                .img-container img {
+                    height: 16.5rem;
+                    @media (max-width: 565px) {
+                        height: 15.5rem;
+                    }
+                    @media (max-width: 425px) {
+                        height: 17rem;
+                    }
+                    @media (max-width: 340px) {
+                        height: 15rem;
+                    }
+                    @media (max-width: 299px) {
+                        height: 19rem;
+                    }
+                } 
+            }
+
+            @media (max-width: 500px) {
+                grid-template-columns: 15rem 15rem 15rem;
+            }
+
+            @media (max-width: 299px) {
+                grid-template-columns: 19rem!important;
+            }
+        }
+    }
+
+    // 900 UP GRID ROW
+    & .producstWrapper {
+        @media (min-width: 700px) and (max-width: 767px) {
+            grid-template-columns: 15rem 15rem 15rem;
+            & .img-container img {
+                width: 15rem;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 799px) {
+            grid-template-columns: 17rem 17rem 17rem;
+            & .img-container img {
+                width: 17rem;
+            }
+        }
+        @media (min-width: 800px) and (max-width: 898px) {
+            grid-template-columns: 19rem 19rem 19rem;
+            & .img-container img {
+                width: 19rem;
+            }
+        }
+        @media (min-width: 899px) and (max-width: 899px) {
+            grid-template-columns: 17rem 17rem 17rem 17rem;
+            & .img-container img {
+                width: 17rem;
+            }
+        }
+        @media (min-width: 1051px) and (max-width: 1169px) {
+            grid-template-columns: 17rem 17rem 17rem 17rem;
+            & .img-container img {
+                width: 17rem;
+            }
+        }
+        @media (min-width: 1170px) and (max-width: 1199px) {
+            grid-template-columns: 17rem 17rem 17rem 17rem 17rem;
+            & .img-container img {
+                width: 17rem;
+            }
+        }
+    }
+}

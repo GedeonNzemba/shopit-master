@@ -1,0 +1,306 @@
+[
+    {
+        "name": "Soybean meal",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT1",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630922069/Fresh%20Eggs/alimentation/soybean-meal_1_1_pwzbei.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Concentrate flesh",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT2",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_CHAIR_iyahqa.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Concentrate laying hens",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT3",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_PONTE_qkoeb5.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Premix laying hens",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT4",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924216/Fresh%20Eggs/alimentation/PREMIX_PONTE_v0o5me.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Premix flesh",
+        "price": 0,
+        "size": "1 T",
+        "sku": "LMAT5",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/CONCENTRE_CHAIR_iyahqa.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Yellow corn",
+        "price": 406.93,
+        "size": "1 T",
+        "sku": "LMAT6",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/MAIS_JAUNE_e25s6m.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Alveole for 12 eggs",
+        "price": 0.18,
+        "size": "",
+        "sku": "LMAT7",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924219/Fresh%20Eggs/alimentation/ALVEOLE_POUR_12_OEUFS_kdhm72.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Alveole for 30 eggs",
+        "price": 0.18,
+        "size": "",
+        "sku": "LMAT8",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924218/Fresh%20Eggs/alimentation/ALVEOLE_POUR_30_OEUFS_kdj0tk.png"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Alveole for 24 eggs",
+        "price": 0.18,
+        "size": "",
+        "sku": "LMAT9",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924218/Fresh%20Eggs/alimentation/ALVEOLE_POUR_30_OEUFS_kdj0tk.png"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Poultry drinkers",
+        "price": 0,
+        "size": "3L",
+        "sku": "LMAT10",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/ABREUVOIR_VOLAILLES_ucwsxx.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Poultry drinkers",
+        "price": 0,
+        "size": "5L",
+        "sku": "LMAT11",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/ABREUVOIR_VOLAILLES_ucwsxx.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Poultry drinkers",
+        "price": 0,
+        "size": "10L",
+        "sku": "LMAT12",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924220/Fresh%20Eggs/alimentation/ABREUVOIR_VOLAILLES_ucwsxx.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Feeders",
+        "price": 0,
+        "size": "",
+        "sku": "LMAT13",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924222/Fresh%20Eggs/alimentation/MANGEOIRES_o3z4f6.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Laying hens batteries",
+        "price": 0,
+        "size": "",
+        "sku": "LMAT14",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924224/Fresh%20Eggs/alimentation/BATTERIES_DE_PONTE_p8wxna.gif"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Bridge cage",
+        "price": 0,
+        "size": "",
+        "sku": "LMAT15",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924223/Fresh%20Eggs/alimentation/CAGE_DE_PONTES_mll8xv.png"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    },
+    {
+        "name": "Manure",
+        "price": 2.72,
+        "size": "50 KG",
+        "sku": "LMAT16",
+        "images": [
+            {
+                "page_id": "LMA",
+                "url": "https://res.cloudinary.com/locataire/image/upload/v1630924215/Fresh%20Eggs/alimentation/fumier-de-cheval_wpzcjg.jpg"
+            }
+        ],
+        "ratings": 4,
+        "description": "",
+        "category": "Livestock",
+        "seller": "Locataire Farm",
+        "stock": 25,
+        "numOfReviews": 4,
+        "reviews": []
+    }
+]

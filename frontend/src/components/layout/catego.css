@@ -1,0 +1,33 @@
+:root {
+  --primary: #02843d;
+  --secondary: #231f20;
+  --white: #fff;
+  --black: #222;
+  --black_A: #241f20;
+  --grey1: #3a3b3c;
+  --grey2: #828282;
+}
+.sidebartop {
+    max-width: 100%!important;
+}
+.sidebar__item {
+    margin-bottom: 35px;
+}
+.sidebar__item h4 {
+    color: var(--black_A);
+    font-weight: 700!important;
+    margin-bottom: 25px;
+    font-family: "Cairo", sans-serif;
+    font-size: 24px!important;
+}
+.sidebar__item ul li {
+    list-style: none;
+}
+.sidebar__item ul li a {
+    font-size: 16px!important;
+    color: var(--black_A);
+    line-height: 39px;
+    display: block;
+    text-decoration: none;
+    background-color: transparent;
+}

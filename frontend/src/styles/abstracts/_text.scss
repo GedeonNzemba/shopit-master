@@ -1,0 +1,71 @@
+@mixin brownFourHundred {
+    font-family: "Brown-Regular";
+    font-weight: 400;
+  }
+  
+  @mixin akkuratGreen {
+    font-family: "Akkurat";
+    color: $green;
+  }
+  @mixin brownGreen {
+    font-family: "Brown-Light";
+    color: $green;
+  }
+  @mixin heading {
+    @include brownFourHundred;
+  
+    color: $blue;
+    font-size: $main-heading-copy;
+    line-height: $base-line-height;
+  }
+  
+  @mixin subHeading {
+    @include brownFourHundred;
+    color: $blue;
+    font-size: $sub-heading-copy;
+    line-height: $base-line-height;
+  }
+  
+  @mixin bodyCopy {
+    font-family: "Akkurat";
+    font-size: $body-copy;
+    line-height: $base-line-height;
+    color: $blue;
+  
+      @include for-tablet-portrait-only {
+              font-size: 14px;
+      }
+  }
+  
+  @mixin mainQuote {
+    @include brownGreen;
+    width: 100%;
+    max-width: 70%;
+    font-size: $xlarge-body-copy;
+    line-height: $base-line-height;
+  }
+  
+  @mixin subQuote {
+    @include brownGreen;
+    height: 20vh;
+    width: 100%;
+    font-size: $large-body-copy;
+    line-height: $base-line-height;
+  
+      @include for-xsmall-desktop-only {
+        font-size: $base-font-size;
+      }
+      @include for-small-desktop-only {
+        font-size: $body-copy;
+        min-height: 300px;
+      }
+      @include for-medium-desktop-only {
+        font-size: $body-copy;
+      }
+     
+      
+  }
+  
+ 
+  
+ 

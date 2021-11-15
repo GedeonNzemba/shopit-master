@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Ginto bold';
+    src: url('1cac3afa4f07d60cf026bf52dc3811ec.woff2') format('woff2'),
+        url('1cac3afa4f07d60cf026bf52dc3811ec.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

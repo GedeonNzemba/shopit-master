@@ -1,0 +1,54 @@
+.career {
+  width: 100%;
+  height: auto;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: #dc3545 url("../../../images/career.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+@media (max-width: 500px) {
+  .career {
+    padding: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .career {
+    padding: 7rem;
+  }
+}
+@media (min-width: 769px) {
+  .career {
+    padding: 7rem;
+  }
+}
+.career .career__inner-header {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 999;
+  place-self: center;
+}
+.career .career__inner-header h1 {
+  color: #ffffff;
+  font-family: "GT Super Ds Trial Bd";
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-size: 3.5rem;
+  text-transform: capitalize;
+}
+.career .career__inner-header p {
+  color: #ffffff;
+  font-family: "Ginto regular";
+  font-weight: 400;
+  font-size: 2rem;
+}
+@media (min-width: 1000px) {
+  .career .career__inner-header p {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}/*# sourceMappingURL=header.css.map */
