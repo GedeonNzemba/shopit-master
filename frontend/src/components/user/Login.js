@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -96,6 +98,7 @@ const Login = ({ history, location }) => {
                                 alignItems: 'center',
                             }}
                         >
+                             <Paper elevation={3} >
                             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                                 <LoginIcon />
                             </Avatar>
@@ -152,6 +155,7 @@ const Login = ({ history, location }) => {
                                     </Grid>
                                 </Grid>
                             </Box>
+                            </Paper>
                         </Box>
                         <Copyright sx={{ mt: 8, mb: 4 }} />
                     </Container>
