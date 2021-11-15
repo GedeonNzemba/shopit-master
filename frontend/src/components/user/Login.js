@@ -15,6 +15,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
@@ -22,6 +23,23 @@ import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    },
+    icon: {
+        alignSelf: 'center'
+    },
+    paper: {
+        display: 'flex',
+        flexDirection: 'column',
+
+        fontSize: '1.6rem!important', 
+    }
+}));
 
 function Copyright(props) {
     return (
@@ -39,6 +57,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Login = ({ history, location }) => {
+
+    const classes = useStyles();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -98,7 +118,7 @@ const Login = ({ history, location }) => {
                                 alignItems: 'center',
                             }}
                         >
-                             <Paper elevation={3} >
+                             <Paper elevation={3} className={classes.paper}>
                             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                                 <LoginIcon />
                             </Avatar>
