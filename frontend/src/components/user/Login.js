@@ -31,13 +31,27 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     icon: {
-        alignSelf: 'center'
+        alignSelf: 'center',
+    },
+    button: {
+        // backgroundColor: '#231f20'
+    },
+    h1: {
+        textAlign: 'center',
+    },
+    field: {
+        width: '100%!important'
     },
     paper: {
+        borderRadius: '20px!important',
         display: 'flex',
         flexDirection: 'column',
-
+        padding: '2rem',
         fontSize: '1.6rem!important', 
+        [theme.breakpoints.down(501)]: {
+            width: '87%',
+          
+        },
     }
 }));
 
@@ -119,10 +133,10 @@ const Login = ({ history, location }) => {
                             }}
                         >
                              <Paper elevation={3} className={classes.paper}>
-                            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} className={classes.icon}>
                                 <LoginIcon />
                             </Avatar>
-                            <Typography component="h1" variant="h5">
+                            <Typography component="h1" variant="h5" className={classes.h1}>
                                 Sign in
                             </Typography>
                             <Box component="form" onSubmit={submitHandler} noValidate sx={{ mt: 1 }}>
@@ -137,6 +151,7 @@ const Login = ({ history, location }) => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     autoFocus
+                                    className={classes.field}
                                 />
                                 <TextField
                                     margin="normal"
@@ -149,6 +164,7 @@ const Login = ({ history, location }) => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     autoComplete="current-password"
+                                    className={classes.field}
                                 />
                                 <FormControlLabel
                                     control={<Checkbox value="remember" color="primary" />}
@@ -159,6 +175,7 @@ const Login = ({ history, location }) => {
                                     fullWidth
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
+                                    className={classes.button}
                                 >
                                     Sign In
                                 </Button>
@@ -170,7 +187,7 @@ const Login = ({ history, location }) => {
                                     </Grid>
                                     <Grid item>
                                         <Link to="/register" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                            <Button variant="outlined">{"Don't have an account? Sign Up"}</Button>
+                                            <Button variant="outlined">{"Sign Up"}</Button>
                                         </Link>
                                     </Grid>
                                 </Grid>

@@ -1895,7 +1895,12 @@ h5 span.yourcarttitle {
   }
 } */
 
-
+.sc-fmlJrY.bHRMvK.view.zoom.overlay.z-depth-1.rounded.mb-3.mb-md-0 span {
+  margin-left: unset!important;
+}
+.col-lg-8-no-padding {
+  padding: 0!important;
+}
 .main_products {
   height: fit-content;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import Paper from '@mui/material/Paper';
 import MetaData from '../layout/MetaData'
 
 import { useAlert } from 'react-alert'
@@ -42,6 +42,37 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    icon: {
+        alignSelf: 'center',
+    },
+    button: {
+        // backgroundColor: '#231f20'
+    },
+    h1: {
+        textAlign: 'center',
+    },
+    field: {
+        width: '100%!important'
+    },
+    paperWrapp: {
+        borderRadius: '20px!important',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '2rem',
+        fontSize: '1.6rem!important', 
+        [theme.breakpoints.down(501)]: {
+            width: '87%',
+          
+        },
+    },
+    FileLoader: {
+        width: '95%!important',
+    },
+    signUp: {
+        '& span': {
+            marginLeft: 'unset!important',
+        }
+    }
 }));
 
 export default function Register({ history }) {
@@ -123,14 +154,14 @@ export default function Register({ history }) {
     }, [])
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" style={{paddingTop: '8%'}}>
             <MetaData title={'Register User'} />
             <CssBaseline />
-            <div className={classes.paper} id="remove_footer_bg">
-                <Avatar className={classes.avatar}>
+            <Paper  elevation={3} className={classes.paperWrapp} id="remove_footer_bg">
+                <Avatar className={classes.avatar + ' ' + classes.icon}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
+                <Typography component="h1" variant="h5" className={classes.h1}>
                     Sign up
                 </Typography>
                 <form className={classes.form} Validate onSubmit={submitHandler} encType='multipart/form-data'>
@@ -216,7 +247,7 @@ export default function Register({ history }) {
                                     {/* img */}
                                     <Avatar alt="Avatar Preview" src={avatarPreview} className={classes.large} />
                                     {/* field */}
-                                    <div className='custom-file'>
+                                    <div className={ classes.FileLoader + ' custom-file'}>
                                         <TextField
                                             id="outlined-basic"
                                             type='file'
@@ -225,7 +256,7 @@ export default function Register({ history }) {
                                             variant="outlined"
                                             accept="iamges/*"
                                             onChange={onChange}
-                                            className="avatar_preview_content"
+                                            className='avatar_preview_content'
                                         />
                                         {/* <input
                                             type='file'
@@ -255,7 +286,7 @@ export default function Register({ history }) {
                         fullwidth
                         variant="contained"
                         color="primary"
-                        className={classes.submit}
+                        className={classes.submit + ' ' + classes.signUp}
                         disabled={loading ? true : false}
                     >
                         Sign Up
@@ -263,12 +294,12 @@ export default function Register({ history }) {
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link to="/login" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                <Btn variant="outlined"> Already have an account? Sign in</Btn>
+                                <Btn variant="outlined"> { window.innerWidth < 432 ? 'Already have an account?' : '' } Sign in</Btn>
                             </Link>
                         </Grid>
                     </Grid>
                 </form>
-            </div>
+            </Paper>
 
         </Container>
     );

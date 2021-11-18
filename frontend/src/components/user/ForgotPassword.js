@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import Paper from '@mui/material/Paper';
 
 import MetaData from '../layout/MetaData'
 
@@ -16,6 +17,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
+
 
 const ForgotPassword = () => {
 
@@ -68,9 +71,31 @@ const ForgotPassword = () => {
         form: {
             width: '100%', // Fix IE 11 issue.
             marginTop: theme.spacing(1),
+            display: 'flex',
+            flexDirection: 'column',
         },
         submit: {
             margin: theme.spacing(3, 0, 2),
+        },
+        field: {
+            width: '100%!important'
+        },
+        paperWrapper: {
+            borderRadius: '20px!important',
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '2rem',
+            fontSize: '1.6rem!important', 
+            [theme.breakpoints.down(501)]: {
+                width: '87%',
+              
+            },
+        },
+        icon: {
+            alignSelf: 'center',
+        },
+        h1: {
+            textAlign: 'center',
         },
     }));
 
@@ -123,11 +148,11 @@ const ForgotPassword = () => {
             <MetaData title={'Login'} />
             <Container component="main" maxWidth="xs" className="new_password remove_footer_bg">
                 <CssBaseline />
-                <div className={classes.paper}>
-                    <Avatar className={classes.avatar}>
+                <Paper elevation={3} className={classes.paperWrapper}>
+                    <Avatar className={classes.avatar + ' ' + classes.icon}>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h5"  className={classes.h1}>
                         Reset Password
                     </Typography>
                     <form className={classes.form} Validate onSubmit={submitHandler}>
@@ -148,7 +173,7 @@ const ForgotPassword = () => {
                             autoFocus
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="reset-password"
+                            className={classes.field + ' reset-password'}
                         />
 
 
@@ -165,7 +190,7 @@ const ForgotPassword = () => {
                         </Button>
 
                     </form>
-                </div>
+                </Paper>
 
             </Container>
 
