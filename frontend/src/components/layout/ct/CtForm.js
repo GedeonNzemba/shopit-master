@@ -14,10 +14,6 @@ import { init } from 'emailjs-com';
 
 
 
-
-
-
-
 const steps = [ContactInformation, OrgInformation, Message];
 
 const CtForm = (props) => {
@@ -55,13 +51,8 @@ const CtForm = (props) => {
 
     //  Validate fields
     const handleFormValidation = (e) => {
-
         let firstname = document.getElementById('firstName')
         let lastname = document.getElementById('lastName')
-
-        let firstname = document.getElementById('firstname')
-        let lastname = document.getElementById('lastname')
-
         let email = document.getElementById('email')
         let role = document.getElementById('yourRole')
 
@@ -191,11 +182,7 @@ const CtForm = (props) => {
                             {/* <Button disabled={isSubmitting} type="submit" variant="contained" color="primary">
                                 {isLastStep() ? 'Submit' : 'Next'}
                             </Button> */}
-
                             {isLastStep() ? (<><Button type="submit" variant="contained" color="primary" onClick={handleFormValidation}>Submit</Button></>) : (<><Button disabled={isSubmitting} type="submit" id="nextView" variant="contained" color="primary">Next</Button></>)}
-
-                            {isLastStep() ? (<><Button type="submit" variant="contained" color="primary" onClick={handleFormValidation}>Submit</Button></>) : (<><Button disabled={isSubmitting} type="submit" variant="contained" color="primary">Next</Button></>)}
-
                         </Box>
                     </Form>
 

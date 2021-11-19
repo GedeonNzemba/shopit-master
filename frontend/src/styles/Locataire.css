@@ -367,22 +367,17 @@ form:focus ~ label {
 #farmSHOP #poultry_banner {
   background-image: url("../images/ab.png");
   background-repeat: no-repeat;
-
   background-size: contain;
-
-  background-size: 100% 42%;
   width: 100%;
   height: 28rem;
   background-attachment: fixed;
   filter: brightness(0.5);
 }
-
 @media (max-width: 1330px) {
   #farmSHOP #poultry_banner {
     background-size: auto 50%;
   }
 }
-
 #farmSHOP .poultry {
   display: grid;
   grid-template-columns: 30rem auto;
@@ -463,13 +458,11 @@ form:focus ~ label {
   background-color: unset !important;
   padding: 0.75rem 2rem;
 }
-
 @media (min-width: 700px) {
   #farmSHOP .poultry .breadcrumb {
     margin: unset !important;
   }
 }
-
 #farmSHOP .poultry .breadcrumb .crumb {
   display: flex;
   width: -webkit-fit-content;
@@ -980,30 +973,21 @@ main.MuiContainer-root.MuiContainer-maxWidthXs.css-nzinn5-MuiContainer-root {
 }
 
 .login_page {
-
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.81), #f8f9fa40), url("../images/login.jpg");
-
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f8f9fa), url("../images/login.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .forgot_password_page {
-
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.81), #f8f9fa40), url("../images/login.jpg");
-
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #7e7e7e), url("../images/login.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .register_page {
-
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.81), #f8f9fa40), url("../images/login.jpg");
-
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #435e4c), url("../images/login.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -1036,7 +1020,6 @@ button#checkout_btn {
   max-width: 90%;
   margin: 0 auto;
 }
-
 
 .category_list .rc-slider-mark span {
   margin-left: 0 !important;
@@ -1813,7 +1796,6 @@ button#checkout_btn {
     width: 40rem;
   }
 }
-
 
 html {
   font-size: 62.5%;
@@ -13168,14 +13150,6 @@ li {
 .paginationWrapper .pagination li.page-item:last-child {
   margin: 0 0 0 15px;
 }
-
-
-.paginationWrapper .pagination li.page-item:first-child a {
-  width: 12rem;
-}
-.paginationWrapper .pagination li.page-item:last-child a {
-  width: 10rem;
-}
 .paginationWrapper .pagination li.page-item:first-child {
   margin: 0 1.5rem 0 0;
 }
@@ -13193,13 +13167,7 @@ li {
   font-size: 1.8rem;
   text-decoration: none;
   color: #4d3252;
-
   display: block;
-
-  height: 4.5rem;
-  width: 5.5rem;
-  display: block;
-  line-height: 4.5rem;
 }
 
 .our-top-sellers .product.farmStyle {

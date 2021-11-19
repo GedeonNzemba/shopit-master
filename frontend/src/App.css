@@ -156,7 +156,6 @@ p {
 }
 
 header.farm-header {
-
   /* height: 7.2rem; */
   z-index: 80;
   /* border: 1px solid red; */
@@ -165,16 +164,6 @@ header.farm-header {
     width: -webkit-fill-available;
     top: 0;
     position: sticky;
-
-  height: 7.2rem;
-  z-index: 80;
-  /* border: 1px solid red; */
-  margin-bottom: .5rem;
-      max-width: 100%;
-    width: -webkit-fill-available;
-    top: 0;
-    position: fixed;
-
 }
 /* .sc-dmlrTW.ctzoof.product.product__list:hover {
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%)!important;
@@ -1096,12 +1085,9 @@ color: #7fad39;
     margin-right: 5px;
 }
 /* Category */
-
 #category-page span {
       margin-left: unset!important;
 }
-
-
 .category-container {
   display: grid;
   grid-template-columns: 27rem auto;
@@ -1113,11 +1099,7 @@ color: #7fad39;
 }
 .category_list {
 background-color: #ffffff;
-
     box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
-
-    box-shadow: 0px -1px 10px 5px #e9ecef;
-
   max-height: max-content;
   padding: 1.6rem 1.6rem 1.6rem 1.6rem;
   /* overflow-y: scroll; */
@@ -1913,25 +1895,17 @@ h5 span.yourcarttitle {
   }
 } */
 
-
 .sc-fmlJrY.bHRMvK.view.zoom.overlay.z-depth-1.rounded.mb-3.mb-md-0 span {
   margin-left: unset!important;
 }
 .col-lg-8-no-padding {
   padding: 0!important;
 }
-
-
-
 .main_products {
   height: fit-content;
 }
 .page-link {
-
   padding: 1rem!important;
-
-  padding: 0!important;
-
 }
 #farmSHOP .poultry .category_list .filterbysize #category-size-wrapper {
   overflow-y: scroll!important;

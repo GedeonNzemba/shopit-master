@@ -8,7 +8,6 @@ import store from './store'
 import { positions, transitions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic'
 
-
 import { ThemeProvider, createTheme  } from "@material-ui/core/styles";
 
 const theme = createTheme ({
@@ -49,13 +48,9 @@ ReactDOM.render(
 
   <Provider store={store} >
     <AlertProvider template={AlertTemplate} {...options}>
-
     <ThemeProvider theme={theme}>
       <App />
       </ThemeProvider>
-=======
-      <App />
->>>>>>> 1796c8c8f4fc3e6e9fba080302208b5a58636a81
     </AlertProvider>
   </Provider>,
   document.getElementById('root')

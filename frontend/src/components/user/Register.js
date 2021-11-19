@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
 import Paper from '@mui/material/Paper';
-
-
 import MetaData from '../layout/MetaData'
 
 import { useAlert } from 'react-alert'
@@ -45,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
-
     icon: {
         alignSelf: 'center',
     },
@@ -77,7 +73,6 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: 'unset!important',
         }
     }
-
 }));
 
 export default function Register({ history }) {
@@ -159,7 +154,6 @@ export default function Register({ history }) {
     }, [])
 
     return (
-
         <Container component="main" maxWidth="xs" style={{paddingTop: '8%'}}>
             <MetaData title={'Register User'} />
             <CssBaseline />
@@ -168,15 +162,6 @@ export default function Register({ history }) {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5" className={classes.h1}>
-        <Container component="main" maxWidth="xs">
-            <MetaData title={'Register User'} />
-            <CssBaseline />
-            <div className={classes.paper} id="remove_footer_bg">
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-
                     Sign up
                 </Typography>
                 <form className={classes.form} Validate onSubmit={submitHandler} encType='multipart/form-data'>
@@ -262,10 +247,7 @@ export default function Register({ history }) {
                                     {/* img */}
                                     <Avatar alt="Avatar Preview" src={avatarPreview} className={classes.large} />
                                     {/* field */}
-
                                     <div className={ classes.FileLoader + ' custom-file'}>
-                                    <div className='custom-file'>
-
                                         <TextField
                                             id="outlined-basic"
                                             type='file'
@@ -274,10 +256,7 @@ export default function Register({ history }) {
                                             variant="outlined"
                                             accept="iamges/*"
                                             onChange={onChange}
-
                                             className='avatar_preview_content'
-                                            className="avatar_preview_content"
-
                                         />
                                         {/* <input
                                             type='file'
@@ -307,10 +286,7 @@ export default function Register({ history }) {
                         fullwidth
                         variant="contained"
                         color="primary"
-
                         className={classes.submit + ' ' + classes.signUp}
-                        className={classes.submit}
-
                         disabled={loading ? true : false}
                     >
                         Sign Up
@@ -318,18 +294,12 @@ export default function Register({ history }) {
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link to="/login" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-
                                 <Btn variant="outlined"> { window.innerWidth < 432 ? 'Already have an account?' : '' } Sign in</Btn>
-                                <Btn variant="outlined"> Already have an account? Sign in</Btn>
-
                             </Link>
                         </Grid>
                     </Grid>
                 </form>
-
             </Paper>
-            </div>
-
 
         </Container>
     );

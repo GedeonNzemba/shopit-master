@@ -68,7 +68,7 @@ const Header = () => {
 
                             <div className={classes.root + ' Fabout_btn'}>
 
-                                <Button onClick={scrollDown} variant="contained" color="secondary" className={classes.learnMore}>
+                                {/* <Button onClick={scrollDown} variant="contained" color="secondary" className={classes.learnMore}> */}
 
                                 <Button onClick={scrollDown} variant="contained" color="secondary">
 
@@ -88,8 +88,6 @@ const Header = () => {
                                 height: '50rem',
 
                                 autoplay: false
-
-                                autoplay: true
 
                             }}
                             onArrowsMounted={(splide, prev, next) => { console.log(prev, next) }}
