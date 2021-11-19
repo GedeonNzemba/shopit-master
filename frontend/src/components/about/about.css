@@ -64,6 +64,14 @@ div.farm_about {
   height: auto;
   width: 100%;
   background-color: #f7f7f7;
+  background-color: #ffffff;
+}
+div.farm_about #splide01-track {
+  background-image: url("../../images/cp2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 25rem;
+  z-index: 9999;
 }
 div.farm_about .splide__arrow {
   display: none;
@@ -82,6 +90,7 @@ div.farm_about ul#splide02-list {
 div.farm_about header.farm_header {
   height: 90vh;
   display: block;
+  background-image: url("../../images/about_head.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -99,7 +108,11 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-cont
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+
   padding: 0rem 3rem 3rem 3rem;
+
+  padding: 3em;
+
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content {
   padding-top: 5rem;
@@ -117,7 +130,11 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-cont
   font-size: 3rem !important;
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content div.Fabout_subtitle div#Fabout_subtitle-inner-wrap div#Fabout_subtitle-text {
+
   font-family: "Cairo";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: 900;
   line-height: 2;
   font-size: 1.6rem;
@@ -134,14 +151,22 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-cont
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content div.Fabout_title h1 {
   color: #241f20;
+
   font-family: "GT Super Ds Trial Bd";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: 700;
   font-size: 5rem;
   word-wrap: break-word;
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content div.Fabout_title h1 span#Fabout_unc {
   color: #02843d;
+
   font-family: "GT Super Ds Trial Bd";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: bold;
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content div.Fabout_text {
@@ -149,7 +174,11 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-cont
   padding-top: 1.5rem;
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content div.Fabout_text p {
+
   font-family: "Ginto regular";
+
+  font-family: "Cairo", sans-serif;
+
   font-size: 1.8rem;
   font-weight: 500;
   color: #231f20;
@@ -162,6 +191,7 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_image {
   height: -moz-fit-content;
   height: fit-content;
 }
+
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_image .splide {
   padding: 0 !important;
 }
@@ -182,6 +212,8 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_image .splid
   -webkit-backdrop-filter: unset !important;
           backdrop-filter: unset !important;
 }
+
+
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_image div.Fheader_image-wrap {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -191,6 +223,7 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_image div.Fh
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_image div.Fheader_image-wrap img {
   height: 47rem;
   z-index: 1;
+
   -o-object-fit: contain;
      object-fit: contain;
   filter: drop-shadow(2px 4px 6px black);
@@ -200,12 +233,21 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_image div.Fh
 div.farm_about h3#first_sec-title {
   color: #241f20;
   font-family: "GT Super Ds Trial Bd";
+
+}
+div.farm_about h3#first_sec-title {
+  color: #241f20;
+  font-family: "Cairo", sans-serif;
+
   font-weight: 700;
   font-size: 4rem;
   margin-left: 1.2em;
   word-wrap: break-word;
+
   margin-top: 3rem;
   padding: 3rem;
+
+
 }
 div.farm_about section.first_sec {
   padding: 3em;
@@ -213,7 +255,10 @@ div.farm_about section.first_sec {
   grid-template-columns: 1fr 1fr;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
+
   margin-bottom: 3rem;
+
+
 }
 div.farm_about section.first_sec div.content_left {
   display: flex;
@@ -223,7 +268,10 @@ div.farm_about section.first_sec div.content_left {
 div.farm_about section.first_sec div.content_left div.content_top_wrapp {
   display: inline-block;
   height: auto;
+
   margin-bottom: 8.5rem;
+
+
 }
 div.farm_about section.first_sec div.content_left div.content_top_wrapp div#vcl_line {
   height: 100%;
@@ -236,15 +284,26 @@ div.farm_about section.first_sec div.content_left div.content_top_wrapp div#vcl_
 }
 div.farm_about section.first_sec div.content_left div.content_top_wrapp div.content_wrap {
   color: #241f20;
+
   font-family: "Ginto bold";
   font-weight: bold;
   font-size: 2.2rem;
   max-width: 89%;
+
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  font-size: 1.7rem;
+  max-width: 80%;
+
   padding-left: 2rem;
 }
 div.farm_about section.first_sec div.content_left div.content_top_wrapp div.content_wrap span#content_span_color {
   color: #02843d;
+
   font-family: "Ginto bold";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: bold;
   font-size: 1.7rem;
 }
@@ -253,6 +312,7 @@ div.farm_about section.first_sec div.content_left div.content_text {
 }
 div.farm_about section.first_sec div.content_left div.content_text p {
   color: #231f20;
+
   font-family: "Ginto regular";
   font-weight: 400;
   font-size: 2rem;
@@ -264,6 +324,18 @@ div.farm_about section.first_sec div.content_right {
 div.farm_about section.first_sec div.content_right div.content_image {
   display: grid;
   grid-template-columns: 20rem 20rem auto;
+
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+div.farm_about section.first_sec div.content_right {
+  display: block;
+}
+div.farm_about section.first_sec div.content_right div.content_image {
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+
   -moz-column-gap: 2rem;
        column-gap: 2rem;
 }
@@ -283,6 +355,7 @@ div.farm_about section.first_sec div.content_right div.content_image div.content
   height: 30rem;
   border-radius: 4px;
 }
+
 div.farm_about section.first_sec div.content_right div.content_image div.content_image_med {
   background-image: url("../../images/reaalty/header1.jpeg");
   background-repeat: no-repeat;
@@ -297,6 +370,10 @@ div.farm_about div.main_banner {
   padding: 5rem 0;
   -webkit-clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
           clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
+
+div.farm_about div.main_banner {
+  height: 20rem;
+
 }
 div.farm_about div.main_banner .splide {
   max-width: 100% !important;
@@ -316,8 +393,13 @@ div.farm_about div.main_banner div.main_banner_partern {
 }
 div.farm_about div.main_banner div.main_banner_partern h4 {
   margin-left: 1.5em;
+
   color: #fff;
   font-family: "GT Super Ds Trial Bd";
+
+  color: #241f20;
+  font-family: "Cairo", sans-serif;
+
   font-weight: bold;
   font-size: 4rem;
   position: relative;
@@ -331,6 +413,7 @@ div.farm_about div.main_banner div.main_banner_partern h4:after {
   bottom: -1rem;
   background-color: #02843d;
 }
+
 div.farm_about div.main_banner div.main_banner_partern div.main_banner_wrap {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -340,6 +423,8 @@ div.farm_about div.main_banner div.main_banner_partern div.main_banner_wrap {
 div.farm_about div.main_banner div.main_banner_partern div.main_banner_wrap .splide {
   padding: 0 !important;
 }
+
+
 div.farm_about div.main_banner div.main_banner_partern div.main_banner_wrap div.main_banner__item:hover {
   cursor: pointer;
   opacity: 1;
@@ -356,8 +441,13 @@ div.farm_about div.main_banner div.main_banner_partern div.main_banner_wrap div.
   z-index: 1;
 }
 div.farm_about div.product_listing {
+
   height: 100%;
   padding: 8rem 3em 0em;
+
+  height: 250rem;
+  padding: 8rem 3em 3em;
+
 }
 div.farm_about div.product_listing section.listing_wrap {
   display: flex;
@@ -366,7 +456,11 @@ div.farm_about div.product_listing section.listing_wrap {
 }
 div.farm_about div.product_listing div.product_listing__list-wrapper {
   display: grid;
+
   grid-template-columns: 25rem 25rem 25rem;
+
+  grid-template-columns: 25rem 25rem 25rem 25rem;
+
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
   margin-top: 2em;
@@ -387,6 +481,7 @@ div.farm_about div.product_listing div.product_listing__list-wrapper div.product
   border-radius: 4px;
 }
 div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_1 {
+
   background-image: url("../../images/reaalty/vendor.jpg");
 }
 div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_3 {
@@ -394,10 +489,23 @@ div.farm_about div.product_listing div.product_listing__list-wrapper div.product
 }
 div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_4 {
   background-image: url("../../images/team.jpg");
+
+  background-image: url("../../images/delivery.png");
+}
+div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_2 {
+  background-image: url("../../images/delivery.png");
+}
+div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_3 {
+  background-image: url("../../images/delivery.png");
+}
+div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_4 {
+  background-image: url("../../images/delivery.png");
+
 }
 div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--content {
   padding-top: 1em;
 }
+
 div.farm_about div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--content h4 {
   font-family: "Ginto bold";
   font-size: 1.7rem;
@@ -408,6 +516,8 @@ div.farm_about div.product_listing div.product_listing__list-wrapper div.product
   font-family: "Ginto regular";
   font-size: 1.6rem;
 }
+
+
 div.farm_about div.product_listing section.product_listing--deepS {
   display: flex;
   flex-direction: column;
@@ -416,7 +526,11 @@ div.farm_about div.product_listing section.product_listing--deepS {
 }
 div.farm_about div.product_listing section.product_listing--deepS div.color_highlight {
   color: #241f20;
+
   font-family: "Cairo";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 3.5rem;
@@ -432,14 +546,22 @@ div.farm_about div.product_listing section.product_listing--deepS div.product_li
   padding-top: 2em;
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--bg p {
+
   font-family: "Cairo";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: 700;
   font-size: 1.8rem;
   max-width: 66%;
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--bg div.product_listing--quote span#product_listing__q {
   color: #ffc107;
+
   font-family: "Cairo";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: 700;
   font-size: 1.8rem;
   max-width: -webkit-fit-content;
@@ -457,7 +579,11 @@ div.farm_about div.product_listing section.product_listing--deepS div.product_li
   grid-template-columns: 20rem auto 20rem;
   -moz-column-gap: 1em;
        column-gap: 1em;
+
   margin-top: -18rem;
+
+  margin-top: -25rem;
+
   z-index: 9;
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_1 {
@@ -466,6 +592,7 @@ div.farm_about div.product_listing section.product_listing--deepS div.product_li
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_1 div.--pd_item-wrap {
   padding: 0.5em;
+
   background-color: #ffffff;
   box-shadow: 0 0 12px 0 #0000001f !important;
 }
@@ -491,6 +618,20 @@ div.farm_about div.product_listing section.product_listing--deepS div.product_li
   background-repeat: no-repeat;
   background-size: cover;
   height: 16rem;
+
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_1 div.--pd_item-wrap div.--pd_item_img_a {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_1 div.--pd_item-wrap div.--pd_item_img_b {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 {
   display: flex;
@@ -500,6 +641,7 @@ div.farm_about div.product_listing section.product_listing--deepS div.product_li
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 div.--pd_item-wrap {
   padding: 0.5em;
   width: 20rem;
+
   background-color: #ffffff;
   box-shadow: 0 0 12px 0 #0000001f !important;
 }
@@ -538,12 +680,39 @@ div.farm_about div.product_listing section.product_listing--deepS div.product_li
   background-repeat: no-repeat;
   background-size: cover;
   height: 16rem;
+
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 div.--pd_item-wrap div.--pd_item_img_c {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 div.--pd_item-wrap div.--pd_item_img_d {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 div.--pd_item-wrap div.--pd_item_img_e {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 div.--pd_item-wrap div.--pd_item_img_f {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_3 {
   display: block;
 }
 div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_3 div.--pd_item-wrap {
   padding: 0.5em;
+
   background-color: #ffffff;
   box-shadow: 0 0 12px 0 #0000001f !important;
 }
@@ -585,6 +754,29 @@ div.farm_about section.product_listing--bnt div.numGrid {
   padding-top: 3em;
 }
 div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap {
+
+}
+div.farm_about div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_3 div.--pd_item-wrap div.--pd_item_img_g {
+  background-image: url("../../images/ab.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 18rem;
+}
+div.farm_about div.product_listing section.product_listing--bnt {
+  display: block;
+  margin-top: 6em;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.color_highlight {
+  max-width: 45%;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 3em;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap {
+
   display: grid;
   grid-template-columns: 30rem 30rem 30rem;
   -moz-column-gap: 10rem;
@@ -593,6 +785,7 @@ div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap {
   max-width: -moz-fit-content;
   max-width: fit-content;
 }
+
 div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap:first-child {
   margin-bottom: 5em;
 }
@@ -604,16 +797,34 @@ div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap div.gr
   position: relative;
 }
 div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left span {
+
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap:first-child {
+  margin-bottom: 2em;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item {
+  display: flex;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left {
+  display: block;
+  position: relative;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left span {
+
   float: right;
   position: absolute;
   right: 1em;
   top: 0;
   color: #02843d;
+
   font-family: "Cairo";
+
+  font-family: "Cairo", sans-serif;
+
   text-rendering: optimizeLegibility;
   font-size: 2.4rem;
   font-weight: bolder;
 }
+
 div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right {
   display: block;
 }
@@ -628,6 +839,22 @@ div.farm_about section.product_listing--bnt div.numGrid div.grid_num-wrap div.gr
   font-family: "Ginto regular";
   font-weight: 400;
   font-size: 2rem;
+
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right {
+  display: block;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right h4 {
+  color: #241f20;
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+div.farm_about div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right p {
+  color: #231f20;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+
 }
 
 div.intro_text {
@@ -644,7 +871,11 @@ div.intro_text {
 }
 div.intro_text #intro_text--title {
   color: #02843d;
+
   font-family: "Ginto bold";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.8rem;
@@ -664,12 +895,19 @@ div.intro_text #intro_text--line {
 
 h1.headline {
   color: #241f20;
+
   font-family: "GT Super Ds Trial Bd";
+
+  font-family: "Cairo", sans-serif;
+
   font-weight: 700;
   text-rendering: optimizeLegibility;
   font-size: 3.5rem;
   line-height: 2;
+
   text-transform: capitalize;
+
+
 }
 
 div.product_listing__text {
@@ -677,8 +915,13 @@ div.product_listing__text {
 }
 div.product_listing__text p.about_product_text {
   font-weight: 500;
+
   font-family: "Ginto regular";
   font-size: 2rem;
+
+  font-family: "Cairo", sans-serif;
+  font-size: 1.6rem;
+
 }
 div.product_listing__text #color_highlight {
   color: #02843d;
@@ -686,6 +929,7 @@ div.product_listing__text #color_highlight {
 
 div.color_highlight {
   color: #241f20;
+
   font-family: "GT Super Ds Trial Bd";
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -697,4 +941,10 @@ div.color_highlight {
   max-width: 70%;
   -webkit-margin-before: 0;
           margin-block-start: 0;
+
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 3.5rem;
+
 }/*# sourceMappingURL=about.css.map */

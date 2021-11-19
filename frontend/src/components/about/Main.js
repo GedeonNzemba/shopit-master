@@ -1,9 +1,14 @@
+
 import React, { Fragment, useEffect } from 'react'
+
+import React, { Fragment } from 'react'
+
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import './hover/hover.css'
 import IntroText from '../sectionIdentifier/IntroText';
 import Title from '../sectionIdentifier/Title';
 import { Button } from '@material-ui/core';
+
 import { makeStyles } from '@material-ui/core/styles';
 import './about.css'
 
@@ -50,6 +55,12 @@ const Main = () => {
         }
     }, [])
 
+const Main = () => {
+
+
+
+
+
     return (
 
         <Fragment>
@@ -59,18 +70,28 @@ const Main = () => {
                     <div className="content_top_wrapp">
                         <div id="vcl_line" />
                         <div className="content_wrap">
+
                             Locataire is a brand under which thousands of
                             <span style={{fontSize: '2.2rem'}} id="content_span_color"> {" "} dedicated professionals in independent entities </span>
                             to provide products and services to private and public clients spanning multiple industries, including real
                             estate, agriculture &amp; livestock production, poultry farming and egg production, audit &amp; risk management.
+
+                            We want to send a message
+                            <span id="content_span_color"> {" "} "PD - Solution our suistanable value"</span>
+                            as an affirmation that we always accompanied by customers and comminuty.
+
                         </div>
                     </div>
                     <div className="content_text">
                         <p>
+
                             These entities are members of Locataire Group, Limited Liability Company (LLC), an American multinational
                             conglomerate holding company headquartered in New York, United States.<br /><br />
                             Each independent entity provides services geographic regions and is subject to the laws and professional
                             ons of the country in which it operates and is liable only for their own acts and omissions.
+
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quos suscipit numquam asperiores aspernatur debitis dolores! Facilis tempora velit nesciunt repudiandae illum animi non fugiat laborum tenetur, culpa dolorem qui nisi eaque inventore esse. Eveniet iure similique, impedit aperiam numquam optio ipsa aliquid atque reiciendis libero, aut minus maiores voluptatibus expedita nostrum minima nisi, commodi odio illum aliquam est cupiditate
+
                         </p>
                     </div>
                 </div>
@@ -78,7 +99,10 @@ const Main = () => {
                     <div className="content_image">
                         <div className="content_image_big" />
                         <div className="content_image_smll" />
+
                         <div className="content_image_med" />
+
+
                     </div>
                 </div>
             </section>
@@ -112,7 +136,11 @@ const Main = () => {
                                         </defs>
                                         <rect id="Rectangle_5" data-name="Rectangle 5" width="350" height="50" fill="#fff" />
                                         <rect id="logo" width="150" height="48" transform="translate(1)" fill="url(#pattern)" />
+
                                         <path id="Rectangle_6" data-name="Rectangle 6" d="M48,0H186a2,2,0,0,1,2,2V48a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2v0A48,48,0,0,1,48,0Z" transform="translate(162)" fill="#02843d" />
+
+                                        <path id="Rectangle_6" data-name="Rectangle 6" d="M48,0H186a2,2,0,0,1,2,2V48a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2v0A48,48,0,0,1,48,0Z" transform="translate(162)" fill="#00ae63" />
+
                                         <text id="Real_Estate" data-name="Real Estate" transform="translate(220 34)" fill="#f8f7f5" font-size="20" font-family="OpenSans, Open Sans"><tspan x="0" y="0">Real Estate</tspan></text>
                                     </svg>
 
@@ -128,7 +156,11 @@ const Main = () => {
                                         </defs>
                                         <rect id="Rectangle_5" data-name="Rectangle 5" width="378" height="50" fill="#fff" />
                                         <rect id="logo" width="150" height="48" transform="translate(1)" fill="url(#pattern)" />
+
                                         <path id="Rectangle_6" data-name="Rectangle 6" d="M48,0H214a2,2,0,0,1,2,2V48a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2v0A48,48,0,0,1,48,0Z" transform="translate(162)" fill="#02843d" />
+
+                                        <path id="Rectangle_6" data-name="Rectangle 6" d="M48,0H214a2,2,0,0,1,2,2V48a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2v0A48,48,0,0,1,48,0Z" transform="translate(162)" fill="#00ae63" />
+
                                         <text id="Agribusiness_Farm" data-name="Agribusiness Farm" transform="translate(189 33)" fill="#f8f7f5" font-size="20" font-family="OpenSans, Open Sans"><tspan x="0" y="0">Agribusiness Farm</tspan></text>
                                     </svg>
 
@@ -144,7 +176,11 @@ const Main = () => {
                                         </defs>
                                         <rect id="Rectangle_5" data-name="Rectangle 5" width="447" height="50" fill="#fff" />
                                         <rect id="logo" width="150" height="48" transform="translate(1)" fill="url(#pattern)" />
+
                                         <path id="Rectangle_6" data-name="Rectangle 6" d="M48,0H288a2,2,0,0,1,2,2V48a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2v0A48,48,0,0,1,48,0Z" transform="translate(162)" fill="#02843d" />
+
+                                        <path id="Rectangle_6" data-name="Rectangle 6" d="M48,0H288a2,2,0,0,1,2,2V48a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2v0A48,48,0,0,1,48,0Z" transform="translate(162)" fill="#00ae63" />
+
                                         <text id="Audit_Risk_Management" data-name="Audit &amp; Risk Management" transform="translate(193 33)" fill="#f8f7f5" font-size="20" font-family="OpenSans, Open Sans"><tspan x="0" y="0">Audit &amp; Risk Management</tspan></text>
                                     </svg>
 
@@ -157,6 +193,7 @@ const Main = () => {
             </div>
 
             <div className="product_listing" style={{ zIndex: '1' }}>
+
                 <IntroText title="Our objective" />
                 <section className="listing_wrap" style={{ zIndex: '1' }}>
                     <Title title="Our objective is to help our clients achieve what is important to them." className="headline_about" id="headline__about" />
@@ -165,43 +202,75 @@ const Main = () => {
                             Our values illustrate our commitment
                             to principles of personal and professional behaviors, guiding how our people relate to each other, what we
                             expect from our clients and what they expect of us.
+
+                <IntroText title="Our team" />
+                <section className="listing_wrap" style={{ zIndex: '1' }}>
+                    <Title title="Look back at our members" id="headline__about" />
+                    <div className="product_listing__text">
+                        <p className="about_product_text">
+                            The farm is located in Pointe-Noire, a port city and oil industry hub in the Republic of the Congo.
+                            The farm is located in Pointe-Noire, a port city and oil industry hub in the <span id="color_highlight">Republic of the Congo</span>
+
                         </p>
                     </div>
                     <div className="product_listing__list-wrapper">
                         <div className="product_listing--item">
                             <div className="product_listing--image --image_1" />
                             <div className="product_listing--content">
+
                                 <h4>Primary Objectives</h4>
                                 <p>
                                     Maximize the total return to property owners, throught
                                     re-lease and management of these properties for maximum cash flow.
                                 </p>
+
+                                <h4>Title</h4>
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                        <div className="product_listing--item">
+                            <div className="product_listing--image --image_2" />
+                            <div className="product_listing--content">
+                                <h4>Title</h4>
+                                <p>Lorem ipsum dolor sit amet.</p>
+
                             </div>
                         </div>
                         <div className="product_listing--item">
                             <div className="product_listing--image --image_3" />
                             <div className="product_listing--content">
+
                                 <h4>Our Commitment</h4>
                                 <p>
                                     Helping our clients preserve wealth for yourself and 
                                     prepare for future responsibilities as wealth owners and leaders.
                                 </p>
+
+                                <h4>Title</h4>
+                                <p>Lorem ipsum dolor sit amet.</p>
+
                             </div>
                         </div>
                         <div className="product_listing--item">
                             <div className="product_listing--image --image_4" />
                             <div className="product_listing--content">
+
                                 <h4>Our Values</h4>
                                 <p>
                                     Driven by a business culture
                                     based on common values: Trust, Teamwork and Accountability.
                                 </p>
+
+                                <h4>Title</h4>
+                                <p>Lorem ipsum dolor sit amet.</p>
+
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section className="product_listing--deepS" style={{ zIndex: '1' }}>
+
                     <IntroText title=" Locataire" cssName="wK" />
                     <div className="color_highlight"> - Products & Services</div>
                     <div className="product_listing--bg">
@@ -225,6 +294,52 @@ const Main = () => {
                   <IntroText title="Locataire Careers" cssName="" />
                     <div className="color_highlight">Benefits of working at Locataire</div>
 
+                    <IntroText title="Work Environment" cssName="wK" />
+                    <div className="color_highlight">Life at PDSolution</div>
+                    <div className="product_listing--bg">
+                        <p>At Locataire, we follow strict guidelines to produce safe, healthy eggs and provide care for hens: </p>
+                        <div className="product_listing--quote">
+                            <span id="product_listing__q">"Think young - Lots of energy - Freedom to be creative "</span>
+                        </div>
+                        <Button variant="contained" color="secondary">
+                            Join with us
+                        </Button>
+                    </div>
+                    <div className="product_listing--pd">
+                        <div className="product_listing--pd_item --pd_item_1">
+                            <div className="--pd_item-wrap">
+                                <div className="--pd_item_img_a" />
+                            </div>
+                            <div className="--pd_item-wrap">
+                                <div className="--pd_item_img_b" />
+                            </div>
+                        </div>
+                        <div className="product_listing--pd_item --pd_item_2">
+                            <div className="--pd_item-wrap">
+                                <div className="--pd_item_img_c" />
+                            </div>
+                            <div className="--pd_item-wrap">
+                                <div className="--pd_item_img_d" />
+                            </div><div className="--pd_item-wrap">
+                                <div className="--pd_item_img_e" />
+                            </div>
+                            <div className="--pd_item-wrap">
+                                <div className="--pd_item_img_f" />
+                            </div>
+                        </div>
+                        <div className="product_listing--pd_item --pd_item_3">
+                            <div className="--pd_item-wrap">
+                                <div className="--pd_item_img_g" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="product_listing--bnt" style={{ zIndex: '1' }}>
+                    <IntroText title="Work Environment" cssName="" />
+                    <div className="color_highlight">Benefits of working at PDSolutions</div>
+
+
                     <div className="numGrid">
                         <div className="grid_num-wrap">
                             <div className="grid_num-item">
@@ -232,10 +347,18 @@ const Main = () => {
                                     <span>01</span>
                                 </div>
                                 <div className="grid_num-item--right">
+
                                     <h4>Mobility</h4>
                                     <p>
                                         We are committed to creating and sustaining an inclusive and diverse work
                                         environment where all employees are treated with dignity and respect.
+
+                                    <h4>Professional environment</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Fuga dicta doloremque
+                                        voluptatibus qui consequatur.
+
                                     </p>
                                 </div>
                             </div>
@@ -244,11 +367,19 @@ const Main = () => {
                                     <span>02</span>
                                 </div>
                                 <div className="grid_num-item--right">
+
                                     <h4>Employment Policy</h4>
                                     <p>
                                         Locataire’ s long-standing equal employment
                                         opportunity policy prohibits discrimination and harassment 
                                         against any employee or applicant.
+
+                                    <h4>Salery and bonus</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Fuga dicta doloremque
+                                        voluptatibus qui consequatur.
+
                                     </p>
                                 </div>
                             </div>
@@ -257,16 +388,66 @@ const Main = () => {
                                     <span>03</span>
                                 </div>
                                 <div className="grid_num-item--right">
+
                                     <h4>Your Journey</h4>
                                     <p>
                                         Your journey with Locataire begins here. By sending
                                         your resume to <a href="mailto:info@locataire.net?subject=Locataire Career" ><strong>info@locataire.net</strong></a>, you will
                                         automatically be considered for jobs that match your
                                         skills and experience. Availability Status.
+
+                                    <h4>Team building</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Fuga dicta doloremque
+                                        voluptatibus qui consequatur.
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <div className="grid_num-wrap">
+                            <div className="grid_num-item">
+                                <div className="grid_num-item--left">
+                                    <span>04</span>
+                                </div>
+                                <div className="grid_num-item--right">
+                                    <h4>Welcome contributing ideas</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Fuga dicta doloremque
+                                        voluptatibus qui consequatur.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="grid_num-item">
+                                <div className="grid_num-item--left">
+                                    <span>05</span>
+                                </div>
+                                <div className="grid_num-item--right">
+                                    <h4>Insurance policy</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Fuga dicta doloremque
+                                        voluptatibus qui consequatur.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="grid_num-item">
+                                <div className="grid_num-item--left">
+                                    <span>06</span>
+                                </div>
+                                <div className="grid_num-item--right">
+                                    <h4>Working time</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Fuga dicta doloremque
+                                        voluptatibus qui consequatur.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         <Button variant="contained" color="secondary" className={classes.employ}>
                         Let us know you are ready to work
                         </Button>
@@ -361,4 +542,16 @@ function mobile_CMP() {
     </div>
     )
 }
+
+
+                    </div>
+                </section>
+
+
+            </div>
+        </Fragment>
+    )
+}
+
+export default Main
 

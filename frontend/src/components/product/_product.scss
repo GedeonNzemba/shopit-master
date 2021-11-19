@@ -1238,8 +1238,17 @@ li {
       &:last-child {
         margin: 0 0 0 15px;
       }
+<<<<<<< HEAD
       
       
+=======
+      &:first-child a {
+        width: 12rem;
+      }
+      &:last-child a {
+        width: 10rem;
+      }
+>>>>>>> 1796c8c8f4fc3e6e9fba080302208b5a58636a81
       &:first-child {
         margin: 0 1.5rem 0 0;
       }
@@ -1257,7 +1266,14 @@ li {
         font-size: 1.8rem;
         text-decoration: none;
         color: #4d3252;
+<<<<<<< HEAD
         display: block;
+=======
+        height: 4.5rem;
+        width: 5.5rem;
+        display: block;
+        line-height: 4.5rem;
+>>>>>>> 1796c8c8f4fc3e6e9fba080302208b5a58636a81
       }
     }
   }

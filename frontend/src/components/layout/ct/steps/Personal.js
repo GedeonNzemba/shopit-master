@@ -3,6 +3,7 @@ import { Field } from 'formik';
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 import { Box } from "@material-ui/core";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Stack from '@mui/material/Stack';
 import './layout/style.css'
@@ -28,12 +29,18 @@ const ContactInformation = props => {
     
     const classes = useStyles();
 
+
+
+const ContactInformation = props => {
     return (
         <section id="personal">
             {/* <Typography variant="h3" component="h1">
                 Contact Information
 			</Typography> */}
+
             {/* <Box paddingBottom={2} display='flex' justifyContent='space-between'>
+
+            <Box paddingBottom={2} display='flex' justifyContent='space-between'>
                 <Field name="firstName" label="First Name" component={TextField} style={{ width: '45%' }} id="firstname" />
                 <Field name="lastName" label="Last Name" component={TextField} style={{ width: '45%' }} id="lastname" />
             </Box>
@@ -43,6 +50,7 @@ const ContactInformation = props => {
             </Box>
             <Box paddingBottom={2}>
                 <Field name="yourRole" label="Your Role" component={TextField} fullwidth id="yourRole" />
+
             </Box> */}
 
             <Stack direction="row" spacing={2} className={classes.stack}>
@@ -79,6 +87,8 @@ const ContactInformation = props => {
                    
                 />
             </Stack>
+
+            </Box>
         </section>
     );
 };
@@ -88,11 +98,17 @@ ContactInformation.initialValues = {
     firstName: '',
     lastName: '',
     email: '',
+
+
+    yourRole: ''
 };
 ContactInformation.validationSchema = Yup.object().shape({
     firstName: Yup.string().required('Please enter your first name'),
     lastName: Yup.string().required('Please enter your last name'),
     email: Yup.string().required('Please enter your email'),
+
+
+    yourRole: Yup.string().required('Please enter your role')
 });
 
 export default ContactInformation;

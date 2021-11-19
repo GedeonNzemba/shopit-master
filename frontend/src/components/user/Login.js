@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+
 import Paper from '@mui/material/Paper';
+
+
 
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -15,7 +18,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import { makeStyles } from '@material-ui/core/styles';
+
+
 
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
@@ -23,6 +29,7 @@ import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,6 +62,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
+
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -72,7 +81,10 @@ const theme = createTheme();
 
 const Login = ({ history, location }) => {
 
+
     const classes = useStyles();
+
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -132,11 +144,18 @@ const Login = ({ history, location }) => {
                                 alignItems: 'center',
                             }}
                         >
+
                              <Paper elevation={3} className={classes.paper}>
                             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} className={classes.icon}>
                                 <LoginIcon />
                             </Avatar>
                             <Typography component="h1" variant="h5" className={classes.h1}>
+
+                            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                                <LoginIcon />
+                            </Avatar>
+                            <Typography component="h1" variant="h5">
+
                                 Sign in
                             </Typography>
                             <Box component="form" onSubmit={submitHandler} noValidate sx={{ mt: 1 }}>
@@ -151,7 +170,10 @@ const Login = ({ history, location }) => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     autoFocus
+
                                     className={classes.field}
+
+
                                 />
                                 <TextField
                                     margin="normal"
@@ -164,7 +186,10 @@ const Login = ({ history, location }) => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     autoComplete="current-password"
+
                                     className={classes.field}
+
+
                                 />
                                 <FormControlLabel
                                     control={<Checkbox value="remember" color="primary" />}
@@ -175,7 +200,10 @@ const Login = ({ history, location }) => {
                                     fullWidth
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
+
                                     className={classes.button}
+
+
                                 >
                                     Sign In
                                 </Button>
@@ -187,12 +215,19 @@ const Login = ({ history, location }) => {
                                     </Grid>
                                     <Grid item>
                                         <Link to="/register" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
+
                                             <Button variant="outlined">{"Sign Up"}</Button>
+
+                                            <Button variant="outlined">{"Don't have an account? Sign Up"}</Button>
+
                                         </Link>
                                     </Grid>
                                 </Grid>
                             </Box>
+
                             </Paper>
+
+
                         </Box>
                         <Copyright sx={{ mt: 8, mb: 4 }} />
                     </Container>

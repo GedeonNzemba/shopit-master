@@ -78,6 +78,7 @@ const ProductList = ({ product, col }) => {
                             <div className="rating-inner" style={{ width: `${(product.ratings / 5) * 100}%` }}></div>
                         </RatingOuter>
                     </Star>
+
                     { window.innerWidth < 374 ? 
                         null 
                         : 
@@ -85,6 +86,11 @@ const ProductList = ({ product, col }) => {
                             <Button variant="contained" color="primary" id="addCardList" startIcon={<ShoppingCartIcon />}>ADD TO CARD</Button>
                         </AddToCard> 
                     }
+
+                    <AddToCard>
+                        <Button variant="contained" color="primary" id="addCardList" startIcon={<ShoppingCartIcon />}>ADD TO CARD</Button>
+                    </AddToCard>
+
                 </RightContent>
             </Link>
 

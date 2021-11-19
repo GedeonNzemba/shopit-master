@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             margin: theme.spacing(1),
         },
+
     },
     font: {
         fontSize: '1.6rem'
@@ -64,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
         '& span': {
             marginLeft: 'unset!important',
         }
+
+
     }
 }));
 
@@ -322,18 +325,32 @@ display: inline-block;
 
     return (
         <Fragment>
+
             <MetaData title={'Cart'} />
+
+            <Header />
+
             {cartItems.length === 0 ?
                 (
 
                     <>
+
                         <div id="cart__main">
                             <main style={{marginBottom: '8%'}}>
+
+                        <MetaData title={'Cart'} />
+                        <div id="cart__main">
+                            <main>
+
                                 <div className="container" id="container_cart-main">
 
                                     <section className="mt-5 mb-4">
                                         <div className="row">
+
                                             <div className='col-lg-8 ' style={{ paddingLeft: 'unset' }}>
+
+                                            <div className="col-lg-8" style={{ paddingLeft: 'unset' }}>
+
 
                                                 <Cart className="card wish-list mb-4">
                                                     <div className="card-body">
@@ -362,9 +379,15 @@ display: inline-block;
                                                                         <div id="product_cart-desc-main" style={{ width: '100%' }}>
                                                                             <Skeleton variant="text" />
                                                                             <div className="product_cart-descr">
+
                                                                                 <p className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Category: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
                                                                                 <p className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Color: {" "}</span> <Skeleton variant="text" width="60%" /></p>
                                                                                 <p className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Size: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+
+                                                                                <p className="mb-3 text-muted text-uppercase small row"><span className="subc">Category: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                                <p className="mb-2 text-muted text-uppercase small row"><span className="subc">Color: {" "}</span> <Skeleton variant="text" width="60%" /></p>
+                                                                                <p className="mb-3 text-muted text-uppercase small row"><span className="subc">Size: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+
                                                                             </div>
                                                                         </div>
                                                                         <div>
@@ -381,14 +404,22 @@ display: inline-block;
                                                                             <div className={classes.moot}>
                                                                                 <ThemeProvider theme={theme}>
                                                                                     <ButtonGroup variant="text" color="secondary" aria-label="text primary button group">
+
                                                                                         <Button className={classes.font}>decrease</Button>
+
+                                                                                        <Button >decrease</Button>
+
                                                                                         <Button>
                                                                                             <Skeleton variant="circle" width={40} height={40} />
                                                                                             {/* <form className={classes.root} noValidate autoComplete="off" id="add_sub">
                                                                                             <Inpute defaultValue={} type="input" readOnly inputProps={{ 'aria-label': 'description' }} />
                                                                                         </form> */}
                                                                                         </Button>
+
                                                                                         <Button className={classes.font}>add</Button>
+
+                                                                                        <Button >add</Button>
+
                                                                                     </ButtonGroup>
                                                                                 </ThemeProvider>
                                                                             </div>
@@ -405,7 +436,11 @@ display: inline-block;
 
                                                                                     variant="contained"
                                                                                     color="primary"
+
                                                                                     className={classes.button + ' ' + classes.buttonMt}
+
+                                                                                    className={classes.button}
+
                                                                                     onClick={() => setShopnow(true)}
                                                                                 // startIcon={<DeleteIcon />}
                                                                                 >
@@ -422,7 +457,11 @@ display: inline-block;
                                                                                 Move to wishlist
                                                                             </Button>
                                                                         </div>
+
                                                                         <p className={classes.font + ' mb-0'}><span style={{ fontWeight: '500' }}><strong>$0</strong></span></p>
+
+                                                                        <p className="mb-0"><span style={{ fontWeight: '500' }}><strong>$0</strong></span></p>
+
                                                                     </Dflex>
                                                                 </div>
                                                             </Dflex>
@@ -430,10 +469,110 @@ display: inline-block;
                                                     </div>
                                                 </Cart>
                                                 {/* ... */}
+
                                             </div>
 
 
                                             <div className={`col-lg-4 ${window.innerWidth < 769 ? " col-lg-8-no-padding" : ''}`} style={{ paddingRight: 'unset' }}>
+
+                                                <Cart className="card wish-list mb-4">
+                                                    <div className="card-body">
+
+                                                        <div className="row mb-4 cart__product-rendered" >
+                                                            <div className="col-md-5 col-lg-3 col-xl-3">
+                                                                <View className="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                                                    {/* <ImgFluid className="img-fluid w-100"
+                                                                        src={image}
+                                                                        alt="Sample" /> */}
+                                                                    <Skeleton variant="rect" className="img-fluid w-100" width={210} height={118} />
+                                                                    <A href="#!">
+                                                                        <Mask className="mask waves-effect waves-light">
+                                                                            {/* <ImgFluid className="img-fluid w-100"
+                                                                                src={image} alt="s" /> */}
+                                                                            <Skeleton variant="rect" className="img-fluid w-100" width={410} height={218} />
+                                                                            <Mask2 className="mask rgba-black-slight waves-effect waves-light"></Mask2>
+                                                                        </Mask>
+                                                                    </A>
+                                                                </View>
+                                                            </div>
+                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9">
+                                                                <div>
+                                                                    <Dflex className="d-flex justify-content-between">
+                                                                        <div id="product_cart-desc-main" style={{ width: '100%' }}>
+                                                                            <Skeleton variant="text" />
+                                                                            <div className="product_cart-descr">
+                                                                                <p className="mb-3 text-muted text-uppercase small row"><span className="subc">Category: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                                <p className="mb-2 text-muted text-uppercase small row"><span className="subc">Color: {" "}</span> <Skeleton variant="text" width="60%" /></p>
+                                                                                <p className="mb-3 text-muted text-uppercase small row"><span className="subc">Size: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            {/* <Dnumber className="def-number-input number-input safari_only mb-0 w-100">
+                                                                        <ButtonD
+                                                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                                                            className="minus"></ButtonD>
+                                                                        <Input className="quantity" min="0" name="quantity" value="1"
+                                                                            type="number" />
+                                                                        <ButtonB
+                                                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                                            className="plus"></ButtonB>
+                                                                    </Dnumber> */}
+                                                                            <div className={classes.moot}>
+                                                                                <ThemeProvider theme={theme}>
+                                                                                    <ButtonGroup variant="text" color="secondary" aria-label="text primary button group">
+                                                                                        <Button >decrease</Button>
+                                                                                        <Button>
+                                                                                            <Skeleton variant="circle" width={40} height={40} />
+                                                                                            {/* <form className={classes.root} noValidate autoComplete="off" id="add_sub">
+                                                                                            <Inpute defaultValue={} type="input" readOnly inputProps={{ 'aria-label': 'description' }} />
+                                                                                        </form> */}
+                                                                                        </Button>
+                                                                                        <Button >add</Button>
+                                                                                    </ButtonGroup>
+                                                                                </ThemeProvider>
+                                                                            </div>
+
+                                                                            <Small id="passwordHelpBlock" className="form-text text-muted text-center">
+                                                                                (Note, 0 piece)
+                                                                            </Small>
+                                                                        </div>
+                                                                    </Dflex>
+                                                                    <Dflex className="d-flex justify-content-between align-items-center">
+                                                                        <div>
+                                                                            <Link to="/shop" onClick={(prevState) => setShopnow(true)}>
+                                                                                <Button
+
+                                                                                    variant="contained"
+                                                                                    color="primary"
+                                                                                    className={classes.button}
+                                                                                    onClick={() => setShopnow(true)}
+                                                                                // startIcon={<DeleteIcon />}
+                                                                                >
+                                                                                    Shop Now
+                                                                                </Button>
+                                                                            </Link>
+                                                                            <Button
+                                                                                variant="contained"
+                                                                                color="primary"
+                                                                                className={classes.button}
+                                                                                endIcon={<Icon>send</Icon>}
+                                                                                style={{ display: 'none' }}
+                                                                            >
+                                                                                Move to wishlist
+                                                                            </Button>
+                                                                        </div>
+                                                                        <p className="mb-0"><span style={{ fontWeight: '500' }}><strong>$0</strong></span></p>
+                                                                    </Dflex>
+                                                                </div>
+                                                            </Dflex>
+                                                        </div>
+                                                    </div>
+                                                </Cart>
+                                            </div>
+
+
+                                            <div className="col-lg-4" style={{ paddingRight: 'unset' }}>
+
 
                                                 <div className="card mb-4">
                                                     <div className="card-body">
@@ -508,6 +647,10 @@ display: inline-block;
 
                 : (
                     <>
+
+
+                        <MetaData title={'Cart'} />
+
                         <div id="cart__main">
                             <main>
                                 <Helmet>

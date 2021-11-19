@@ -1,3 +1,4 @@
+
 .react-swipeable-view-container div[aria-hidden=false] {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -141,6 +142,8 @@
   box-shadow: 0 0 0 2px #fff, 0 0 0 3px #0b4eb3;
 }
 
+
+
 input:focus,
 textarea:focus {
   outline: none;
@@ -149,8 +152,13 @@ input:focus ~ label, input:valid ~ label,
 textarea:focus ~ label,
 textarea:valid ~ label {
   top: -14px;
+
   font-size: 1.6rem;
   color: #9C9C9C;
+
+  font-size: 12px;
+  color: #2196f3;
+
 }
 input:focus ~ .bar:before,
 textarea:focus ~ .bar:before {
@@ -159,6 +167,7 @@ textarea:focus ~ .bar:before {
 
 input[type=password] {
   letter-spacing: 0.3em;
+
 }
 
 .input__label {
@@ -176,4 +185,6 @@ input[type=password] {
 
 .off-field {
   display: none;
+
+
 }/*# sourceMappingURL=style.css.map */

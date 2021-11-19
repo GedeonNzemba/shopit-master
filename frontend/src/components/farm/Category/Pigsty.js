@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import '../../layout/mCustomscrollbar.css'
+
 import './category_responsive.css'
+
 
 import Crumb from './breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
@@ -8,6 +10,7 @@ import MetaData from '../../layout/MetaData'
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Buttone from '@material-ui/core/Button';
+
 import Button from '@mui/material/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -23,6 +26,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
+=======
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import Paginatione from 'react-js-pagination'
 import { Range } from 'rc-slider'
 import 'rc-slider/assets/index.css';
@@ -36,6 +42,7 @@ import backToFarm from '../../../images/category/forwardslash.svg'
 import { HiViewGrid } from 'react-icons/hi'
 import { FaListUl } from 'react-icons/fa'
 import { createTheme } from '@material-ui/core/styles';
+
 import { Typography } from '@material-ui/core'
 
 const StyledBreadcrumb = withStyles((theme) => ({
@@ -59,6 +66,8 @@ function handleClick(event) {
     event.preventDefault();
     console.info('You clicked a breadcrumb.');
 }
+=======
+
 
 const theme = createTheme({
     palette: {
@@ -90,6 +99,7 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             margin: theme.spacing(1),
         },
+
     },
     button: {
         fontSize: '1.6rem!important',
@@ -100,6 +110,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         fontSize: '1.6rem!important', 
+=======
     }
 }));
 
@@ -108,12 +119,14 @@ export default function Pigsty({ match }) {
 
     const classes = useStyles();
 
+
     const [categoryFilter, setCategoryFilter] = useState();
     let app = document.getElementById('root');
     useEffect(() => {
         app.clientWidth < 700 ? setCategoryFilter(true) : setCategoryFilter(false);
     }, [categoryFilter, setCategoryFilter, app.clientWidth])
 
+=======
     const [currentPage, setCurrentPage] = useState(1)
     const [price, setPrice] = useState([1, 450])
     const [size, setSize] = useState('')
@@ -206,7 +219,10 @@ export default function Pigsty({ match }) {
     // SIDEBAR
     const Sidebar = () => {
         return (
+
             <aside className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
+=======
+            <aside className="category_list">
                 <section className="filterByPrice mgt">
                     <h2 style={{ marginBottom: "2.5rem" }}>filter by price</h2>
                     <div className="filterRange">
@@ -284,6 +300,7 @@ export default function Pigsty({ match }) {
                         <Crumb navigationA="/" nameA="farm" nameB="Pigsty" />
                     </div>
                     {
+
                        window.innerWidth < 700 ? 
                       null
 
@@ -327,6 +344,38 @@ export default function Pigsty({ match }) {
                             </>
                         )
                        )
+=======
+                        name || size || rating ?
+                            (
+                                <>
+                                    <div className="userFilter" id="remove_filter">
+                                        <h4>/ Filter:</h4>
+                                        <div className="remove_filter" >
+                                            <span><i>{name}</i></span>
+                                            <span><i>{size}</i></span>
+                                            <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+
+                                            <ThemeProvider theme={theme}>
+                                                <Buttone
+                                                    variant="contained"
+                                                    color="secondary"
+                                                    className={classes.button + ' clear_filter'}
+                                                    startIcon={<DeleteIcon />}
+                                                    onClick={handleClearFilter}
+                                                >
+                                                    Clear filter
+                                                </Buttone>
+                                            </ThemeProvider>
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                            :
+                            (
+                                <>
+
+                                </>
+                            )
                     }
                 </div>
 
@@ -341,6 +390,7 @@ export default function Pigsty({ match }) {
             </div>
         );
     }
+
 
 
     const Filter = () => {
@@ -460,6 +510,20 @@ export default function Pigsty({ match }) {
                         :
                         null
                     }
+=======
+
+
+    return (
+        <>
+            <MetaData title={'Pigsty'} />
+            <div id="poultry_banner" />
+            <div className="poultry">
+                <div className="filter_category">
+                    <Sidebar />
+                </div>
+                <div className="main_products">
+                    <Breadcrumb />
+
                     <div className="poultry_products">
                         <div className={grid ? "row producstWrapper" : "col listMode"}>
                             {console.log("NAME:" + name)}
@@ -532,7 +596,10 @@ export default function Pigsty({ match }) {
 
             </div>
 
+
         </div>
+=======
+        </>
     )
 }
 

@@ -584,6 +584,9 @@ input#search_field {
   color: unset;
   background-color: unset!important;
   border-color: unset!important;
+
+
+  padding: unset!important;
   border: unset!important;
   margin-left: unset!important;
 }

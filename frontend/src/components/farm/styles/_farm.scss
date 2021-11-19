@@ -22,14 +22,19 @@
     & #poultry_banner {
         background-image: url("../images/ab.png");
         background-repeat: no-repeat;
+
         background-size: contain;
+
+        background-size: 100% 42%;
         width: 100%;
         height: 28rem;
         background-attachment: fixed;
         filter: brightness(0.5);
+
         @media (max-width: 1330px) {
             background-size: auto 50%;
         }
+
     }
 
     & .poultry {
@@ -120,9 +125,11 @@
         & .breadcrumb {
             display: flex;
             justify-content: space-between;
+
             @media (min-width: 700px) {
                 margin: unset!important;
             }
+
             margin: 0 auto;
             height: auto;
             box-shadow: 0px -1px 10px 5px #e9ecef;
@@ -643,19 +650,28 @@ main.MuiContainer-root.MuiContainer-maxWidthXs.css-nzinn5-MuiContainer-root {
     position: relative;
 }
 .login_page {
+
     background-image: linear-gradient(to bottom, rgb(0 0 0 / 81%), #f8f9fa40), url("../images/login.jpg");
+
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 0%), #f8f9fa), url("../images/login.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 .forgot_password_page {
+
     background-image: linear-gradient(to bottom, rgb(0 0 0 / 81%), #f8f9fa40), url("../images/login.jpg");
+
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 0%), #7e7e7e), url("../images/login.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 .register_page {
+
     background-image: linear-gradient(to bottom, rgb(0 0 0 / 81%), #f8f9fa40), url("../images/login.jpg");
+
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 0%), rgb(67, 94, 76)), url("../images/login.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -682,6 +698,7 @@ button#checkout_btn {
     max-width: 90%;
     margin: 0 auto;
 }
+
 
 
 
@@ -766,3 +783,4 @@ button#checkout_btn {
         }
     }
 }
+

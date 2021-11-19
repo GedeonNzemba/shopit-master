@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
+
     learnMore: {
         backgroundColor: '#209e2e',
         '&:hover': {
@@ -24,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
         }
     },
    
+
+
 }));
 
 const Header = () => {
@@ -64,7 +67,11 @@ const Header = () => {
                             </div>
 
                             <div className={classes.root + ' Fabout_btn'}>
+
                                 <Button onClick={scrollDown} variant="contained" color="secondary" className={classes.learnMore}>
+
+                                <Button onClick={scrollDown} variant="contained" color="secondary">
+
                                     Learn More
                                 </Button>
                             </div>
@@ -79,14 +86,22 @@ const Header = () => {
                                 rewind: true,
                                 direction: 'ttb',
                                 height: '50rem',
+
                                 autoplay: false
+
+                                autoplay: true
+
                             }}
                             onArrowsMounted={(splide, prev, next) => { console.log(prev, next) }}
                         >
                             {about_images.map((image) => (
                                 <SplideSlide key={image}>
                                     <div className="Fheader_image-wrap" >
+
                                         <img src={image} alt={image.key} className="about_header_img" />
+
+                                        <img src={image} alt={image.key} />
+
                                     </div>
                                 </SplideSlide>
                             ))}

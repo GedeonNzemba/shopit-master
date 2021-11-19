@@ -2,7 +2,10 @@ import React, { Fragment, useEffect } from "react"
 import "../../styles/Locataire.css"
 import Footer from "./Footer"
 import ContactB from './ct/CtForm'
+
 import Ct from './ct/steps/layout/index'
+
+
 
 
 const Contact = props => {
@@ -28,7 +31,10 @@ const Contact = props => {
     return (
         <Fragment>
 
+
             {/* <ContactB /> */}
+
+
 
             <div className="contactFormWrapper" id="contactFormWrapper">
 
@@ -38,7 +44,11 @@ const Contact = props => {
                         <h2 className="contactFormHeading">
                             Get in touch !
                         </h2>
+
                         <Ct />
+
+                        <ContactB />
+
 
                     </div>
                     <div className="contactFormMapDiv">
