@@ -692,9 +692,72 @@ section.farm_topSell-wrap li.splide__slide {
     bottom: -1rem;
     /* right: 0; */
 }
-#cart__main .col-md-5.col-lg-3.col-xl-3 {
+/* #cart__main .col-md-5.col-lg-3.col-xl-3 {
     padding-left: unset;
+} */
+.yourcarttitle {
+  font-family: 'GT Super Ds Trial Bd';
 }
+.product-item-info__inner-wrap h5 {
+  font-family: 'Ginto bold';
+  font-weight: bold;
+}
+.product-item-info__inner-wrap p {
+justify-content: space-between;
+font-family: 'Ginto regular';
+}
+.button__remove_product * span {
+  margin-left: unset!important;
+}
+button#checkout_button-cart span {
+  margin-left: unset;
+}
+@media (max-width: 375px) {
+  .cartPage li.splide__slide img {
+    height: 5rem;
+  }
+}
+@media only screen and (max-width: 768px)  {
+  #container_cart-main {
+    max-width: unset!important;
+  }
+}
+.checkout_button-cart * span {
+  margin-left: unset!important;
+}
+  @media (max-width: 500px) {
+    .cartPage .product__content-info-wrap {
+      margin-top: 6rem;
+    }
+    .inner__product-item-wrap {
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
+    .product-item-info__inner-wrap * span {
+      margin-left: unset!important;
+    }
+    .product-item-info__inner-wrap {
+      width: 100%;
+    }
+    .product-item-info__inner-wrap h5 {
+      font-size: 2.6rem;
+      font-family: 'Ginto bold';
+      font-weight: bold;
+  }
+  .product-item-info__inner-wrap p {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Ginto regular';
+}
+.product-item-nav__inner-wrap {
+  width: 87%;
+}
+button#button__qty span:first-child {
+ overflow: hidden;
+}
+  }
+
 
   .onHoverBanner:hover {
     transform: scale(1.005);
@@ -1781,7 +1844,7 @@ div#cart__main {
     height: fit-content;
     align-self: center;
 }
-img#img3_bank {
+/* img#img3_bank {
     width: 30rem;
 }
 img#img8_bank {
@@ -1795,6 +1858,10 @@ img#img7_bank {
 }
 img#img4_bank {
     width: 30rem;
+} */
+.cartPage li.splide__slide img {
+  width: 100%;
+  height: 10rem;
 }
 button:focus {
   outline: unset!important;

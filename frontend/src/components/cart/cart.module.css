@@ -141,4 +141,8 @@
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: center;
+}
+
+.cartPage .product__content-info-wrap {
+  margin-top: 6rem;
 }/*# sourceMappingURL=cart.module.css.map */

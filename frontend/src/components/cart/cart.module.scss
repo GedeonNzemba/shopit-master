@@ -171,6 +171,12 @@
         background-position-y: center;
     }
 
+    
 }
 
+.cartPage {
+    & .product__content-info-wrap {
+        margin-top: 6rem;
+    }
+}
 

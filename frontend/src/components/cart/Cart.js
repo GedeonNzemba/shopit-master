@@ -337,7 +337,7 @@ display: inline-block;
 
                                                 <Cart className="card wish-list mb-4">
                                                     <div className="card-body">
-                                                        <h5 className="mb-4" id="cart__title"><span className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
+                                                        <h5 className="mb-4" id="cart__title"><span style={{marginLeft: 'unset'}} className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
 
                                                         <div className="row mb-4 cart__product-rendered" >
                                                             <div className="col-md-5 col-lg-3 col-xl-3">
@@ -356,7 +356,7 @@ display: inline-block;
                                                                     </A>
                                                                 </View>
                                                             </div>
-                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9">
+                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap">
                                                                 <div>
                                                                     <Dflex className="d-flex justify-content-between">
                                                                         <div id="product_cart-desc-main" style={{ width: '100%' }}>
@@ -527,11 +527,11 @@ display: inline-block;
 
                                         <div className="row">
 
-                                            <div className="col-lg-8" style={{ paddingLeft: 'unset' }}>
+                                            <div className="col-lg-8" >
 
                                                 <Cart className="card wish-list mb-4">
                                                     <div className="card-body">
-                                                        <h5 className="mb-4" id="cart__title"><span className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
+                                                        <h5 className="mb-4" id="cart__title"><span style={{marginLeft: 'unset'}} className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
                                                         {cartItems.map(item => (
                                                             <>
 
@@ -551,16 +551,16 @@ display: inline-block;
                                                                             </A>
                                                                         </View>
                                                                     </div>
-                                                                    <Dflex className="col-md-7 col-lg-9 col-xl-9">
+                                                                    <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap">
                                                                         <div>
-                                                                            <Dflex className="d-flex justify-content-between">
-                                                                                <div>
+                                                                            <Dflex className="d-flex justify-content-between inner__product-item-wrap">
+                                                                                <div className="product-item-info__inner-wrap">
                                                                                     <Md4>{item.name}</Md4>
                                                                                     <p className="mb-3 text-muted text-uppercase small"><span className="subc">Category: {" "}</span>  {item.category}</p>
                                                                                     <p className="mb-2 text-muted text-uppercase small"><span className="subc">Color: {" "}</span> {item.color}</p>
                                                                                     <p className="mb-3 text-muted text-uppercase small"><span className="subc">Size: {" "}</span>  {item.size}</p>
                                                                                 </div>
-                                                                                <div>
+                                                                                <div className="product-item-nav__inner-wrap">
                                                                                     {/* <Dnumber className="def-number-input number-input safari_only mb-0 w-100">
                                                                         <ButtonD
                                                                             onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
@@ -573,22 +573,22 @@ display: inline-block;
                                                                     </Dnumber> */}
                                                                                     <div className={classes.moot}>
                                                                                         <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
-                                                                                            <Button onClick={() => decreaseQty(item.product, item.quantity)}>decrease</Button>
-                                                                                            <Button>
+                                                                                            <Button className={classes.font} onClick={() => decreaseQty(item.product, item.quantity)}>decrease</Button>
+                                                                                            <Button id="button__qty">
                                                                                                 <form className={classes.root} noValidate autoComplete="off" id="add_sub">
                                                                                                     <Inpute defaultValue="Select" type="input" value={item.quantity} readOnly inputProps={{ 'aria-label': 'description' }} />
                                                                                                 </form>
                                                                                             </Button>
-                                                                                            <Button onClick={() => increaseQty(item.product, item.quantity, item.stock)}>add</Button>
+                                                                                            <Button className={classes.font} onClick={() => increaseQty(item.product, item.quantity, item.stock)}>add</Button>
                                                                                         </ButtonGroup>
                                                                                     </div>
 
-                                                                                    <Small id="passwordHelpBlock" className="form-text text-muted text-center">
+                                                                                    <Small id="passwordHelpBlock" className="form-text text-muted text-center" style={{fontSize: '1.6rem'}}>
                                                                                         (Note, {item.quantity} piece)
                                                                                     </Small>
                                                                                 </div>
                                                                             </Dflex>
-                                                                            <Dflex className="d-flex justify-content-between align-items-center">
+                                                                            <Dflex className="d-flex justify-content-between align-items-center button__remove_product">
                                                                                 <div>
                                                                                     <Button
                                                                                         onClick={() => removeCartItemHandler(item.product)}
@@ -609,7 +609,7 @@ display: inline-block;
                                                                                         Move to wishlist
                                                                                     </Button>
                                                                                 </div>
-                                                                                <p className="mb-0"><span style={{ fontWeight: '500' }}><strong>${item.price}</strong></span></p>
+                                                                                <p className="mb-0"><span style={{ fontWeight: '500', fontFamily: 'Ginto bold', fontSize: '2.5rem' }}><strong>${item.price}</strong></span></p>
                                                                             </Dflex>
                                                                         </div>
                                                                     </Dflex>
@@ -641,24 +641,25 @@ display: inline-block;
 
 
 
-                                            <div className="col-lg-4" style={{ paddingRight: 'unset' }}>
+                                            <div className="col-lg-4">
 
                                                 <div className="card mb-4">
                                                     <div className="card-body">
 
-                                                        <Md4 className="mb-3" id="totalamountof">The total amount of</Md4>
+                                                        <Md4 className="mb-3" id="totalamountof" style={{fontSize: '2.6rem', fontFamily: 'GT Super Ds Trial Bd'}}>The total amount of</Md4>
 
                                                         <ul className="list-group list-group-flush" style={{ marginBottom: '2rem' }}>
-                                                            <li
+                                                            <li style={{fontSize: '2rem', fontFamily: 'Ginto regular'}}
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                                 Subtotal
                                                                 <span>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span>
                                                             </li>
-                                                            <li className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
+                                                            <li style={{fontSize: '2rem', fontFamily: 'Ginto regular'}} className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
                                                                 Estimated Delivery Tax
                                                                 <span>Free</span>
                                                             </li>
-                                                            <li
+                                                            <li 
+                                                                style={{fontSize: '2rem', fontFamily: 'Ginto bold'}}
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                                 <div>
                                                                     <strong>The total amount of</strong>
@@ -670,7 +671,7 @@ display: inline-block;
                                                             </li>
                                                         </ul>
 
-                                                        <Button variant="contained" color="secondary" onClick={checkoutHandler}>Check Out</Button>
+                                                        <Button id="checkout_button-cart" variant="contained" color="secondary" onClick={checkoutHandler}>Check Out</Button>
 
                                                     </div>
                                                 </div>
@@ -710,7 +711,7 @@ display: inline-block;
                                     </section>
 
                                 </div>
-                                <div className="card mb-4">
+                                <div className="card mb-4" style={{backgroundColor: 'unset'}}>
                                     <div className="card-body">
 
                                         {/* <Md4 className="mb-4">We accept</Md4> */}
