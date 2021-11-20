@@ -356,15 +356,15 @@ display: inline-block;
                                                                     </A>
                                                                 </View>
                                                             </div>
-                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap">
+                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap" style={{marginTop: '3rem'}}>
                                                                 <div>
-                                                                    <Dflex className="d-flex justify-content-between">
+                                                                    <Dflex className="d-flex justify-content-between" id="product_cart-descr">
                                                                         <div id="product_cart-desc-main" style={{ width: '100%' }}>
                                                                             <Skeleton variant="text" />
                                                                             <div className="product_cart-descr">
-                                                                                <p className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Category: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
-                                                                                <p className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Color: {" "}</span> <Skeleton variant="text" width="60%" /></p>
-                                                                                <p className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Size: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                                <p style={{fontFamily: 'Ginto regular'}} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Category: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                                <p style={{fontFamily: 'Ginto regular'}} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Color: {" "}</span> <Skeleton variant="text" width="60%" /></p>
+                                                                                <p style={{fontFamily: 'Ginto regular'}} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Size: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
                                                                             </div>
                                                                         </div>
                                                                         <div>
@@ -422,7 +422,7 @@ display: inline-block;
                                                                                 Move to wishlist
                                                                             </Button>
                                                                         </div>
-                                                                        <p className={classes.font + ' mb-0'}><span style={{ fontWeight: '500' }}><strong>$0</strong></span></p>
+                                                                        <p className={classes.font + ' mb-0'}><span style={{ fontWeight: '500', fontSize: '2rem' }}><strong>$0</strong></span></p>
                                                                     </Dflex>
                                                                 </div>
                                                             </Dflex>
@@ -433,7 +433,7 @@ display: inline-block;
                                             </div>
 
 
-                                            <div className={`col-lg-4 ${window.innerWidth < 769 ? " col-lg-8-no-padding" : ''}`} style={{ paddingRight: 'unset' }}>
+                                            <div className={`col-lg-4 ${window.innerWidth < 769 ? " col-lg-8-no-padding" : ''}`} style={{ display: 'none' ,paddingRight: 'unset' }}>
 
                                                 <div className="card mb-4">
                                                     <div className="card-body">
@@ -441,21 +441,22 @@ display: inline-block;
                                                         <Md4 className="mb-3" id="totalamountof">The total amount of</Md4>
 
                                                         <ul className="list-group list-group-flush" style={{ marginBottom: '2rem' }}>
-                                                            <li
+                                                            <li style={{fontSize: '2.5rem', fontFamily: 'Ginto regular'}}
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                                 Subtotal
                                                                 <span>      <Skeleton variant="text" width="80px" /></span>
                                                             </li>
-                                                            <li className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
+                                                            <li style={{fontSize: '2.5rem', fontFamily: 'Ginto regular'}} className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
                                                                 Estimated Delivery Tax
                                                                 <span><Skeleton variant="text" width="80px" /></span>
                                                             </li>
                                                             <li
+                                                            
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                                                <div>
+                                                                <div style={{fontSize: '2.5rem', fontFamily: 'Ginto bold'}}>
                                                                     <strong>The total amount of</strong>
                                                                     <strong>
-                                                                        <p className="mb-0">(including VAT)</p>
+                                                                        <p style={{fontSize: '2.5rem', fontFamily: 'Ginto bold'}} className="mb-0">(including VAT)</p>
                                                                     </strong>
                                                                 </div>
                                                                 <span><strong><Skeleton variant="text" width="80px" /></strong></span>
@@ -537,8 +538,8 @@ display: inline-block;
 
 
                                                                 <div className="row mb-4 cart__product-rendered" key={item._id}>
-                                                                    <div className="col-md-5 col-lg-3 col-xl-3">
-                                                                        <View className="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                                                    <div className="col-md-5 col-lg-3 col-xl-3 product__image-container">
+                                                                        <View className="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 product__image-outer">
                                                                             <ImgFluid className="img-fluid w-100"
                                                                                 src={item.image}
                                                                                 alt="Sample" />
@@ -552,7 +553,7 @@ display: inline-block;
                                                                         </View>
                                                                     </div>
                                                                     <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap">
-                                                                        <div>
+                                                                        <div id="product__inner-info-wrapper">
                                                                             <Dflex className="d-flex justify-content-between inner__product-item-wrap">
                                                                                 <div className="product-item-info__inner-wrap">
                                                                                     <Md4>{item.name}</Md4>
@@ -627,7 +628,7 @@ display: inline-block;
                                                 </Cart>
 
                                                 <div className="card mb-4">
-                                                    <div className="card-body">
+                                                    <div className="card-body" id="card-body-est">
 
                                                         <Md4 className="mb-4">Expected shipping delivery</Md4>
 
@@ -644,7 +645,7 @@ display: inline-block;
                                             <div className="col-lg-4">
 
                                                 <div className="card mb-4">
-                                                    <div className="card-body">
+                                                    <div className="card-body" id="card-body">
 
                                                         <Md4 className="mb-3" id="totalamountof" style={{fontSize: '2.6rem', fontFamily: 'GT Super Ds Trial Bd'}}>The total amount of</Md4>
 
