@@ -182,23 +182,36 @@ const ListOrders = ({ match }) => {
 
                                     ))}
                                 </div>
-                                <div className="list_wrap">
+                                {window.innerWidth < 657 ?
+                                    <div className="container list_wrap" style={{overflowX: 'scroll', width: '30em', whiteSpace: 'nowrap'}}>
+                                       <MDBDataTable
+                                        data={setOrders()}
+                                        className="px-3"
+                                        bordered
+                                        striped
+                                        hover
+                                        
+                                    />
+                                    </div>
+                                    :
+                                    <div className="list_wrap">
                                     <MDBDataTable
                                         data={setOrders()}
                                         className="px-3"
                                         bordered
                                         striped
                                         hover
+                                        
                                     />
                                 </div>
+                                }
                             </div>
-                            <h1 id="toppick_list">Best Selection</h1>
                         </div>
 
-                        <div id="topsell__list">
+                        {/* <div id="topsell__list">
 
                             <Topsell />
-                        </div>
+                        </div> */}
 
                     </>
 
