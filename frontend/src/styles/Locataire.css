@@ -1063,6 +1063,7 @@ button#checkout_btn {
   display: block;
   max-height: 25rem;
   padding: 0.8rem 0 0.8rem 0;
+  overflow-y: scroll;
 }
 .category_list .filterbysize #category-size-wrapper .size-item {
   display: block;
@@ -1086,6 +1087,10 @@ button#checkout_btn {
 }
 .category_list .filterbyrating #category-rating-wrapper .rating-outer {
   font-size: 2rem;
+}
+
+.filter_price_color {
+  margin-bottom: 4rem;
 }
 
 #farmSHOP .product_listing--deepS span.product_listing__q {

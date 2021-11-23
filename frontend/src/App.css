@@ -1601,7 +1601,7 @@ div.profile_main {
   width: 100%;
   height: 100%;
   position: relative;
-  /* padding: 5rem 5rem; */
+  padding-top: 5rem;
 }
 header.header_profile {
   background-image: url('./images/profile_banner.jpg');
@@ -1638,21 +1638,43 @@ span#hello::after{
 }
 main.profile_wrapper {
   display: grid;
-grid-template-columns: 25% 70%;
+grid-template-columns: 1fr 2fr;
     grid-column-gap: 10rem;
     column-gap: 10%;
+    margin: 0 auto;
+    max-width: 90%;
 }
 div.profiler_image {
 padding-top: 5rem;
 }
 div.profile_image div.MuiPaper-root {
-    width: 100%!important;
+    width: 100%;
     /* height: 25rem; */
-    border-radius: 50%!important;
+    /* border-radius: 50%!important; */
 }
 .MuiCardMedia-root.makeStyles-media-19 {
   width: 100%!important;
   height: 18rem!important;
+}
+.profile_name-wrap {
+ text-align: center;
+ margin-top: 3rem;
+}
+.my-profile-image_wrap {
+  background-color: unset!important;
+  max-width: unset!important;
+  width: fit-content!important;
+  box-shadow: unset!important;
+}
+.my-profile-image-inner-wrap {
+  width: fit-content!important;
+}
+.my-profile-image {
+  border: 1rem solid #fa9c23;
+  width: 20rem;
+  height: 20rem!important;
+  border-radius: 50%;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 div.profile_content{
   display: block;
@@ -1665,7 +1687,10 @@ div.profile_content{
 }
 .profile_inner-left {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+}
+.profile_join {
+  margin-left: 5rem;
 }
 #profile__cardtitle {
   font-family: "Cairo", sans-serif;
@@ -1717,12 +1742,12 @@ span.profile__join {
 }
 .profile_image {
     justify-self: center;
+    background: repeating-radial-gradient(#072623, transparent 100px);
+    border: 1px solid #ffffff;
 }
 .profile__dsn {
-    border: 1rem solid #fa9c23;
-    width: 20rem;
-    height: 20rem;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
 }
 #order {
   background-color: #DC004E!important;
@@ -2008,7 +2033,60 @@ h5 span.yourcarttitle {
     right: 10rem !important;
   }
 }
-
+@media (max-width: 400px) {
+  #farmSHOP .poultry .breadcrumb {
+    flex-direction: column;
+  }
+  #farmSHOP .poultry .breadcrumb .products-view {
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 993px) {
+  #contactFormWrapper {
+    background-color: #313962!important;
+  }
+}
+/* UPDATE PROFILE */
+.profile_wrapper * span {
+  margin-left: 0!important;
+}
+@media (min-width: 2000px) {
+  .profile_main {
+    max-width: 190rem;
+    margin: 0 auto;
+}
+}
+@media (max-width: 800px) {
+  .btn__profile_udt {
+    margin-bottom: 1rem;
+  }
+  #profile_main_main {
+    height: 100%;
+    margin-bottom: 8rem;
+  }
+  main.profile_wrapper {
+    grid-template-columns: 1fr;
+    row-gap: 5rem;
+    justify-items: center;
+  }
+  div.profile_content {
+    width: fit-content;
+}
+.profile_inner-left {
+  width: fit-content;
+}
+}
+.update__form-profile {
+  max-width: 100%;
+}
+.new_passUP {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+img#update_image_ills {
+  width: 100%;
+  height: 100%;
+}
 /* ris header */
 @media (min-width: 1800px){
   section#riskHeader_content {

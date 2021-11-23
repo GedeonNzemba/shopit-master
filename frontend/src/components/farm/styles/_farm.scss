@@ -736,6 +736,7 @@ button#checkout_btn {
             display: block;
             max-height: 25rem;
             padding: 0.8rem 0 0.8rem 0;
+            overflow-y: scroll;
             & .size-item {
                 display: block;
                 line-height: 2;
@@ -764,4 +765,8 @@ button#checkout_btn {
             }
         }
     }
+}
+
+.filter_price_color {
+    margin-bottom: 4rem;
 }

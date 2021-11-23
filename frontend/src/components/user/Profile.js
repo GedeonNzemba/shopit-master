@@ -56,17 +56,17 @@ const Profile = () => {
                         <main className="profile_wrapper">
                             <div className="profile_image">
                                 <div className="profile__dsn">
-                                    <Card className={classes.root}>
-                                        <CardActionArea>
+                                    <Card className={classes.root + ' my-profile-image_wrap'}>
+                                        <CardActionArea className="my-profile-image-inner-wrap">
                                             <CardMedia
-                                                className={classes.media}
+                                                className={classes.media + ' my-profile-image'}
                                                 image={user.avatar.url}
                                                 title={user.name}
                                             />
                                         </CardActionArea>
                                     </Card>
                                 </div>
-                                <CardContent>
+                                <CardContent className="profile_name-wrap">
                                     <div className="profile_name">Hello, {user.name}. You can can edit your profile here.</div>
                                     <br />
                                     {user.role !== 'admin' && (
@@ -75,7 +75,7 @@ const Profile = () => {
                                             <Button
                                                 variant="contained"
                                                 color="primary"
-                                                className={classes.button}
+                                                className={classes.button + ' btn__profile_udt'}
                                                 id="order"
                                             >
                                                 My Orders
@@ -86,7 +86,7 @@ const Profile = () => {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            className={classes.button}
+                                            className={classes.button + ' btn__profile_udt'}
 
                                         >
                                             Edit Profile

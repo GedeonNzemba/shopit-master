@@ -1,5 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
 
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
 import MetaData from '../layout/MetaData'
 
 import { useAlert } from 'react-alert'
@@ -7,10 +12,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updatePassword, clearErrors } from '../../actions/userActions'
 import { UPDATE_PASSWORD_RESET } from '../../constants/userConstants'
 import login_bg from "../../images/login.jpg"
+import { makeStyles } from "@material-ui/core/styles";
+import updateImageIlls from "../../images/updateimageills.svg";
 
+const useStyles = makeStyles({
+    root: {
+        maxWidth: 345,
+    },
+    button: {
+        backgroundColor: "#061311!important",
+        width: "100%!important",
+    },
+    stack: {
+        marginTop: "1rem",
+        marginBottom: "1rem",
+    },
+});
 
 const UpdatePassword = ({ history }) => {
-
+    const classes = useStyles();
     useEffect(() => {
 
         const app = document.getElementsByClassName('App')[0];
@@ -67,7 +87,55 @@ const UpdatePassword = ({ history }) => {
             <MetaData title={'Change Password'} />
 
             <div className="row wrapper remove_footer_bg">
-                <div className="col-10 col-lg-5">
+                <div className="update__form-profile">
+                    <Box
+                        component="form"
+                        className="shadow-lg"
+                        onSubmit={submitHandler}
+                        encType="multipart/form-data"
+                        sx={{
+                            "& .MuiTextField-root": { m: 1 },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                    >
+                        <Stack direction="column" spacing={2} className={classes.stack}>
+                            <Box>
+                                <h1 className="mt-2 mb-5">Update Password</h1>
+                            </Box>
+                            <TextField
+                                type="password"
+                                id="old_password_field"
+                                className="form-control"
+                                value={oldPassword}
+                                onChange={(e) => setOldPassword(e.target.value)}
+                                label="Old Password"
+                                variant="outlined"
+                            />
+                            <TextField
+                                type="password"
+                                id="new_password_field"
+                                className="form-control"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                label="New Password"
+                                variant="outlined"
+                            />
+                        </Stack>
+                        <Stack direction="row" spacing={2} className={classes.stack}>
+                            <Button
+                                variant="contained"
+                                className={classes.button}
+                                type="submit"
+                                disabled={loading ? true : false}
+                            >
+                                Update Password
+                            </Button>
+                        </Stack>
+                    </Box>
+                </div>
+               
+                {/* <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
                         <h1 className="mt-2 mb-5">Update Password</h1>
                         <div className="form-group">
@@ -94,7 +162,8 @@ const UpdatePassword = ({ history }) => {
 
                         <button type="submit" className="btn update-btn btn-block mt-4 mb-3" disabled={loading ? true : false} >Update Password</button>
                     </form>
-                </div>
+                </div> */}
+
             </div>
 
         </Fragment>

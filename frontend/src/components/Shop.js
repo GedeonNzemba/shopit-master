@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import './layout/mCustomscrollbar.css'
+import '../components/farm/Category/category_responsive.css'
+
 import Crumb from '../components/farm/Category/breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
 import MetaData from './layout/MetaData'
+import Chip from '@material-ui/core/Chip';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 import { Accordion, Card } from 'react-bootstrap'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Buttone from '@material-ui/core/Button';
+import { emphasize, withStyles } from '@material-ui/core/styles';
+import Button from '@mui/material/Button';
+
+import FilterCt from './farm/Category/breadcrumb/Filter';
+import Paper from '@mui/material/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import Paginatione from 'react-js-pagination'
@@ -24,6 +33,37 @@ import { HiViewGrid } from 'react-icons/hi'
 import { FaListUl } from 'react-icons/fa'
 import { createTheme } from '@material-ui/core/styles';
 import { StrollableContainer } from "react-stroller";
+// import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Typography } from '@material-ui/core'
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
+
+const StyledBreadcrumb = withStyles((theme) => ({
+    root: {
+        backgroundColor: theme.palette.grey[100],
+        height: theme.spacing(3),
+        color: theme.palette.grey[800],
+        fontWeight: theme.typography.fontWeightRegular,
+        fontSize: '1.6rem!important',
+        '&:hover, &:focus': {
+            backgroundColor: theme.palette.grey[300],
+        },
+        '&:active': {
+            boxShadow: theme.shadows[1],
+            backgroundColor: emphasize(theme.palette.grey[300], 0.12),
+        },
+    },
+}))(Chip);
+
+function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+}
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range)
@@ -195,88 +235,100 @@ const Shop = ({ match }) => {
     // SIDEBAR
     const Sidebar = () => {
         return (
-            <aside className="category_list">
-                <section className="filterByPrice mgt">
-                    <h2 style={{ marginBottom: "2.5rem" }}>filter by price</h2>
-                    <div className="filterRange">
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
-                            min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
-                            tipProps={{
-                                placement: "top",
-                                visible: true,
-                            }}
-                            value={price}
-                        />
-                    </div>
-                </section>
-                <section className="filterByColor">
-                    <Accordion defaultActiveKey="0">
-                        <Accordion.Toggle as={Card.Header} eventKey="0">
-                            <h2>filter by color</h2>
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                            <div className="filterColor">
-                                <StrollableContainer draggable>
-                                    <ul className="filtercolor-wrap">
-                                        {productColor.map((color) => (
-                                            <li className="color-item" key={color} onClick={() => setColor(color)}>
-                                                <div className={"item-inner-color " + color} />
-                                                <div className="item-inner-text">{color}</div>
+            <aside style={window.innerWidth < 700 ? {height: '100vh', overflowY: 'scroll'} : {}} className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
+                
+
+                    <Box sx={{  height: '100%', padding: '1.5rem' }} >
+                        <Stack spacing={2} className="filter_price_color" >
+                            <section className="filterByPrice mgt">
+                                <h2 style={{ marginBottom: "5.5rem" }}>filter by price</h2>
+                                <div className="filterRange" >
+                                    <Range
+                                        marks={{
+                                            1: `$1`,
+                                            450: `$450`,
+                                        }}
+                                        min={1}
+                                        max={450}
+                                        defaultValue={[1, 450]}
+                                        tipFormatter={(value) => `$${value}`}
+                                        tipProps={{
+                                            placement: "top",
+                                            visible: true,
+                                        }}
+                                        value={price}
+                                    />
+                                </div>
+                            </section>
+                            <section className="filterByColor">
+                                <Accordion defaultActiveKey="0">
+                                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                                        <h2>filter by color</h2>
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="0">
+                                        <div className="filterColor">
+                                            <StrollableContainer draggable>
+                                                <ul className="filtercolor-wrap">
+                                                    {productColor.map((color) => (
+                                                        <li className="color-item" key={color} onClick={() => setColor(color)}>
+                                                            <div className={"item-inner-color " + color} />
+                                                            <div className="item-inner-text">{color}</div>
+                                                        </li>
+                                                    ))}
+
+                                                </ul>
+                                            </StrollableContainer>
+                                        </div>
+                                    </Accordion.Collapse>
+                                </Accordion>
+                            </section>
+                        </Stack>
+                        <Stack spacing={2} className="filter_category_size">
+                            <section className="filterbycategory mgt">
+                                <h2 style={{ marginBottom: "1rem" }}>filter by category</h2>
+                                <div id="category-list-wrapper">
+                                    {categories.map(category => (
+                                        <div className="category-item" key={category} onClick={() => setName(category.title)}>
+                                            <img
+                                                className="category-icon"
+                                                src={category.icon}
+                                                alt={category.atl}
+                                            />
+                                            <p className="ctg-name">{category.title}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                            <section className="filterbysize mgt">
+                                <h2 style={{ marginBottom: "1rem" }}>filter by size</h2>
+                                <div id="category-size-wrapper">
+                                    {productSize.map((size, key) => (
+                                        <div className="size-item" key={key}>
+                                            <p onClick={() => setSize(size)}>{size}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        </Stack>
+                        <Stack spacing={2} className="filter_rating_">
+                            <section className="filterbyrating mgt">
+                                <h2 style={{ marginBottom: "1rem" }}>filter by rating</h2>
+                                <div id="category-rating-wrapper">
+                                    <ul className="pl-0">
+                                        {[5, 4, 3, 2, 1].map((star) => (
+                                            <li style={{ cursor: "pointer", listStyleType: "none", }} key={star} >
+                                                <div className="rating-outer" onClick={() => setRating(star)}>
+                                                    <div className="rating-inner" style={{ width: `${star * 20}%` }} />
+                                                </div>
                                             </li>
                                         ))}
-
                                     </ul>
-                                </StrollableContainer>
-                            </div>
-                        </Accordion.Collapse>
-                    </Accordion>
-                </section>
-                <section className="filterbycategory mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by category</h2>
-                    <div id="category-list-wrapper">
-                        {categories.map(category => (
-                            <div className="category-item" key={category} onClick={() => setName(category.title)}>
-                                <img
-                                    className="category-icon"
-                                    src={category.icon}
-                                    alt={category.atl}
-                                />
-                                <p className="ctg-name">{category.title}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-                <section className="filterbysize mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by size</h2>
-                    <div id="category-size-wrapper">
-                        {productSize.map((size, key) => (
-                            <div className="size-item" key={key}>
-                                <p onClick={() => setSize(size)}>{size}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-                <section className="filterbyrating mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by rating</h2>
-                    <div id="category-rating-wrapper">
-                        <ul className="pl-0">
-                            {[5, 4, 3, 2, 1].map((star) => (
-                                <li style={{ cursor: "pointer", listStyleType: "none", }} key={star} >
-                                    <div className="rating-outer" onClick={() => setRating(star)}>
-                                        <div className="rating-inner" style={{ width: `${star * 20}%` }} />
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </section>
+                                </div>
+                            </section>
+                        </Stack>
+                    </Box>
+
+
             </aside>
         );
     }
@@ -284,7 +336,7 @@ const Shop = ({ match }) => {
     // BREADCRUMB
     const Breadcrumb = () => {
         return (
-            <div className="breadcrumb">
+            <div className="breadcrumb" >
                 <div className="crumb">
                     <div className="back-to-farm">
                         <Link to="/">
@@ -292,83 +344,256 @@ const Shop = ({ match }) => {
                         </Link>
                     </div>
                     <div className="crumb-wrap">
-                        <Crumb navigationA="/" nameA="farm" nameB="Shop" />
+                        <Crumb navigationA="/" nameA="farm" nameB="Poultry" />
                     </div>
                     {
-                        name || size || rating || color ?
-                            (
-                                <>
-                                    <div className="userFilter" id="remove_filter">
-                                        <h4>/ Filter:</h4>
-                                        <div className="remove_filter" >
-                                            <span><i>{name}</i></span>
-                                            <span><i>{size}</i></span>
-                                            <span><i>{color}</i></span>
-                                            <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+                        window.innerWidth < 700 ?
+                            null
 
-                                            <ThemeProvider theme={theme}>
-                                                <Buttone
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    className={classes.button + ' clear_filter'}
-                                                    startIcon={<DeleteIcon />}
-                                                    onClick={handleClearFilter}
-                                                >
-                                                    Clear filter
-                                                </Buttone>
-                                            </ThemeProvider>
-                                        </div>
-                                    </div>
-                                </>
-                            )
                             :
-                            (
-                                <>
 
-                                </>
+                            (
+                                name || size || rating || color ?
+                                    (
+                                        <>
+                                            <div className="userFilter" id="remove_filter">
+                                                <StyledBreadcrumb
+                                                    component="a"
+                                                    label="filter"
+                                                    icon={<FilterAltIcon />}
+                                                    onClick={handleClick}
+                                                />
+                                                <div className="remove_filter" >
+                                                    <span><i>{name}</i></span>
+                                                    <span><i>{size}</i></span>
+                                                    <span><i>{color}</i></span>
+                                                    <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+
+                                                    <ThemeProvider theme={theme}>
+                                                        <Buttone
+                                                            variant="contained"
+                                                            color="secondary"
+                                                            className={classes.button + ' clear_filter'}
+                                                            startIcon={<DeleteIcon />}
+                                                            onClick={handleClearFilter}
+                                                        >
+                                                            Clear filter
+                                                        </Buttone>
+                                                    </ThemeProvider>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <>
+
+                                        </>
+                                    )
                             )
                     }
                 </div>
 
-                <div style={{ display: 'inline-flex' }}>
-                    <div className="row search-product-wrap" >
-                        <div className="col-lg-4 col-md-5" style={{ placeSelf: 'center' }}>
-                            <div className="filter__sort">
-                                <Select />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4" style={{ placeSelf: 'center', marginRight: ' 1.3rem' }}>
-                            <div className="filter__found">
-                                <h6>
-                                    <span>{count}</span>
-                                    Products found
-                                </h6>
-                            </div>
-                        </div>
+                <div className="products-view">
+                    <div id="gridView" >
+                        <HiViewGrid className={grid ? 'active_grid' : 'not-active'} onClick={handleGrid} />
                     </div>
-                    <div className="products-view">
-                        <div id="gridView" >
-                            <HiViewGrid className={grid ? 'active_grid' : 'not-active'} onClick={handleGrid} />
-                        </div>
-                        <div id="listView" >
-                            <FaListUl className={list ? 'active_list' : 'not-active'} onClick={handleList} />
-                        </div>
+                    <div id="listView" >
+                        <FaListUl className={list ? 'active_list' : 'not-active'} onClick={handleList} />
                     </div>
                 </div>
             </div>
+            // <div className="breadcrumb">
+            //     <div className="crumb">
+            //         <div className="back-to-farm">
+            //             <Link to="/">
+            //                 <img src={backToFarm} alt="back to farm icon" />
+            //             </Link>
+            //         </div>
+            //         <div className="crumb-wrap">
+            //             <Crumb navigationA="/" nameA="farm" nameB="Shop" />
+            //         </div>
+            //         {
+            //             name || size || rating || color ?
+            //                 (
+            //                     <>
+            //                         <div className="userFilter" id="remove_filter">
+            //                             <h4>/ Filter:</h4>
+            //                             <div className="remove_filter" >
+            //                                 <span><i>{name}</i></span>
+            //                                 <span><i>{size}</i></span>
+            //                                 <span><i>{color}</i></span>
+            //                                 <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+
+            //                                 <ThemeProvider theme={theme}>
+            //                                     <Buttone
+            //                                         variant="contained"
+            //                                         color="secondary"
+            //                                         className={classes.button + ' clear_filter'}
+            //                                         startIcon={<DeleteIcon />}
+            //                                         onClick={handleClearFilter}
+            //                                     >
+            //                                         Clear filter
+            //                                     </Buttone>
+            //                                 </ThemeProvider>
+            //                             </div>
+            //                         </div>
+            //                     </>
+            //                 )
+            //                 :
+            //                 (
+            //                     <>
+
+            //                     </>
+            //                 )
+            //         }
+            //     </div>
+
+            //     <div style={{ display: 'inline-flex' }}>
+            //         <div className="row search-product-wrap" >
+            //             <div className="col-lg-4 col-md-5" style={{ placeSelf: 'center' }}>
+            //                 <div className="filter__sort">
+            //                     <Select />
+            //                 </div>
+            //             </div>
+            //             <div className="col-lg-4 col-md-4" style={{ placeSelf: 'center', marginRight: ' 1.3rem' }}>
+            //                 <div className="filter__found">
+            //                     <h6>
+            //                         <span>{count}</span>
+            //                         Products found
+            //                     </h6>
+            //                 </div>
+            //             </div>
+            //         </div>
+            //         <div className="products-view">
+            //             <div id="gridView" >
+            //                 <HiViewGrid className={grid ? 'active_grid' : 'not-active'} onClick={handleGrid} />
+            //             </div>
+            //             <div id="listView" >
+            //                 <FaListUl className={list ? 'active_list' : 'not-active'} onClick={handleList} />
+            //             </div>
+            //         </div>
+            //     </div>
+            // </div>
         );
+    }
+
+    const Filter = () => {
+        return (
+            <div id="category__filter" style={{ margin: '2rem 2rem' }}>
+                {
+                    name || size || rating || color ?
+                        (
+                            <ThemeProvider theme={theme}>
+                                <Buttone
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.button + ' clear_filter'}
+                                    startIcon={<DeleteIcon />}
+                                    onClick={handleClearFilter}
+                                >
+                                    Clear filter
+                                </Buttone>
+                            </ThemeProvider>
+                        )
+                        :
+                        null
+                }
+                <Button onClick={handleFilter} className={classes.button} variant="contained" color="success">
+                    filters
+                </Button>
+            </div>
+        )
+    }
+
+    function handleFilter() {
+        let filter = document.getElementById('filter_shop');
+        let categoryPage = document.getElementById('shop-page');
+
+
+        categoryPage.classList.add('category-page');
+        filter.classList.add('filter_shop');
+
+        categoryPage.addEventListener('click', () => {
+            categoryPage.classList.remove('category-page');
+            filter.classList.remove('filter_shop');
+        })
     }
 
     // MAIN PRODUCTS GRID
     const ProductsGrid = () => {
         return (
             <>
-                <div className="poultry">
-                    <div className="filter_category">
-                        <Sidebar />
-                    </div>
+                <div className={` poultry ${window.innerWidth < 700 ? 'cat_fielter' : ''} `}>
+                    {window.innerWidth < 700 ?
+                        null
+                        :
+                        <div className='filter_category' id="filter_shop_desktop">
+                            <Sidebar />
+                        </div>
+                    }
+                    {/* <div className="filter_category">
+                    { window.innerWidth < 700 ? <Sidebar /> : null }
+                    </div> */}
+
                     <div className="main_products">
                         <Breadcrumb />
+                        {window.innerWidth < 700 ? <Filter /> : null}
+                        {window.innerWidth < 700 ?
+                            (
+                                name || size || rating || color ?
+                                    (
+                                        <>
+                                            <div className="userFilter" id="remove_filter">
+                                                {
+                                                    window.innerWidth <= 420 ?
+                                                        (
+                                                            <>
+                                                                <Accordion>
+                                                                    <AccordionSummary
+                                                                        expandIcon={<ExpandMoreIcon />}
+                                                                        aria-controls="panel1a-content"
+                                                                        id="panel1a-header"
+                                                                    >
+                                                                        <StyledBreadcrumb
+                                                                            component="a"
+                                                                            label="filter"
+                                                                            icon={<FilterAltIcon />}
+                                                                            onClick={handleClick}
+                                                                        />
+                                                                    </AccordionSummary>
+                                                                    <AccordionDetails>
+                                                                        {name ? <Typography>{name}</Typography> : null}
+                                                                        {size ? <Typography>{size}</Typography> : null}
+                                                                        {rating ? <Typography>{`rating: ${rating}`}</Typography> : null}
+                                                                        {color ? <Typography>{color}</Typography> : null}
+                                                                    </AccordionDetails>
+                                                                </Accordion>
+                                                            </>
+                                                        )
+                                                        :
+                                                        <Paper elevation={3} style={{ paddingLeft: '1.5rem' }}>
+                                                            <FilterCt
+                                                                nameA="filter"
+                                                                nameB={name}
+                                                                nameC={size}
+                                                                nameD={rating ? `rating: ${rating}` : ''}
+                                                            />
+                                                        </Paper>
+                                                }
+                                            </div>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <>
+
+                                        </>
+                                    )
+                            )
+                            :
+                            null
+                        }
 
                         <div className="poultry_products">
                             <div className={grid ? "row producstWrapper" : "col listMode"}>
@@ -448,12 +673,13 @@ const Shop = ({ match }) => {
 
 
     return (
-        <>
+        <div id="shop-page">
             <MetaData title={'Shop'} />
+            {window.innerWidth < 700 ? <Sidebar /> : null}
             <div id="poultry_banner" />
             <ProductsGrid />
 
-        </>
+        </div>
     )
 }
 

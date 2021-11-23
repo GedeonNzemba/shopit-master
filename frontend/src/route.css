@@ -643,9 +643,9 @@ background-repeat: repeat;
 .listOrder_bg {
 background-color: #d2d2d2f9;
 }
-.listOrder_bg #contactFormWrapper {
+/* .listOrder_bg #contactFormWrapper {
   background-color: unset!important;
-}
+} */
 .list_wrappe {
     display: grid;
     grid-template-columns: 1fr;
@@ -817,8 +817,7 @@ h4.mb-4.order_title_info {
  }
  /* PROFILE */
  .user_profile_page {
-   padding-top: 8%;
-    background: url('./images/profile.jpg');
+    background: #000000a3 url('./images/profile.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -870,7 +869,8 @@ margin-bottom: 1rem;
    margin-top: 2rem;
  }
  .new_passUP {
-       padding-top: 18rem;
+       padding-top: 8rem;
        padding-bottom: 8%;
-       padding-left: 8rem;
+       margin-left: 8rem;
+       margin-right: 8rem;
  }
