@@ -770,3 +770,36 @@ button#checkout_btn {
 .filter_price_color {
     margin-bottom: 4rem;
 }
+
+.inner__navigation-mb {
+    justify-content: space-between;
+}
+#menu_icon-farm {
+    place-self: center;
+        width: 1.5em!important;
+        height: 1.5em!important;
+        &:focus {
+            color: $green;
+        }
+}
+#account_cart_stack {
+    svg {
+        width: 1.5em!important;
+        height: 1.5em!important;
+        &:focus {
+            color: $green;
+        }
+    }
+}
+
+#badge_wrapper {
+    margin-left: 0;
+}
+span#badge_wrapper span.MuiBadge-badge  {
+    margin-left: 0!important;
+    background-color: #02843d!important;
+    font-size: 1.2rem!important;
+}
+#cart_amount {
+    margin-left: 0!important
+}

@@ -1093,6 +1093,41 @@ button#checkout_btn {
   margin-bottom: 4rem;
 }
 
+.inner__navigation-mb {
+  justify-content: space-between;
+}
+
+#menu_icon-farm {
+  place-self: center;
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+#menu_icon-farm:focus {
+  color: #4bb453;
+}
+
+#account_cart_stack svg {
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+#account_cart_stack svg:focus {
+  color: #4bb453;
+}
+
+#badge_wrapper {
+  margin-left: 0;
+}
+
+span#badge_wrapper span.MuiBadge-badge {
+  margin-left: 0 !important;
+  background-color: #02843d !important;
+  font-size: 1.2rem !important;
+}
+
+#cart_amount {
+  margin-left: 0 !important;
+}
+
 #farmSHOP .product_listing--deepS span.product_listing__q {
   margin-left: unset !important;
 }

@@ -44,3 +44,8 @@ const Search = ({ history }) => {
 }
 
 export default Search
+
+// TOUCH A LITTLE ON SHOP PAGES 
+// CHECKOUT PAGE
+// ADMIN SECTION
+// FOOTER

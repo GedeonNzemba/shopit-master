@@ -154,7 +154,153 @@ p {
   background-color: #02843d !important;
   filter: drop-shadow(2px 4px 6px black);
 }
+#drawer__container-wrapper * span {
+  margin-left: 0!important;
+  font-size: 1.5rem;
+}
+#drawer__container-wrapper .MuiDrawer-paper {
+  background: linear-gradient(90deg, #343a40 15%, rgba(49,57,98,1) 61%);
+}
+.css-1ws8119-MuiDivider-root::before, .css-1ws8119-MuiDivider-root::after {
+  border-top: thin solid rgb(255 255 255 / 12%)!important;
+}
+.divider_sidebar span {
+  color: #ffffff;
+}
+#search_sidebar #search_btn  {
+  color: #ffffff!important;
+}
+.icon_svg_sidebar {
+  color: #ffffff;
+}
+#login_svg_sidebar {
+  width: 1.5em;
+  height: 1.5em;
+}
+@media (max-width: 499px) {
+  #icon_btn-badge {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+#cart_svg_sidebar {
+  width: 1.5em;
+  height: 1.5em;
+}
+#search__box {
+  margin-left: 0!important;
+}
+#box_menu_icon {
+  max-width: fit-content;
+}
+.MuiButtonBase-root.MuiIconButton-root span {
+  margin-left: 0;
+}
+@media (max-width: 499px) {
+  img#logo_avatar {
+    height: 2.4em;
+  }
 
+  #stack_header_mobile {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 899px) {
+  #desktop_searfield_notSigned {
+    align-self: center;
+  }
+
+}
+/* responsive for navbar */
+@media (min-width: 180rem) {
+  .inner__navigation-mb.css-pczpij-MuiStack-root {
+    max-width: 90%;
+    margin: 0 auto;
+}
+}
+@media (min-width: 900px) {
+  a.link__dropdown_item:hover {
+    color: unset!important;
+  }
+  .dropDown_menu_list__item {
+    font-size: 1.6rem!important;
+  }
+  button#demo-customized-button {
+    background: linear-gradient(
+90deg, rgba(0,131,60,1) 15%, rgba(49,57,98,1) 61%);
+}
+  #list_item_text span {
+    color: #ffffff!important;
+  }
+  .icon_svg_sidebar {
+    color: #28a745;
+}
+  section.wrapper.isNot__login {
+    padding: 0!important;
+  }
+  #search_form {
+    max-width: 87%;
+    margin: 0 auto;
+  }
+  #desktop_searfield_notSigned {
+    display: flex;
+    justify-content: center;
+  }
+  div#search_sidebar {
+    place-self: center;
+    width: 87%;
+}
+#icon_btn-badge span {
+  margin-left: 0;
+}
+}
+@media (min-width: 600px) {
+  /* #search_btn {
+    flex: 1;
+  } */
+  #search__box {
+    flex: auto;
+  }
+}
+@media (min-width: 500px) {
+  #search__box {
+    background-color: #02843d;
+    margin-right: 0;
+  }
+  .MuiDrawer-modal button#icon_btn-badge {
+    padding-left: 0;
+  }
+  img#logo_avatar {
+    height: 2.5em;
+  }
+ 
+  #search_form {
+    place-self: center;
+  }
+  #search__box:hover {
+    background-color: #02843d;
+  }
+
+}
+.avatar_img_sidebar img {
+  width: 85%!important;
+  height: 85%!important;
+}
+#list_item_text {
+  display: flex;
+}
+#list_item_text span {
+  color: #ffffff;
+  place-self: center;
+  font-family: 'Ginto bold';
+  font-weight: bold;
+}
+#search__wrapper svg {
+  color: #ffffff;
+}
+#input_base__search {
+  color: #ffffff;
+}
 header.farm-header {
   /* height: 7.2rem; */
   z-index: 80;
@@ -163,14 +309,14 @@ header.farm-header {
       max-width: 100%;
     width: -webkit-fill-available;
     top: 0;
-    position: sticky;
+    position: fixed;
 }
 /* .sc-dmlrTW.ctzoof.product.product__list:hover {
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%)!important;
 } */
 section.wrapper {
-  padding-bottom: 16px;
-      padding-top: 16px;
+  padding-bottom: 1rem;
+      padding-top: 1rem;
       box-shadow: 0 4px 4px -4px rgb(0 0 0 / 12%);
       background-color: #fff;
       display: block;
@@ -186,7 +332,12 @@ section.wrapper {
   border: unset!important;
 }
 .navbrand img {
-  height: 3.5rem;
+  height: 2em;
+}
+@media (max-width: 499px) {
+  .navbrand img {
+    height: 2em;
+  }
 }
 .utilbar {
       display: flex;
@@ -236,7 +387,6 @@ button#search_btn {
     color: #aaa;
 }
 #search_form {
-  max-width: 100%;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -2195,7 +2345,9 @@ label.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-
 }
 
 /* PRODUCT PAGE */
-
+.paginationWrapper {
+  display: none!important;
+}
 .css-e53awj-MuiStack-root button.MuiButton-root {
   font-size: 1.5rem!important;
 }

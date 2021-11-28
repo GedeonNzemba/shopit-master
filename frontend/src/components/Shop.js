@@ -236,8 +236,6 @@ const Shop = ({ match }) => {
     const Sidebar = () => {
         return (
             <aside style={window.innerWidth < 700 ? {height: '100vh', overflowY: 'scroll'} : {}} className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
-                
-
                     <Box sx={{  height: '100%', padding: '1.5rem' }} >
                         <Stack spacing={2} className="filter_price_color" >
                             <section className="filterByPrice mgt">
