@@ -67,11 +67,25 @@
         width: 12em;
     }
     img#logo {
-        width: 16.5em;
+        width: 19rem;
         height: unset!important
+
     }
     header.riskHeader__smallDesktop {
         border-top: .1px solid #673ab7;
+    }
+}
+@media (max-width: 500px) {
+    img#logo {
+        width: 17rem;
+    }
+}
+@media (max-width: 350px) {
+    img#logo {
+        width: 15rem;
+    }
+    .menu-bars img#hamburgerTemp {
+        width: 3.2rem;
     }
 }
 
@@ -218,6 +232,9 @@ html::-webkit-scrollbar {
 }
 @media (max-width: 899px) {
     .menu-bars img#hamburgerTemp {
-        width: 4.2rem;
+        width: 3.5rem;
     }
+}
+div.realtyBSN #header-risk-btn-left:hover {
+    color: #ffffff;
 }

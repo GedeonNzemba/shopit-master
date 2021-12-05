@@ -2,6 +2,15 @@ import React, { Fragment, useState, useEffect } from 'react'
 import '../../layout/mCustomscrollbar.css'
 import './category_responsive.css'
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import SideBarFielter from './sidebar/Sidebar'
+
 import Crumb from './breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
 import MetaData from '../../layout/MetaData'
@@ -206,6 +215,72 @@ export default function Mammals({ match }) {
         setRating(0);
     }
 
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+    function handleDrawerToggle() {
+        setMobileOpen(!mobileOpen)
+    }
+
+    const sidedrawer = (
+        <div>
+            <List>
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Price
+                </Divider>
+                <ListItem style={{ display: 'block' }}>
+                    <Box>
+                        <Range
+                            marks={{
+                                1: `$1`,
+                                450: `$450`,
+                            }}
+                            min={1}
+                            max={450}
+                            defaultValue={[1, 450]}
+                            tipFormatter={(value) => `$${value}`}
+                            tipProps={{
+                                placement: "top",
+                                visible: true,
+                            }}
+                            value={price}
+                        />
+                    </Box>
+                </ListItem>
+                <br />
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Category
+                </Divider>
+                <ListItem style={{ display: 'block' }}>
+                    <Box component="div" sx={{ overflowY: 'scroll', height: 200}}>
+                        {names.map((name, index) => {
+                            return (
+                                <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
+                                    <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                </ListItem>
+                            )
+                        })}
+                    </Box>
+                </ListItem>
+               
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Rating
+                </Divider>
+                <ListItem style={{ display: 'block' }}>
+                    <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
+                        <ul className="pl-0">
+                            {[5, 4, 3, 2, 1].map((star) => (
+                                <li style={{ cursor: "pointer", listStyleType: "none", }} key={star} >
+                                    <div className="rating-outer" onClick={() => {setRating(star); handleDrawerToggle()}}>
+                                        <div className="rating-inner" style={{ width: `${star * 20}%` }} />
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </Box>
+                </ListItem>
+
+            </List>
+        </div>
+    );
 
     // SIDEBAR
     const Sidebar = () => {
@@ -358,7 +433,7 @@ export default function Mammals({ match }) {
                    :
                    null
                }
-                <Button onClick={handleFilter} className={classes.button} variant="contained" color="success">
+                <Button onClick={handleDrawerToggle} className={classes.button} variant="contained" color="success">
                 filters
             </Button>
            </div>
@@ -383,7 +458,7 @@ export default function Mammals({ match }) {
     return (
         <div id="category-page">
             <MetaData title={'Mammals'} />
-            { window.innerWidth < 700 ? <Sidebar /> : null }
+            {mobileOpen && <SideBarFielter drawerContent={sidedrawer} mobileView={mobileOpen} drawerToggle={handleDrawerToggle} />}
             <div id="poultry_banner" />
             <div className={` poultry ${window.innerWidth < 700 ? 'cat_fielter' : '' } `}>
             { window.innerWidth < 700 ?
@@ -406,7 +481,7 @@ export default function Mammals({ match }) {
                                             window.innerWidth <= 420 ?
                                             (
                                                 <>
-                                                    <Accordion>
+                                                    <Accordion elevation={4}>
                                                         <AccordionSummary
                                                         expandIcon={<ExpandMoreIcon />}
                                                         aria-controls="panel1a-content"

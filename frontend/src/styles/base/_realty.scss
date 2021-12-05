@@ -1,4 +1,7 @@
 div.realtyBSN {
+    .btn-header-mobile, div.realtyBSN .btn-header-mobile:link, div.realtyBSN .btn-header-mobile {
+        padding: 1.5rem 3.75rem!important;
+    }
     & #active-nav a {
         &::after {
             position: absolute;

@@ -1659,8 +1659,30 @@ background-color: #77db97;
     transform: scale(1.01)!important;
 }
 .product {
-  margin: 0 0 1rem 0;
+  margin: 0 0 3rem 0;
   max-width: 100%;
+}
+.shop_sidebar__item {
+  margin-bottom: 1rem;
+}
+#close_drawer {
+  color: #ffffff!important;
+}
+.new-line {
+  white-space: pre-line;
+}
+@media (max-width: 700px) {
+  .rating-outer {
+    font-size: 1.5em;
+  }
+  #drawer__container-wrapper * span {
+    font-size: 2rem;
+    font-weight: 500;
+}
+#drawer__container-wrapper .MuiDrawer-paper {
+  background: #1a1d2c;
+  overflow-x: hidden;
+}
 }
 .product .side-icons span {
   margin: 0.3rem!important;

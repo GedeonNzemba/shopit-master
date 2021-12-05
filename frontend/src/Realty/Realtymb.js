@@ -199,7 +199,7 @@ export default function Realtymobile() {
                   <div id="realEstate-verticle_line" />
                   <div className="realEstate-content-sub_heading--text">
                     <h3>
-                      Real Estate investment services <br />
+                      Real Estate investment services {window.innerWidth <= 400 ? '' : <br />}
                       include the following
                     </h3>
                   </div>
@@ -431,7 +431,7 @@ export default function Realtymobile() {
                   <div id="realEstate-verticle_line" />
                   <div className="realEstate-content-sub_heading--text">
                     <h3>
-                      Property management services <br />
+                      Property management services {window.innerWidth <= 400 ? '' : <br />}
                       include the following
                     </h3>
                   </div>

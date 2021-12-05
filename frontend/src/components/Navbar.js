@@ -1,63 +1,106 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
+
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import logo from "../images/logo_main.png";
 import logoB from "../images/logoblack.png";
 import { MobileRealty } from '../SVG/Svg'
+import Sidebar from './farm/Category/sidebar/Sidebar'
+import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
 
-function Navbar({ icon, iconB }) {
+function Navbar() {
 
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
 
   // Apply background color to navbar on scroll event
-
-  const [changeIcon, setChangeIcon] = useState();
-  function listernForScroll() {
-    document.getElementsByClassName('bar__bg')[0] ? setChangeIcon(true) : setChangeIcon(false);
-  }
-  document.addEventListener('scroll', listernForScroll)
+  const isSticky = (e) => {
+    const header = document.querySelector('.navbar');
+    const scrollTop = window.scrollY;
+    scrollTop >= 500 && header.classList.add('bar__bg');
+  };
 
   useEffect(() => {
-    var riskHeader = document.getElementsByClassName('navbar')[0];
-    riskHeader.style.position = 'fixed'
+    window.addEventListener('scroll', isSticky);
 
     return () => {
-      riskHeader.style.position = 'sticky'
-    }
-  }, [])
+        window.removeEventListener('scroll', isSticky);
+    };
+  });
+
+  
+
+   
+
+  
 
   const [screen, setScreen] = useState()
   const app = document.getElementById('root');
   let minScreen = app.clientWidth;
 
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+    function handleDrawerToggle() {
+        setMobileOpen(!mobileOpen)
+    }
 
 
+  const sidedrawer = (
+    <List>
+      <ListItem style={{ display: 'block' }}>
+        <Box>
+          {SidebarData.map((item, index) => {
+            return (
+              <ListItem key={index} style={{ padding: '0', cursor: 'pointer' }} id="list_sidebar_realty_item">
+                <Link to={item.path} classNane="link_sidebar_realty">
+                  <Stack direction='row' spacing={2} >
+                      {item.icon}
+                    <ListItemText primary={item.title} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                  </Stack>
+                </Link>
+              </ListItem>
+            )
+          })}
+        </Box>
+      </ListItem>
+    </List>
 
+  );
 
 
   return (
     <Fragment style={{ position: 'sticky!important' }}>
       <IconContext.Provider value={{ color: "#fff" }} >
         <div className="navbar homeNav" >
-          <div className="menu-bars">
-            <div className="br-log">
+          <div className="menu-bars" style={{cursor: 'pointer'}}>
+            {/* <div className="br-log">
               {
-                changeIcon ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                isScroll ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
                   : <img src={icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
               }
+            </div> */}
+            <div className="bar_burger" onClick={handleDrawerToggle}>
+              <img src={hamburgerLight} className="mobile-risk-burger realt"  alt="hamburger icon" id="hamburgerTemp" />
             </div>
-            <div className="br-log">
-              <img src={iconB} className="mobile-risk-burger" onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
-            </div>
+
+
+              {/* {isScroll && alert('YES! It is 500 >')} */}
+
             {/* {
               !screen ?
                 (
-                  changeIcon ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
+                  isScroll ? <img src={iconB} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
                     : <img src={icon} onClick={showSidebar} alt="hamburger icon" id="hamburgerTemp" />
                 )
                 :
@@ -70,34 +113,16 @@ function Navbar({ icon, iconB }) {
 
           <Link to="/" className="logo">
             <figure className="logo">
-              {changeIcon ?
+              {/* {isScroll ?
                 <img src={logo} alt="Locataire logo" id="logo" />
                 :
-                <img src={logo} alt="Locataire logo" id="logo" />
-              }
+              } */}
+              <img src={logo} alt="Locataire logo" id="logo" />
             </figure>
           </Link>
         </div>
 
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <div className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </div>
-            </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        {mobileOpen && <Sidebar drawerContent={sidedrawer} mobileView={mobileOpen} drawerToggle={handleDrawerToggle} />}
       </IconContext.Provider>
     </Fragment>
   );

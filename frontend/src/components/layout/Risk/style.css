@@ -1,0 +1,36 @@
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+
+
+
+.carousel-cell {
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.carousel-cell img {
+  display: block;
+  height: 200px;
+}
+
+@media screen and ( min-width: 768px ) {
+  .carousel-cell img {
+    height: 400px;
+  }
+}
+
+@media screen and ( min-width: 1115px ) {
+  .carousel-cell img {
+    height: 30rem;
+  }
+}
+
+@media (min-width: 1366px) {
+  .carousel-cell img  {
+      height: calc(35rem + (40 - 35) * (100vw - 1366px) / (1500 - 1366));
+      height: calc(42rem + (45 - 42) * (100vw - 1800px) / (1501 - 1800));
+      height: calc(52rem + (60 - 52) * (100vw - 1801px) / (2000 - 1801));
+  }
+}

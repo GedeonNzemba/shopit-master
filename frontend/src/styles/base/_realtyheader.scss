@@ -1,0 +1,7 @@
+.realEstate-midD.reset-this {
+    @include  for-tablet-portrait-down {
+        figure.logo img {
+            height: 3.5em;
+        }
+    }
+}

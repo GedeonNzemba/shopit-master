@@ -1,8 +1,9 @@
-import * as React from "react";
-import { render } from "react-dom";
-import "typeface-roboto";
+import React from 'react'
 
-import Contact from "./Contact";
-
-const rootElement = document.getElementById("root");
-render(<Contact />, rootElement);
+export default function index() {
+    return (
+        <div>
+            index 
+        </div>
+    )
+}

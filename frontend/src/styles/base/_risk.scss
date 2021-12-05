@@ -1,6 +1,17 @@
 div.auditNrisk {
     background-color: #f8f9fa;
+    position: relative;
     // border-top: 0.1px solid transparent;
+    
+
+    @media (max-width: 899px) {
+        & .navbar {
+            position: absolute;
+        }
+    }
+    .menu-bars {
+        cursor: pointer;
+    }
 
     & #risk_header-video {
         background-image: url("../images/reaalty/head.jpg");
@@ -17,20 +28,9 @@ div.auditNrisk {
         .is-selected {
             filter: drop-shadow(2px 4px 6px black);
         }
-        .__innerItem-container-img .flickity-viewport {
-            height: 40rem !important;
-        }
     }
-    @media (max-width: 600px) {
-        .__innerItem-container-img .flickity-viewport {
-            height: 34rem !important;
-        }
-    }
-    @media (max-width: 499px) {
-        .__innerItem-container-img .flickity-viewport {
-            height: 20rem !important;
-        }
-    }
+   
+  
     @media (max-width: 459px) {
         .__innerItem-container-text.mobile-text-wrap {
             margin-top: 6em !important;
@@ -39,6 +39,9 @@ div.auditNrisk {
     .risk_img-Style {
         width: 100% !important;
     }
+}
+div#drawer__container-wrapper {
+    z-index: 999999!important;
 }
 @media (min-width: 900px) {
     .switchside {
@@ -208,7 +211,7 @@ header.riskHeader__smallDesktop {
     background-image: linear-gradient(0deg, #4caf50, rgb(63 81 181 / 72%)), url("../images/risk/risk.png");
     background-size: 100% 140%;
     background-repeat: no-repeat;
-    margin-bottom: 20rem;
+    // margin-bottom: 20rem;
     width: 100%;
     height: 100vh;
     padding: 0 0 0 4rem;
@@ -350,11 +353,32 @@ header.riskHeader__smallDesktop {
 }
 
 // **************  RISK MAIN **************** //
+._item_text-header {
+    display: block;
+
+    & h1 {
+        font-size: 4rem;
+        font-family: "Ginto bold";
+        color: $bluethick;
+        text-transform: capitalize;
+    }
+}
 .risk-content {
     display: flex;
     flex-direction: row;
     margin-top: 15rem;
     justify-content: center;
+
+    ._item_text-header {
+        display: block;
+
+        & h1 {
+            font-size: 4rem;
+            font-family: "Ginto bold";
+            color: $bluethick;
+            text-transform: capitalize;
+        }
+    }
 
     & .carousel-cell {
         margin-right: 20px;
@@ -404,7 +428,7 @@ header.riskHeader__smallDesktop {
         & ._inner-text-content {
             display: flex;
             flex-direction: column;
-            padding: 0 10% 8%;
+            // padding: 0 10% 8%;
 
             & ._item_text-header {
                 display: block;
@@ -450,6 +474,107 @@ header.riskHeader__smallDesktop {
     // }
 }
 // *********** RESPONSIVE CONTENT **************
+div#risk-content-up {
+    margin-bottom: 8%;
+    margin-top: 3rem;
+}
+.wrapper_box__risk_content {
+    margin-bottom: 5%;
+}
+@media (min-width: 900px) {
+    .wrapper_box__risk_content:nth-child(even) .grid_item_wrapper__risk {
+        flex-direction: row-reverse;
+    }
+    @media (min-width: 1366px) {
+        .auditNrisk .flickity-viewport {
+            min-height: calc(35rem + (40 - 35) * (100vw - 1366px) / (1500 - 1366));
+            min-height: calc(42rem + (45 - 42) * (100vw - 1501px) / (1800 - 1501));
+            min-height: calc(52rem + (60 - 52) * (100vw - 1801px) / (2000 - 1801));
+        }
+    }
+    @media (min-width: 1115px) {
+        #gridItem_risk-image {
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+        }
+        #gridItem_risk-content {
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+        }
+    }
+    .box_paragraph_risk {
+        padding-right: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    #gridItem_risk {
+        position: relative;
+    padding: 2rem;
+    }
+    #gridItem_risk::after {
+        padding: 0;
+    margin: 0;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    position: absolute;
+    border-right: 5px solid #313962;
+    border-bottom: 5px solid #313962;
+    right: -3rem;
+    transform: rotateY(
+45deg);
+    bottom: 2rem;
+    }
+    #sub_divider {
+        background-image: url("../images/risk/vertical bar.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        margin: 0 1.4rem;
+        height: 5rem;
+        border-left: 0.3rem inset #314862;
+    }
+    .sub-item {
+        width: fit-content;
+        line-height: 1.2;
+    
+        & p {
+            margin-block: 0;
+            @media (min-width: 374px) and (max-width: 1920px) {
+                font-size: calc(20px + (400vw - 1500px) / 1545);
+                font-weight: 400;
+                font-family: "Ginto regular";
+                text-transform: capitalize;
+                word-wrap: break-word;
+            }
+        }
+    }
+    
+    ._item_text-header {
+        display: block;
+    
+        & h1 {
+            font-size: 4rem;
+            font-family: "Ginto bold";
+            color: $bluethick;
+            text-transform: capitalize;
+            text-align: left;
+        }
+    }
+    ._item_text {
+        display: block;
+    
+        & p {
+            font-size: 1.9rem;
+            font-family: "Ginto regular";
+            line-height: 1.2;
+            text-align: left;
+        }
+    }
+}
 @media (max-width: 599px) {
     .main-carousel {
         display: none !important;
@@ -864,12 +989,27 @@ header.riskHeader__smallDesktop {
     }
 }
 @media (max-width: 899px) {
+    #risk-content-up .item-sub-wrap .sub-item p {
+        color: #ffffff!important;
+    }
+    .item-sub-wrap {
+        margin: 0!important
+    }
     #risk-content-up {
         flex-direction: column;
         // background: #e1e1e1;
         // margin-bottom: 20rem;
         // padding-bottom: 5rem;
         height: auto;
+
+        & .flickity-viewport {
+            height: calc(200px + (400 - 200) * (100vw - 375px) / (899 - 375))!important;
+        }
+        @media (max-width: 374px) {
+            & .carousel-cell img {
+                height: 18em!important;
+            }
+        }
 
         & .main-carousel {
             height: auto;
@@ -892,6 +1032,7 @@ header.riskHeader__smallDesktop {
 
         & .carousel-cell {
             height: unset;
+            top: 2rem!important;
             // border-radius: 0% 25% 25% 0%;
 
             // & .carousel-cell.is-selected {
@@ -904,10 +1045,11 @@ header.riskHeader__smallDesktop {
             width: 90%;
             // border: 2px solid #ff00eb;
             margin: 3.5rem auto 5rem;
-            height: 50rem;
         }
-        &.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        &.risk-content   ._item_text p {
             font-size: 2.5rem;
+            font-family: "Ginto regular";
+            line-height: 1.2;
         }
         // & ._inner-text-content {
         //     padding: 0;
@@ -932,7 +1074,7 @@ header.riskHeader__smallDesktop {
         &.risk-content .__innerItem-container-text ._inner-text-content ._item_text {
             max-width: 90%;
         }
-        &.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        &.risk-content   ._item_text p {
             word-break: break-word;
         }
 
@@ -1048,9 +1190,9 @@ header.riskHeader__smallDesktop {
 }
 @media (min-width: 600px) and (max-width: 899px) {
     #risk-content-up {
-        & .__innerItem-container-text {
-            height: calc(65rem + (50 - 65) * (100vw - 600px) / (899 - 600));
-        }
+        // & .__innerItem-container-text {
+        //     height: calc(65rem + (50 - 65) * (100vw - 600px) / (899 - 600));
+        // }
 
         & ._item_text {
             max-width: 95% !important;
@@ -1060,16 +1202,16 @@ header.riskHeader__smallDesktop {
             color: #000;
         }
 
-        & .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+        & .risk-content  ._item_text p {
             font-size: calc(2.3rem + (2.5 - 2.3) * (100vw - 600px) / (899 - 600));
         }
     }
 }
 @media (min-width: 375px) and (max-width: 600px) {
     #risk-content-up {
-        & .__innerItem-container-text {
-            height: 60rem;
-        }
+        // & .__innerItem-container-text {
+        //     height: 60rem;
+        // }
         & .item-sub-wrap {
             width: 95%;
         }
@@ -1095,7 +1237,6 @@ header.riskHeader__smallDesktop {
 
         & .flickity-slider {
             height: 100%;
-            top: -1.5rem;
         }
 
         & .__innerItem-container-img {
@@ -1105,7 +1246,7 @@ header.riskHeader__smallDesktop {
 }
 
 @media (min-width: 300px) and (max-width: 374px) {
-    #risk-content-up.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    #risk-content-up.risk-content   ._item_text p {
         font-size: calc(2rem + (2.4 - 2) * (100vw - 300px) / (375 - 300));
     }
     #risk-content-up {
@@ -1155,12 +1296,15 @@ header.riskHeader__smallDesktop {
     //     // height: calc(210px + (240 - 210) * (100vw - 300px) / (374 - 300));
     // }
 }
-
+._item_text p {
+    word-break: break-word;
+    max-width: 100%;
+}
 @media (min-width: 251px) and (max-width: 299px) {
     #risk-content-up {
-        & .__innerItem-container-text {
-            height: 100%;
-        }
+        // & .__innerItem-container-text {
+        //     height: 100%;
+        // }
         & .item-sub-wrap {
             width: 95%;
         }
@@ -1208,22 +1352,21 @@ header.riskHeader__smallDesktop {
 // }
 
 @media (max-width: 375px) {
-    #risk-content-up.risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    #risk-content-up.risk-content   ._item_text p {
         padding: 1.4rem;
         font-size: calc(2.4rem + (2.5 - 2.4) * (100vw - 10px) / (374 - 10));
     }
     #risk-content-up .__innerItem-container-text {
         margin: 2.5rem auto 5rem !important;
-        background: unset !important;
     }
     ._inner-text-content {
         background: honeydew;
     }
     .__innerItem-container-text {
-        height: 90rem !important;
+        // height: 90rem !important;
     }
     .__innerItem-container-text.mobile-text-wrap {
-        height: 100rem !important;
+        // height: 100rem !important;
     }
 
     ._item_text {
@@ -1274,7 +1417,7 @@ header.riskHeader__smallDesktop {
     }
     .risk-content .__innerItem-container-text ._inner-text-content {
         position: absolute;
-        padding: 5%;
+        // padding: 5%;
         top: 0;
     }
     #risk-content-up .__innerItem-container-img {
@@ -1336,6 +1479,7 @@ header.riskHeader__smallDesktop {
 
 // *********** RESPONSIVE CONTENT ENDS **************
 
+
 .item-sub-wrap {
     display: flex;
     flex-direction: row;
@@ -1368,11 +1512,20 @@ header.riskHeader__smallDesktop {
     }
 }
 
+#sub_divider {
+    background-image: url("../images/risk/vertical bar.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    margin: 0 1.4rem;
+    height: 5rem;
+    border-left: 0.3rem inset #314862;
+}
 
 @media (max-width: 239px) {
-    .__innerItem-container-text {
-        height: 100% !important;
-    }
+    // .__innerItem-container-text {
+    //     height: 100% !important;
+    // }
     ._item_text {
         height: 100% !important;
     }
@@ -1428,7 +1581,7 @@ header.riskHeader__smallDesktop {
     section#riskHeader_content {
         transform: translate(0%, 65%) !important;
     }
-    .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    .risk-content  ._item_text p {
         line-height: 1.7;
     }
     .risk-content .__innerItem-container-text ._inner-text-content {
@@ -1443,7 +1596,7 @@ header.riskHeader__smallDesktop {
     section#riskHeader_content {
         transform: translate(0%, 85%) !important;
     }
-    .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
+    .risk-content   ._item_text p {
         line-height: 1.7;
     }
     .risk-content .__innerItem-container-text ._inner-text-content {
@@ -1538,21 +1691,35 @@ header.riskHeader__smallDesktop {
         & .risk-content .__innerItem-container-img {
             place-self: center;
         }
-        & .flickity-viewport {
-            min-height: 45rem !important;
-            max-height: 60rem;
-            @include for-xsmall-desktop-up {
-                min-height: 55rem !important;
-            }
-            @include for-small-desktop-up {
-                min-height: 58rem !important;
-            }
-            @include for-medium-desktop-up {
-                min-height: 60rem !important;
-            }
-        }
+        // & .flickity-viewport {
+        //     min-height: 45rem !important;
+        //     max-height: 60rem;
+        //     @include for-xsmall-desktop-up {
+        //         min-height: 55rem !important;
+        //     }
+        //     @include for-small-desktop-up {
+        //         min-height: 58rem !important;
+        //     }
+        //     @include for-medium-desktop-up {
+        //         min-height: 60rem !important;
+        //     }
+        // }
         & .risk-content .carousel-cell img {
             transform: translateY(3rem);
         }
+    }
+}
+
+@media (min-width: 1921px) {
+    .box_paragraph_risk {
+        padding-right: 3rem;
+        padding-bottom: 3rem;
+    }
+    .sub-item p {
+        font-size: 2.4rem;
+    font-weight: 400;
+    font-family: "Ginto regular";
+    text-transform: capitalize;
+    word-wrap: break-word;
     }
 }

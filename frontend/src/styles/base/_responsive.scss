@@ -1401,7 +1401,19 @@ main.realEstate-about {
                     font-family: "Ginto regular";
                     font-weight: 400;
                     font-size: 2.5rem;
-                    padding-left: 1em;
+                    @media (max-width: 400px) {
+                        text-overflow: ellipsis;
+                        overflow-wrap: break-word;
+                        word-wrap: break-word;
+                        -ms-word-break: break-all;
+                        word-break: break-all;
+                        word-break: break-word;
+                        -ms-hyphens: auto;
+                        -moz-hyphens: auto;
+                        -webkit-hyphens: auto;
+                        hyphens: auto;
+                    }
+                    // padding-left: 1em;
                 }
 
                 & p:first-child {

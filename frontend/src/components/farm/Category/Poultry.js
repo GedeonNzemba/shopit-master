@@ -1,10 +1,19 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import SideBarFielter from './sidebar/Sidebar'
 import '../../layout/mCustomscrollbar.css'
 import './category_responsive.css'
 import Crumb from './breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
 import MetaData from '../../layout/MetaData'
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 
 import FilterCt from './breadcrumb/Filter';
 import Paper from '@mui/material/Paper';
@@ -38,6 +47,22 @@ import { FaListUl } from 'react-icons/fa'
 import { createTheme } from '@material-ui/core/styles';
 import Categories from './Category.json';
 import { Typography } from '@material-ui/core'
+
+import laying_hens from '../../layout/categoryImages/sidebar/laying_hens.svg'
+import broiler from '../../layout/categoryImages/sidebar/broiler.svg'
+import chick_flesh from '../../layout/categoryImages/sidebar/chick_flesh.svg'
+import fowl from '../../layout/categoryImages/sidebar/fowl.svg'
+import grey_goose from '../../layout/categoryImages/sidebar/grey_goose.svg'
+import laying_chick from '../../layout/categoryImages/sidebar/laying_chick.svg'
+import mallard_duck from '../../layout/categoryImages/sidebar/mallard-duck_dribbble_4x.png'
+import ornamental_duck from '../../layout/categoryImages/sidebar/ornamental_duck.jpg'
+import pigeons from '../../layout/categoryImages/sidebar/pigeon.svg'
+import quail from '../../layout/categoryImages/sidebar/quail.svg'
+import rooster from '../../layout/categoryImages/sidebar/rooster.svg'
+import runner_duck from '../../layout/categoryImages/sidebar/runner_duck.jpg'
+import turkey from '../../layout/categoryImages/sidebar/turkey.svg'
+import white_goose from '../../layout/categoryImages/sidebar/white_goose.svg'
+
 
 const StyledBreadcrumb = withStyles((theme) => ({
     root: {
@@ -107,6 +132,84 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Poultry({ match }) {
+
+    const poultryCategories = [
+        {
+            title: 'laying chick',
+            icon: laying_chick,
+            alt: 'laying chick'
+        },
+        {
+            title: 'chick flesh',
+            icon: chick_flesh,
+            alt: 'chick flesh'
+        },
+        {
+            title: 'laying hens',
+            icon: laying_hens,
+            alt: 'laying hens'
+        },
+        {
+            "title": "broiler chickens",
+            "icon": broiler,
+            "atl": "EyCVOYElP"
+        },
+        {
+            "title": "rooster",
+            "icon": rooster,
+            "atl": "XgcabxkzflU"
+        },
+        {
+            "title": "mullard duck - barbarian",
+            "icon": mallard_duck,
+            "atl": "tkTOAnrTpGM"
+        },
+        {
+            "title": "runner duck",
+            "icon": runner_duck,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "ornamental duck",
+            "icon": ornamental_duck,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "white goose",
+            "icon": white_goose,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "grey goose",
+            "icon": grey_goose,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "quail",
+            "icon": quail,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "chapon",
+            "icon": broiler,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "bronze turkey",
+            "icon": turkey,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "pigeons",
+            "icon": pigeons,
+            "atl": "nnFiNyv"
+        },
+        {
+            "title": "guinea fowl",
+            "icon": fowl,
+            "atl": "nnFiNyv"
+        }
+    ]
 
     const classes = useStyles();
 
@@ -211,7 +314,95 @@ export default function Poultry({ match }) {
         setName('');
         setSize('');
         setRating(0);
+       
     }
+
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+    function handleDrawerToggle() {
+        setMobileOpen(!mobileOpen)
+    }
+
+    const sidedrawer = (
+        <div>
+            <List>
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Price
+                </Divider>
+                <ListItem style={{ display: 'block' }}>
+                    <Box>
+                        <Range
+                            marks={{
+                                1: `$1`,
+                                450: `$450`,
+                            }}
+                            min={1}
+                            max={450}
+                            defaultValue={[1, 450]}
+                            tipFormatter={(value) => `$${value}`}
+                            tipProps={{
+                                placement: "top",
+                                visible: true,
+                            }}
+                            value={price}
+                        />
+                    </Box>
+                </ListItem>
+                <br />
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Category
+                </Divider>
+                <ListItem style={{ display: 'block' }}>
+                    <Box component="div" sx={{ overflowY: 'scroll', height: 200}}>
+                        {poultryCategories.map((item, index) => {
+                            return (
+                                <ListItem key={index}  style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item">
+                                    <Stack direction='row' spacing={2} onClick={() => {setName(item.title); handleDrawerToggle()}}>
+                                        <Avatar
+                                            alt={item.atl}
+                                            src={item.icon}
+                                            className="avatar_img_sidebar"
+                                        />
+                                        <ListItemText primary={item.title} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                    </Stack>
+                                </ListItem>
+                            )
+                        })}
+                    </Box>
+                </ListItem>
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Size
+                </Divider>
+                <ListItem style={{ display: 'block' }}>
+                    <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
+                        {productSize.map((size, index) => {
+                            return (
+                                <ListItem key={index} onClick={() => {setSize(size); handleDrawerToggle()}} style={{cursor: 'pointer'}}>
+                                    <ListItemText primary={size} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                </ListItem>
+                            )
+                        })}
+                    </Box>
+                </ListItem>
+                <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
+                    Filter By Rating
+                </Divider>
+                <ListItem style={{ display: 'block' }} >
+                    <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
+                        <ul className="pl-0">
+                            {[5, 4, 3, 2, 1].map((star) => (
+                                <li style={{ cursor: "pointer", listStyleType: "none", }} key={star}>
+                                    <div className="rating-outer" onClick={() => {setRating(star); handleDrawerToggle()}}>
+                                        <div className="rating-inner" style={{ width: `${star * 20}%` }} />
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </Box>
+                </ListItem>
+
+            </List>
+        </div>
+    );
 
 
     // SIDEBAR
@@ -374,7 +565,7 @@ export default function Poultry({ match }) {
                    :
                    null
                }
-                <Button onClick={handleFilter} className={classes.button} variant="contained" color="success">
+                <Button onClick={handleDrawerToggle} className={classes.button} variant="contained" color="success">
                 filters
             </Button>
            </div>
@@ -397,11 +588,10 @@ export default function Poultry({ match }) {
 
 
 
-
     return (
         <div id="category-page">
             <MetaData title='Poultry' />
-            { window.innerWidth < 700 ? <Sidebar /> : null }
+            {mobileOpen && <SideBarFielter drawerContent={sidedrawer} mobileView={mobileOpen} drawerToggle={handleDrawerToggle} />}
             <div id="poultry_banner" />
             <div className={` poultry ${window.innerWidth < 700 ? 'cat_fielter' : '' } `}>
                 { window.innerWidth < 700 ?
@@ -420,12 +610,12 @@ export default function Poultry({ match }) {
                             name || size || rating ?
                             (
                                 <>
-                                    <div className="userFilter" id="remove_filter">
+                                    <div className="userFilter" id="remove_filter" >
                                         {
                                             window.innerWidth <= 420 ?
                                             (
                                                 <>
-                                                    <Accordion>
+                                                    <Accordion elevation={4}>
                                                         <AccordionSummary
                                                         expandIcon={<ExpandMoreIcon />}
                                                         aria-controls="panel1a-content"

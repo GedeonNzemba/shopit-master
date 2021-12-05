@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 import Linke from 'react-scroll/modules/components/Link'
 import Styled from "styled-components"
 import Navbar from './Navbar';
-import hamburger from "../images/reaalty/hamburger.svg"
-import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
+
 
 const HeaderBSN = () => {
 
@@ -51,7 +50,7 @@ const HeaderBSN = () => {
 
     return (
         <>
-            <Navbar icon={hamburger} iconB={hamburgerLight} />
+            <Navbar />
             <nav className="realEstate_navigation" id="realEstateHeader">
                 <div className="realEstate_logoWrap">
                     <img

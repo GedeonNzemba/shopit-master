@@ -1,9 +1,7 @@
 import React, { Fragment, useEffect } from "react"
 import "../../styles/Locataire.css"
 import Footer from "./Footer"
-import ContactB from './ct/CtForm'
 
-import Ct from './ct/steps/layout/index'
 
 
 
@@ -45,9 +43,9 @@ const Contact = props => {
                             Get in touch !
                         </h2>
 
-                        <Ct />
+                        {/* <Ct /> */}
 
-                        <ContactB />
+                        {/* <ContactB /> */}
 
 
                     </div>
