@@ -33,6 +33,7 @@ import { useAlert } from 'react-alert'
 import { logout } from '../../actions/userActions'
 import { Col } from 'react-bootstrap'
 import Search from './Search'
+import ViewSidebarIcon from '@mui/icons-material/ViewSidebar';
 import Avatar from '@mui/material/Avatar';
 
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
@@ -189,6 +190,7 @@ const useStyles = makeStyles((theme) => ({
       closeMenuButton: {
         marginRight: 'auto',
         marginLeft: 0,
+        color: '#ffffff!important'
       },
 }));
 
@@ -595,6 +597,11 @@ const Header = () => {
         const handleClose = () => {
           setAnchorEl(null);
         };
+
+        function handleMenu() {
+            handleClose();
+            handleDrawerToggle();
+        }
       
         return (
           <div>
@@ -634,6 +641,12 @@ const Header = () => {
                     </MenuItem>
                     </Link>
                 )}
+                {window.innerWidth < 600 && (
+                    <MenuItem onClick={handleMenu} disableRipple className="dropDown_menu_list__item">
+                     <ViewSidebarIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
+                     Menu
+                 </MenuItem>
+                )}
                 <Link to="/me" className="link__dropdown_item">
                 <MenuItem onClick={handleClose} disableRipple className="dropDown_menu_list__item">
                     <ManageAccountsIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
@@ -670,11 +683,16 @@ const Header = () => {
                                     </Box>
 
                                     {/* SEARCG BAR */}
-                                   {window.innerWidth < 500 ? null :  <SearchBar />}
+                                   {window.innerWidth < 600 ? null :  <SearchBar />}
                                     {/* {window.innerWidth === 500 ? <Route render={({ history }) => <SearchField history={history} />} /> : null} */}
 
                                     {/* RIGHT SIDE TOOLS */}
                                     <Box style={{ alignSelf: 'center', flex: '1' }} id="box_menu_icon">
+                                        {window.innerWidth < 500 ? (
+                                            <MenuIcon id="menu_icon-farm" edge="start" style={{ cursor: 'pointer' }} onClick={handleDrawerToggle} />
+                                        )
+                                    :
+                                    (
                                         <Stack direction="row" spacing={2} style={{alignItems: 'center'}}>
                                             <Box>
                                             <CustomizedMenus />
@@ -702,6 +720,7 @@ const Header = () => {
                                        
                                         {/* <MenuIcon id="menu_icon-farm" edge="start" style={{ cursor: 'pointer' }} onClick={handleDrawerToggle} /> */}
                                         </Stack>
+                                    )}
                                     </Box>
                                 </Stack>
                             )

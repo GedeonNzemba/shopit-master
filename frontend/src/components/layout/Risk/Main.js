@@ -133,7 +133,7 @@ const Main = () => {
                                 <Card className="risk-content" style={{ boxShadow: 'unset' }} id="risk-content-up" key={index} >
                                     {/* IMAGES   */}
                                     <div className="__innerItem-container-img">
-                                        <div className="carousel" data-flickity='{ "wrapAround": true,  "imagesLoaded": true  }' >
+                                        <div className="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true,  "imagesLoaded": true  }' >
                                             <div className="carousel-cell">
                                                 <img
                                                     src={item.img}
@@ -190,7 +190,7 @@ const Main = () => {
                                         <Grid className="grid_item_wrapper__risk" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                                             <Grid item xs={6} id="gridItem_risk-image">
                                                 <GridItem >
-                                                    <div className="carousel" data-flickity='{ "wrapAround": true,  "imagesLoaded": true  }'>
+                                                    <div className="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded": true  }'>
                                                         <div className="carousel-cell">
                                                             <img
                                                                 src={item.img}

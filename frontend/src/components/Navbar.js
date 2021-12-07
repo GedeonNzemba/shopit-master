@@ -18,18 +18,35 @@ import logoB from "../images/logoblack.png";
 import { MobileRealty } from '../SVG/Svg'
 import Sidebar from './farm/Category/sidebar/Sidebar'
 import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
+import hamburger from "../images/reaalty/hamburger.svg"
 
 function Navbar() {
 
   const [sidebar, setSidebar] = useState(false);
+  const [isRisk, setIsRisk] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const checkPathName = () => {
+    const riskManagement = '/riskmanagement';
+    const pathName = window.location.pathname;
+
+   (pathName === riskManagement) && setIsRisk(true);
+  }
+
+  useEffect(() => {
+    checkPathName()
+  }, [])
 
   // Apply background color to navbar on scroll event
   const isSticky = (e) => {
     const header = document.querySelector('.navbar');
     const scrollTop = window.scrollY;
     scrollTop >= 500 && header.classList.add('bar__bg');
+    scrollTop >= 500 && setHasScrolled(true);
+    scrollTop <= 499 && setHasScrolled(false);
+
   };
 
   useEffect(() => {
@@ -91,7 +108,19 @@ function Navbar() {
               }
             </div> */}
             <div className="bar_burger" onClick={handleDrawerToggle}>
-              <img src={hamburgerLight} className="mobile-risk-burger realt"  alt="hamburger icon" id="hamburgerTemp" />
+              {isRisk ? 
+                (
+                  <>
+                    {hasScrolled ? 
+                      <img src={hamburgerLight} className="mobile-risk-burger realt"  alt="hamburger icon" id="hamburgerTemp" />
+                    : 
+                      <img src={hamburger} className="mobile-risk-burger realt"  alt="hamburger icon" id="hamburgerTemp" />
+                    }
+                  </>
+                )
+              :
+                <img src={hamburgerLight} className="mobile-risk-burger realt"  alt="hamburger icon" id="hamburgerTemp" />
+              }
             </div>
 
 

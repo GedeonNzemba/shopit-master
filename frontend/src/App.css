@@ -218,6 +218,18 @@ p {
     margin: 0 auto;
 }
 }
+@media (max-width: 899px) {
+  a.link__dropdown_item:hover {
+    color: unset!important;
+  }
+  .dropDown_menu_list__item {
+    font-size: 1.6rem!important;
+  }
+  button#demo-customized-button {
+    background: linear-gradient(
+90deg, rgba(0,131,60,1) 15%, rgba(49,57,98,1) 61%);
+}
+}
 @media (min-width: 900px) {
   a.link__dropdown_item:hover {
     color: unset!important;
@@ -942,11 +954,48 @@ button#checkout_button-cart span {
     height: 5rem;
   }
 }
-@media only screen and (max-width: 768px)  {
+@media (max-width: 599px) {
+  .product__image-container {
+    display: flex;
+    justify-content: center;
+  }
+  div#stack_header_mobile {
+    justify-content: space-between!important;
+}
+}
+@media (min-width: 500px) {
+  #coupon_cart__page {
+    width: 37vw;
+  }
+}
+#cart_bankLogo_slides .splide {
+  padding: 0!important;
+}
+@media (max-width: 320px) {
+  .button__remove_product {
+    flex-direction: column-reverse;
+  }
+  .cart_page__price {
+    margin-bottom: 2rem!important;
+  }
+  li.list_group_card span {
+    padding: 0.1rem;
+    font-weight: bold;
+  }
+  
+}
+@media (max-width: 340px) {
+  .cartPage li.splide__slide img {
+    height: 5rem!important;
+  }
+}
+
+
+/* @media only screen and (max-width: 768px)  {
   #container_cart-main {
     max-width: 89%!important;
   }
-}
+} */
 .checkout_button-cart * span {
   margin-left: unset!important;
 }
@@ -2151,10 +2200,10 @@ button:focus {
   font-weight: 600;
   padding-right: 1rem;
 }
-#container_cart-main {
+/* #container_cart-main {
   padding-left: unset;
     padding-right: unset;
-}
+} */
 .cart__product-rendered:hover {
     background-color: #ffffff;
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%)!important;
@@ -2261,9 +2310,9 @@ img#update_image_ills {
 }
 /* ris header */
 @media (min-width: 1800px){
-  section#riskHeader_content {
+  /* section#riskHeader_content {
     transform: translate(0%, 85%) !important;
-  }
+  } */
   .risk-content .__innerItem-container-text ._inner-text-content ._item_text p {
     line-height: 1.7!important;
   }
@@ -2283,9 +2332,9 @@ img#update_image_ills {
    div.realtyBSN nav {
      justify-content: space-evenly;
    }
-   section#riskHeader_content {
+   /* section#riskHeader_content {
      transform: translate(0%, 112%) !important;
-   }
+   } */
 }
 /* @media (max-width: 500px) {
   #risk-content-up .__innerItem-container-text {

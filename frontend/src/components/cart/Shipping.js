@@ -1,11 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react'
 // import { countries } from 'countries-list'
+import './shipping.css'
 
 import MetaData from '../layout/MetaData'
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+// import { Field, reduxForm } from 'redux-form'
 
 
 
@@ -19,6 +21,8 @@ import Stack from '@mui/material/Stack';
 
 const Shipping = ({ history }) => {
 
+    
+
     // const countriesList = Object.values(countries)
 
     const { shippingInfo } = useSelector(state => state.cart)
@@ -28,14 +32,32 @@ const Shipping = ({ history }) => {
     const [postalCode, setPostalCode] = useState(shippingInfo.postalCode)
     const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo)
     const [country, setCountry] = useState(shippingInfo.country)
+    const [hasErrors, setHasErrors] = useState(false)
+
+    function validate() {
+        var addressField = document.querySelector('#address_field');
+        var cityField = document.querySelector('#city_field');
+        var phoneField = document.querySelector('#phone_field');
+        var numberField = document.querySelector('#country-select-demo');
+        var countryField = document.querySelector('#postal_code_field');
+
+        // const requiredFields = [ addressField, cityField, phoneField, numberField, countryField ]
+          if (!addressField.value || !cityField.value || !phoneField.value || !numberField.value || !countryField.value) {
+            setHasErrors(true);
+            alert('BAD')
+          } else {
+            dispatch(saveShippingInfo({ address, city, phoneNo, postalCode, country }))
+            history.push('/confirm')
+            alert('OKEY')
+          }
+      }
 
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault()
 
-        dispatch(saveShippingInfo({ address, city, phoneNo, postalCode, country }))
-        history.push('/confirm')
+        validate();
     }
 
     useEffect(() => {
@@ -56,102 +78,19 @@ const Shipping = ({ history }) => {
 
             <CheckoutSteps shipping />
 
-            {/* <div className="row wrapper">
-                <div className="col-10 col-lg-5">
-                    <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-4">Shipping Info</h1>
-                        <div className="form-group">
-                            <label htmlFor="address_field">Address</label>
-                            <input
-                                type="text"
-                                id="address_field"
-                                className="form-control"
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="city_field">City</label>
-                            <input
-                                type="text"
-                                id="city_field"
-                                className="form-control"
-                                value={city}
-                                onChange={(e) => setCity(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="phone_field">Phone No</label>
-                            <input
-                                type="phone"
-                                id="phone_field"
-                                className="form-control"
-                                value={phoneNo}
-                                onChange={(e) => setPhoneNo(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="postal_code_field">Postal Code</label>
-                            <input
-                                type="number"
-                                id="postal_code_field"
-                                className="form-control"
-                                value={postalCode}
-                                onChange={(e) => setPostalCode(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="country_field">Country</label>
-                            <select
-                                id="country_field"
-                                className="form-control"
-                                value={country}
-                                onChange={(e) => setCountry(e.target.value)}
-                                required
-                            >
-
-                                {countriesList.map(country => (
-                                    <option key={country.name} value={country.name}>
-                                        {country.name}
-                                    </option>
-                                ))}
-
-                            </select>
-                        </div>
-
-                        <button
-                            id="shipping_btn"
-                            type="submit"
-                            className="btn btn-block py-3"
-                        >
-                            CONTINUE
-                            </button>
-                    </form>
-                </div>
-            </div> */}
-
             <Box
                 component="form"
-                sx={{
-                    '& .MuiTextField-root': { m: 1, width: '50ch' },
-                }}
+                style={{ padding: '2rem' }}
                 noValidate
                 autoComplete="off"
                 onSubmit={submitHandler}
+                id="shipping_fistForm"
             >
                 <div id="shipping_info">
                     <h1 className="mb-4 shipping_title">Shipping Info</h1>
-                    <Stack spacing={2}>
+                    <Stack direction="column" spacing={4} id="shipping_field-wrapper">
                         <TextField
-                            id="standard-basic"
+                            id="address_field"
                             htmlFor="address_field"
                             label="Address"
                             variant="standard"
@@ -159,83 +98,83 @@ const Shipping = ({ history }) => {
                             onChange={(e) => setAddress(e.target.value)}
                             required
                             fullWidth
+                            name="address"
                         />
-                        <Stack direction="row" spacing={4}>
-                            <TextField
-                                id="city_field"
-                                label="City"
-                                variant="standard"
-                                value={city}
-                                onChange={(e) => setCity(e.target.value)}
-                                required="true"
-                            />
-                            <TextField
-                                id="phone_field"
-                                label="Phone No"
-                                variant="standard"
-                                type="phone"
-                                value={phoneNo}
-                                onChange={(e) => setPhoneNo(e.target.value)}
-                                required
-                                validate
-                            />
-                        </Stack>
+                        <TextField
+                            id="city_field"
+                            label="City"
+                            variant="standard"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            required="true"
+                            name="city"
+                        />
+                        <TextField
+                            id="phone_field"
+                            label="Phone No"
+                            variant="standard"
+                            type="phone"
+                            value={phoneNo}
+                            onChange={(e) => setPhoneNo(e.target.value)}
+                            required
+                            validate
+                            name="phone"
+                        />
 
-                        <Stack direction="row" spacing={4}>
-                            <TextField
-                                type="number"
-                                id="postal_code_field"
-                                label="Postal Code"
-                                variant="standard"
-                                value={postalCode}
-                                onChange={(e) => setPostalCode(e.target.value)}
-                                required
-                                validate
-                            />
-                            <Autocomplete
-                                id="country-select-demo"
-                                sx={{ width: 500 }}
-                                options={countries}
-                                autoHighlight
-                                getOptionLabel={(option) => option.label}
-                                fullWidth
-                                renderOption={(props, option) => (
-                                    <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props} className="country_item">
-                                        <p style={{ fontSize: '1.6rem' }}>
-                                            <img
-                                                loading="lazy"
-                                                width="20"
-                                                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                                                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                                                alt=""
-                                                style={{ marginRight: '.800rem' }}
-                                            />
-                                            {option.label} ({option.code}) +{option.phone}</p>
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        label="Choose a country"
-                                        inputProps={{
-                                            ...params.inputProps,
-                                            autoComplete: 'new-password', // disable autocomplete and autofill
-                                        }}
-                                        value={country}
-                                        onChange={(e) => setCountry(e.target.value)}
-                                        required
-                                        fullWidth
-                                    />
-                                )}
-                            />
-                        </Stack>
+                        <TextField
+                            type="number"
+                            id="postal_code_field"
+                            label="Postal Code"
+                            variant="standard"
+                            value={postalCode}
+                            onChange={(e) => setPostalCode(e.target.value)}
+                            required
+                            validate
+                        />
+                        <Autocomplete
+                            id="country-select-demo"
+                            sx={{ width: 500 }}
+                            options={countries}
+                            autoHighlight
+                            getOptionLabel={(option) => option.label}
+                            fullWidth
+                            renderOption={(props, option) => (
+                                <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props} className="country_item">
+                                    <p style={{ fontSize: '1.6rem' }}>
+                                        <img
+                                            loading="lazy"
+                                            width="20"
+                                            src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+                                            srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                                            alt=""
+                                            style={{ marginRight: '.800rem' }}
+                                        />
+                                        {option.label} ({option.code}) +{option.phone}</p>
+                                </Box>
+                            )}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    label="Choose a country"
+                                    inputProps={{
+                                        ...params.inputProps,
+                                        autoComplete: 'new-password', // disable autocomplete and autofill
+                                    }}
+                                    value={country}
+                                    onChange={(e) => setCountry(e.target.value)}
+                                    required
+                                    fullWidth
+                                    name="country"
+                                />
+                            )}
+                        />
                     </Stack>
                     <Button
                         variant="contained"
                         color="primary"
                         id="shipping_btn"
                         type="submit"
-                        style={{ marginTop: '5rem' }}
+                        style={{ marginTop: '5rem', marginBottom: '5rem' }}
                     >
                         CONTINUE
                     </Button>

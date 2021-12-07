@@ -1,0 +1,29 @@
+#shipping_fistForm {
+    background-color: #ffffff;
+    border-radius: 2rem;
+}
+div#shipping_info {
+    text-align: center;
+    text-transform: uppercase;
+    background: aliceblue;
+    border-radius: 2rem;
+}
+.shipping_title {
+    text-transform: uppercase;
+    padding: 2rem;
+
+}
+#shipping_field-wrapper div {
+    width: 72ch;
+    place-self: center;
+}
+#shipping_btn span {
+    margin-left: 0!important;
+}
+/* #address_field,
+#city_field,
+#phone_field,
+#postal_code_field,
+#country-select-demo {
+    
+} */

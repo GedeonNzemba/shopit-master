@@ -3,6 +3,14 @@ import Header from "../layout/Header"
 import { Link } from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 import "./cart.module.css"
+import Box from '@mui/material/Box';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@mui/material/Avatar';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
 import MetaData from '../layout/MetaData'
 
@@ -522,15 +530,23 @@ display: inline-block;
                                     <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css" />
 
                                 </Helmet>
-                                <div className="container" id="container_cart-main">
+                                <Box sx={{ p: 4, mt: 2}} id="container_cart-main">
 
-                                    <section className="mt-5 mb-4">
-
-                                        <div className="row">
-
-                                            <div className="col-lg-8" >
+                                    <section>
+                                        <Stack direction="column" spacing={2} >
+                                            <Box>
 
                                                 <Cart className="card wish-list mb-4">
+                                                    <Box sx={{m: 2}} id="coupon_cart__page">
+                                                        <div className="card-body">
+                                                            <ThemeProvider theme={theme}>
+                                                                <form className={classes.root} id="discount_form" noValidate autoComplete="off">
+                                                                    <TextField id="standard-basic" color="primary" type="input" className="standard_discount" label="Have a discount? Add it here" />
+                                                                </form>
+                                                            </ThemeProvider>
+                                                        </div>
+                                                    </Box>
+
                                                     <div className="card-body">
                                                         <h5 className="mb-4" id="cart__title"><span style={{marginLeft: 'unset'}} className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
                                                         {cartItems.map(item => (
@@ -610,7 +626,7 @@ display: inline-block;
                                                                                         Move to wishlist
                                                                                     </Button>
                                                                                 </div>
-                                                                                <p className="mb-0"><span style={{ fontWeight: '500', fontFamily: 'Ginto bold', fontSize: '2.5rem' }}><strong>${item.price}</strong></span></p>
+                                                                                <p className="mb-0 cart_page__price"><span style={{ fontWeight: '500', fontFamily: 'Ginto bold', fontSize: '2.5rem' }}><strong>${item.price}</strong></span></p>
                                                                             </Dflex>
                                                                         </div>
                                                                     </Dflex>
@@ -627,22 +643,11 @@ display: inline-block;
                                                     </div>
                                                 </Cart>
 
-                                                <div className="card mb-4">
-                                                    <div className="card-body" id="card-body-est">
 
-                                                        <Md4 className="mb-4">Expected shipping delivery</Md4>
+                                            </Box>
 
-                                                        <p className="mb-0"> Thu., 12.03. - Mon., 16.03.</p>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-
-
-
-
-                                            <div className="col-lg-4">
+                                            <Box>
+                        
 
                                                 <div className="card mb-4">
                                                     <div className="card-body" id="card-body">
@@ -677,42 +682,14 @@ display: inline-block;
                                                     </div>
                                                 </div>
 
-                                                <div className="card mb-4">
-                                                    <div className="card-body">
-                                                        <ThemeProvider theme={theme}>
-                                                            <form className={classes.root} id="discount_form" noValidate autoComplete="off">
-                                                                <TextField id="standard-basic" color="primary" type="input" className="standard_discount" label="Have a discount? Add it here" />
-                                                            </form>
-                                                        </ThemeProvider>
-                                                        {/* <a className="dark-grey-text d-flex justify-content-between" data-toggle="collapse"
-                                                    href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                    Add a discount code (optional)
-                                                                            <span><i className="fas fa-chevron-down pt-1"></i></span>
-                                                </a> */}
-
-                                                        {/* <div className="collapse" id="collapseExample">
-                                                    <div className="mt-3">
-                                                        <div className="md-form md-outline mb-0">
-                                                            <input type="text" id="discount-code" className="form-control font-weight-light"
-                                                                placeholder="Enter discount code" />
-                                                        </div>
-                                                    </div>
-                                                </div> */}
-                                                    </div>
-                                                </div>
+                                                
 
 
-                                            </div>
-
-
-                                        </div>
-
-
-
+                                            </Box>
+                                        </Stack>
                                     </section>
-
-                                </div>
-                                <div className="card mb-4" style={{backgroundColor: 'unset'}}>
+                                </Box>
+                                <div className="card mb-4" style={{backgroundColor: 'unset'}} id="cart_bankLogo_slides">
                                     <div className="card-body">
 
                                         {/* <Md4 className="mb-4">We accept</Md4> */}
