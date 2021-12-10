@@ -1,9 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+
+const steps = [
+    {title: 'Shipping',
+     url: '/shipping'
+    },
+    {title: 'Confirm Order',
+     url: '/order/confirm'
+    },
+    {title: 'Payment',
+     url: '/payment'
+    }
+]
 
 const CheckoutSteps = ({ shipping, confirmOrder, payment }) => {
+
+    const total = steps.length;
+     
+
     return (
-        <div className="checkout-progress d-flex justify-content-center mt-5">
+        <>
+            <Box sx={{ width: '100%', marginBottom: '6rem' }} id="container_stepper">
+                <Stepper activeStep={confirmOrder ? (total - 1) : payment ? (total) : (total - 2)} alternativeLabel>
+                    {steps.map((item, index) => (
+                        <Step key={index}>
+                            <StepLabel>{item.title}</StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+            </Box>
+
+        {/* <div className="checkout-progress d-flex justify-content-center mt-5">
 
             {shipping ? 
                 <Link to='shippping' className="float-right">
@@ -39,7 +70,8 @@ const CheckoutSteps = ({ shipping, confirmOrder, payment }) => {
                 <div className="triangle-incomplete"></div>
             </Link>}
 
-        </div>
+        </div> */}
+        </>
     )
 }
 

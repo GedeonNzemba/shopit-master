@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import './payment.css'
+import '../../styles/Locataire.css'
 
 import MetaData from '../layout/MetaData'
 import CheckoutSteps from './CheckoutSteps'

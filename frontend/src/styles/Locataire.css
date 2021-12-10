@@ -927,11 +927,12 @@ form:focus ~ label {
 }
 
 .payment_page {
-  background-image: url("../images/cartbg.jpg");
+  background: #5a5a5a url("../images/cartbg.jpg");
   background-size: contain;
   background-repeat: repeat;
   padding-top: 8rem;
   transition: 1s ease-in;
+  background-blend-mode: overlay;
 }
 .payment_page #contactFormWrapper {
   transition: 1s ease-out;
@@ -940,8 +941,9 @@ form:focus ~ label {
 
 .pay_cart_page {
   transition: 1s ease-in;
-  background-image: url("../images/pay.png");
+  background: #212529 url("../images/pay.png");
   background-size: contain;
+  background-blend-mode: overlay;
   background-repeat: repeat;
   padding-top: 8rem;
 }
@@ -952,10 +954,11 @@ form:focus ~ label {
 
 .shipConfirm {
   transition: 1s ease-in;
-  background-image: url("../images/shipConfirm.png");
+  background: #241f20ba url("../images/shipConfirm.png");
   background-size: contain;
   background-repeat: repeat;
   padding-top: 8rem;
+  background-blend-mode: overlay;
 }
 .shipConfirm #contactFormWrapper {
   transition: 1s ease-out;

@@ -1256,6 +1256,45 @@ section.bBanner {
       align-self: center;
       border: .800rem solid white;
 }
+
+.MuiStepConnector-root {
+  top: 16px!important;
+}
+.MuiStepLabel-label span {
+  color: #ffffff!important;
+}
+svg.MuiStepIcon-root:not(.Mui-active,.Mui-completed) {
+  color: grey!important;
+}
+span.MuiStepLabel-label.Mui-active {
+  color: #ffffff!important;
+}
+span.MuiStepLabel-label.Mui-completed {
+  color: #ffffff!important;
+}
+.MuiStepLabel-label.Mui-disabled {
+  color: #ffffff!important;
+}
+svg.MuiStepIcon-root  {
+  width: 1.5em!important;
+  height: 1.5em!important;
+}
+.MuiStepIcon-text {
+  font-size: 1.6rem!important;
+}
+.MuiStepLabel-label {
+  font-size: 2rem!important;
+}
+.MuiStepper-root * span {
+  margin-left: 0!important;
+}
+#input_base__search {
+  font-size: 2rem;
+}
+.search__box {
+  height: 5rem;
+  width: 38vw;
+}
 @media (max-width: 768px) {
   .bBanner__left.bBanner__img {
     background-blend-mode: soft-light;

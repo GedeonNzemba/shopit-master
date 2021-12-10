@@ -1,0 +1,85 @@
+.list_item_text_confirm span{
+    color: #000000!important;
+  
+}
+.stack_item__confirm svg {
+    color: darkgreen;
+}
+/* .list_item_text_confirm {
+    font-weight: 500!important;
+} */
+strong.subtitle_confirm {
+    font-size: 2rem!important;
+}
+.stack_item__confirm {
+    width: 100%;
+    justify-content: space-between;
+}
+.list_item_text_confirm {
+    max-width: fit-content;
+}
+.avatar_img_sidebar_confirm {
+    width: 18rem;
+    height: 18rem;
+}
+#list_item_text_confirm span{
+    place-self: center;
+    font-family: 'Ginto bold';
+    font-weight: bold;
+    font-size: 2.3rem!important;
+}
+div#list_item_text_confirm {
+    height: fit-content;
+    max-height: fit-content;
+    place-self: center;
+}
+/* .css-qivjh0-MuiStepLabel-label.Mui-completed */
+@media (max-width: 768px) {
+    .confirm_order_container-item {
+        width: auto!important;
+    }
+}
+@media (max-width: 560px) {
+    .iconBtn {
+        width: 100%!important;
+    }
+    .avatar_img_sidebar_confirm {
+        width: 7em!important;
+        height: 7em!important;
+    }
+    #list_item_text_confirm {
+        /* note */
+        max-width: 100%!important;
+    }
+    .hide_listItem-confirm {
+        display: none!important;
+    }
+    .confirm_order_container-item {
+        width: auto!important;
+    }
+    .confirm_order_container-item-pS {
+        width: auto!important;
+    }
+}
+
+@media (max-width: 350px) {
+    .avatar_img_sidebar_confirm {
+        width: 6em!important;
+        height: 6em!important;
+    }
+}
+
+@media (max-width: 500px) {
+    .stack_product_calc {
+        margin-right: 2rem;
+    }
+    .stack_product_calc {
+        height: fit-content!important;
+    }
+    #list_item_text_confirm {
+        height: fit-content;
+    }
+    p.calc_price_info {
+        margin-top: 0!important;
+    }
+}

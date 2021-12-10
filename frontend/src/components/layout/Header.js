@@ -453,6 +453,16 @@ const Header = () => {
                                     </Stack>
                                 </Link>
                             )}
+                            <Link to="/cart" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
+                                <Stack direction="row" spacing={2} >
+                                    <IconButton aria-label="cart" id="icon_btn-badge" style={{ marginLeft: '0' }}>
+                                        <Badge badgeContent={cart_amount} id="badge_wrapper" color="secondary">
+                                            <ShoppingCartOutlinedIcon className="icon_svg_sidebar" id="cart_svg_sidebar" />
+                                        </Badge>
+                                    </IconButton>
+                                    <ListItemText primary={'Cart'} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                </Stack>
+                            </Link>
                             <Link to="/orders/me" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
                                 <Box style={{ margin: '1.2rem 0' }}>
                                     <Stack direction="row" spacing={2} style={user.role !== 'admin' ? {marginTop: '2rem'} : {}}>

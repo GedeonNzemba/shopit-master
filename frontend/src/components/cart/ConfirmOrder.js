@@ -1,113 +1,423 @@
-import React, { Fragment, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Confirm.css";
+import MetaData from "../layout/MetaData";
+import CheckoutSteps from "./CheckoutSteps";
+import Box from "@material-ui/core/Box";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
-import MetaData from '../layout/MetaData'
-import CheckoutSteps from './CheckoutSteps'
+import BadgeIcon from "@mui/icons-material/Badge";
+import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 
-import { useSelector } from 'react-redux'
+import List from "@material-ui/core/List";
+import FlagIcon from "@mui/icons-material/Flag";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import HomeIcon from "@mui/icons-material/Home";
+
+import { useSelector } from "react-redux";
+import { Avatar, IconButton } from "@material-ui/core";
 
 const ConfirmOrder = ({ history }) => {
-
-    const { cartItems, shippingInfo } = useSelector(state => state.cart)
-    const { user } = useSelector(state => state.auth)
+    const { cartItems, shippingInfo } = useSelector((state) => state.cart);
+    const { user } = useSelector((state) => state.auth);
 
     // Calculate Order Prices
-    const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-    const shippingPrice = itemsPrice > 200 ? 0 : 25
-    const taxPrice = Number((0.05 * itemsPrice).toFixed(2))
-    const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
+    const itemsPrice = cartItems.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+    );
+    const shippingPrice = itemsPrice > 200 ? 0 : 25;
+    const taxPrice = Number((0.05 * itemsPrice).toFixed(2));
+    const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2);
 
     const processToPayment = () => {
         const data = {
             itemsPrice: itemsPrice.toFixed(2),
             shippingPrice,
             taxPrice,
-            totalPrice
-        }
+            totalPrice,
+        };
 
-        sessionStorage.setItem('orderInfo', JSON.stringify(data))
-        history.push('/payment')
-    }
+        sessionStorage.setItem("orderInfo", JSON.stringify(data));
+        history.push("/payment");
+    };
 
     useEffect(() => {
-
-        const app = document.getElementsByClassName('App')[0];
-        app.classList.add('shipConfirm');
-
+        const app = document.getElementsByClassName("App")[0];
+        app.classList.add("shipConfirm");
 
         return () => {
-            app.classList.remove('shipConfirm');
-        }
-    }, [])
+            app.classList.remove("shipConfirm");
+        };
+    }, []);
+
+    const UserInfo = () => {
+        return (
+            <Box
+                sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    "& > :not(style)": {
+                        m: 1,
+                    },
+                    justifyContent: "center",
+                }}
+            >
+                <Stack
+                    direction={`${window.innerWidth < 561 ? "column" : "row"}`}
+                    spacing={2}
+                >
+                    <Paper
+                        sx={{ p: 2, width: 380 }}
+                        className="confirm_order_container-item"
+                    >
+                        <Typography
+                            variant="h3"
+                            sx={{ fontWeight: 500 }}
+                            component="div"
+                            gutterBottom
+                        >
+                            Shipping Info
+                        </Typography>
+
+                        <List>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack
+                                                direction="row"
+                                                spacing={1}
+                                                style={{ lineHeight: "1.5" }}
+                                            >
+                                                <BadgeIcon />
+                                                <strong className="subtitle_confirm">Name:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={user && user.name}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack direction="row" spacing={1}>
+                                                <ContactPhoneIcon />
+                                                {window.innerWidth < 401 ? (
+                                                    <strong className="subtitle_confirm">Phone:</strong>
+                                                ) : (
+                                                    <strong className="subtitle_confirm">
+                                                        Phone Number:
+                                                    </strong>
+                                                )}
+                                            </Stack>
+                                            <ListItemText
+                                                primary={shippingInfo.phoneNo}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack direction="row" spacing={1}>
+                                                <HomeIcon />
+                                                <strong className="subtitle_confirm">Addres:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={`${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}`}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack direction="row" spacing={1}>
+                                                <FlagIcon />
+                                                <strong className="subtitle_confirm">Country:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={shippingInfo.country}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                        </List>
+                    </Paper>
+
+                    <Paper
+                        sx={{ p: 2, width: 380 }}
+                        className="confirm_order_container-item"
+                    >
+                        <Typography
+                            variant="h3"
+                            sx={{ fontWeight: 500 }}
+                            component="div"
+                            gutterBottom
+                        >
+                            Order Summary
+                        </Typography>
+
+                        <List>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack
+                                                direction="row"
+                                                spacing={1}
+                                                style={{ lineHeight: "1.5" }}
+                                            >
+                                                <BadgeIcon />
+                                                <strong className="subtitle_confirm">Subtotal:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={itemsPrice.toFixed(2)}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack direction="row" spacing={1}>
+                                                <ContactPhoneIcon />
+                                                <strong className="subtitle_confirm">Shipping:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={shippingPrice}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack direction="row" spacing={1}>
+                                                <HomeIcon />
+                                                <strong className="subtitle_confirm">Tax:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={taxPrice}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                            <ListItem style={{ display: "block", paddingLeft: 0 }}>
+                                <Box>
+                                    <ListItem>
+                                        <Stack
+                                            direction="row"
+                                            spacing={2}
+                                            className="stack_item__confirm"
+                                        >
+                                            <Stack direction="row" spacing={1}>
+                                                <FlagIcon />
+                                                <strong className="subtitle_confirm">Total:</strong>
+                                            </Stack>
+                                            <ListItemText
+                                                primary={totalPrice}
+                                                sx={{ fontWeight: 500 }}
+                                                className="list_item_text_confirm"
+                                            />
+                                        </Stack>
+                                    </ListItem>
+                                </Box>
+                            </ListItem>
+                        </List>
+                    </Paper>
+                </Stack>
+            </Box>
+        );
+    };
 
     return (
         <Fragment>
-
-            <MetaData title={'Confirm Order'} />
+            <MetaData title={"Confirm Order"} />
 
             <CheckoutSteps shipping confirmOrder />
 
-            <div className="row confirm_order_wrap d-flex justify-content-between">
-                <div className="col-12 col-lg-8 mt-5 order-confirm">
+            <UserInfo />
 
-                    <h4 className="mb-3 shipping_info" style={{ marginBottom: '2rem' }}>Shipping Info</h4>
-                    <p><b style={{ marginRight: '.800rem' }}>Name:</b> {user && user.name}</p>
-                    <p><b style={{ marginRight: '.800rem' }}>Phone:</b> {shippingInfo.phoneNo}</p>
-                    <p className="mb-4"><b style={{ marginRight: '.800rem' }}>Address:</b> {`${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
-
-                    <hr />
-                    <h4 className="mt-4" style={{ fontSize: '1.6rem' }}>Your Cart Items:</h4>
-
-                    {cartItems.map(item => (
-                        <Fragment>
-                            <hr />
-                            <div className="cart-item my-1" key={item.product}>
-                                <div className="row">
-                                    <div className="col-4 col-lg-2">
-                                        <img src={item.image} alt="Laptop" height="45" width="65" />
-                                    </div>
-
-                                    <div className="col-5 col-lg-6" style={{ placeSelf: 'center' }}>
-                                        <Link to={`/product/${item.product}`}>{item.name}</Link>
-                                    </div>
-
-
-                                    <div className="col-4 col-lg-4 mt-4 mt-lg-0" style={{ placeSelf: 'center' }}>
-                                        <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <hr />
-                        </Fragment>
-                    ))}
-
-
-
-                </div>
-
-                <div className="col-12 col-lg-3 my-4">
-                    <div id="order_summary">
-                        <h4 className="order_summary">Order Summary</h4>
-                        <hr />
-                        <p><b>Subtotal:</b>  <span className="order-summary-values">${itemsPrice}</span></p>
-                        <p><b>Shipping:</b> <span className="order-summary-values">${shippingPrice}</span></p>
-                        <p><b>Tax:</b>  <span className="order-summary-values">${taxPrice}</span></p>
-
-                        <hr />
-
-                        <p><b>Total:</b> <span className="order-summary-values">${totalPrice}</span></p>
-
-                        <hr />
-                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Proceed to Payment</button>
-                    </div>
-                </div>
-
-
-            </div>
-
+            <Box
+                 sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    "& > :not(style)": {
+                        m: 1,
+                    },
+                    justifyContent: "center",
+                }}
+            >
+                <Stack
+                    direction="column"
+                    spacing={2}
+                    sx={{ marginBottom: "8%", mt: '5%', justifyContent: "center" }}
+                >
+                    <Paper sx={{ p: 2, width: '72ch' }} className="confirm_order_container-item-pS">
+                        <Typography
+                            variant="h3"
+                            sx={{ fontWeight: 500 }}
+                            component="div"
+                            gutterBottom
+                        >
+                            Product Summary
+                        </Typography>
+                        {cartItems.map((item, index) => {
+                            return (
+                                <Stack
+                                    direction="row"
+                                    key={index}
+                                    spacing={2}
+                                    sx={{ justifyContent: "space-between" }}
+                                >
+                                    <IconButton
+                                        className="iconBtn"
+                                        style={{
+                                            borderRadius: "8rem",
+                                            width: "67%",
+                                            marginBottom: "1rem",
+                                            borderBottom: "1px solid darkseagreen",
+                                        }}
+                                    >
+                                        <Link
+                                            to={`/product/${item.product}`}
+                                            style={{ width: "100%" }}
+                                        >
+                                            <Stack
+                                                direction="row"
+                                                spacing={2}
+                                                sx={{ justifyContent: "space-between" }}
+                                            >
+                                                <Avatar
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="avatar_img_sidebar_confirm"
+                                                />
+                                                {window.innerWidth < 561 && (
+                                                    <Stack
+                                                        direction={
+                                                            window.innerWidth < 500 ? "column" : "row"
+                                                        }
+                                                        spacing={2}
+                                                        className="stack_product_calc"
+                                                    >
+                                                        <ListItemText
+                                                            primary={item.name}
+                                                            id="list_item_text_confirm"
+                                                            style={{
+                                                                textTransform: "capitalize",
+                                                                maxWidth: "fit-content",
+                                                                color: "#000000",
+                                                            }}
+                                                        />
+                                                        <p
+                                                            style={{ placeSelf: "center" }}
+                                                            className="calc_price_info"
+                                                        >
+                                                            {item.quantity} x ${item.price} ={" "}
+                                                            <b>
+                                                                ${(item.quantity * item.price).toFixed(2)}
+                                                            </b>
+                                                        </p>
+                                                    </Stack>
+                                                )}
+                                                <ListItemText
+                                                    primary={item.name}
+                                                    className="hide_listItem-confirm"
+                                                    id="list_item_text_confirm"
+                                                    style={{
+                                                        textTransform: "capitalize",
+                                                        maxWidth: "fit-content",
+                                                        color: "#000000",
+                                                    }}
+                                                />
+                                            </Stack>
+                                        </Link>
+                                    </IconButton>
+                                    <Box
+                                        sx={{ display: "flex" }}
+                                        className="hide_listItem-confirm"
+                                    >
+                                        <p style={{ placeSelf: "center" }}>
+                                            {item.quantity} x ${item.price} ={" "}
+                                            <b>${(item.quantity * item.price).toFixed(2)}</b>
+                                        </p>
+                                    </Box>
+                                </Stack>
+                            );
+                        })}
+                    </Paper>
+                    <Button
+                        variant="contained"
+                        style={{ fontSize: "1.6rem", margin: "5% auto 0" }}
+                        onClick={processToPayment}
+                    >
+                        Proceed to Payment
+                    </Button>
+                </Stack>
+            </Box>
         </Fragment>
-    )
-}
+    );
+};
 
-export default ConfirmOrder
+export default ConfirmOrder;

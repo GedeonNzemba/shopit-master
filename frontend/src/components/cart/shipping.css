@@ -13,9 +13,37 @@ div#shipping_info {
     padding: 2rem;
 
 }
-#shipping_field-wrapper div {
+#shipping_field-wrapper .MuiTextField-root {
     width: 72ch;
     place-self: center;
+}
+#shipping_field-wrapper .MuiAutocomplete-hasPopupIcon {
+    width: 72ch;
+    place-self: center;
+}
+.MuiAutocomplete-hasPopupIcon .MuiTextField-root {
+    width: 100%!important;
+}
+@media (min-width: 1000px) {
+    #container_stepper {
+        max-width: 90ch;
+        margin: 0 auto 6rem;
+      }
+      form#shipping_fistForm {
+        max-width: 90ch;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 899px) {
+    #shipping_field-wrapper .MuiTextField-root {
+        width: 80%;
+    }
+    #shipping_field-wrapper .MuiAutocomplete-hasPopupIcon {
+        width: 80%;
+    }
+    .MuiAutocomplete-hasPopupIcon .MuiTextField-root {
+        width: 100%!important;
+    }
 }
 #shipping_btn span {
     margin-left: 0!important;
