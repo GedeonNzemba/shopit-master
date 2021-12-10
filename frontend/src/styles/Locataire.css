@@ -1011,12 +1011,6 @@ main.MuiContainer-root.MuiContainer-maxWidthXs.css-nzinn5-MuiContainer-root {
   background-attachment: fixed;
 }
 
-#shipping_wrapper {
-  margin: 8% auto;
-  max-width: 80%;
-  height: 100%;
-}
-
 button#checkout_btn {
   font-size: 1.6rem;
 }

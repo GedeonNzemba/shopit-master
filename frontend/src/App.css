@@ -251,7 +251,7 @@ p {
     padding: 0!important;
   }
   #search_form {
-    max-width: 87%;
+    max-width: 95%;
     margin: 0 auto;
   }
   #desktop_searfield_notSigned {
@@ -1256,7 +1256,9 @@ section.bBanner {
       align-self: center;
       border: .800rem solid white;
 }
-
+#demo-customized-button {
+  padding: 0.2em!important;
+}
 .MuiStepConnector-root {
   top: 16px!important;
 }

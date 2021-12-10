@@ -140,7 +140,7 @@ const Shipping =  ({ history }) => {
 
 
     return (
-        <Fragment>
+        <div style={{maxWidth: '80%', margin:'8% auto', height: '10%'}}>
 
             <MetaData title={'Shipping Info'} />
 
@@ -262,7 +262,7 @@ const Shipping =  ({ history }) => {
             </Box>
 
 
-        </Fragment>
+        </div>
     )
 }
 

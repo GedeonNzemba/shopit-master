@@ -341,7 +341,8 @@ const Header = () => {
                 </Box>
 
                 <Box style={{flex: 'auto'}} id="desktop_searfield_notSigned">
-                    <Route render={({ history }) => <SearchField history={history} />} />
+                    {/* <Route render={({ history }) => <SearchField history={history} />} /> */}
+                    <SearchBar />
                 </Box>
 
                 <Box style={{flex: '1', maxWidth: 'fit-content'}}>
@@ -625,14 +626,17 @@ const Header = () => {
               onClick={handleClick}
               endIcon={<KeyboardArrowDownIcon />}
             >
-              <Stack direction="row" spacing={2}>
+             {user && 
+                <Stack direction="row" spacing={2}>
                     <Avatar
                         src={user.avatar && user.avatar.url}
                         alt={user && user.name}
                         className="avatar_img_sidebar"
                     />
-                    <ListItemText primary={user && user.name} id="list_item_text" style={{textTransform: 'capitalize'}} />
+                    <ListItemText primary={user && user.name} id="list_item_text" style={{ textTransform: 'capitalize' }} />
                 </Stack>
+             }
+            
             </Button>
             <StyledMenu
               id="demo-customized-menu"
@@ -701,36 +705,36 @@ const Header = () => {
                                         {window.innerWidth < 500 ? (
                                             <MenuIcon id="menu_icon-farm" edge="start" style={{ cursor: 'pointer' }} onClick={handleDrawerToggle} />
                                         )
-                                    :
-                                    (
-                                        <Stack direction="row" spacing={2} style={{alignItems: 'center'}}>
-                                            <Box>
-                                            <CustomizedMenus />
-                                            </Box>
-                                            {/* <IconButton>
-                                                <Stack direction="row" spacing={2}>
+                                            :
+                                            (
+                                                <Stack direction="row" spacing={2} style={{ alignItems: 'center' }}>
+                                                    <Box>
+                                                        <CustomizedMenus />
+                                                    </Box>
+                                                    {/* <IconButton>
+                                                    <Stack direction="row" spacing={2}>
                                                     <Avatar
                                                         src={user.avatar && user.avatar.url}
                                                         alt={user && user.name}
                                                         className="avatar_img_sidebar"
                                                     />
                                                     <ListItemText primary={user && user.name} id="list_item_text" style={{textTransform: 'capitalize'}} />
+                                                    </Stack>
+                                                    </IconButton> */}
+
+                                                    <Box>
+                                                        <Link to="/cart" style={{ textDecoration: 'none', placeSelf: 'center', marginLeft: '0' }} >
+                                                            <IconButton aria-label="cart" id="icon_btn-badge" style={{ marginLeft: '0' }}>
+                                                                <Badge badgeContent={cart_amount} id="badge_wrapper" color="secondary">
+                                                                    <ShoppingCartOutlinedIcon />
+                                                                </Badge>
+                                                            </IconButton>
+                                                        </Link>
+                                                    </Box>
+
+                                                    {/* <MenuIcon id="menu_icon-farm" edge="start" style={{ cursor: 'pointer' }} onClick={handleDrawerToggle} /> */}
                                                 </Stack>
-                                            </IconButton> */}
-                                            
-                                        <Box>
-                                        <Link to="/cart" style={{ textDecoration: 'none', placeSelf: 'center', marginLeft: '0' }} >
-                                            <IconButton aria-label="cart" id="icon_btn-badge" style={{marginLeft: '0'}}>
-                                                <Badge badgeContent={cart_amount} id="badge_wrapper" color="secondary">
-                                                    <ShoppingCartOutlinedIcon />
-                                                </Badge>
-                                            </IconButton>
-                                        </Link>
-                                        </Box>
-                                       
-                                        {/* <MenuIcon id="menu_icon-farm" edge="start" style={{ cursor: 'pointer' }} onClick={handleDrawerToggle} /> */}
-                                        </Stack>
-                                    )}
+                                            )}
                                     </Box>
                                 </Stack>
                             )
