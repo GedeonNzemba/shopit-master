@@ -88,7 +88,7 @@ const ProductsList = ({ history }) => {
             ],
             rows: []
         }
-
+        
         products.forEach(product => {
             data.rows.push({
                 id: product._id,

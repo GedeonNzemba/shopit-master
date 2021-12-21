@@ -1,0 +1,10 @@
+.admin__search {
+    height: 4.5rem;
+    place-self: center;
+}
+
+.admin__appBar #search_form {
+    width: 66%;
+    max-width: unset;
+    margin: 0;
+}

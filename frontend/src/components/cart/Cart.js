@@ -1,16 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import Header from "../layout/Header"
 import { Link } from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 import "./cart.module.css"
 import Box from '@mui/material/Box';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@mui/material/Avatar';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
 import MetaData from '../layout/MetaData'
 
@@ -165,83 +158,8 @@ const Cart = ({ history }) => {
     const Dflex = Styled.div`
         justify-content: space-between !important;
     `
-    const Dnumber = Styled.div`
-        border: 1px solid #ced4da;
-    border-radius: .25rem;
-        margin-bottom: 0 !important;
-    `
-    const ButtonD = Styled.button`
-        padding-left: 10px;
-        width: 2.5rem;
-    height: .7rem;
-        -webkit-appearance: none;
-    background-color: transparent;
-    border: none;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    cursor: pointer;
-    margin: 0;
-    position: relative;
-    text-transform: none;
-        overflow: visible;
-        &:before {
-                width: .7rem;
-    background-color: #495057;
-        }
-        &:after {
-    width: .7rem;
-    background-color: #495057;
-        display: inline-block;
-    position: absolute;
-    content: '';
-    height: 2px;
-    transform: translate(-50%, -50%);
-        }
-    `
-    const Input = Styled.input`
-        max-width: 3rem;
-    padding: .5rem;
-    border: 1px solid #ced4da;
-    border-width: 0 1px;
-    font-size: 1rem;
-    height: 2rem;
-    color: #495057;
-    text-align: center;
-        appearance: textfield;
-        line-height: inherit;
-    `
-    const ButtonB = Styled.button`
-        text-transform: none;
-            overflow: visible;
-            font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    &:before {
-        width: .7rem;
-    background-color: #495057;
-    }
-    &:after {
-        width: .7rem;
-    background-color: #495057;
-            display: inline-block;
-    position: absolute;
-    content: '';
-    height: 2px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%) rotate(
-90deg
-);
-display: inline-block;
-    position: absolute;
-    content: '';
-    height: 2px;
-    }
-    `
+  
+
     const Small = Styled.small`
             color: #6c757d !important;
                 text-align: center !important;

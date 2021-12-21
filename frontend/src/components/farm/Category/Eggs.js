@@ -12,10 +12,8 @@ import Button from '@mui/material/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import SideBarFielter from './sidebar/Sidebar'
 
 import FilterCt from './breadcrumb/Filter';
@@ -459,19 +457,7 @@ export default function Eggs({ match }) {
         )
     }
 
-    function handleFilter() {
-        let filter = document.getElementById('filter_shop');
-        let categoryPage = document.getElementById('category-page');
-
-        
-        categoryPage.classList.add('category-page');
-        filter.classList.add('filter_shop');
-
-        categoryPage.addEventListener('click',  () => {
-            categoryPage.classList.remove('category-page');
-            filter.classList.remove('filter_shop');
-        })
-    }
+ 
 
 
 

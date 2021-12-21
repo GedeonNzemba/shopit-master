@@ -32,12 +32,22 @@ const theme = createTheme ({
       root: {
         fontSize: '1.2rem!important'
       }
+    },
+    MuiTypography: {
+      subtitle2: {
+        fontSize: '1.6rem'
+      }
+    },
+    MuiMenuItem: {
+      root: {
+        fontSize: '1.6rem'
+      }
     }
   }
 });
 
 const options = {
-  timeout: 5000,
+  timeout: 20000,
   position: positions.BOTTOM_CENTER,
   transition: transitions.SCALE
 }

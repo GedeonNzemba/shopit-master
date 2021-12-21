@@ -2,13 +2,71 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 import Sidebar from './Sidebar'
-
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser, getUserDetails, clearErrors } from '../../actions/userActions'
 import { UPDATE_USER_RESET } from '../../constants/userConstants'
 
 const UpdateUser = ({ history, match }) => {
+
+    // -------------------------------REMOVE HEADER AND FOOTER -------------------------------
+    function removeHeader() {
+        const header = document.querySelector('.farm-header');
+        const footer = document.querySelector('#contactFormWrapper');
+        header && (header.style.display = 'none');
+        footer && (footer.style.display = 'none');
+    }
+
+    function mountHeader() {
+        const header = document.querySelector('.farm-header');
+        const footer = document.querySelector('#contactFormWrapper');
+        header && (header.style.display = 'block');
+        footer && (footer.style.display = 'block');
+    }
+
+    function checkDashboard() {
+        removeHeader();
+    }
+
+    useEffect(() => {
+        checkDashboard()
+
+        return () => {
+            mountHeader();
+        }
+    }, [])
+
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
+
+    // -----------------------------------------------------------------------------------------------
+
 
     useEffect(() => {
         const upProfil = document.getElementById('UpdateProfile');
@@ -83,64 +141,67 @@ const UpdateUser = ({ history, match }) => {
 
     return (
         <Fragment>
-            <MetaData title={`Update User`} />
-            <div className="row">
-                <div className="col-12 col-md-2">
-                    <Sidebar />
-                </div>
+            <Container style={{ paddingTop: '5%', paddingBottom: '2%', maxWidth: '100%', height: '100vh', paddingLeft: '0', paddingRight: '0' }} id="update_product__container">
+                <MetaData title={`Update User`} />
+                <Box
+                    component="form"
+                    style={{ padding: '2rem' }}
+                    noValidate
+                    autoComplete="off"
+                    onSubmit={submitHandler}
+                    encType='multipart/form-data'
+                    id="shipping_fistForm"
+                    className="update_product__form"
+                >
+                    <div id="shipping_info">
+                        <h1 className="mt-2 mb-5" style={{paddingTop: '1rem'}}>Update User</h1>
+                        <Stack direction="column" spacing={4} id="shipping_field-wrapper">
+                            <TextField
+                                type="name"
+                                id="name_field"
+                                name='name'
+                                fullWidth
+                                label="Name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <TextField
+                                type="email"
+                                id="email_field"
+                                fullWidth
+                                name='email'
+                                label="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <FormControl className="MuiTextField-root" >
+                                <InputLabel id="demo-simple-select-label">Role</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="update_product__color"
+                                    value={role}
+                                    label="Role"
+                                    onChange={(e) => setRole(e.target.value)}
+                                >
+                                    <MenuItem value="user" className="update_product__option">user</MenuItem>
+                                    <MenuItem value="admin" className="update_product__option">admin</MenuItem>
+                                </Select>
+                            </FormControl>
 
-                <div className="col-12 col-md-10">
-                    <div className="row wrapper">
-                        <div className="col-10 col-lg-5">
-                            <form className="shadow-lg" onSubmit={submitHandler}>
-                                <h1 className="mt-2 mb-5">Update User</h1>
-
-                                <div className="form-group">
-                                    <label htmlFor="name_field">Name</label>
-                                    <input
-                                        type="name"
-                                        id="name_field"
-                                        className="form-control"
-                                        name='name'
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="email_field">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email_field"
-                                        className="form-control"
-                                        name='email'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="role_field">Role</label>
-
-                                    <select
-                                        id="role_field"
-                                        className="form-control"
-                                        name='role'
-                                        value={role}
-                                        onChange={(e) => setRole(e.target.value)}
-                                    >
-                                        <option value="user">user</option>
-                                        <option value="admin">admin</option>
-                                    </select>
-                                </div>
-
-                                <button type="submit" className="btn update-btn btn-block mt-4 mb-3" >Update</button>
-                            </form>
-                        </div>
+                        </Stack>
+                        <center style={{ marginTop: '3rem', marginBottom: '3rem' }}>
+                            <Button
+                                id="update-product_button"
+                                type="submit"
+                                variant="contained"
+                                className="btn btn-block py-3"
+                            >
+                                UPDATE
+                            </Button>
+                        </center>
                     </div>
-                </div>
-            </div>
-
+                </Box>
+            </Container>
         </Fragment>
     )
 }

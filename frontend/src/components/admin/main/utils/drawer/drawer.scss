@@ -1,0 +1,96 @@
+.drawer__logo-container {
+    padding: 2.4rem 2.4rem 0 2.4rem;
+    .logo {
+        height: 3.5rem;
+    }
+    & #list_item_text-admin {
+        display: flex;
+        & span {
+            place-self: center;
+            // font-family: 'Ginto bold';
+            // font-weight: bold;
+            color: #000000de;
+        }
+    }
+}
+.admin-list_item_wrappe {
+    padding-left: 2.5rem;
+}
+.drawer__wrapper-admin div.MuiDrawer-paper {
+    position: relative!important;
+}
+// #drawer__container_content {
+//     margin-top: 2rem;
+// }
+ul.admin__sidedrawer-list-wrap {
+    .admin-list_item_wrapper {
+        padding-left: 2.5rem;
+    }
+    
+    & .admin-list_item_wrapper.active {
+        background-color: #EBF9F1;
+        position: relative;
+        &::before {
+            top: 0px;
+            right: 0px;
+            width: 3px;
+            bottom: 0px;
+            content: "";
+            position: absolute;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            background-color: #00ab55;
+        }
+        .admain-list_item_title span {
+            color: #16B263;
+            font-weight: 600;
+        }
+        .admin-list_item_iconWrap svg {
+            color: #16B263;
+        }
+    }
+
+}
+
+.admin__main-viewer {
+    & .admin__content_item {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+.main_dash {
+    padding: 0 2rem 2rem;
+}
+
+.admin__appBar {
+    background-color: #313962!important;
+    & .admin__toolbar_innerWrap {
+        width: 100%;
+        justify-content: space-between;
+    } 
+
+    & .admin__search {
+        .admin__searchWrap svg {
+            font-size: 2rem!important;
+        }
+        .admin__searchInput input {
+            font-size: 1.7rem;
+        }
+    }
+
+    .admin__user_avatar {
+        place-self: center;
+    }
+
+    .admin__badgeNotify {
+        & span {
+            font-size: 1.6rem;
+        }
+        & svg {
+            width: 1.1em;
+            height: 1.1em;
+        }
+    }
+}

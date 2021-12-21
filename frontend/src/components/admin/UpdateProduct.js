@@ -2,13 +2,49 @@ import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 import Sidebar from './Sidebar'
-
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateProduct, getProductDetails, clearErrors } from '../../actions/productActions'
 import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
+import { Container } from '@material-ui/core';
 
 const UpdateProduct = ({ match, history }) => {
+
+    // -------------------------------REMOVE HEADER AND FOOTER -------------------------------
+    function removeHeader() {
+        const header = document.querySelector('.farm-header');
+        const footer = document.querySelector('#contactFormWrapper');
+        header && (header.style.display = 'none');
+        footer && (footer.style.display = 'none');
+    }
+
+    function mountHeader() {
+        const header = document.querySelector('.farm-header');
+        const footer = document.querySelector('#contactFormWrapper');
+        header && (header.style.display = 'block');
+        footer && (footer.style.display = 'block');
+    }
+
+    function checkDashboard() {  
+        removeHeader();
+    }
+
+    useEffect(() => {
+        checkDashboard()
+        
+        return () => {
+            mountHeader();
+        }
+    }, [])
 
     useEffect(() => {
         const upProfil = document.getElementById('UpdateProfile');
@@ -28,6 +64,8 @@ const UpdateProduct = ({ match, history }) => {
             newPass.style.display = 'block';
         }
     }, [])
+
+    // -----------------------------------------------------------------------------------------------
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
@@ -163,143 +201,157 @@ const UpdateProduct = ({ match, history }) => {
         })
     }
 
+   
+
 
     return (
-        <Fragment>
+        <Container style={{paddingTop: '5%', paddingBottom: '2%', maxWidth: '100%', paddingLeft: '0', paddingRight: '0'}} id="update_product__container">
             <MetaData title={'Update Product'} />
-            <div className="row" id="admin_allProducts">
-                <div className="col-12 col-md-2">
-                    <Sidebar />
+            <Box
+                component="form"
+                style={{ padding: '2rem' }}
+                noValidate
+                autoComplete="off"
+                onSubmit={submitHandler}
+                encType='multipart/form-data'
+                id="shipping_fistForm"
+                className="update_product__form"
+            >
+                <div id="shipping_info">
+                    <h1 className="mb-4 shipping_title">Update Product</h1>
+                    <Stack direction="column" spacing={4} id="shipping_field-wrapper">
+                        <TextField
+                            id="name_field"
+                            htmlFor="name_field"
+                            label="Name"
+                            variant="standard"
+                            fullWidth
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            
+                        />
+                        <TextField
+                            id="price_field"
+                            htmlFor="price_field"
+                            label="Price"
+                            variant="standard"
+                            fullWidth
+                            name="price"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+
+                        />
+                        <FormControl className="MuiTextField-root" >
+                            <InputLabel id="demo-simple-select-label">Color</InputLabel>
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="update_product__color"
+                            value={category}
+                            label="Color"
+                            onChange={(e) => setColor(e.target.value)}
+                            >
+                                {productColor.map(color => (
+                                    <MenuItem key={color} value={color} className="update_product__option" >{color}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <FormControl className="MuiTextField-root" >
+                            <InputLabel id="demo-simple-select-label">Size</InputLabel>
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="update_product__color"
+                            value={size}
+                            label="Color"
+                            onChange={(e) => setSize(e.target.value)}
+                            >
+                                {productSize.map(size => (
+                                    <MenuItem key={size} value={size} className="update_product__option">{size}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <TextField
+                            id="standard-multiline-static"
+                            value={description}
+                            label="Description"
+                            onChange={(e) => setColor(e.target.value)}
+                            multiline
+                            rows={4}
+                            defaultValue=""
+                            variant="standard"
+                        />
+                        <FormControl className="MuiTextField-root" >
+                            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="update_product__category"
+                            value={category}
+                            label="Category"
+                            onChange={(e) => setCategory(e.target.value)}
+                            >
+                                {categories.map(category => (
+                                    <MenuItem key={category} value={category} className="update_product__option">{category}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <TextField
+                            id="stock_field"
+                            htmlFor="stock_field"
+                            label="Stock"
+                            variant="standard"
+                            fullWidth
+                            name="stock"
+                            value={stock}
+                            onChange={(e) => setStock(e.target.value)}
+                            
+                        />
+                        <TextField
+                            id="seller_field"
+                            htmlFor="seller_field"
+                            label="Seller"
+                            variant="standard"
+                            fullWidth
+                            name="seller"
+                            value={seller}
+                            onChange={(e) => setSeller(e.target.value)}
+                            
+                        />
+                        
+                        <Stack direction="row" spacing={2} className="MuiTextField-root" sx={{p: 4}}>
+                            {oldImages && oldImages.map(img => (
+                                <Avatar key={img} src={img.url} alt={img.url} />
+                            ))}
+                            {imagesPreview.map(img => (
+                                <Avatar key={img} src={img} alt="image preview" />
+                            ))}
+                            <TextField
+                                type="file"
+                                name="avatar"
+                                id="customFile"
+                                accept="image/*"
+                                onChange={onChange}
+                                label="Product Images"
+                                variant="standard"
+                            />
+                        </Stack>
+                    </Stack>
                 </div>
 
-                <div className="col-12 col-md-10 main_products_list" style={{ marginBottom: '5rem' }}>
-                    <Fragment>
-                        <div className="wrapper my-5">
-                            <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4 adim_title">Update Product</h1>
+                <center style={{marginTop: '5rem'}}>
+                <Button
+                    id="update-product_button"
+                    type="submit"
+                    variant="contained"
+                    className="btn btn-block py-3"
+                    disabled={loading ? true : false}
+                >
+                    UPDATE
+                </Button>
+            </center>
+            </Box>
+          
 
-                                <div className="form-group">
-                                    <label htmlFor="name_field">Name</label>
-                                    <input
-                                        type="text"
-                                        id="name_field"
-                                        className="form-control"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="price_field">Price</label>
-                                    <input
-                                        type="text"
-                                        id="price_field"
-                                        className="form-control"
-                                        value={price}
-                                        onChange={(e) => setPrice(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="category_field">Color</label>
-                                    <select className="form-control" id="category_field" value={category} onChange={(e) => setColor(e.target.value)}>
-                                        {productColor.map(color => (
-                                            <option key={color} value={color} >{color}</option>
-                                        ))}
-
-                                    </select>
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="price_field">Size</label>
-                                    <select className="form-control" id="category_field" value={size} onChange={(e) => setSize(e.target.value)}>
-                                        {productSize.map(size => (
-                                            <option key={size} value={size} >{size}</option>
-                                        ))}
-
-                                    </select>
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="description_field">Description</label>
-                                    <textarea className="form-control" id="description_field" rows="8" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="category_field">Category</label>
-                                    <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
-                                        {categories.map(category => (
-                                            <option key={category} value={category} >{category}</option>
-                                        ))}
-
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="stock_field">Stock</label>
-                                    <input
-                                        type="number"
-                                        id="stock_field"
-                                        className="form-control"
-                                        value={stock}
-                                        onChange={(e) => setStock(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="seller_field">Seller Name</label>
-                                    <input
-                                        type="text"
-                                        id="seller_field"
-                                        className="form-control"
-                                        value={seller}
-                                        onChange={(e) => setSeller(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className='form-group'>
-                                    <label>Images</label>
-
-                                    <div className='custom-file'>
-                                        <input
-                                            type='file'
-                                            name='product_images'
-                                            className='custom-file-input'
-                                            id='customFile'
-                                            onChange={onChange}
-                                            multiple
-                                        />
-                                        <label className='custom-file-label' htmlFor='customFile'>
-                                            Choose Images
-                                        </label>
-                                    </div>
-
-                                    {oldImages && oldImages.map(img => (
-                                        <img key={img} src={img.url} alt={img.url} className="mt-3 mr-2" width="55" height="52" />
-                                    ))}
-
-                                    {imagesPreview.map(img => (
-                                        <img src={img} key={img} alt="Images Preview" className="mt-3 mr-2" width="55" height="52" />
-                                    ))}
-
-                                </div>
-
-
-                                <button
-                                    id="login_button"
-                                    type="submit"
-                                    className="btn btn-block py-3"
-                                    disabled={loading ? true : false}
-                                >
-                                    UPDATE
-                                </button>
-
-                            </form>
-                        </div>
-                    </Fragment>
-                </div>
-            </div>
-
-        </Fragment>
+        </Container >
     )
 }
 

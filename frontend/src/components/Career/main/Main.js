@@ -4,7 +4,6 @@ import ic1 from '../../../images/cl.png'
 import ic2 from '../../../images/equal.png'
 import ic3 from '../../../images/f.png'
 import ic4 from '../../../images/cm.png'
-import line from '../../../images/line.png'
 
 export default function Main() {
     return (

@@ -2,6 +2,14 @@ const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema({
     shippingInfo: {
+        name: {
+            type: String,
+            required: false
+        },
+        surname: {
+            type: String,
+            required: false
+        },
         address: {
             type: String,
             required: true
@@ -94,10 +102,13 @@ const orderSchema = mongoose.Schema({
         type: Date
     },
     createdAt: {
-        type: Date,
-        default: Date.now
+        type: String,
+        default: date
     }
 
 })
+
+const d = new Date( Date.now );
+var date = d.getHours() + ":" + d.getMinutes() + ", " + d.toDateString();
 
 module.exports = mongoose.model('Order', orderSchema)

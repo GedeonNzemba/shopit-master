@@ -1,0 +1,82 @@
+.drawer__logo-container {
+  padding: 2.4rem 2.4rem 0 2.4rem;
+}
+.drawer__logo-container .logo {
+  height: 3.5rem;
+}
+.drawer__logo-container #list_item_text-admin {
+  display: flex;
+}
+.drawer__logo-container #list_item_text-admin span {
+  place-self: center;
+  color: #000000de;
+}
+
+.admin-list_item_wrappe {
+  padding-left: 2.5rem;
+}
+
+.drawer__wrapper-admin div.MuiDrawer-paper {
+  position: relative !important;
+}
+
+ul.admin__sidedrawer-list-wrap .admin-list_item_wrapper {
+  padding-left: 2.5rem;
+}
+ul.admin__sidedrawer-list-wrap .admin-list_item_wrapper.active {
+  background-color: #EBF9F1;
+  position: relative;
+}
+ul.admin__sidedrawer-list-wrap .admin-list_item_wrapper.active::before {
+  top: 0px;
+  right: 0px;
+  width: 3px;
+  bottom: 0px;
+  content: "";
+  position: absolute;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #00ab55;
+}
+ul.admin__sidedrawer-list-wrap .admin-list_item_wrapper.active .admain-list_item_title span {
+  color: #16B263;
+  font-weight: 600;
+}
+ul.admin__sidedrawer-list-wrap .admin-list_item_wrapper.active .admin-list_item_iconWrap svg {
+  color: #16B263;
+}
+
+.admin__main-viewer .admin__content_item {
+  display: none;
+}
+.admin__main-viewer .admin__content_item.active {
+  display: block;
+}
+
+.main_dash {
+  padding: 0 2rem 2rem;
+}
+
+.admin__appBar {
+  background-color: #313962 !important;
+}
+.admin__appBar .admin__toolbar_innerWrap {
+  width: 100%;
+  justify-content: space-between;
+}
+.admin__appBar .admin__search .admin__searchWrap svg {
+  font-size: 2rem !important;
+}
+.admin__appBar .admin__search .admin__searchInput input {
+  font-size: 1.7rem;
+}
+.admin__appBar .admin__user_avatar {
+  place-self: center;
+}
+.admin__appBar .admin__badgeNotify span {
+  font-size: 1.6rem;
+}
+.admin__appBar .admin__badgeNotify svg {
+  width: 1.1em;
+  height: 1.1em;
+}/*# sourceMappingURL=drawer.css.map */

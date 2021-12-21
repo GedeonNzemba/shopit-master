@@ -572,21 +572,6 @@ export default function Poultry({ match }) {
         )
     }
 
-    function handleFilter() {
-        let filter = document.getElementById('filter_shop');
-        let categoryPage = document.getElementById('category-page');
-
-        
-        categoryPage.classList.add('category-page');
-        filter.classList.add('filter_shop');
-
-        categoryPage.addEventListener('click',  () => {
-            categoryPage.classList.remove('category-page');
-            filter.classList.remove('filter_shop');
-        })
-    }
-
-
 
     return (
         <div id="category-page">

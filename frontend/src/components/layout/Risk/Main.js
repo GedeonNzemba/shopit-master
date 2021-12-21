@@ -1,34 +1,12 @@
 /* eslint-disable no-undef */
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import Carousel from './carousel/Slider'
-import Slider from './Slider'
+
 import Card from '@mui/material/Card';
 import './style.css'
 import Box from '@mui/material/Box';
 
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-
-import audit_1 from '../../../images/risk/audit_1.jpg'
-import audit_2 from '../../../images/risk/audit_2.jpg'
-import audit_3 from '../../../images/risk/audit_3.jpg'
-
-import assurance_1 from '../../../images/risk/assurance_1.jpg'
-import assurance_2 from '../../../images/risk/assurance_2.jpg'
-import assurance_3 from '../../../images/risk/assurance_3.jpg'
-
-import transform_1 from '../../../images/risk/transformation.jpg'
-import transform_2 from '../../../images/risk/operational risk and transformation.png'
-import transform_3 from '../../../images/risk/2.jpg'
-
-import audit_1a from '../../../images/risk/third.jpg'
-import audit_2a from '../../../images/risk/third_2.png'
-import audit_3a from '../../../images/risk/third_3.png'
 
 import { Content } from './data'
 import Paper from '@mui/material/Paper';
@@ -67,36 +45,7 @@ const Main = () => {
 
     }, [])
 
-    const Audit = () => {
-        return (
-            <div className="audit_img-Style" id="audit_img-One" />
-        )
-    }
-    const Audit_a = () => {
-        return (
-            <div className="audit_img-Style" id="audit_img-Two" />
-        )
-    }
-    const Audit_b = () => {
-        return (
-            <div className="audit_img-Style" id="audit_img-Three" />
-        )
-    }
-    const Risk = () => {
-        return (
-            <div className="risk_img-Style" id="risk_img-One" />
-        )
-    }
-    const Risk_a = () => {
-        return (
-            <div className="risk_img-Style" id="risk_img-Two" />
-        )
-    }
-    const Risk_b = () => {
-        return (
-            <div className="risk_img-Style" id="risk_img-Three" />
-        )
-    }
+   
 
 
     useEffect(() => {

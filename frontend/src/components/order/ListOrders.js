@@ -9,7 +9,6 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { myOrders, clearErrors } from '../../actions/orderActions'
 import { Button } from '@material-ui/core'
-import Topsell from '../product/Topsell'
 import { getOrderDetails } from '../../actions/orderActions'
 
 import { makeStyles } from '@material-ui/core/styles';

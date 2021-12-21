@@ -25,11 +25,11 @@ const productSchema = new mongoose.Schema({
         {
             public_id: {
                 type: String,
-                required: true
+               
             },
             url: {
                 type: String,
-                required: true
+               
             },
         }
     ],
@@ -38,18 +38,13 @@ const productSchema = new mongoose.Schema({
         required: [true, 'Please select category for this product'],
         enum: {
             values: [
-                'Electronics',
-                'Cameras',
-                'Laptops',
-                'Accessories',
-                'Headphones',
-                'Food',
-                "Books",
-                'Clothes/Shoes',
-                'Beauty/Health',
-                'Sports',
-                'Outdoor',
-                'Home'
+                'Poultry',
+                'Fresh Eggs',
+                'Pigsty',
+                'Goats, Sheep & mammals',
+                'Park Animals',
+                'Purebred Seed - ARTIFICIAL INSEMINATION',
+                'Food & Livestock Products'
             ],
             message: 'Please select correct category for product'
         }

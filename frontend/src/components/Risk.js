@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Header from '../components/layout/Risk/Header'
 import Main from '../components/layout/Risk/Main'
 import Bootstrap from './Boostrapp'
-import Msg from './layout/ct/steps/layout/Message'
 
 export const Risk = () => {
 

@@ -2,15 +2,95 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import MetaData from '../layout/MetaData'
+import MenuItem from '@mui/material/MenuItem';
 import Loader from '../layout/Loader'
 import Sidebar from './Sidebar'
+import InputLabel from '@mui/material/InputLabel';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import RemoveDoneIcon from '@mui/icons-material/RemoveDone';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Button from '@material-ui/core/Button';
+import Chip from '@mui/material/Chip';
+
+import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
+import { styled } from '@mui/material/styles';
 import { getOrderDetails, updateOrder, clearErrors } from '../../actions/orderActions'
 import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
+import { ListItemIcon } from '@material-ui/core';
+import delivered from '../../images/delivered.png';
+import process from '../../images/processing.jpg'
+
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 const ProcessOrder = ({ match }) => {
+
+       // -------------------------------REMOVE HEADER AND FOOTER -------------------------------
+       function removeHeader() {
+        const header = document.querySelector('.farm-header');
+        const footer = document.querySelector('#contactFormWrapper');
+        header && (header.style.display = 'none');
+        footer && (footer.style.display = 'none');
+    }
+
+    function mountHeader() {
+        const header = document.querySelector('.farm-header');
+        const footer = document.querySelector('#contactFormWrapper');
+        header && (header.style.display = 'block');
+        footer && (footer.style.display = 'block');
+    }
+
+    function checkDashboard() {
+        removeHeader();
+    }
+
+    useEffect(() => {
+        checkDashboard()
+
+        return () => {
+            mountHeader();
+        }
+    }, [])
+
+    useEffect(() => {
+        const upProfil = document.getElementById('UpdateProfile');
+        upProfil.style.display = 'none';
+
+
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('dashboard_main');
+
+        const newPass = document.getElementById('NewPassword');
+        newPass.style.display = 'none';
+
+
+        return () => {
+            app.classList.remove('dashboard_main');
+            upProfil.style.display = 'block';
+            newPass.style.display = 'block';
+        }
+    }, [])
+
+    // -----------------------------------------------------------------------------------------------
+
 
     useEffect(() => {
         const upProfil = document.getElementById('UpdateProfile');
@@ -71,97 +151,131 @@ const ProcessOrder = ({ match }) => {
     const shippingDetails = shippingInfo && `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`
     const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
 
+
+
     return (
         <Fragment>
             <MetaData title={`Process Order # ${order && order._id}`} />
-            <div className="row" id="admin_allProducts">
-                <div className="col-12 col-md-2">
-                    <Sidebar />
-                </div>
+            <Container style={{ paddingTop: '5%', paddingBottom: '2%', maxWidth: '100%', paddingLeft: '0', paddingRight: '0' }} id="update_product__container">
+                <Box sx={{ flexGrow: 1 }} id="process_order-wrapper">
+                    <Grid container className="processOrder__container_grid" justifyContent="center" alignItems="center" columns={16} spacing={3}>
+                        <Grid item xs={8} className="processOrder__grid_item">
+                            <Box style={{ padding: '2rem' }} className="processOrder__inner">
+                                <Typography variant="h3" sx={{mb: 1}}>Order # {order._id}</Typography>
+                                <List component="div" aria-label="mailbox folders">
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Shipping Info" /></Divider>
+                                    <ListItem button sx={{mt: 2}}>
+                                        <Stack direction="row" spacing={2}>
+                                            <b><ListItemText className="po_item_title" primary="Name: " /></b>
+                                            <ListItemText primary={user && user.name}  sx={{alignSelf: 'center'}} />
+                                        </Stack>
+                                    </ListItem>
 
-                <div className="col-12 col-md-10 main_products_list" style={{ marginBottom: '5rem', marginTop: '3rem' }}>
-                    <Fragment>
-                        {loading ? <Loader /> : (
-                            <div className="row d-flex justify-content-around">
-                                <div className="col-12 col-lg-7 order-details">
+                                    <ListItem button>
+                                        <Stack direction="row" spacing={2}>
+                                            <b><ListItemText className="po_item_title" primary="Phone: " /></b>
+                                            <ListItemText primary={shippingInfo && shippingInfo.phoneNo}  sx={{alignSelf: 'center'}} />
+                                        </Stack>
+                                    </ListItem>
 
-                                    <h2 className="my-5 adim_title">Order # {order._id}</h2>
+                                    <ListItem button>
+                                        <Stack direction="row" spacing={2}>
+                                            <b><ListItemText className="po_item_title" primary="Address: " /></b>
+                                            <ListItemText primary={shippingDetails}  sx={{alignSelf: 'center'}} />
+                                        </Stack>
+                                    </ListItem>
 
-                                    <h4 className="mb-4 ">Shipping Info</h4>
-                                    <p><b>Name:</b> {user && user.name}</p>
-                                    <p><b>Phone:</b> {shippingInfo && shippingInfo.phoneNo}</p>
-                                    <p className="mb-4"><b>Address:</b>{shippingDetails}</p>
-                                    <p><b>Amount:</b> ${totalPrice}</p>
+                                    <ListItem button sx={{mb: 2}}>
+                                        <Stack direction="row" spacing={2}>
+                                            <b><ListItemText className="po_item_title" primary="Amount: " /></b>
+                                            <ListItemText primary={`$${totalPrice}`} sx={{alignSelf: 'center'}}  />
+                                        </Stack>
+                                    </ListItem>
 
-                                    <hr />
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Payment" /></Divider>
+                                    <ListItem button sx={{mt: 2, mb: 2}}>
+                                        <ListItemText
+                                            className={isPaid ? "greenColor" : "redColor"}
+                                            primary={isPaid ? "PAID" : "NOT PAID"}
+                                        />
+                                        {isPaid ?
+                                         <ListItemIcon>
+                                            <DoneAllIcon />
+                                        </ListItemIcon>
+                                        :
+                                        <ListItemIcon>
+                                            <RemoveDoneIcon />
+                                        </ListItemIcon>
+                                        } 
+                                        
+                                    </ListItem>
 
-                                    <h4 className="my-4">Payment</h4>
-                                    <p className={isPaid ? "greenColor" : "redColor"}><b>{isPaid ? "PAID" : "NOT PAID"}</b></p>
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Stripe ID" /></Divider>
+                                    <ListItem button sx={{mt: 2, mb: 2}}>
+                                        <ListItemText
+                                            primary={paymentInfo && paymentInfo.id}
+                                        />
+                                    </ListItem>
 
-                                    <h4 className="my-4">Stripe ID</h4>
-                                    <p><b>{paymentInfo && paymentInfo.id}</b></p>
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Order Status" /></Divider>
+                                    <ListItem button sx={{mt: 2, mb: 2}}>
+                                        <ListItemText
+                                            className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor"}
+                                            primary={orderStatus}
+                                        />
+                                        {order.orderStatus && String(order.orderStatus).includes('Delivered') ? 
+                                            <img src={delivered} alt="delivered product" className="order-status__img" />
+                                            :
+                                            <img src={process} alt="processing product" className="order-status__img" />
+                                        }
+                                    </ListItem>
 
-                                    <h4 className="my-4">Order Status:</h4>
-                                    <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor"} ><b>{orderStatus}</b></p>
-
-
-
-                                    <h4 className="my-4">Order Items:</h4>
-
-                                    <hr />
-                                    <div className="cart-item my-1">
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Order Items" /></Divider>
+                                    <Box sx={{mt: 2}}>
                                         {orderItems && orderItems.map(item => (
-                                            <div key={item.product} className="row my-5">
-                                                <div className="col-4 col-lg-2">
-                                                    <img src={item.image} alt={item.name} height="45" width="65" />
-                                                </div>
-
-                                                <div className="col-5 col-lg-5">
-                                                    <Link to={`/products/${item.product}`}>{item.name}</Link>
-                                                </div>
-
-
-                                                <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                                    <p>${item.price}</p>
-                                                </div>
-
-                                                <div className="col-4 col-lg-3 mt-4 mt-lg-0">
-                                                    <p>{item.quantity} Piece(s)</p>
-                                                </div>
-                                            </div>
+                                            <ListItem button  key={item.product} >
+                                                <Link to={`/products/${item.product}`}>
+                                                    <Stack direction="row" spacing={2}>
+                                                        <Avatar src={item.image} alt={item.name} />
+                                                    </Stack>
+                                                </Link>
+                                                <ListItemText primary={`$${item.price}`} />
+                                                <ListItemText primary={`${item.quantity} Piece(s)`} />
+                                            </ListItem>
                                         ))}
-                                    </div>
-                                    <hr />
-                                </div>
+                                    </Box>
+                                </List>
+                            </Box>
+                        </Grid>
 
-                                <div className="col-12 col-lg-3 mt-5">
-                                    <h4 className="my-4">Status</h4>
-
-                                    <div className="form-group">
-                                        <select
-                                            className="form-control"
-                                            name='status'
+                        <Grid item xs={8} className="processOrder__grid_item">
+                            <Item>
+                                <Stack direction="column" spacing={2}>
+                                    <Typography variant="h4">Status</Typography>
+                                    <FormControl className="MuiTextField-root" id="processOrder__field__select">
+                                        <InputLabel id="demo-simple-select-label" sx={{fontSize: '1.6rem'}}>Status</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="processOrder__select"
                                             value={status}
-                                            onChange={(e) => setStatus(e.target.value)}
+                                            name='status'
+                                            label="Status"
                                             style={{ height: 'auto!important' }}
+                                            onChange={(e) => setStatus(e.target.value)}
                                         >
-                                            <option value="Processing">Processing</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Delivered">Delivered</option>
-                                        </select>
-                                    </div>
+                                            <MenuItem value="Processing" className="processOrder__option" sx={{fontSize: '1.6rem'}}>Processing</MenuItem>
+                                            <MenuItem value="Shipped" className="processOrder__option" sx={{fontSize: '1.6rem'}}>Shipped</MenuItem>
+                                            <MenuItem value="Delivered" className="processOrder__option" sx={{fontSize: '1.6rem'}}>Delivered</MenuItem>
+                                        </Select>
+                                    </FormControl>
 
-                                    <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
-                                        Update Status
-                                    </button>
-                                </div>
-
-                            </div>
-                        )}
-                    </Fragment>
-                </div>
-            </div>
-
+                                    <Button variant="contained" id="processOrder__bg" onClick={() => updateOrderHandler(order._id)}>Update Status</Button>
+                                </Stack>
+                            </Item>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Container>
         </Fragment>
     )
 }

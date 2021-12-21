@@ -96,7 +96,7 @@ label#password-label {
     /* font-family: 'Cairo', sans-serif; */
 }
 .MuiTypography-body1 {
-    font-size: 1.7rem!important;
+    font-size: 1.6rem!important;
     /* font-family: 'Cairo', sans-serif; */
 }
 .MuiSvgIcon-root {
@@ -676,15 +676,15 @@ background-color: #d2d2d2f9;
   .list_wrappe .list_wrap:first-child {
     width: 90%;
   }
-  thead tr th {
+  /* thead tr th {
     font-size: 2rem;
     font-family: 'Ginto bold';
     font-weight: bold;
-  }
+  } */
   tbody tr td {
     font-size: 1.8rem;
-    font-family: 'Ginto regular';
-    font-weight: 500;
+    /* font-family: 'Ginto regular'; */
+  
   }
   th.sorting {
     font-size: 2rem;
@@ -765,8 +765,8 @@ tbody tr td a button span {
 }
 tbody tr td {
   font-size: 1.8rem;
-  font-family: 'Ginto regular';
-  font-weight: 500;
+  /* font-family: 'Ginto regular'; */
+
 }
 th.sorting {
   font-size: 2rem;

@@ -28,27 +28,27 @@ window.addEventListener("scroll", () => {
 });
 
 // Scroll To
-const links = [...document.querySelectorAll(".scroll-link")];
-links.map(link => {
-    if (!link) return;
-    link.addEventListener("click", e => {
-        e.preventDefault();
+// const links = [...document.querySelectorAll(".scroll-link")];
+// links.map(link => {
+//     return if (!link) 
+//     link.addEventListener("click", e => {
+//         e.preventDefault();
 
-        const id = e.target.getAttribute("href").slice(1);
+//         const id = e.target.getAttribute("href").slice(1);
 
-        const element = document.getElementById(id);
-        let position = element.offsetTop - navHeight;
+//         const element = document.getElementById(id);
+//         let position = element.offsetTop - navHeight;
 
-        window.scrollTo({
-            top: position,
-            left: 0,
-        });
+//         window.scrollTo({
+//             top: position,
+//             left: 0,
+//         });
 
-        navBar.classList.remove("show");
-        menu.classList.remove("show");
-        document.body.classList.remove("show");
-    });
-});
+//         navBar.classList.remove("show");
+//         menu.classList.remove("show");
+//         document.body.classList.remove("show");
+//     });
+// });
 
 
 

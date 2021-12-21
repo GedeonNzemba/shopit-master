@@ -53,7 +53,71 @@ import HatchingEgg from '../images/featured/hatching.png'
 
 
 
+const categories = [
+    {
+        "title": "Poultry",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223744/category/animal_tezmcb.svg",
+        "atl": "LaiWiv"
 
+    },
+    {
+        "title": "Fresh Eggs",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/eggs_ca7brk.svg",
+        "atl": "KTrngrIo"
+    },
+    {
+        "title": "Pigsty",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/pig_nmfagj.svg",
+        "atl": "EyCVOYElB"
+    },
+    {
+        "title": "Goats, Sheep & Mammals",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223741/category/goat_bwpnmu.svg",
+        "atl": "EyCVOYElP"
+
+    },
+    {
+        "title": "Park Animals",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/paw-solid_nllgp5.svg",
+        "atl": "XgcabxkzflU"
+    },
+    {
+        "title": "Purebred Seed - ARTIFICIAL INSEMINATION",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223739/category/dna_pycfwt.svg",
+        "atl": "tkTOAnrTpGM"
+
+    },
+    {
+        "title": "Food & Livestock Products",
+        "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
+        "atl": "nnFiNyv"
+    }
+]
+
+const productSize = [
+    '0 KG',
+    '2 KG',
+    '50 KG',
+    '3 L',
+    '5 L',
+    '10 L',
+    'Medium',
+    'Large',
+    'Verrat',
+    'Trout',
+    '1 Dose',
+    '1 T'
+]
+
+const productColor = [
+    'Grey',
+    'White',
+    'Bronze',
+    'Maroon',
+    'Blue',
+    'Black',
+    'Yellow'
+]
 
 
 
@@ -83,71 +147,7 @@ const Home = ({ match }) => {
 
 
 
-    const categories = [
-        {
-            "title": "Poultry",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223744/category/animal_tezmcb.svg",
-            "atl": "LaiWiv"
-
-        },
-        {
-            "title": "Fresh Eggs",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/eggs_ca7brk.svg",
-            "atl": "KTrngrIo"
-        },
-        {
-            "title": "Pigsty",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/pig_nmfagj.svg",
-            "atl": "EyCVOYElB"
-        },
-        {
-            "title": "Goats, Sheep & Mammals",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223741/category/goat_bwpnmu.svg",
-            "atl": "EyCVOYElP"
-
-        },
-        {
-            "title": "Park Animals",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/paw-solid_nllgp5.svg",
-            "atl": "XgcabxkzflU"
-        },
-        {
-            "title": "Purebred Seed - ARTIFICIAL INSEMINATION",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223739/category/dna_pycfwt.svg",
-            "atl": "tkTOAnrTpGM"
-
-        },
-        {
-            "title": "Food & Livestock Products",
-            "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-            "atl": "nnFiNyv"
-        }
-    ]
-
-    const productSize = [
-        '0 KG',
-        '2 KG',
-        '50 KG',
-        '3 L',
-        '5 L',
-        '10 L',
-        'Medium',
-        'Large',
-        'Verrat',
-        'Trout',
-        '1 Dose',
-        '1 T'
-    ]
-
-    const productColor = [
-        'Grey',
-        'White',
-        'Bronze',
-        'Maroon',
-        'Blue',
-        'Black',
-        'Yellow'
-    ]
+   
 
     const alert = useAlert();
     const dispatch = useDispatch();

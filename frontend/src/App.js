@@ -64,12 +64,12 @@ import Farm from './farm/Farm'
 import { Risk } from './components/Risk'
 import Contact from './components/layout/Contact'
 import RealEstate from './Realty/RealEstate'
-import scrollUp from './images/reaalty/scrollup.svg'
-import scrollUpHovered from './images/reaalty/scrollupHover.svg'
 import Header from './components/layout/Header'
 
 
 function App() {
+
+
   // GET PRODUCTS FROM API BACKEND
   // const [products, setProducts]
 
@@ -87,9 +87,7 @@ function App() {
   // }, []);
 
   // This function will scroll the window to the top 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+
 
 
   const [stripeApiKey, setStripeApiKey] = useState('');
@@ -105,21 +103,13 @@ function App() {
 
     getStripApiKey();
 
+
   }, [])
 
   // const { user, isAuthenticated, loading } = useSelector(state => state.auth)
 
 
-  // SCROLL TO UP HOVER 
-  const [hover, setHover] = useState(false);
 
-  const handleMouseIn = () => {
-    setHover(true);
-  }
-
-  const handleMouseOut = () => {
-    setHover(false);
-  }
 
   // const cartPage = 'Cart - Locataire';
   // const loginPage = 'Login - Locataire';
@@ -136,7 +126,7 @@ function App() {
       <main>
         <div className='App'>
           <div className="farmStyle" id="farmSHOP">
-            <Header />
+           <Header />
             <Route path="/" component={Home} exact />
 
             <main id="shipping_wrapper">
@@ -208,12 +198,12 @@ function App() {
 
 
             <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
-            <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact />
+            <ProtectedRoute path="/admin/products" isAdmin={true} component={Dashboard} exact />
             <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact />
             <ProtectedRoute path="/admin/product/:id" isAdmin={true} component={UpdateProduct} exact />
             <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact />
             <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact />
-            <ProtectedRoute path="/admin/users" isAdmin={true} component={UsersList} exact />
+            <ProtectedRoute path="/admin/users" isAdmin={true} component={Dashboard} exact />
             <ProtectedRoute path="/admin/user/:id" isAdmin={true} component={UpdateUser} exact />
             <ProtectedRoute path="/admin/reviews" isAdmin={true} component={ProductReviews} exact />
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useMemo } from 'react'
+import React, {  useState, useEffect } from 'react'
 // import { countries } from 'countries-list'
 import './shipping.css'
 
@@ -6,7 +6,6 @@ import MetaData from '../layout/MetaData'
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 // import { Field, reduxForm } from 'redux-form'
 
 
@@ -16,7 +15,7 @@ import CheckoutSteps from './CheckoutSteps'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveShippingInfo } from '../../actions/cartActions'
 import Stack from '@mui/material/Stack';
-import { useForm, getValues } from "react-hook-form";
+import { useForm } from "react-hook-form";
 // import { styled } from '@mui/material/styles';
 
 
@@ -28,6 +27,8 @@ const Shipping =  ({ history }) => {
 
     const { shippingInfo } = useSelector(state => state.cart)
 
+    const [name, setName] = useState(shippingInfo.name)
+    const [surname, setSurname] = useState(shippingInfo.surname)
     const [address, setAddress] = useState(shippingInfo.address)
     const [city, setCity] = useState(shippingInfo.city)
     const [postalCode, setPostalCode] = useState(shippingInfo.postalCode)
@@ -74,11 +75,11 @@ const Shipping =  ({ history }) => {
 
    
 
-    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = (data) => {
         console.log(data);
 
-        dispatch(saveShippingInfo({ address, city, phoneNo, postalCode, country }))
+        dispatch(saveShippingInfo({ name, surname, address, city, phoneNo, postalCode, country }))
         history.push('/confirm')
     }
     console.log(errors);
@@ -159,6 +160,42 @@ const Shipping =  ({ history }) => {
                 <div id="shipping_info">
                     <h1 className="mb-4 shipping_title">Shipping Info</h1>
                     <Stack direction="column" spacing={4} id="shipping_field-wrapper">
+                        <TextField
+                            id="name_field"
+                            htmlFor="name_field"
+                            label="Name"
+                            variant="standard"
+                            fullWidth
+                            name="name"
+                            {...register('name', {
+                                onChange: (e) => setName(e.target.value),
+                                required: 'Name is required',
+                                maxLength: 12,
+                              })}
+                              value={name}
+                            error={Boolean(errors.name)}
+                            helperText={errors.name?.message
+                            }
+                            
+                        />
+                        <TextField
+                            id="surname_field"
+                            htmlFor="surname_field"
+                            label="surname"
+                            variant="standard"
+                            fullWidth
+                            name="surname"
+                            {...register('surname', {
+                                onChange: (e) => setSurname(e.target.value),
+                                required: 'Surname is required',
+                                maxLength: 12,
+                              })}
+                              value={surname}
+                            error={Boolean(errors.surname)}
+                            helperText={errors.surname?.message
+                            }
+                            
+                        />
                         <TextField
                             id="address_field"
                             htmlFor="address_field"

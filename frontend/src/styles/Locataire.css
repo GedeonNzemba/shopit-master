@@ -12121,14 +12121,6 @@ table {
   color: var(--grey2);
 }
 
-th {
-  text-align: left;
-  padding: 0.5rem;
-  color: var(--white);
-  background-color: var(--primary);
-  font-weight: normal;
-}
-
 td {
   padding: 1rem 0.5rem;
 }

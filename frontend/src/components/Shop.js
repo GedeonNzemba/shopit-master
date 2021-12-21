@@ -24,7 +24,6 @@ import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
 import { getProducts } from '../actions/productActions'
-import Select from './layout/Select'
 import '../styles/Locataire.css'
 
 import ProductList from './product/ProductList';
@@ -40,7 +39,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Typography } from '@material-ui/core'
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 
 
 const StyledBreadcrumb = withStyles((theme) => ({

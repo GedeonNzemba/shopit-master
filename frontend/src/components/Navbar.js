@@ -1,32 +1,25 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import * as AiIcons from "react-icons/ai";
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import logo from "../images/logo_main.png";
-import logoB from "../images/logoblack.png";
-import { MobileRealty } from '../SVG/Svg'
+
 import Sidebar from './farm/Category/sidebar/Sidebar'
 import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
 import hamburger from "../images/reaalty/hamburger.svg"
 
 function Navbar() {
 
-  const [sidebar, setSidebar] = useState(false);
   const [isRisk, setIsRisk] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
 
   const checkPathName = () => {
     const riskManagement = '/riskmanagement';
@@ -63,9 +56,6 @@ function Navbar() {
 
   
 
-  const [screen, setScreen] = useState()
-  const app = document.getElementById('root');
-  let minScreen = app.clientWidth;
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
     function handleDrawerToggle() {

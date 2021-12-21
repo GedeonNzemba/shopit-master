@@ -5,13 +5,13 @@ import Crumb from './breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
 import MetaData from '../../layout/MetaData'
 
-import List from '@material-ui/core/List';
+import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Stack from '@mui/material/Stack';
+
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
+
 import SideBarFielter from './sidebar/Sidebar'
 
 import Button from '@mui/material/Button';
@@ -460,19 +460,7 @@ export default function Purebred({ match }) {
         )
     }
 
-    function handleFilter() {
-        let filter = document.getElementById('filter_shop');
-        let categoryPage = document.getElementById('category-page');
-
-        
-        categoryPage.classList.add('category-page');
-        filter.classList.add('filter_shop');
-
-        categoryPage.addEventListener('click',  () => {
-            categoryPage.classList.remove('category-page');
-            filter.classList.remove('filter_shop');
-        })
-    }
+   
 
 
 
