@@ -13,6 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import email_img from "../../images/email.jpg"
 import join from "../../images/joined.jpg"
+import './styles/profile.css'
 
 const useStyles = makeStyles({
     root: {
@@ -99,7 +100,7 @@ const Profile = () => {
                                 <div className="profile_inner-left">
                                     <div className="profile_email">
 
-                                        <Carde style={{ width: '22rem' }} id="profile_email-card">
+                                        <Carde style={{ width: '28rem' }} id="profile_email-card">
                                             <Carde.Img variant="top" src={email_img} />
                                             <Carde.Body>
                                                 <Carde.Title><h1 id="profile__cardtitle">Email</h1></Carde.Title>
@@ -115,14 +116,14 @@ const Profile = () => {
                                     </div>
                                     <div className="profile_join">
 
-                                        <Carde style={{ width: '22rem' }}>
+                                        <Carde style={{ width: '28rem' }}>
                                             <Carde.Img variant="top" src={join} />
                                             <Carde.Body>
                                                 <Carde.Title><h1 id="profile__cardtitle">Your Journey</h1></Carde.Title>
-                                                <Carde.Text>
+                                                <Carde.Text style={{fontSize: '1.8rem'}}>
                                                     <h5 id="profile__content-text">At Locataire, we respect our customers.
                                                         Thank you for choosing Locataire.</h5>
-                                                    You joined in <span className="profile__join"> {String(user.createdAt).substring(0, 10)}</span>
+                                                    You joined in <span className="profile__join" > {String(user.createdAt).substring(0, 10)}</span>
                                                 </Carde.Text>
                                                 <Link to="/password/reset/:token">
                                                     <Button variant="contained" color="primary" id="profile__btn">Reset Password</Button>

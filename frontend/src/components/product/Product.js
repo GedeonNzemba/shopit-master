@@ -1,28 +1,53 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/Locataire.css'
-
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 // style for product
 
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 const Product = ({ product, col }) => {
 
     return (
+        <div className="product farmStyle"  >
+                <div className="img-container">
+                    <Link to={`/product/${product._id}`}>
+                        <img src={product.images[0].url} alt="products" />
+                    </Link>
+                    <div className="addCart">
+                        <i className="fas fa-shopping-cart"></i>
+                    </div>
+                </div>
 
-        <div className="product farmStyle">
+                <Link to={`/product/${product._id}`}>
+                    <div className="bottom">
+                        <h4 className="product_title">{product.name}</h4>
+                        <div className="price">
+                            <span>${product.price}</span>
+                        </div>
+                    </div>
+                </Link>
+        </div>
+        // {/* my product ends here */}
 
-            <div className="img-container">
+    )
+}
+
+export default Product
+{/* <div className="img-container">
                 <Link to={`/product/${product._id}`}>
                     <img src={product.images[0].url} alt="products" />
                 </Link>
                 <div className="addCart">
                     <i className="fas fa-shopping-cart"></i>
-                </div>
-
-                <div className="side-icons">
-                    <span><i className="fas fa-search"></i></span>
-                    <span id="add_favourite"><i className="far fa-heart"></i></span>
-                    <span><i className="fas fa-sliders-h"></i></span>
                 </div>
             </div>
 
@@ -33,14 +58,4 @@ const Product = ({ product, col }) => {
                         <span>${product.price}</span>
                     </div>
                 </div>
-            </Link>
-
-        </div>
-
-
-        // {/* my product ends here */}
-
-    )
-}
-
-export default Product
+            </Link> */}

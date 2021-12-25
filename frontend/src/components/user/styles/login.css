@@ -1,0 +1,47 @@
+.login_page .navbrand img {
+    height: 3.5em;
+}
+.login_page #fpass {
+    font-size: 1.6rem;
+}
+.login_page #sUp {
+    font-size: 1.6rem;
+}
+.login__main {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+}
+#login__interface-wrapper {
+    height: fit-content;
+    padding: 0!important;
+    margin: 6rem 0 0 0!important;
+}
+@media (min-width: 900px) {
+    #login__inner-interface {
+        width: 50rem;
+    }
+}
+@media (max-width: 899px)  {
+    #login__inner-interface {
+        width: calc(35rem + (50 - 35) * (100vw - 300px) / (899 - 300)) !important;
+    }
+    
+}
+@media (max-width: 299px)  {
+    #login__inner-interface {
+        width: 87% !important;
+    }
+    .login_page #fpass {
+        font-size: 1.35rem;
+    }
+    .login_page #sUp {
+        font-size: 1.35rem;
+    }
+    
+}

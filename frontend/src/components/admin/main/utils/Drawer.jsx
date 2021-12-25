@@ -22,7 +22,9 @@ function SideDrawer({ drawerWidth, mobileOpen  }) {
 
   const handleCloseSideBar = () => {
     const mainDash = document.getElementsByClassName('main_dash')[0]
+    const pageContent = document.getElementById('admain__main-view');
     const sidebar = document.getElementById('admin__dashboard')
+    pageContent.classList.remove('overflow__on');
     var sidebarItems = document.getElementsByClassName('admin-list_item_wrapper');
     mainDash.classList.remove('main_dash_lay');
     sidebar.classList.remove('dashboard__sidebar_open');
@@ -31,6 +33,7 @@ function SideDrawer({ drawerWidth, mobileOpen  }) {
         const element = sidebarItems[i];
         element.addEventListener('click', () => {
           mainDash.classList.remove('main_dash_lay');
+          pageContent.classList.remove('overflow__on');
           sidebar.classList.remove('dashboard__sidebar_open');
         })
       }

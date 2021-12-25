@@ -112,24 +112,61 @@ const ProductsList = ({ history }) => {
         dispatch(deleteProduct(id))
     }
 
-  
+    let isMobile = window.innerWidth <= 650;
+    let isSmallMobile = window.innerWidth <= 420;
+
     return (
 
-        <Fragment>
+        <div id="admin__products_list">
 
 
             {loading ? <Loader /> : (
-                <MDBDataTable
-                    data={setProducts()}
-                    className="px-3 mdb_product_info"
-                    bordered
-                    striped
-                    hover
-                />
-            )}
-            
+                <>
+                    {
+                        window.innerWidth <= 650 ? (
+                            <MDBDataTable
+                                data={setProducts()}
+                                className="px-3 mdb_product_info"
+                                bordered
+                                striped
+                                hover
+                                entriesOptions={[5, 20, 25]}
+                                entries={5}
+                                pagesAmount={4}
+                            />
+                        )
+                            :
+                            window.innerWidth <= 420 ? (
+                            <MDBDataTable
+                                data={setProducts()}
+                                className="px-3 mdb_product_info"
+                                bordered
+                                striped
+                                hover
+                                entriesOptions={[4, 19, 24]}
+                                entries={4}
+                                pagesAmount={2}
+                            />
+                        )
+                            :
 
-        </Fragment>
+                            (
+                                <MDBDataTable
+                                    data={setProducts()}
+                                    className="px-3 mdb_product_info"
+                                    bordered
+                                    striped
+                                    hover
+
+                                />
+                            )
+                    }
+                </>
+
+            )}
+
+
+        </div>
     )
 }
 

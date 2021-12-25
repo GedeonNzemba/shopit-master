@@ -615,7 +615,7 @@ input#search_field {
     background-blend-mode: overlay;
 background-repeat: no-repeat;
     background-size: cover;   
-     height: 80vh;
+     height: 100vh;
     display: flex;
     flex-direction: column;
     max-height: 100%;

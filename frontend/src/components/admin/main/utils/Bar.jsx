@@ -83,7 +83,9 @@ function Bar({ drawerWidth, match }) {
 
     const handleSideBar = () => {
         const mainDash = document.getElementsByClassName('main_dash')[0]
-        const sidebar = document.getElementById('admin__dashboard')
+        const pageContent = document.getElementById('admain__main-view');
+        const sidebar = document.getElementById('admin__dashboard');
+        pageContent.classList.add('overflow__on');
         sidebar.classList.add('dashboard__sidebar_open');
         mainDash.classList.add('main_dash_lay');
     }

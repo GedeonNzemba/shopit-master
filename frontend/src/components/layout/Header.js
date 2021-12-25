@@ -311,7 +311,7 @@ const Header = () => {
     const Login = () => {
         return (
             <Link to="/login" >
-                <div className="login pd" o style={{ display: 'flex' }} id="loginswitch">
+                <div className="login pd" style={{ display: 'flex' }} id="loginswitch">
                     <div style={{ float: 'left', marginRight: '1rem' }}>
                         <i className="farm_header_nav_svg far fa-user"></i>
                     </div>
@@ -448,14 +448,14 @@ const Header = () => {
                             </Divider>
                             {user && user.role === 'admin' && (
                                 <Link to="/dashboard" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
-                                    <Stack direction="row" spacing={2} style={{marginTop: '2rem'}}>
+                                    <Stack direction="row" className="farm-sidebar__stack_item" spacing={2} style={{marginTop: '2rem'}}>
                                         <AdminPanelSettingsIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
                                         <ListItemText primary={'Dashboard'} id="list_item_text" style={{ color: '#ffffff!important' }} />
                                     </Stack>
                                 </Link>
                             )}
                             <Link to="/cart" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
-                                <Stack direction="row" spacing={2} >
+                                <Stack direction="row" className="farm-sidebar__stack_item" spacing={2} >
                                     <IconButton aria-label="cart" id="icon_btn-badge" style={{ marginLeft: '0' }}>
                                         <Badge badgeContent={cart_amount} id="badge_wrapper" color="secondary">
                                             <ShoppingCartOutlinedIcon className="icon_svg_sidebar" id="cart_svg_sidebar" />
@@ -466,7 +466,7 @@ const Header = () => {
                             </Link>
                             <Link to="/orders/me" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
                                 <Box style={{ margin: '1.2rem 0' }}>
-                                    <Stack direction="row" spacing={2} style={user.role !== 'admin' ? {marginTop: '2rem'} : {}}>
+                                    <Stack direction="row" className="farm-sidebar__stack_item" spacing={2} style={user.role !== 'admin' ? {marginTop: '2rem'} : {}}>
                                         <LocalOfferIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
                                         <ListItemText primary={'Orders'} id="list_item_text" style={{ color: '#ffffff!important' }} />
                                     </Stack>
@@ -474,14 +474,14 @@ const Header = () => {
                             </Link>
                             <Link to="/me" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
                                <Box style={{ margin: '1.2rem 0' }}>
-                               <Stack direction="row" spacing={2} >
+                               <Stack direction="row" className="farm-sidebar__stack_item" spacing={2} >
                                     <ManageAccountsIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
                                     <ListItemText primary={'Profile'} id="list_item_text" style={{ color: '#ffffff!important' }} />
                                 </Stack>
                                </Box>
                             </Link>
                             <Link to="/" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={logoutHandler}>
-                                <Stack direction="row" spacing={2} >
+                                <Stack direction="row" className="farm-sidebar__stack_item" spacing={2} >
                                     <LogoutIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
                                     <ListItemText primary={'Logout'} id="list_item_text" style={{ color: '#ffffff!important' }} />
                                 </Stack>
@@ -492,7 +492,7 @@ const Header = () => {
                     (
                         <>
                             <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                                Account
+                                <Chip label="Account" />
                             </Divider>
                             <Link to="/login" style={{ textDecoration: 'none', placeSelf: 'center' }} onClick={handleDrawerToggle}>
                                 <Stack direction="row" spacing={2} >
@@ -533,7 +533,7 @@ const Header = () => {
             
     
         <Divider style={{margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)'}} className="divider_sidebar">
-            Category
+            <Chip label="Category"  />
         </Divider>
             {categories.map((item, index) => {
                 return (
@@ -590,6 +590,7 @@ const Header = () => {
             classes={{
               paper: classes.drawerPaper,
             }}
+            id="drawer__container-wrapper"
           >
             <div className={classes.toolbar} />
             {sidedrawer}
@@ -661,6 +662,12 @@ const Header = () => {
                      Menu
                  </MenuItem>
                 )}
+                    <Link to="/orders/me" className="link__dropdown_item">
+                <MenuItem onClick={handleClose} disableRipple className="dropDown_menu_list__item">
+                    <ManageAccountsIcon className="icon_svg_sidebar" id="login_svg_sidebar" />
+                    Orders
+                </MenuItem>
+                </Link>
                 <Link to="/me" className="link__dropdown_item">
                 <MenuItem onClick={handleClose} disableRipple className="dropDown_menu_list__item">
                     <ManageAccountsIcon className="icon_svg_sidebar" id="login_svg_sidebar" />

@@ -1,14 +1,19 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import MobileBanner from './MobileBanner'
+import React, { Fragment, useState, useEffect, memo } from 'react'
+import HomeSlider from './Slide'
 import Helmet from 'react-helmet'
 // import Header from "../components/layout/Header"
 import './layout/mCustomscrollbar.css'
 import Paginatione from 'react-js-pagination'
 import axios from 'axios';
 import Slider from 'rc-slider'
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Button from '@material-ui/core/Button';
 import Linke from 'react-scroll/modules/components/Link'
-
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import 'rc-slider/assets/index.css';
 
 import MetaData from './layout/MetaData'
@@ -147,7 +152,7 @@ const Home = ({ match }) => {
 
 
 
-   
+
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -456,14 +461,16 @@ const Home = ({ match }) => {
                         <div className="bBanner_title sub_-text">
                             <h2 style={{ color: "#ffffff" }}>poultry meat</h2>
                         </div>
+                        {window.innerWidth < 800 ? null :
                         <div className="bBanner_text">
                             <p style={{ color: "#ffffff" }}>
                                 we sell domestic and commercial chickens, turkeys, ducks, guinea fowl, and geese.
                                 Various crossbred chickens are also available
                             </p>
                         </div>
+                        }
                         <Link to="/product-category/poultry" className="lBanner__btn shop_now">
-                            <Button variant="contained" color="secondary" className="btn-shop">
+                            <Button variant="contained" color="secondary" className="btn-shop" >
                                 shop now
                             </Button>
                         </Link>
@@ -477,14 +484,16 @@ const Home = ({ match }) => {
                         <div className="bBanner_title">
                             <h2>fresh eggs</h2>
                         </div>
+                        {window.innerWidth <= 800 ? null : 
                         <div className="bBanner_text">
                             <p>
                                 we sell clean, sound and odor-free fresh eggs. The eggs are brown, white
                                 and weigh an average of 62.9 grams (or 2.21 ounces).
                             </p>
                         </div>
+                        }
                         <Link to="/product-category/fresh-eggs" className="lBanner__btn shop_now">
-                            <Button variant="contained" color="secondary" className="btn-shop">
+                            <Button variant="contained" color="secondary" className="btn-shop" >
                                 shop now
                             </Button>
                         </Link>
@@ -493,7 +502,6 @@ const Home = ({ match }) => {
             </section>
         )
     }
-
 
 
 
@@ -746,94 +754,145 @@ const Home = ({ match }) => {
                                     :
                                     (
                                         <main className="farm_wrapper" id="farmhome">
-                                            {window.screen.width <= 500 ?
-                                                (
-                                                    <div className="mobile__banner">
-                                                        <Helmet>
-                                                            <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-                                                            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-                                                        </Helmet>
-                                                        <MobileBanner />
-                                                    </div>
-                                                )
 
-                                                : window.screen.width <= 768 ?
-                                                    (
-                                                        <>
-                                                        </>
-                                                    )
+                                            <div className="farm_inner-wrap row">
 
-                                                    :
-                                                    (
-                                                        <div className="farm_inner-wrap row">
-                                                            <div className="top_container">
-                                                                <div className="home_category">
-                                                                    <div className="inner_category _bg">
-                                                                        <Category />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="hero_news">
-                                                                    {/* <Wow /> */}
-                                                                </div>
-                                                                <div className="conv_farm">
-                                                                    <Dash />
-                                                                </div>
+                                                
+
+                                                <div className="top_container">
+                                                    {window.innerWidth <= 599 ? null : (
+                                                        <div className="home_category">
+                                                            <div className="home-inner_category _bg">
+                                                                <Category />
                                                             </div>
                                                         </div>
-                                                    )
+                                                    )}
 
-                                            }
+                                                   
+                                                    <div className="home__banner">
+                                                        
+                                                        <HomeSlider />
+                                                    </div>
+                                                    <div className="conv_farm">
+                                                        <Dash />
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                            <section className={window.screen.width <= 768 ? "farm_select__mobile" : "farm_select"}>
-                                                <Link to="/about" >
-                                                    <div className="farm_select_item row _bg">
-                                                        <div className="_select_item-icon no-paddding col">
-                                                            <About />
-                                                        </div>
-                                                        <div className="_select_item-text col">
-                                                            <span className="select_text">
-                                                                About Farm
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                                <Link to="/shop">
-                                                    <div className="farm_select_item row _bg">
-                                                        <div className="_select_item-icon col">
-                                                            <Shop />
-                                                        </div>
-                                                        <div className="_select_item-text col">
-                                                            <span className="select_text">
-                                                                Shop Now
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </Link>
 
-                                                <Link to="/real-estate">
-                                                    <div className="farm_select_item row _bg" >
-                                                        <div className="_select_item-icon col">
-                                                            <Realty />
-                                                        </div>
-                                                        <div className="_select_item-text col">
-                                                            <span className="select_text" >
-                                                                Real Estate
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                                <Link to="/riskmanagement">
-                                                    <div className="farm_select_item farm_select_item  _bg full-width row">
-                                                        <div className="_select_item-icon col">
-                                                            <AuditRisk />
-                                                        </div>
-                                                        <div className="_select_item-text col">
-                                                            <span className="select_text">
-                                                                Audit &#38; Risk Management
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </Link>
+
+                                            <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                                                {window.innerWidth <= 899 && (
+                                                    <Grid container className="home__grid-wrapper" spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 4, md: 12 }} style={{ placeSelf: 'center' }}>
+                                                        <Grid item sm={4} xs={4} md={4} className="home__grid-item">
+                                                            <List component="div" aria-label="main mailbox folders" sx={{ padding: 0 }}>
+                                                                <Link to="/about">
+                                                                    <ListItemButton sx={{ bgcolor: 'background.paper' }} className="homebox__list_btn">
+                                                                        <ListItemIcon className="home__list_icon">
+                                                                            <About />
+                                                                        </ListItemIcon>
+                                                                        <ListItemText primary={window.innerWidth < 430 ? 'About' : 'About Farm'} className="homebox__list_text" />
+                                                                    </ListItemButton>
+                                                                </Link>
+                                                            </List>
+
+                                                        </Grid>
+                                                        <Grid item sm={4} xs={4} md={4} className="home__grid-item">
+                                                            <List component="div" aria-label="main mailbox folders" sx={{ padding: 0 }}>
+                                                                <Link to="/shop">
+                                                                    <ListItemButton sx={{ bgcolor: 'background.paper' }} className="homebox__list_btn">
+                                                                        <ListItemIcon className="home__list_icon">
+                                                                            <Shop />
+                                                                        </ListItemIcon>
+                                                                        <ListItemText primary={window.innerWidth < 430 ? 'Shop' : 'Shop Now'} className="homebox__list_text" />
+                                                                    </ListItemButton>
+                                                                </Link>
+                                                            </List>
+
+                                                        </Grid>
+                                                        <Grid item sm={4} xs={4} md={4} className="home__grid-item">
+                                                            <List component="div" aria-label="main mailbox folders" sx={{ padding: 0 }}>
+                                                                <Link to="/real-estate">
+                                                                    <ListItemButton sx={{ bgcolor: 'background.paper' }} className="homebox__list_btn">
+                                                                        <ListItemIcon className="home__list_icon">
+                                                                            <Realty />
+                                                                        </ListItemIcon>
+                                                                        <ListItemText primary={window.innerWidth < 430 ? 'Realty' : 'Real Estate'} className="homebox__list_text" />
+                                                                    </ListItemButton>
+                                                                </Link>
+                                                            </List>
+
+                                                        </Grid>
+                                                        <Grid item sm={4} xs={4} md={4} className="home__grid-item">
+                                                            <List component="div" aria-label="main mailbox folders" sx={{ padding: 0 }}>
+                                                                <Link to="/riskmanagement">
+                                                                    <ListItemButton sx={{ bgcolor: 'background.paper' }} className="homebox__list_btn">
+                                                                        <ListItemIcon className="home__list_icon">
+                                                                            <AuditRisk />
+                                                                        </ListItemIcon>
+                                                                        <ListItemText primary={window.innerWidth < 430 ? 'Risk' : 'Risk Management'} className="homebox__list_text" />
+                                                                    </ListItemButton>
+                                                                </Link>
+                                                            </List>
+                                                        </Grid>
+                                                    </Grid>
+                                                )}
+                                            </Box>
+
+                                            <section className={window.innerWidth <= 768 ? "farm_select__mobile" : "farm_select"}>
+                                                {window.innerWidth >= 900 && (
+                                                    <>
+                                                        <Link to="/about" >
+                                                            <div className="farm_select_item row _bg">
+                                                                <div className="_select_item-icon no-paddding col">
+                                                                    <About />
+                                                                </div>
+                                                                <div className="_select_item-text col">
+                                                                    <span className="select_text">
+                                                                        About Farm
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+                                                        <Link to="/shop">
+                                                            <div className="farm_select_item row _bg">
+                                                                <div className="_select_item-icon col">
+                                                                    <Shop />
+                                                                </div>
+                                                                <div className="_select_item-text col">
+                                                                    <span className="select_text">
+                                                                        Shop Now
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+
+                                                        <Link to="/real-estate">
+                                                            <div className="farm_select_item row _bg" >
+                                                                <div className="_select_item-icon col">
+                                                                    <Realty />
+                                                                </div>
+                                                                <div className="_select_item-text col">
+                                                                    <span className="select_text" >
+                                                                        Real Estate
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+                                                        <Link to="/riskmanagement">
+                                                            <div className="farm_select_item farm_select_item  _bg full-width row">
+                                                                <div className="_select_item-icon col">
+                                                                    <AuditRisk />
+                                                                </div>
+                                                                <div className="_select_item-text col">
+                                                                    <span className="select_text">
+                                                                        Risk Management
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </Link>
+                                                    </>
+                                                )}
                                             </section>
 
                                             <EggSection />
@@ -884,9 +943,17 @@ const Home = ({ match }) => {
                                                         </p>
                                                     </div>
                                                     <Linke to="contactFormWrapper" className="lBanner__btn shop_now">
-                                                        <Button variant="outlined" color="primary" className="btn-contact">
+                                                       {window.innerWidth <= 499 ? (
+                                                            <Button variant="contained" color="secondary" className="btn-shop">
                                                             contact us
                                                         </Button>
+                                                       )
+                                                        :
+                                                        (
+                                                            <Button variant="outlined" color="primary" className="btn-contact">
+                                                            contact us
+                                                        </Button>
+                                                        )}
                                                     </Linke>
                                                     {/* <Link to="/" className="lBanner__btn shop_now">contact us</Link> */}
                                                 </aside>
@@ -900,7 +967,7 @@ const Home = ({ match }) => {
                                                             select our from superior quality products
                                                         </span> */}
                                                     <section class="section products">
-                                                        <div className="product-layout">
+                                                    <div className="home__product-grid-sect"  >
                                                             {
                                                                 products.map(product => (
                                                                     <Product key={product._id} product={product} col={3} />
@@ -977,4 +1044,4 @@ const Home = ({ match }) => {
     )
 }
 
-export default Home
+export default memo(Home)

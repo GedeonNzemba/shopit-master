@@ -28,7 +28,7 @@ function Main({ drawerWidth, }) {
   return (
     <ThemeConfig>
       <GlobalStyles />
-      <Container className="admain__main-view">
+      <Container className="admain__main-view" id="admain__main-view">
         <section className="admin__content_item view active">
           <Box sx={{ pb: 5 }}>
             <Typography variant="h4"  sx={{ fontWeight: 700, lineHeight: 1.5 }} id="dashboard__greetings">Hi <span sx={{ textTransform: 'capitalize' }}>{user && user.name}</span>, Welcome back</Typography>

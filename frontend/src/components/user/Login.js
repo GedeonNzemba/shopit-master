@@ -19,7 +19,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
-
+import './styles/login.css'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
@@ -47,10 +47,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         padding: '2rem',
-        fontSize: '1.6rem!important', 
+        fontSize: '1.6rem!important',
         [theme.breakpoints.down(501)]: {
             width: '87%',
-          
+
         },
     }
 }));
@@ -122,7 +122,7 @@ const Login = ({ history, location }) => {
             <MetaData title={'Login'} />
             {loading ? <Loader /> : (
                 <ThemeProvider theme={theme}>
-                    <Container component="main" maxWidth="xs">
+                    <Container component="main" style={{ padding: '0', margin: '0' }} className="login__main">
                         <CssBaseline />
                         <Box
                             sx={{
@@ -131,67 +131,68 @@ const Login = ({ history, location }) => {
                                 flexDirection: 'column',
                                 alignItems: 'center',
                             }}
+                            id="login__interface-wrapper"
                         >
-                             <Paper elevation={3} className={classes.paper}>
-                            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} className={classes.icon}>
-                                <LoginIcon />
-                            </Avatar>
-                            <Typography component="h1" variant="h5" className={classes.h1}>
-                                Sign in
-                            </Typography>
-                            <Box component="form" onSubmit={submitHandler} noValidate sx={{ mt: 1 }}>
-                                <TextField
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    autoFocus
-                                    className={classes.field}
-                                />
-                                <TextField
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    autoComplete="current-password"
-                                    className={classes.field}
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary" />}
-                                    label="Remember me"
-                                />
-                                <Button
-                                    type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    sx={{ mt: 3, mb: 2 }}
-                                    className={classes.button}
-                                >
-                                    Sign In
-                                </Button>
-                                <Grid container>
-                                    <Grid item xs>
-                                        <Link to="/password/forgot" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                            <Button variant="outlined">Forgot password?</Button>
-                                        </Link>
+                            <Paper elevation={3} className={classes.paper} id="login__inner-interface">
+                                <Avatar sx={{ m: 1, bgcolor: '#313962' }} className={classes.icon}>
+                                    <LoginIcon />
+                                </Avatar>
+                                <Typography component="h1" variant="h5" className={classes.h1}>
+                                    Sign in
+                                </Typography>
+                                <Box component="form" onSubmit={submitHandler} noValidate sx={{ mt: 1 }}>
+                                    <TextField
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        autoFocus
+                                        className={classes.field}
+                                    />
+                                    <TextField
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        autoComplete="current-password"
+                                        className={classes.field}
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox value="remember" color="primary" />}
+                                        label="Remember me"
+                                    />
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        sx={{ mt: 3, mb: 2 }}
+                                        className={classes.button}
+                                    >
+                                        Sign In
+                                    </Button>
+                                    <Grid container>
+                                        <Grid item xs>
+                                            <Link to="/password/forgot" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
+                                                <Button variant="outlined" id="fpass">Forgot password?</Button>
+                                            </Link>
+                                        </Grid>
+                                        <Grid item>
+                                            <Link to="/register" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
+                                                <Button variant="outlined" id="sUp">{"Sign Up"}</Button>
+                                            </Link>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item>
-                                        <Link to="/register" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                            <Button variant="outlined">{"Sign Up"}</Button>
-                                        </Link>
-                                    </Grid>
-                                </Grid>
-                            </Box>
+                                </Box>
                             </Paper>
                         </Box>
                         <Copyright sx={{ mt: 8, mb: 4 }} />

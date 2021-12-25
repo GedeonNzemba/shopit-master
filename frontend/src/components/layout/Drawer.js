@@ -13,6 +13,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
@@ -99,6 +101,7 @@ return (
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}
+            id="drawer__mock"
           >
             <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
               <CloseIcon/>
@@ -113,6 +116,7 @@ return (
             classes={{
               paper: classes.drawerPaper,
             }}
+            id="drawer__mock"
           >
             <div className={classes.toolbar} />
             {drawer}

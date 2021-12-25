@@ -26,6 +26,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
+    "@trendyol-js/react-carousel": "^2.0.1",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.3.0",
     "@types/react": "^17.0.5",
