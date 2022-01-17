@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 import email_img from "../../images/email.jpg"
 import join from "../../images/joined.jpg"
 import './styles/profile.css'
+import { useTranslation, Trans } from 'react-i18next';
 
 const useStyles = makeStyles({
     root: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles({
 
 
 const Profile = () => {
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
 
@@ -53,7 +55,7 @@ const Profile = () => {
 
                     <div className="profile_main">
                         {/* <header className="header_profile" /> */}
-                        <div className="profile_tile"><span id="hello">Hello, </span> {user.name}</div>
+                        <div className="profile_tile"><span id="hello">{t('hello')}, </span> {user.name}</div>
                         <main className="profile_wrapper">
                             <div className="profile_image">
                                 <div className="profile__dsn">
@@ -68,7 +70,7 @@ const Profile = () => {
                                     </Card>
                                 </div>
                                 <CardContent className="profile_name-wrap">
-                                    <div className="profile_name">Hello, {user.name}. You can can edit your profile here.</div>
+                                    <div className="profile_name">{t('hello')}, {user.name}. {t('edit__pp')}.</div>
                                     <br />
                                     {user.role !== 'admin' && (
                                         <Link to="/orders/me">
@@ -79,7 +81,7 @@ const Profile = () => {
                                                 className={classes.button + ' btn__profile_udt'}
                                                 id="order"
                                             >
-                                                My Orders
+                                               {t('my__orders')}
                                             </Button>
                                         </Link>
                                     )}
@@ -90,7 +92,7 @@ const Profile = () => {
                                             className={classes.button + ' btn__profile_udt'}
 
                                         >
-                                            Edit Profile
+                                            {t('edit__profiles')}
                                         </Button>
                                     </Link>
 
@@ -103,13 +105,13 @@ const Profile = () => {
                                         <Carde style={{ width: '28rem' }} id="profile_email-card">
                                             <Carde.Img variant="top" src={email_img} />
                                             <Carde.Body>
-                                                <Carde.Title><h1 id="profile__cardtitle">Email</h1></Carde.Title>
+                                                <Carde.Title><h1 id="profile__cardtitle">{t('email')}</h1></Carde.Title>
                                                 <Carde.Text>
-                                                    <h5 id="profile__content-text">Hi{' '} {user.name}, here below is the email you've registered with us.</h5>
+                                                    <h5 id="profile__content-text">{t('hi')}{' '} {user.name}, {t('pp__content')}.</h5>
                                                     <span className="profile___email">{user.email}</span>
                                                 </Carde.Text>
                                                 <Link to="/shop">
-                                                    <Button variant="contained" color="primary" id="profile__btn">Shop Now</Button>
+                                                    <Button variant="contained" color="primary" id="profile__btn">{t('shop__now')}</Button>
                                                 </Link>
                                             </Carde.Body>
                                         </Carde>
@@ -119,14 +121,13 @@ const Profile = () => {
                                         <Carde style={{ width: '28rem' }}>
                                             <Carde.Img variant="top" src={join} />
                                             <Carde.Body>
-                                                <Carde.Title><h1 id="profile__cardtitle">Your Journey</h1></Carde.Title>
+                                                <Carde.Title><h1 id="profile__cardtitle">{t('your__journey')}</h1></Carde.Title>
                                                 <Carde.Text style={{fontSize: '1.8rem'}}>
-                                                    <h5 id="profile__content-text">At Locataire, we respect our customers.
-                                                        Thank you for choosing Locataire.</h5>
-                                                    You joined in <span className="profile__join" > {String(user.createdAt).substring(0, 10)}</span>
+                                                    <h5 id="profile__content-text">{t('at__locataire')}</h5>
+                                                    {t('joined')} <span className="profile__join" > {String(user.createdAt).substring(0, 10)}</span>
                                                 </Carde.Text>
                                                 <Link to="/password/reset/:token">
-                                                    <Button variant="contained" color="primary" id="profile__btn">Reset Password</Button>
+                                                    <Button variant="contained" color="primary" id="profile__btn">{t('reset__password')}</Button>
                                                 </Link>
                                             </Carde.Body>
                                         </Carde>

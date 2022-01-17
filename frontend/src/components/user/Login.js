@@ -23,6 +23,7 @@ import './styles/login.css'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
+import { useTranslation, Trans } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,6 +72,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Login = ({ history, location }) => {
+    const { t, i18n } = useTranslation();
 
     const classes = useStyles();
 
@@ -138,7 +140,7 @@ const Login = ({ history, location }) => {
                                     <LoginIcon />
                                 </Avatar>
                                 <Typography component="h1" variant="h5" className={classes.h1}>
-                                    Sign in
+                                    {t('login__signin')}
                                 </Typography>
                                 <Box component="form" onSubmit={submitHandler} noValidate sx={{ mt: 1 }}>
                                     <TextField
@@ -146,7 +148,7 @@ const Login = ({ history, location }) => {
                                         required
                                         fullWidth
                                         id="email"
-                                        label="Email Address"
+                                        label={t('login__e_address')}
                                         name="email"
                                         autoComplete="email"
                                         value={email}
@@ -159,7 +161,7 @@ const Login = ({ history, location }) => {
                                         required
                                         fullWidth
                                         name="password"
-                                        label="Password"
+                                        label={t('login__password')}
                                         type="password"
                                         id="password"
                                         value={password}
@@ -169,7 +171,7 @@ const Login = ({ history, location }) => {
                                     />
                                     <FormControlLabel
                                         control={<Checkbox value="remember" color="primary" />}
-                                        label="Remember me"
+                                        label={t('login__rme')}
                                     />
                                     <Button
                                         type="submit"
@@ -178,17 +180,17 @@ const Login = ({ history, location }) => {
                                         sx={{ mt: 3, mb: 2 }}
                                         className={classes.button}
                                     >
-                                        Sign In
+                                        {t('login__signin')}
                                     </Button>
                                     <Grid container>
                                         <Grid item xs>
                                             <Link to="/password/forgot" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                                <Button variant="outlined" id="fpass">Forgot password?</Button>
+                                                <Button variant="outlined" id="fpass">{t('login__fpass')}</Button>
                                             </Link>
                                         </Grid>
                                         <Grid item>
                                             <Link to="/register" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                                <Button variant="outlined" id="sUp">{"Sign Up"}</Button>
+                                                <Button variant="outlined" id="sUp">{t('login__signup')}</Button>
                                             </Link>
                                         </Grid>
                                     </Grid>

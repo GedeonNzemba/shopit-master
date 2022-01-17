@@ -61,8 +61,8 @@ div.farm_about {
     // border: 1px solid red;
     height: auto;
     width: 100%;
-
     background-color: #f7f7f7;
+    background-color: #ffffff;
 
     // & #splide01-track {
     //     background-image: url("../../images/cp2.png");
@@ -71,16 +71,6 @@ div.farm_about {
     //     background-position-y: 25rem;
     //     z-index: 9999;
     // }
-
-    background-color: #ffffff;
-
-    & #splide01-track {
-        background-image: url("../../images/cp2.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position-y: 25rem;
-        z-index: 9999;
-    }
 
     & .splide__arrow {
         display: none;
@@ -118,6 +108,9 @@ div.farm_about {
             align-content: center;
             width: 90%;
             margin: 0 auto;
+            justify-content: center;
+    align-items: center;
+    justify-items: center;
             // border: 1px solid red;
 
             // HEADER Content
@@ -194,6 +187,7 @@ div.farm_about {
                     }
                     & div.Fabout_title {
                         & h1 {
+                            font-size: 4rem;
                             & span#Fabout_unc {
                                 color: $primary;
 
@@ -299,8 +293,8 @@ section.first_sec {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.6rem;
-
-    margin-bottom: 3rem;
+    background: #f5f5f5;
+    // margin-bottom: 3rem;
 
     & div.content_left {
         display: flex;
@@ -317,19 +311,19 @@ section.first_sec {
                 width: fit-content;
                 max-width: 0;
                 float: left;
-                border: 0.2rem solid;
+                border: solid;
             }
             & div.content_wrap {
                 color: $black_A;
 
-                font-family: "Ginto bold";
+                font-family: "roboto";
                 font-weight: bold;
                 font-size: 2.2rem;
                 max-width: 89%;
                 padding-left: 2rem;
                 & span#content_span_color {
                     color: $primary;
-                    font-family: "Ginto bold";
+                    font-family: "roboto";
 
                     font-family: "Cairo", sans-serif;
                     font-weight: bold;
@@ -349,16 +343,14 @@ section.first_sec {
 
         & div.content_text {
             display: block;
+            @media (max-width: 768px) {
+                padding: 2rem;
+            }
             & p {
                 color: $secondary;
-
-                font-family: "Ginto regular";
+                font-family: "roboto";
                 font-weight: 400;
                 font-size: 2rem;
-
-                font-family: "Cairo", sans-serif;
-                font-weight: 400;
-                font-size: 1.6rem;
             }
         }
     }
@@ -374,6 +366,12 @@ section.first_sec {
         & div.content_image {
             display: grid;
             grid-template-columns: 20rem 20rem;
+            @media (max-width: 499px) {
+                align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+            }
 
             column-gap: 2rem;
             & div.content_image_big {
@@ -407,11 +405,10 @@ section.first_sec {
 }
 
  div.main_banner {
-    background: radial-gradient(circle, rgba(0, 131, 60, 1) 15%, rgba(49, 57, 98, 1) 61%);
+    background: radial-gradient(circle, #00833c45 15%, #313962bf 61%);
     padding: 5rem 0;
-    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
-
-    height: 20rem;
+    // clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
+    // height: 20rem;
 
     & .splide {
         max-width: 100% !important;
@@ -432,13 +429,8 @@ section.first_sec {
 
         & h4 {
             margin-left: 1.5em;
-
             color: $white;
-            font-family: "GT Super Ds Trial Bd";
-
-            color: $black_A;
-            font-family: "Cairo", sans-serif;
-
+            font-family: "Roboto";
             font-weight: bold;
             font-size: 4rem;
             position: relative;
@@ -479,33 +471,33 @@ section.first_sec {
         }
     }
 }
+.product_listing {
+    background: #ededed;
+}
 
  div.product_listing {
     height: 100%;
     // padding-top: 8rem;
     padding: 8rem 3em 0em;
-
-    height: 250rem;
     // padding-top: 8rem;
     padding: 8rem 3em 3em;
+    
 
     section.listing_wrap {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 1rem;
     }
     div.product_listing__list-wrapper {
         display: grid;
-
-        grid-template-columns: 25rem 25rem 25rem;
-
-        grid-template-columns: 25rem 25rem 25rem 25rem;
-
+        grid-template-columns: 1fr 1fr 1fr;
         column-gap: 1.6rem;
         margin-top: 2em;
 
         & div.product_listing--item {
-            box-shadow: 0 0 12px 0 #0000001f !important;
+            // box-shadow: 0 0 12px 0 #0000001f !important;
+            width: 25rem;
             &:hover {
                 transform: scale(1.01) !important;
             }
@@ -529,7 +521,7 @@ section.first_sec {
                     background-image: url("../../images/clientlist.jpg");
                 }
                 &.--image_4 {
-                    background-image: url("../../images/team.jpg");
+                    background-image: url("../../images/value.jpg");
 
                     background-image: url("../../images/delivery.png");
                 }
@@ -537,23 +529,24 @@ section.first_sec {
                     background-image: url("../../images/delivery.png");
                 }
                 &.--image_3 {
-                    background-image: url("../../images/delivery.png");
+                    background-image: url("../../images/commit.jpg");
                 }
                 &.--image_4 {
-                    background-image: url("../../images/delivery.png");
+                    background-image: url("../../images/value.jpg");
                 }
             }
 
             & div.product_listing--content {
-                padding-top: 1em;
+                padding: 1em;
                 & h4 {
-                    font-family: "Ginto bold";
+                    font-family: "Roboto";
                     font-size: 1.7rem;
-                    font-weight: bold;
+                    font-weight: 500;
                     text-rendering: optimizeLegibility;
                 }
                 & p {
-                    font-family: "Ginto regular";
+                    font-family: "Roboto";
+                    text-align: justify;
                     font-size: 1.6rem;
                 }
             }
@@ -568,12 +561,9 @@ section.first_sec {
 
         & div.color_highlight {
             color: $black_A;
-
-            font-family: "Cairo";
-
-            font-family: "Cairo", sans-serif;
-
+            font-family: "Roboto";
             font-weight: bold;
+            font-weight: 500;
             text-rendering: optimizeLegibility;
             font-size: 3.5rem;
         }
@@ -588,10 +578,7 @@ section.first_sec {
             align-items: center;
             padding-top: 2em;
             & p {
-                font-family: "Cairo";
-
-                font-family: "Cairo", sans-serif;
-
+                font-family: "Roboto";
                 font-weight: 700;
                 font-size: 1.8rem;
                 max-width: 66%;
@@ -640,12 +627,12 @@ section.first_sec {
                         box-shadow: 0 0 12px 0 #0000001f !important;
                         & p {
                             padding: 1rem;
-                            font-family: "Ginto regular";
+                            font-family: "Roboto";
                             text-align: left;
                             text-transform: capitalize;
                             word-break: break-word;
                             font-size: 1.6rem;
-                            font-weight: 500;
+                            font-weight: 400;
                             margin-block-end: 0;
                         }
                         & div.--pd_item_img_a {
@@ -687,12 +674,12 @@ section.first_sec {
                         box-shadow: 0 0 12px 0 #0000001f !important;
                         & p {
                             padding: 1rem;
-                            font-family: "Ginto regular";
+                            font-family: "Roboto";
                             text-align: left;
                             text-transform: capitalize;
                             word-break: break-word;
                             font-size: 1.6rem;
-                            font-weight: 500;
+                            font-weight: 400;
                             margin-block-end: 0;
                         }
                         & div.--pd_item_img_c {
@@ -757,12 +744,12 @@ section.first_sec {
                         box-shadow: 0 0 12px 0 #0000001f !important;
                         & p {
                             padding: 1rem;
-                            font-family: "Ginto regular";
+                            font-family: "Roboto";
                             text-align: left;
                             text-transform: capitalize;
                             word-break: break-word;
                             font-size: 1.6rem;
-                            font-weight: 500;
+                            font-weight: 400;
                             margin-block-end: 0;
                         }
                         & div.--pd_item_img_g {
@@ -801,13 +788,40 @@ section.first_sec {
         & div.numGrid {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             // border: 1px solid blue;
-            align-items: center;
-            padding-top: 3em;
+            // padding-top: 3em;
+            margin-top: 3rem;
+            
+
+            .grid_num-wrap {
+                display: grid;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
+                margin-bottom: 3rem;
+
+                &  div.grid_num-item { 
+                    width: 89%;
+                    display: flex;
+                    & .grid_num-item--left {
+                        padding-right: 1rem;
+                        & span {
+                            font-size: 1.6rem;
+    font-weight: 500;
+                        }
+                    } 
+
+                }
+                & .grid_num-item--left {
+                    padding-right: 1rem;
+                }
+            }
 
             & div.grid_num-wrap {
                 display: grid;
-                grid-template-columns: 30rem 30rem 30rem;
+                grid-template-columns: 1fr 1fr 1fr;
                 column-gap: 10rem;
                 // border: 1px solid red;
                 max-width: fit-content;
@@ -817,6 +831,7 @@ section.first_sec {
 
                 div.grid_num-item {
                     display: flex;
+                    width: 89%;
 
                     & div.grid_num-item--left {
                         display: block;
@@ -869,7 +884,7 @@ section.first_sec {
 
                     & div.grid_num-wrap {
                         display: grid;
-                        grid-template-columns: 30rem 30rem 30rem;
+                        grid-template-columns: 1fr 1fr 1fr;
                         column-gap: 10rem;
                         // border: 1px solid red;
                         max-width: fit-content;
@@ -955,29 +970,21 @@ div.intro_text {
 
 h1.headline {
     color: $black_A;
-
-    font-family: "GT Super Ds Trial Bd";
-
-    font-family: "Cairo", sans-serif;
-
+    font-family: "Roboto";
     font-weight: 700;
     text-rendering: optimizeLegibility;
     font-size: 3.5rem;
-    line-height: 2;
+    line-height: 1.5;
 
     text-transform: capitalize;
 }
 
 div.product_listing__text {
-    max-width: 55%;
+    max-width: 70%;
     & p.about_product_text {
-        font-weight: 500;
-
-        font-family: "Ginto regular";
+        font-weight: 400;
+        font-family: "Roboto";
         font-size: 2rem;
-
-        font-family: "Cairo", sans-serif;
-        font-size: 1.6rem;
     }
 
     & #color_highlight {
@@ -985,16 +992,15 @@ div.product_listing__text {
     }
 }
 
+
 div.color_highlight {
     color: $black_A;
-
-    font-family: "GT Super Ds Trial Bd";
-
-    font-family: "Cairo", sans-serif;
-
+    font-family: "Roboto";
     font-weight: bold;
+    font-weight: 500;
     text-rendering: optimizeLegibility;
     font-size: 3.5rem;
+    margin-top: 1rem;
 }
 
 .headline_about {
@@ -1002,3 +1008,241 @@ div.color_highlight {
     max-width: 70%;
     margin-block-start: 0;
 }
+
+ div.numGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border: 1px solid blue;
+    // padding-top: 3em;
+    margin-top: 3rem;
+    
+
+    .grid_num-wrap {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        margin-bottom: 3rem;
+
+          div.grid_num-item { 
+            width: 89%;
+            display: flex;
+            & .grid_num-item--left {
+                padding-right: 1rem;
+                & span {
+                    font-size: 1.6rem;
+font-weight: 500;
+                }
+            } 
+
+        }
+        & .grid_num-item--left {
+            padding-right: 1rem;
+        }
+    }
+
+    & div.grid_num-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10rem;
+        // border: 1px solid red;
+        max-width: fit-content;
+        &:first-child {
+            margin-bottom: 5em;
+        }
+
+        div.grid_num-item {
+            display: flex;
+            width: 89%!important;
+
+            & div.grid_num-item--left {
+                display: block;
+                position: relative;
+                & span {
+                    float: right;
+                    position: absolute;
+                    right: 1em;
+                    top: 0;
+                    color: $primary;
+                    font-family: "Cairo";
+                    text-rendering: optimizeLegibility;
+                    font-size: 2.4rem;
+                    font-weight: bolder;
+                }
+            }
+
+            & div.grid_num-item--right {
+                display: block;
+                & h4 {
+                    color: $black_A;
+                    font-family: "Ginto bold";
+                    font-weight: bold;
+                    font-size: 2.2rem;
+                }
+                & p {
+                    color: $secondary;
+                    font-family: "Ginto regular";
+                    font-weight: 400;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    & section.product_listing--bnt {
+        display: block;
+        margin-top: 6em;
+
+        & div.color_highlight {
+            max-width: 45%;
+        }
+
+        & div.numGrid {
+            display: flex;
+            flex-direction: column;
+            // border: 1px solid blue;
+            align-items: flex-end;
+            padding-top: 2em;
+
+            & div.grid_num-wrap {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 10rem;
+                // border: 1px solid red;
+                max-width: fit-content;
+                &:first-child {
+                    margin-bottom: 2em;
+                }
+
+                & div.grid_num-item {
+                    // border: 1px solid black;
+                    display: flex;
+
+                    & div.grid_num-item--left {
+                        display: block;
+                        position: relative;
+                        & span {
+                            float: right;
+                            position: absolute;
+                            right: 1em;
+                            top: 0;
+                            color: $primary;
+                            font-family: "Cairo", sans-serif;
+                            text-rendering: optimizeLegibility;
+                            font-size: 2.4rem;
+                            font-weight: bolder;
+                        }
+                    }
+
+                    & div.grid_num-item--right {
+                        display: block;
+                        & h4 {
+                            color: $black_A;
+                            font-family: "Cairo", sans-serif;
+                            font-weight: bold;
+                            font-size: 2rem;
+                        }
+                        & p {
+                            color: $secondary;
+                            font-family: "Cairo", sans-serif;
+                            font-weight: 400;
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+div.numGrid {
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid blue;
+    align-items: flex-end;
+    padding-top: 2em;
+
+    & div.grid_num-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10rem;
+        // border: 1px solid red;
+        max-width: fit-content;
+        &:first-child {
+            margin-bottom: 2em;
+        }
+
+        & div.grid_num-item {
+            // border: 1px solid black;
+            display: flex;
+
+            & div.grid_num-item--left {
+                display: block;
+                position: relative;
+                & span {
+                    float: right;
+                    position: absolute;
+                    right: 1em;
+                    top: 0;
+                    color: $primary;
+                    font-family: "Cairo", sans-serif;
+                    text-rendering: optimizeLegibility;
+                    font-size: 2.4rem;
+                    font-weight: bolder;
+                }
+            }
+
+            & div.grid_num-item--right {
+                display: block;
+                & h4 {
+                    color: $black_A;
+                    font-family: "Roboto";
+                    font-weight: bold;
+                    font-size: 2rem;
+                }
+                & p {
+                    color: $secondary;
+                    font-family: "Roboto";
+                    font-weight: 400;
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}
+#btn__about_hd span {
+    margin-left: 0!important;
+}
+@media (max-width: 768px) {
+div.grid_num-wrap {
+        align-content: center;
+justify-content: center;
+align-items: center;
+justify-items: center;
+}
+    }
+    #btn__abt span {
+            margin-left: 0!important;
+    }
+    @media (max-width: 400px) {
+        div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right p {
+            font-size: 2rem !important;
+        }
+    }
+    @media (max-width: 280px) {
+        div.numGrid {
+            @media (max-width: 240px) {
+                max-width: 100%;
+            }
+        }
+        #farmSHOP .farm_about .grid_num-item {
+            width: 20rem;
+        }
+    }
+    @media (max-width: 500px) {
+        #farmSHOP .farm_about div.grid_num-wrap {
+            max-width: 100%!important;
+            width: 100%;
+        }
+    }

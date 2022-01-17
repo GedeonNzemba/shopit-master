@@ -1,0 +1,91 @@
+{
+    "farm": {
+        "header": {
+            "navBar": {
+                "search_button": "chercher",
+                "search_inputHolder": "Rechercher des produits, des marques et des catégories"
+            },
+            "products_category": {
+                "title1": "la volaille",
+                "title2": "oeufs frais",
+                "title3": "porcherie",
+                "title4": "mammifères",
+                "title5": "animaux du parc",
+                "title6": "de race",
+                "title7": "nourriture et bétail"
+            },
+            "navigation_buttons": {
+                "title1": "à propos de la ferme",
+                "title2": "Achetez",
+                "title3": "immobilier",
+                "title4": "gestion des risques",
+                "titlea": "à propos",
+                "titleb": "immobilier",
+                "titlec": "risk",
+                "titled": "Achetez"
+            },
+            "poultry_fresh_eggs_shop": {
+                "poultry": {
+                    "subtitle": "profiter plus",
+                    "title": "nous vendons des poulets domestiques et commerciaux, des dindes, des canards, des pintades et des oies. Divers poulets croisés sont également disponibles",
+                    "text": "viande de volaille",
+                    "button_text": "Achetez"
+                },
+                "fresh_eggs": {
+                    "subtitle": "profiter plus",
+                    "title": "oeufs frais",
+                    "text": "nous vendons des œufs frais propres, sains et sans odeur. Les œufs sont bruns, blancs et pèsent en moyenne 62,9 grammes.",
+                    "button_text": "Achetez"
+                }
+            },
+            "top_sellers": {
+                "heading": "nos meilleurs vendeurs"
+            },
+            "vegetables_delivery_banner": {
+                "vegetables": {
+                    "subtitle": "profiter plus",
+                    "title": "légumes 100% bio",
+                    "text": "Nous fabriquons des produits biologiques de qualité supérieure conformément aux normes de gestion de la sécurité alimentaire telles que la norme internationale ISO 22000.",
+                    "button_text": "Achetez"
+                },
+                "delivery": {
+                    "text": "Livraison aux frais du client. N'hésitez pas à nous contacter",
+                    "contact_us": "Nous contacter"
+                }
+            },
+            "featured_product": {
+                "heading":"Produit en vedette"
+            },
+            "purebred": {
+                "heading": "GRAINES DE PUR SANG - INSEMINATION ARTIFICIELLE",
+                "button": "Achetez maintenant",
+                "text": "Nous vendons des graines de porc fraîches (sang pur) ou réfrigérées de haute qualité pour la reproduction artificielle de pure race et de croisement. Les verrats Duroc, Landrace, Berkshire, proposés sont destinés à produire des soars hybrides. Il s'agit de souches génétiques d'élite provenant de centres d'insémination reconnus et accrédités aux États-Unis."
+            },
+            "day_old": {
+                "title": "Poussin d’un jour",
+                "text": "Locataire dispose d’un couvoir ultra moderne d’une capacité de 33,500 œufs par cycle. Selon le besoin du client, les poussins peuvent être vaccinés contre les maladies virales courantes.",
+                "button":"Nous contacter"
+            },
+            "hatching": {
+                "title": "œufs à couver",
+                "subtitle": "y compris",
+                "items": {
+                    "item1": "Cobb",
+                    "item2": "Hy-line",
+                    "item3": "Novo",
+                    "item4": "Lohmann",
+                    "item5": "Delkab",
+                    "item6": "Isa Brown"
+                }
+            },
+            "nav_bottom": {
+                "title1": "soins de santé",
+                "title2": "à propos de la ferme",
+                "title3":"immobilier",
+                "title4": "audit et gestion des risques",
+                "title5": "chèvres, moutons et autres",
+                "title6": "carrière de locataire"
+            }
+        }
+    }
+}

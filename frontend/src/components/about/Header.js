@@ -70,8 +70,7 @@ const Header = () => {
 
                                 {/* <Button onClick={scrollDown} variant="contained" color="secondary" className={classes.learnMore}> */}
 
-                                <Button onClick={scrollDown} variant="contained" color="secondary">
-
+                                <Button onClick={scrollDown} variant="contained" id="btn__about_hd" style={{backgroundColor: '#02843d'}}>
                                     Learn More
                                 </Button>
                             </div>
@@ -92,13 +91,13 @@ const Header = () => {
                             }}
                             onArrowsMounted={(splide, prev, next) => { console.log(prev, next) }}
                         >
-                            {about_images.map((image) => (
-                                <SplideSlide key={image}>
+                            {about_images.map((image, index) => (
+                                <SplideSlide key={index}>
                                     <div className="Fheader_image-wrap" >
 
                                         <img src={image} alt={image.key} className="about_header_img" />
 
-                                        <img src={image} alt={image.key} />
+                                        {/* <img src={image} alt={image.key} /> */}
 
                                     </div>
                                 </SplideSlide>

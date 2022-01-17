@@ -17,9 +17,11 @@ import { saveShippingInfo } from '../../actions/cartActions'
 import Stack from '@mui/material/Stack';
 import { useForm } from "react-hook-form";
 // import { styled } from '@mui/material/styles';
+import { useTranslation, Trans } from 'react-i18next';
 
 
 const Shipping =  ({ history }) => {
+    const { t, i18n } = useTranslation();
 
     
 
@@ -141,7 +143,7 @@ const Shipping =  ({ history }) => {
 
 
     return (
-        <div style={{maxWidth: '80%', margin:'8% auto', height: '10%'}}>
+        <div style={{maxWidth: '80%', margin:'3.5% auto'}}>
 
             <MetaData title={'Shipping Info'} />
 
@@ -157,19 +159,19 @@ const Shipping =  ({ history }) => {
                 onSubmit={handleSubmit(onSubmit)}
                 id="shipping_fistForm"
             >
-                <div id="shipping_info">
-                    <h1 className="mb-4 shipping_title">Shipping Info</h1>
+                <div className="shipping_main-wrap" id="shipping_info">
+                    <h1 className="mb-4 shipping_title">{t('shipping_info')}</h1>
                     <Stack direction="column" spacing={4} id="shipping_field-wrapper">
                         <TextField
                             id="name_field"
                             htmlFor="name_field"
-                            label="Name"
+                            label={t('farm.dashboard.products.all_products.products_modification.table.name')}
                             variant="standard"
                             fullWidth
                             name="name"
                             {...register('name', {
                                 onChange: (e) => setName(e.target.value),
-                                required: 'Name is required',
+                                required: t('error_name'),
                                 maxLength: 12,
                               })}
                               value={name}
@@ -181,13 +183,13 @@ const Shipping =  ({ history }) => {
                         <TextField
                             id="surname_field"
                             htmlFor="surname_field"
-                            label="surname"
+                            label={t('surname')}
                             variant="standard"
                             fullWidth
                             name="surname"
                             {...register('surname', {
                                 onChange: (e) => setSurname(e.target.value),
-                                required: 'Surname is required',
+                                required: t('error_surname'),
                                 maxLength: 12,
                               })}
                               value={surname}
@@ -199,13 +201,13 @@ const Shipping =  ({ history }) => {
                         <TextField
                             id="address_field"
                             htmlFor="address_field"
-                            label="Address"
+                            label={t('address')}
                             variant="standard"
                             fullWidth
                             name="address"
                             {...register('address', {
                                 onChange: (e) => setAddress(e.target.value),
-                                required: 'City is required',
+                                required: t('error_address'),
                                 maxLength: 30,
                               })}
                               value={address}
@@ -216,13 +218,13 @@ const Shipping =  ({ history }) => {
                         />
                         <TextField
                             id="city_field"
-                            label="City"
+                            label={t('city')}
                             variant="standard"
                             name="city"
                             type="text"
                             {...register('city', {
                                 onChange: (e) => setCity(e.target.value),
-                                required: 'City is required',
+                                required: t('error_city'),
                                 maxLength: 15,
                                 pattern: /[a-zA-Z]/
                               })}
@@ -234,13 +236,13 @@ const Shipping =  ({ history }) => {
                         />
                         <TextField
                             id="phone_field"
-                            label="Phone No"
+                            label={t('phone_no')}
                             variant="standard"
                             type="number"
                             name="phone"
                             {...register('phone', {
                                 onChange: (e) => setPhoneNo(e.target.value),
-                                required: 'Phone Number is required',
+                                required: t('error_phone'),
                                 maxLength: 13,
                                 pattern: /^[0-9 ()+-]+$/
                               })}
@@ -253,12 +255,12 @@ const Shipping =  ({ history }) => {
                         <TextField
                             type="number"
                             id="postal_code_field"
-                            label="Postal Code"
+                            label={t('postal_code')}
                             variant="standard"
                             name="postal"
                             {...register('postal', {
                                 onChange: (e) => setPostalCode(e.target.value),
-                                required: 'Postal Code is required',
+                                required: t('error_postal'),
                                 maxLength: 7,
                                 pattern: /^[0-9]*$/
                               })}
@@ -269,13 +271,13 @@ const Shipping =  ({ history }) => {
                         />
                         <TextField
                             id="city_field"
-                            label="Country"
+                            label={t('country')}
                             variant="standard"
                             name="country"
                             type="text"
                             {...register('country', {
                                 onChange: (e) => setCountry(e.target.value),
-                                required: 'Country is required',
+                                required: t('error_country'),
                             })}
                             value={country}
                             error={Boolean(errors.country)}
@@ -290,7 +292,7 @@ const Shipping =  ({ history }) => {
                         type="submit"
                         style={{ marginTop: '5rem', marginBottom: '5rem' }}
                     >
-                        CONTINUE
+                        {t('continue')}
                     </Button>
 
 

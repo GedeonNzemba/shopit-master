@@ -8,10 +8,12 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { allOrders, deleteOrder, clearErrors } from '../../../../../../actions/orderActions'
 import { DELETE_ORDER_RESET } from '../../../../../../constants/orderConstants'
-
+import { useTranslation } from 'react-i18next';
+import {fCurrencyFR} from '../../number/number'
 
 
 export const OrderList = ({ history }) => {
+    const { t, i18n } = useTranslation();
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -57,8 +59,6 @@ export const OrderList = ({ history }) => {
 
 
 
-   
-
 
 
     const deleteOrderHandler = (id) => {
@@ -74,11 +74,11 @@ export const OrderList = ({ history }) => {
                         <MDBTableHead className='mdb__table-head'>
                             <tr className='mdb__table-row'>
                                 <th className="all_users__table-head">#</th>
-                                <th className="all_users__table-head">Order ID</th>
-                                <th className="all_users__table-head">No of Items</th>
-                                <th className="all_users__table-head">Amount</th>
-                                <th className="all_users__table-head">Status</th>
-                                <th className="all_users__table-head">Actions</th>
+                                <th className="all_users__table-head">{t('farm.dashboard.orders.order_id')}</th>
+                                <th className="all_users__table-head">{t('farm.dashboard.orders.No_user')}</th>
+                                <th className="all_users__table-head">{t('farm.dashboard.orders.amount')}</th>
+                                <th className="all_users__table-head">{t('farm.dashboard.orders.status')}</th>
+                                <th className="all_users__table-head">{t('farm.dashboard.orders.actions')}</th>
                             </tr>
                         </MDBTableHead>
 
@@ -89,11 +89,13 @@ export const OrderList = ({ history }) => {
                                         <td>{index}</td>
                                         <td>{order._id}</td>
                                         <td>{order.orderItems.length}</td>
-                                        <td>{`$${order.totalPrice}`}</td>
+                                        <td>{i18n.resolvedLanguage === 'fr' ? fCurrencyFR(order.totalPrice * 581.24) + ' CFA' : `$${order.totalPrice}`}</td>
                                         <td>
                                             {String(order.orderStatus).includes('Delivered')
-                                                ? <p style={{ color: 'green' }}>{order.orderStatus}</p>
-                                                : <p style={{ color: 'red' }}>{order.orderStatus}</p>
+                                                ? <p style={{ color: 'green' }}>{t('delivered')}</p>
+                                                : String(order.orderStatus).includes('Shipped') ?
+                                                <p style={{ color: 'blue' }}>{t('shipped')}</p>
+                                                : <p style={{ color: 'red' }}>{t('processing')}</p>
                                             }
                                         </td>
                                         <td>

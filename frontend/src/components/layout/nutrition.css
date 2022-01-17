@@ -1,0 +1,74 @@
+#farmSHOP .preview_shop:hover {
+  cursor: pointer;
+}
+@media (max-width: 575px) {
+  #farmSHOP .ft_cat_select {
+    grid-template-columns: repeat(3, 1fr) !important;
+    justify-items: center !important;
+  }
+}
+#farmSHOP .nutrition_slider .animal_nutrition-image video {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 699px) {
+  #farmSHOP .nutrition_product_preview .product {
+    width: 16rem;
+  }
+  #farmSHOP .nutrition_product_preview .product img {
+    height: 16rem;
+  }
+}
+@media (min-width: 900px) {
+  #farmSHOP .farm_wrapper .featured_category h3 {
+    font-size: 2.75rem;
+  }
+}
+@media (max-width: 899px) {
+  #farmSHOP .farm_wrapper .featured_category h3 {
+    font-size: 2.75rem;
+  }
+  #farmSHOP .farm_wrapper .featured_category {
+    border-radius: 8px;
+    padding: 2rem;
+  }
+  #farmSHOP .farm_wrapper .featured_category .ft_cat_select .ft_cat_item:hover {
+    padding: 1.5rem;
+    border-radius: 4px;
+  }
+  #farmSHOP .farm_wrapper .featured_category .ft_cat_select {
+    height: 18rem;
+  }
+  #farmSHOP .farm_wrapper .featured_category .ft_cat_select .ft_cat-img {
+    height: 8rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 300px) {
+  #farmSHOP .farm_wrapper .featured_category .ft_cat_select .ft_cat-img {
+    height: 6rem;
+  }
+}
+@media (max-width: 899px) {
+  #farmSHOP .farm_wrapper .featured_category .ft_cat_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+#farmSHOP .farm_wrapper .farm_topSell-wrap.poultry-sec {
+  margin-top: 0 !important;
+}
+#farmSHOP .farm_wrapper .poultry_banner_wrapper .poultrybanner {
+  height: 25rem;
+}
+#farmSHOP .farm_wrapper .poultry_banner_wrapper .preview_shop:hover {
+  cursor: pointer;
+}
+@media (max-width: 699px) {
+  #farmSHOP .farm_wrapper .poultry_banner_wrapper .product {
+    width: 16rem;
+  }
+  #farmSHOP .farm_wrapper .poultry_banner_wrapper .product img {
+    height: 16rem;
+  }
+}/*# sourceMappingURL=nutrition.css.map */

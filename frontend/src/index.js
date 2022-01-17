@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
@@ -9,6 +9,7 @@ import { positions, transitions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic'
 
 import { ThemeProvider, createTheme  } from "@material-ui/core/styles";
+import './language/i18n';
 
 const theme = createTheme ({
   overrides: {
@@ -59,7 +60,9 @@ ReactDOM.render(
   <Provider store={store} >
     <AlertProvider template={AlertTemplate} {...options}>
     <ThemeProvider theme={theme}>
-      <App />
+      <Suspense fallback="...is loading">
+        <App />
+      </Suspense>
       </ThemeProvider>
     </AlertProvider>
   </Provider>,

@@ -4,6 +4,7 @@ import './category_responsive.css'
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import { addItemToCart } from "../../../actions/cartActions";
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -31,11 +32,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import Paginatione from 'react-js-pagination'
-import { Range } from 'rc-slider'
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
-import { getProductsCategory } from '../../../actions/productActions'
+import { getProductsCategory_Livestock, getProductsCategory_LivestockFR} from '../../../actions/productActions'
 import '../../../styles/Locataire.css'
 
 import ProductList from '../../product/ProductList';
@@ -44,6 +44,15 @@ import { HiViewGrid } from 'react-icons/hi'
 import { FaListUl } from 'react-icons/fa'
 import { createTheme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core'
+import { useTranslation, Trans } from 'react-i18next';
+import Slider from 'rc-slider'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Grid from 'react-loader-spinner/dist/loader/Grid.js'
+import { fCurrencyFR, fCurrency} from '../../admin/main/utils/number/number';
+
+const { createSliderWithTooltip } = Slider;
+const Range = createSliderWithTooltip(Slider.Range)
+
 
 const StyledBreadcrumb = withStyles((theme) => ({
     root: {
@@ -112,6 +121,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Purebred({ match }) {
+    const { t, i18n } = useTranslation();
+    const [Id, setId] = useState('');
+    const [quantity, setQuantity] = useState(1)
+    
+    const rangeState = i18n.resolvedLanguage === 'fr' ? [1, 550000] : [1, 962]
+    const [rangeChaged, setRangeChanged] = useState(false)
+
 
     const classes = useStyles();
 
@@ -133,7 +149,7 @@ export default function Purebred({ match }) {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.products)
+    const {loading, products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.livestock)
     const keyword = match.params.keyword
 
     useEffect(() => {
@@ -141,10 +157,10 @@ export default function Purebred({ match }) {
             return alert.error(error)
         }
 
-        dispatch(getProductsCategory(keyword, currentPage, price, name, rating, size, color));
+        dispatch(i18n.resolvedLanguage === 'fr' ? getProductsCategory_LivestockFR(keyword, currentPage, price, name,  rating, size, color) : getProductsCategory_Livestock(keyword, currentPage, price, name,  rating, size, color));
 
 
-    }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color])
+    }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color, i18n.resolvedLanguage])
 
 
     function setCurrentPageNo(pageNumber) {
@@ -176,10 +192,36 @@ export default function Purebred({ match }) {
 
     // const reducedArray = array.reduce((acc, curr) => `${acc}${curr.lat},${curr.lon}|`, '')
 
+    const resetPriceRange = () => {
+        setPrice(prevState => prevState = rangeState)
+        setRangeChanged(prevState => prevState = false)
+    }
+
+    useEffect(() => {
+        resetPriceRange()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [i18n.resolvedLanguage]);
 
 
     const productSize = [
         '1 T'
+    ]
+
+    const noms = [
+        "tourteau de soja",
+        "concentre chair",
+        "concentre ponte ", 
+        "premix ponte", 
+        "premix chair", 
+        "mais jaune", 
+        "alveole pour 12 oeufs", 
+        "alveole pour 24 oeufs", 
+        "alveole pour 30 oeufs", 
+        "abreuvoir volailles", 
+        "mangeoires", 
+        "batteries de ponte", 
+        "cage de pontes", 
+        "fumiers", 
     ]
 
     const names = [
@@ -225,44 +267,63 @@ export default function Purebred({ match }) {
         <div>
             <List>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Price
+                    {t('filter_price')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box>
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
+                    <Range
+                            marks={i18n.resolvedLanguage === 'fr' ? {1: `1 CFA`,550000: `550000 CFA`} : {1: `$1`,962: `$962`}}
                             min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
+                            max={i18n.resolvedLanguage === 'fr' ? 550000 : 962}
+                            defaultValue={i18n.resolvedLanguage === 'fr' ? [1, 550000] : [1, 962]}
+                            tipFormatter={value => `$${value}`}
                             tipProps={{
                                 placement: "top",
-                                visible: true,
+                                visible: true
                             }}
                             value={price}
+                            onChange={price => {
+                                setPrice(price)
+                                setRangeChanged(prevState => prevState = true)
+                            }}
                         />
+                        {rangeChaged && <Button style={{fontSize: '1.6rem', marginTop: '3rem'}} variant="outlined" onClick={resetPriceRange}>{t('reset_price_range')}</Button>}
+                       
                     </Box>
                 </ListItem>
                 <br />
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Category
+                   {t('filter_category')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflowY: 'scroll', height: 200}}>
-                        {names.map((name, index) => {
-                            return (
-                                <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
-                                    <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
-                                </ListItem>
-                            )
-                        })}
+                    {i18n.resolvedLanguage === 'fr' ? 
+
+(
+    noms.map((name, index) => {
+        return (
+            <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
+                <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
+            </ListItem>
+        )
+    })
+)
+
+:
+
+(
+names.map((name, index) => {
+    return (
+        <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
+            <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
+        </ListItem>
+    )
+})
+)}
                     </Box>
                 </ListItem>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Size
+                   {t('filter_size')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
@@ -276,7 +337,7 @@ export default function Purebred({ match }) {
                     </Box>
                 </ListItem>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Rating
+                   {t('filter_rating')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
@@ -302,43 +363,50 @@ export default function Purebred({ match }) {
         return (
             <aside className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
                 <section className="filterByPrice mgt">
-                    <h2 style={{ marginBottom: "2.5rem" }}>filter by price</h2>
+                    <h2 style={{ marginBottom: "2.5rem" }}>{t('filter_price')}</h2>
                     <div className="filterRange">
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
+                    <Range
+                            marks={i18n.resolvedLanguage === 'fr' ? {1: `1 CFA`,550000: `550000 CFA`} : {1: `$1`,962: `$962`}}
                             min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
+                            max={i18n.resolvedLanguage === 'fr' ? 550000 : 962}
+                            defaultValue={i18n.resolvedLanguage === 'fr' ? [1, 550000] : [1, 962]}
+                            tipFormatter={value => `$${value}`}
                             tipProps={{
                                 placement: "top",
-                                visible: true,
+                                visible: true
                             }}
                             value={price}
+                            onChange={price => {
+                                setPrice(price)
+                                setRangeChanged(prevState => prevState = true)
+                            }}
                         />
+                        {rangeChaged && <Button style={{fontSize: '1.6rem', marginTop: '3rem'}} variant="outlined" onClick={resetPriceRange}>{t('reset_price_range')}</Button>}
+                       
                     </div>
                 </section>
                 <section className="filterbycategory mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by category</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_category')}</h2>
                     <div id="category-list-wrapper">
-                        {names.map(name => (
-                            <div className="category-item" key={name} onClick={() => setName(name)}>
-                                {/* <img
-                                    className="category-icon"
-                                    src={name.icon}
-                                    alt={name.atl}
-                                /> */}
+                    {i18n.resolvedLanguage === 'fr' ? noms.map((name, index) => (
+                            <div className="category-item" key={index} onClick={() => setName(name)}>
                                 {name}
-                                {/* <p onClick={() => setName(name)} className="ctg-name">{</p> */}
                             </div>
-                        ))}
+                        ))
+                        
+                        :
+                        
+                        (
+                            names.map((name, index) => (
+                                <div className="category-item" key={index} onClick={() => setName(name)}>
+                                    {name}
+                                </div>
+                            ))
+                        )}
                     </div>
                 </section>
                 <section className="filterbysize mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by size</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_size')}</h2>
                     <div id="category-size-wrapper">
                         {productSize.map((size, key) => (
                             <div className="size-item" key={key}>
@@ -348,7 +416,7 @@ export default function Purebred({ match }) {
                     </div>
                 </section>
                 <section className="filterbyrating mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by rating</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_rating')}</h2>
                     <div id="category-rating-wrapper">
                         <ul className="pl-0">
                             {[5, 4, 3, 2, 1].map((star) => (
@@ -375,7 +443,7 @@ export default function Purebred({ match }) {
                         </Link>
                     </div>
                     <div className="crumb-wrap">
-                        <Crumb navigationA="/" nameA="farm" nameB="Food | Livestock" />
+                        <Crumb navigationA="/" nameA={t('crumb__farm')} nameB={t('crumb__food')} />
                     </div>
                     {
                        window.innerWidth < 700 ? 
@@ -390,14 +458,14 @@ export default function Purebred({ match }) {
                                 <div className="userFilter" id="remove_filter">
                                 <StyledBreadcrumb
                                                     component="a"
-                                                    label="filter"
+                                                    label={t('filter')}
                                                     icon={<FilterAltIcon />}
                                                     onClick={handleClick}
                                                 />
                                     <div className="remove_filter" >
                                         <span><i>{name}</i></span>
                                         <span><i>{size}</i></span>
-                                        <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+                                        <span><i> {rating ? `${t('rating')}: ${rating}` : ''}</i></span>
 
                                         <ThemeProvider theme={theme}>
                                             <Buttone
@@ -407,7 +475,7 @@ export default function Purebred({ match }) {
                                                 startIcon={<DeleteIcon />}
                                                 onClick={handleClearFilter}
                                             >
-                                                Clear filter
+                                                {t('clear_filter')}
                                             </Buttone>
                                         </ThemeProvider>
                                     </div>
@@ -450,7 +518,7 @@ export default function Purebred({ match }) {
                             startIcon={<DeleteIcon />}
                             onClick={handleClearFilter}
                         >
-                            Clear filter
+                            {t('clear_filter')}
                         </Buttone>
                     </ThemeProvider>
                    )
@@ -458,7 +526,7 @@ export default function Purebred({ match }) {
                    null
                }
                 <Button onClick={handleDrawerToggle} className={classes.button} variant="contained" color="success">
-                filters
+                {t('filter')}
             </Button>
            </div>
         )
@@ -502,7 +570,7 @@ export default function Purebred({ match }) {
                                                         >
                                                             <StyledBreadcrumb
                                                                 component="a"
-                                                                label="filter"
+                                                                label={t('filter')}
                                                                 icon={<FilterAltIcon />}
                                                                 onClick={handleClick}
                                                             />
@@ -518,10 +586,10 @@ export default function Purebred({ match }) {
                                             :
                                             <Paper elevation={3} style={{paddingLeft: '1.5rem'}}>
                                                 <FilterCt  
-                                                    nameA="filter" 
+                                                    nameA={t('filter')} 
                                                     nameB={name}
                                                     nameC={size}
-                                                    nameD={rating ? `rating: ${rating}` : ''} 
+                                                    nameD={rating ? `${t('rating')}: ${rating}` : ''} 
                                                 />
                                             </Paper>
                                         }
@@ -544,38 +612,52 @@ export default function Purebred({ match }) {
                             {
                                 grid ?
                                     (
-                                        products.map((poultryItem) => (
-                                            // <ProductList key={poultryItem._id} product={poultryItem} col={4} />
-                                            <div className="product farmStyle" key={poultryItem._id}>
-                                                {console.log('THE LIVESTOCK:' + poultryItem.name)}
+                                        loading ? <Grid arialLabel="loading-indicator" /> : (
+
+                                            products.map((poultryItem) => (
+                                                // <ProductList key={poultryItem._id} product={poultryItem} col={4} />
+                                                <div className="product farmStyle" key={poultryItem._id}>
                                                 <div className="img-container">
                                                     <img src={poultryItem.images[0].url} alt={poultryItem.name} />
-                                                    <div className="addCart">
-                                                        <i className="fas fa-shopping-cart"></i>
-                                                    </div>
-
-                                                    <div className="side-icons">
-                                                        <span><i className="fas fa-search"></i></span>
-                                                        <span><i className="far fa-heart"></i></span>
-                                                        <span><i className="fas fa-sliders-h"></i></span>
-                                                    </div>
+                                                    <div className="addCart" onClick={() => { 
+                                                            setId(poultryItem._id)
+                                                            if (Id !== '') {
+                                                                dispatch(addItemToCart(Id, quantity))
+                                                                alert.success(t('add_to_cart'))
+                                                            } else {
+                                                                alert.info(t('alert_info'))  
+                                                            } 
+                                                            }} variant="contained" color="success" id="add_to_card">
+                                                            <i className="fas fa-shopping-cart"></i>
+                                                        </div>
                                                 </div>
+    
                                                 <div className="bottom">
-                                                    <h6 className="product_title"><Link to={`/product/${poultryItem._id}`}>{poultryItem.name}</Link></h6>
+                                                    <h6 className="product_title">
+                                                        <Link to={`/product/${poultryItem._id}`}>
+                                                            {i18n.resolvedLanguage === 'fr' ? poultryItem.french.name : poultryItem.name}
+                                                        </Link>
+                                                    </h6>
                                                     <div className="price">
-                                                        <span>${poultryItem.price}</span>
+                                                        <span>
+                                                                {i18n.resolvedLanguage === 'fr' ? fCurrencyFR(poultryItem.french.price) + ' CFA' :  fCurrency(poultryItem.price)}
+                                                            </span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        ))
+                                            ))
+                                        )
                                     )
 
                                     :
 
                                     (
-                                        products.map((poultryItem) => (
-                                            <ProductList key={poultryItem._id} product={poultryItem} col={4} />
-                                        ))
+                                        loading ? <Grid arialLabel="loading-indicator" /> : (
+
+                                            products.map((poultryItem) => (
+                                                <ProductList key={poultryItem._id} product={poultryItem} col={4} />
+                                            ))
+                                        )
                                     )
 
                             }

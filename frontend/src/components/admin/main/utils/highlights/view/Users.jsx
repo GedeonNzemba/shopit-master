@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MDBDataTable } from 'mdbreact'
-
+import { useTranslation, Trans } from 'react-i18next';
 
 import Loader from '../../../../../layout/Loader'
 
@@ -11,6 +11,8 @@ import { getAdminProducts, deleteProduct, clearErrors } from '../../../../../../
 import { DELETE_PRODUCT_RESET } from '../../../../../../constants/productConstants'
 
 const ProductsList = ({ history }) => {
+    const { t, i18n } = useTranslation();
+
     useEffect(() => {
         const upProfil = document.getElementById('UpdateProfile');
         upProfil.style.display = 'none';
@@ -48,14 +50,19 @@ const ProductsList = ({ history }) => {
             alert.error(deleteError);
             dispatch(clearErrors())
         }
+        
 
         if (isDeleted) {
-            alert.success('Product deleted successfully');
-            history.push('/admin/products');
+            history.push('/dashboard');
+            alert.success(t('delete_product'));
             dispatch({ type: DELETE_PRODUCT_RESET })
         }
 
     }, [dispatch, alert, error, deleteError, isDeleted, history])
+
+    const deleteProductHandler = (id) => {
+        dispatch(deleteProduct(id))
+    }
 
     const setProducts = () => {
         const data = {
@@ -66,22 +73,22 @@ const ProductsList = ({ history }) => {
                     sort: 'asc'
                 },
                 {
-                    label: 'Name',
+                    label: t('farm.dashboard.products.all_products.products_modification.table.name'),
                     field: 'name',
                     sort: 'asc'
                 },
                 {
-                    label: 'Price',
+                    label: t('farm.dashboard.products.all_products.products_modification.table.price'),
                     field: 'price',
                     sort: 'asc'
                 },
                 {
-                    label: 'Stock',
+                    label: t('farm.dashboard.products.all_products.products_modification.table.stock'),
                     field: 'stock',
                     sort: 'asc'
                 },
                 {
-                    label: 'Actions',
+                    label: t('farm.dashboard.products.all_products.products_modification.table.actions'),
                     field: 'actions',
                 },
             ],
@@ -91,8 +98,8 @@ const ProductsList = ({ history }) => {
         products.forEach(product => {
             data.rows.push({
                 id: product._id,
-                name: product.name,
-                price: `$${product.price}`,
+                name: i18n.resolvedLanguage === 'fr' ? product.french.name : product.name,
+                price: i18n.resolvedLanguage === 'fr' ? product.french.price + ' CFA' : `$${product.price}`,
                 stock: product.stock,
                 actions: <Fragment>
                     <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-1 px-2">
@@ -108,9 +115,7 @@ const ProductsList = ({ history }) => {
         return data;
     }
 
-    const deleteProductHandler = (id) => {
-        dispatch(deleteProduct(id))
-    }
+   
 
     let isMobile = window.innerWidth <= 650;
     let isSmallMobile = window.innerWidth <= 420;

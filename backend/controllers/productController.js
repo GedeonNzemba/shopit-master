@@ -51,6 +51,31 @@ exports.getRandomProducts = catchAsyncErrors(async (req, res, next) => {
     })
 
 })
+exports.getPurebred = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 13;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Purebred' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
 exports.getHomeLivestock = catchAsyncErrors(async (req, res, next) => {
 
     const resPerPage = 6;
@@ -103,9 +128,159 @@ exports.getHomePoultry = catchAsyncErrors(async (req, res, next) => {
 })
 
 // Get all products   =>   /api/v1/products?keyword=apple
+exports.getProductsCategory_Poultry = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 16;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Poultry' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
+exports.getProductsCategory_Eggs = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 16;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Eggs' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
+exports.getProductsCategory_Livestock = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 16;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Livestock' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
+exports.getProductsCategory_Mammals = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 16;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Mammals' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
+exports.getProductsCategory_Others = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 16;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Park' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
+exports.getProductsCategory_Pigsty = catchAsyncErrors(async (req, res, next) => {
+
+    const resPerPage = 16;
+    const productsCount = await Product.countDocuments();
+
+    const apiFeatures = new APIFeatures(Product.find({ category: 'Pigsty' }), req.query)
+        .search()
+        .filter()
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount = products.length;
+
+    apiFeatures.pagination(resPerPage)
+    products = await apiFeatures.query;
+
+
+    res.status(200).json({
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
+    })
+
+})
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 13;
+    const resPerPage = 16;
     const productsCount = await Product.countDocuments();
 
     const apiFeatures = new APIFeatures(Product.find(), req.query)

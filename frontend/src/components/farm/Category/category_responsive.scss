@@ -179,7 +179,7 @@
     @include for-small-desktop-only {
         & .producstWrapper {
             padding: 1.5rem;
-            grid-template-columns: 19rem 19rem 19rem 19rem auto;
+            grid-template-columns: repeat(5, 18.3rem);
             @media (min-width: 1390px) {
                 grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
             }

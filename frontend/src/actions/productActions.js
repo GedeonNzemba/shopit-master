@@ -1,7 +1,36 @@
 import axios from 'axios';
 
+
 import {
     ALL_PRODUCTS_REQUEST,
+    ALL_PUREBRED_PRODUCTS_REQUEST,
+    ALL_PUREBRED_PRODUCTS_SUCCESS,
+    ALL_PUREBRED_PRODUCTS_FAIL,
+
+    ALL_POULTRY_PRODUCTS_REQUEST,
+    ALL_POULTRY_PRODUCTS_SUCCESS,
+    ALL_POULTRY_PRODUCTS_FAIL,
+
+    ALL_FRESH_EGGS_PRODUCTS_REQUEST,
+    ALL_FRESH_EGGS_PRODUCTS_SUCCESS,
+    ALL_FRESH_EGGS_PRODUCTS_FAIL,
+
+    ALL_MAMMALS_PRODUCTS_REQUEST,
+    ALL_MAMMALS_PRODUCTS_SUCCESS,
+    ALL_MAMMALS_PRODUCTS_FAIL,
+
+    ALL_LIVESTOCK_PRODUCTS_REQUEST,
+    ALL_LIVESTOCK_PRODUCTS_SUCCESS,
+    ALL_LIVESTOCK_PRODUCTS_FAIL,
+
+    ALL_OTHERS_PRODUCTS_REQUEST,
+    ALL_OTHERS_PRODUCTS_SUCCESS,
+    ALL_OTHERS_PRODUCTS_FAIL,
+
+    ALL_PIGSTY_PRODUCTS_REQUEST,
+    ALL_PIGSTY_PRODUCTS_SUCCESS,
+    ALL_PIGSTY_PRODUCTS_FAIL,
+
     ALL_PRODUCTS_SUCCESS,
     ALL_PRODUCTS_FAIL,
     ADMIN_PRODUCTS_REQUEST,
@@ -34,48 +63,94 @@ import {
 } from '../constants/productConstants'
 
 //category
-export const getProductsCategory = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
-    let pageTitle = document.title;
-    const livestock = 'Food | Livestock - Locataire';
-    const poultry = 'Poultry - Locataire';
-    const pigsty = 'Pigsty - Locataire';
-    const mammals = 'Mammals - Locataire';
-    const park = 'Park - Locataire';
-    const purebred = 'Purebred SEED : ARTIFICIAL INSEMINATION';
-    const eggs = 'Fresh Eggs - Locataire';
+// export const getProductsCategoryFR = (keyword = '', currentPage = 1, price,  name, rating = 0, size, color) => async (dispatch) => {
+//     let pageTitle = document.title;
+//     const livestock = 'Food | Livestock - Locataire';
+//     const poultry = 'Poultry - Locataire';
+//     const pigsty = 'Pigsty - Locataire';
+//     const mammals = 'Mammals - Locataire';
+//     const park = 'Park - Locataire';
+//     const eggs = 'Fresh Eggs - Locataire';
 
-    try {
 
-        dispatch({ type: ALL_PRODUCTS_REQUEST })
+//     try {
 
-        let link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}`
+//         dispatch({ type: ALL_PRODUCTS_REQUEST })
 
-        if (name) {
-            link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}name=${name}&ratings[gte]=${rating}`
-        }
+//         let link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : '&'}ratings[gte]=${rating}`
 
-        if (size) {
-            link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}&size=${size}`
-        }
+       
+//         if (name) {
+//             link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : '&'}french.name=${name}&ratings[gte]=${rating}`
+//         }
 
-        if (color) {
-            link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === purebred ? 'category=Purebred' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}&color=${color}`
-        }
 
-        const { data } = await axios.get(link)
+//         if (size) {
+//             link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : '&'}ratings[gte]=${rating}&size=${size}`
+//         }
 
-        dispatch({
-            type: ALL_PRODUCTS_SUCCESS,
-            payload: data
-        })
+//         if (color) {
+//             link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : '&'}ratings[gte]=${rating}&color=${color}`
+//         }
 
-    } catch (error) {
-        dispatch({
-            type: ALL_PRODUCTS_FAIL,
-            payload: error.response.data.message
-        })
-    }
-}
+//         const { data } = await axios.get(link)
+
+//         dispatch({
+//             type: ALL_PRODUCTS_SUCCESS,
+//             payload: data
+//         })
+
+//     } catch (error) {
+//         dispatch({
+//             type: ALL_PRODUCTS_FAIL,
+//             payload: error.response.data.message
+//         })
+//     }
+// }
+// export const getProductsCategory = (keyword = '', currentPage = 1, price,  name, rating = 0, size, color) => async (dispatch) => {
+//     let pageTitle = document.title;
+//     const livestock = 'Food | Livestock - Locataire';
+//     const poultry = 'Poultry - Locataire';
+//     const pigsty = 'Pigsty - Locataire';
+//     const mammals = 'Mammals - Locataire';
+//     const park = 'Park - Locataire';
+//     const eggs = 'Fresh Eggs - Locataire';
+
+
+//     try {
+
+//         dispatch({ type: ALL_PRODUCTS_REQUEST })
+
+//         let link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[0]}&price[gte]=${price[1]}&`}ratings[gte]=${rating}`
+
+       
+//         if (name) {
+//             link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}name=${name}&ratings[gte]=${rating}`
+//         }
+
+
+//         if (size) {
+//             link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}&size=${size}`
+//         }
+
+//         if (color) {
+//             link = `/api/v1/products?${pageTitle === livestock ? 'category=Livestock' : pageTitle === poultry ? 'category=Poultry' : pageTitle === pigsty ? 'category=Pigsty' : pageTitle === mammals ? 'category=Mammals' : pageTitle === park ? 'category=Park' : pageTitle === eggs ? 'category=Eggs' : null}&keyword=${keyword}&page=${currentPage}${pageTitle === livestock ? '&' : `&price[lte]=${price[1]}&price[gte]=${price[0]}&`}ratings[gte]=${rating}&color=${color}`
+//         }
+
+//         const { data } = await axios.get(link)
+
+//         dispatch({
+//             type: ALL_PRODUCTS_SUCCESS,
+//             payload: data
+//         })
+
+//     } catch (error) {
+//         dispatch({
+//             type: ALL_PRODUCTS_FAIL,
+//             payload: error.response.data.message
+//         })
+//     }
+// }
 
 export const getRandomProducts = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
 
@@ -112,6 +187,7 @@ export const getProducts = (keyword = '', currentPage = 1, price, name, rating =
             link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${name}&ratings[gte]=${rating}`
         }
 
+
         if (size) {
             link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}`
         }
@@ -130,6 +206,500 @@ export const getProducts = (keyword = '', currentPage = 1, price, name, rating =
     } catch (error) {
         dispatch({
             type: ALL_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getPurebredFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_PUREBRED_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}`
+
+        if (name) {
+            link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_PUREBRED_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_PUREBRED_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+// ############################################################################################################
+export const getProductsCategory_PigstyFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_PIGSTY_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.size=${size}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.color=${color}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_PIGSTY_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_PIGSTY_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_Pigsty = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_PIGSTY_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/pigsty?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_PIGSTY_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_PIGSTY_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_OthersFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_OTHERS_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.size=${size}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.color=${color}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_OTHERS_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_OTHERS_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_Others = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_OTHERS_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/parkanimals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_OTHERS_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_OTHERS_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_MammalsFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_MAMMALS_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.size=${size}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.color=${color}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_MAMMALS_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_MAMMALS_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_Mammals = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_MAMMALS_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/mammals?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_MAMMALS_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_MAMMALS_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_LivestockFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_LIVESTOCK_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.size=${size}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.color=${color}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_LIVESTOCK_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_LIVESTOCK_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_Livestock = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_LIVESTOCK_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/livestock?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_LIVESTOCK_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_LIVESTOCK_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_EggsFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_FRESH_EGGS_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.size=${size}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.color=${color}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_FRESH_EGGS_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_FRESH_EGGS_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_Eggs = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_FRESH_EGGS_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/fresheggs?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_FRESH_EGGS_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_FRESH_EGGS_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_PoultryFR = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_POULTRY_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&french.name=${name}&ratings[gte]=${rating}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.size=${size}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&french.color=${color}&french.price[lte]=${price[1]}&french.price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_POULTRY_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_POULTRY_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const getProductsCategory_Poultry = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_POULTRY_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (name) {
+            link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/poultry?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_POULTRY_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_POULTRY_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+// ############################################################################################################
+
+export const getPurebred = (keyword = '', currentPage = 1, price, name, rating = 0, size, color) => async (dispatch) => {
+
+    try {
+
+        dispatch({ type: ALL_PUREBRED_PRODUCTS_REQUEST })
+
+        let link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}`
+
+        if (name) {
+            link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&name=${name}&ratings[gte]=${rating}`
+        }
+
+        if (size) {
+            link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&size=${size}`
+        }
+
+        if (color) {
+            link = `/api/v1/category/purebred?keyword=${keyword}&page=${currentPage}&ratings[gte]=${rating}&color=${color}`
+        }
+        
+
+        const { data } = await axios.get(link)
+
+        dispatch({
+            type: ALL_PUREBRED_PRODUCTS_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_PUREBRED_PRODUCTS_FAIL,
             payload: error.response.data.message
         })
     }

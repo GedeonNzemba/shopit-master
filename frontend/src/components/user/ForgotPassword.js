@@ -17,10 +17,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import { useTranslation, Trans } from 'react-i18next';
 
 
 const ForgotPassword = () => {
+    const { t, i18n } = useTranslation();
 
     const [email, setEmail] = useState('')
 
@@ -153,7 +154,7 @@ const ForgotPassword = () => {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5"  className={classes.h1}>
-                        Reset Password
+                        {t('reset__password')}
                     </Typography>
                     <form className={classes.form} Validate onSubmit={submitHandler}>
                         <TextField
@@ -162,7 +163,7 @@ const ForgotPassword = () => {
                             required
                             fullwidth
                             id="email"
-                            label="Email Address"
+                            label={t('login__e_address')}
                             name="email"
                             inputProps={{
                                 autocomplete: 'new-password',
@@ -186,7 +187,7 @@ const ForgotPassword = () => {
                             id="login_button"
                             disabled={loading ? true : false}
                         >
-                            Send Email
+                            {t('send__email')}
                         </Button>
 
                     </form>

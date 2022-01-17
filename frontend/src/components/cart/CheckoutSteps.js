@@ -3,27 +3,31 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import { useTranslation, Trans } from 'react-i18next';
 
-const steps = [
-    {title: 'Shipping',
-     url: '/shipping'
-    },
-    {title: 'Confirm Order',
-     url: '/order/confirm'
-    },
-    {title: 'Payment',
-     url: '/payment'
-    }
-]
+
 
 const CheckoutSteps = ({ shipping, confirmOrder, payment }) => {
+    const { t, i18n } = useTranslation();
+
+    const steps = [
+        {title: t('shipping'),
+         url: '/shipping'
+        },
+        {title: t('confirm_order'),
+         url: '/order/confirm'
+        },
+        {title: t('payment'),
+         url: '/payment'
+        }
+    ]
 
     const total = steps.length;
-     
 
+    
     return (
         <>
-            <Box sx={{ width: '100%', marginBottom: '6rem' }} id="container_stepper">
+            <Box style={{ width: '100%', marginBottom: '6rem', marginTop: '3.5%' }} id="container_stepper">
                 <Stepper activeStep={confirmOrder ? (total - 1) : payment ? (total) : (total - 2)} alternativeLabel>
                     {steps.map((item, index) => (
                         <Step key={index}>

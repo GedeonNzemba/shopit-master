@@ -853,6 +853,7 @@ li {
         object-fit: cover;
         height: 19rem;
         border-radius: 4px;
+        width: auto;
         /* width: 100%; */
       }
     }
@@ -1594,5 +1595,14 @@ li {
     .img-container img {
       height: 15rem;
     }
+  }
+}
+
+@media (min-width: 1300px) {
+  .farm_topSell-wrap .product.farmStyle {
+    width: 17rem;
+  }
+  .product .img-container img {
+    height: 17rem;
   }
 }

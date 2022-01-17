@@ -8,10 +8,11 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { allUsers, deleteUser, clearErrors } from '../../../../../../actions/userActions'
 import { DELETE_USER_RESET } from '../../../../../../constants/userConstants'
-
+import { useTranslation, Trans } from 'react-i18next';
 
 
 export const User = () => {
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const upProfil = document.getElementById('UpdateProfile');
@@ -51,11 +52,11 @@ export const User = () => {
                 <MDBTableHead className='mdb__table-head'>
                 <tr className='mdb__table-row'>
                     <th className="all_users__table-head">#</th>
-                    <th className="all_users__table-head">User ID</th>
-                    <th className="all_users__table-head">Name</th>
-                    <th className="all_users__table-head">Email</th>
-                    <th className="all_users__table-head">Role</th>
-                    <th className="all_users__table-head">Actions</th>
+                    <th className="all_users__table-head">{t('farm.dashboard.total_users.user_id')}</th>
+                    <th className="all_users__table-head">{t('farm.dashboard.products.all_products.products_modification.table.name')}</th>
+                    <th className="all_users__table-head">{t('farm.dashboard.total_users.email')}</th>
+                    <th className="all_users__table-head">{t('farm.dashboard.total_users.role')}</th>
+                    <th className="all_users__table-head">{t('farm.dashboard.reviews.items.table.action')}</th>
                 </tr>
             </MDBTableHead>
 

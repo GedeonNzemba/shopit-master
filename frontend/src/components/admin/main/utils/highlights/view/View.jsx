@@ -31,7 +31,7 @@ import { DELETE_PRODUCT_RESET } from '../../../../../../constants/productConstan
 import PropTypes from 'prop-types';
 import User from './Users'
 import UsersList from './Users';
-
+import { useTranslation } from 'react-i18next';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -62,6 +62,7 @@ TabPanel.propTypes = {
 
 
 export const Highlights = ({ history }) => {
+  const { t, i18n } = useTranslation();
 
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -139,9 +140,9 @@ export const Highlights = ({ history }) => {
         {window.innerWidth >= 600 &&
           <>
             <Tabs value={value} onChange={handleChange} aria-label="icon position tabs example" centered className="admin__tabSelector">
-            <Tab label='Products Grid' sx={{ fontSize: '1.6rem' }} className="tabContent" />
+            <Tab label={t('farm.dashboard.products.all_products.products.title')} sx={{ fontSize: '1.6rem' }} className="tabContent" />
             <IconWrapperStyle className="iconWrapper"><Icon icon={appstoreOutlined} width={24} height={24} /></IconWrapperStyle>
-            <Tab label='Modify Products' sx={{ fontSize: '1.6rem' }} className="tabContent" id="tabContent" />
+            <Tab label={t('farm.dashboard.products.all_products.products_modification.title')} sx={{ fontSize: '1.6rem' }} className="tabContent" id="tabContent" />
             <IconWrapperStyle className="iconWrapper"><Icon icon={editOutlined} width={24} height={24} /></IconWrapperStyle>
             {/* <Tab label="Products List"  sx={{ fontSize: '1.6rem' }} className="tabContent" />
         <IconWrapperStyle className="iconWrapper"><Icon icon={unorderedListOutlined} width={24} height={24} /></IconWrapperStyle> */}
@@ -150,7 +151,7 @@ export const Highlights = ({ history }) => {
           <TabPanel value={value} index={0}>
             <Container>
               <Typography variant="h4" style={{ marginBottom: '3rem' }} className="admin__productsTab-title">
-                Products
+                {t('farm.dashboard.products.title')}
               </Typography>
 
               {loading ? <Loader /> : <ProductList products={products && products} />}
@@ -169,14 +170,14 @@ export const Highlights = ({ history }) => {
         {window.innerWidth <= 599 &&
           <>
             <Tabs value={value} onChange={handleChange} aria-label="icon position tabs example" centered className="admin__tabSelector">
-              <Tab label={`${window.innerWidth <= 350 ? 'Products' : 'Products Grid'}`} sx={{ fontSize: '1.6rem' }} className="tabContent" />
-              <Tab label={`${window.innerWidth <= 350 ? 'Edit Products' : 'Modify Products'}`} sx={{ fontSize: '1.6rem' }} className="tabContent" id="tabContent" />
+              <Tab label={`${window.innerWidth <= 350 ? t('farm.dashboard.products.title') : t('farm.dashboard.products.all_products.products.title')}`} sx={{ fontSize: '1.6rem' }} className="tabContent" />
+              <Tab label={`${window.innerWidth <= 350 ? t('farm.dashboard.products.all_products.products_modification.title_sm') : 'Modify Products'}`} sx={{ fontSize: '1.6rem' }} className="tabContent" id="tabContent" />
           </Tabs>
 
           <TabPanel value={value} index={0}>
             <Container>
               <Typography variant="h4" style={{ marginBottom: '3rem' }} className="admin__productsTab-title">
-                Products
+              {t('farm.dashboard.products.title')}
               </Typography>
 
               {loading ? <Loader /> : <ProductList products={products && products} />}

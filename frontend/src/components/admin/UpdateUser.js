@@ -16,8 +16,10 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser, getUserDetails, clearErrors } from '../../actions/userActions'
 import { UPDATE_USER_RESET } from '../../constants/userConstants'
+import { useTranslation, Trans } from 'react-i18next';
 
 const UpdateUser = ({ history, match }) => {
+    const { t, i18n } = useTranslation();
 
     // -------------------------------REMOVE HEADER AND FOOTER -------------------------------
     function removeHeader() {
@@ -116,9 +118,9 @@ const UpdateUser = ({ history, match }) => {
         }
 
         if (isUpdated) {
-            alert.success('User updated successfully')
+            alert.success(t('user_update'))
 
-            history.push('/admin/users')
+            history.push('/dashboard')
 
             dispatch({
                 type: UPDATE_USER_RESET
@@ -154,14 +156,14 @@ const UpdateUser = ({ history, match }) => {
                     className="update_product__form"
                 >
                     <div id="shipping_info">
-                        <h1 className="mt-2 mb-5" style={{paddingTop: '1rem'}}>Update User</h1>
+                        <h1 className="mt-2 mb-5" style={{paddingTop: '1rem'}}>{t('update_user')}</h1>
                         <Stack direction="column" spacing={4} id="shipping_field-wrapper">
                             <TextField
                                 type="name"
                                 id="name_field"
                                 name='name'
                                 fullWidth
-                                label="Name"
+                                label={t('farm.dashboard.products.all_products.products_modification.table.name')}
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
@@ -170,21 +172,21 @@ const UpdateUser = ({ history, match }) => {
                                 id="email_field"
                                 fullWidth
                                 name='email'
-                                label="Email"
+                                label={t('farm.dashboard.total_users.email')}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <FormControl className="MuiTextField-root" >
-                                <InputLabel id="demo-simple-select-label">Role</InputLabel>
+                                <InputLabel id="demo-simple-select-label">{t('farm.dashboard.total_users.role')}</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="update_product__color"
                                     value={role}
-                                    label="Role"
+                                    label={t('farm.dashboard.total_users.role')}
                                     onChange={(e) => setRole(e.target.value)}
                                 >
-                                    <MenuItem value="user" className="update_product__option">user</MenuItem>
-                                    <MenuItem value="admin" className="update_product__option">admin</MenuItem>
+                                    <MenuItem value="user" className="update_product__option">{t('user')}</MenuItem>
+                                    <MenuItem value="admin" className="update_product__option">{t('admin')}</MenuItem>
                                 </Select>
                             </FormControl>
 
@@ -195,8 +197,9 @@ const UpdateUser = ({ history, match }) => {
                                 type="submit"
                                 variant="contained"
                                 className="btn btn-block py-3"
+                                style={{textTransform: 'uppercase'}}
                             >
-                                UPDATE
+                                {t('update')}
                             </Button>
                         </center>
                     </div>

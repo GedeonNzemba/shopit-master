@@ -15,8 +15,10 @@ import './drawer/drawer.css';
 import { Stack } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import Content from './drawer/Content';
+import { useTranslation } from 'react-i18next';
 
 function SideDrawer({ drawerWidth, mobileOpen  }) {
+  const { t } = useTranslation();
 
   const { user } = useSelector(state => state.auth)
 
@@ -64,7 +66,9 @@ function SideDrawer({ drawerWidth, mobileOpen  }) {
             </IconButton>
           </Stack>
           :
-          <img className='logo' src={logo} alt='logo' />
+         <Link to="/">
+            <img className='logo' src={logo} alt='logo' />
+         </Link>
           }
 
           <Stack direction='row' spacing={3} sx={{padding: '1.6rem 2rem', mt: 4, borderRadius: '1.2rem', backgroundColor: '#f4f6f8'}}>
@@ -83,7 +87,7 @@ function SideDrawer({ drawerWidth, mobileOpen  }) {
 
       <Box className="create_product-container">
         <Link to='/admin/product'>
-                <Button variant="contained"  startIcon={<AddBoxIcon />}>Create Product</Button>
+                <Button variant="contained"  startIcon={<AddBoxIcon />}>{t('create__product')}</Button>
             </Link>
       </Box>
     </div>

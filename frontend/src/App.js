@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import NavigationIcon from '@mui/icons-material/Navigation';
 import Route from 'react-router-dom/Route'
 import "./route.css"
 import './styles/Locataire.css'
@@ -49,6 +55,11 @@ import UsersList from './components/admin/UsersList'
 import UpdateUser from './components/admin/UpdateUser'
 import ProductReviews from './components/admin/ProductReviews'
 
+import ProductView from './components/admin/main/utils/highlights/view/View'
+import UserView from './components/admin/main/utils/highlights/view/User'
+import OrderView from './components/admin/main/utils/highlights/view/OrderList.jsx'
+import ReviewView from './components/admin/main/utils/highlights/view/Review'
+
 
 import ProtectedRoute from './components/route/ProtectedRoute'
 import { loadUser } from './actions/userActions'
@@ -65,10 +76,11 @@ import { Risk } from './components/Risk'
 import Contact from './components/layout/Contact'
 import RealEstate from './Realty/RealEstate'
 import Header from './components/layout/Header'
+import LangSwitch from './LangSwitch'
+import Whatsapp from './components/whatsapp/Whatsapp';
 
 
 function App() {
-
 
   // GET PRODUCTS FROM API BACKEND
   // const [products, setProducts]
@@ -125,7 +137,11 @@ function App() {
     <Router >
       <main>
         <div className='App'>
-          <div className="farmStyle" id="farmSHOP">
+          <div id="floating_lang">
+          <LangSwitch />
+          </div>
+          <div className="farmStyle" id="farmSHOP" style={{position: 'relative'}}>
+              <Whatsapp />
            <Header />
             <Route path="/" component={Home} exact />
 
@@ -207,6 +223,8 @@ function App() {
             <ProtectedRoute path="/admin/user/:id" isAdmin={true} component={UpdateUser} exact />
             <ProtectedRoute path="/admin/reviews" isAdmin={true} component={ProductReviews} exact />
 
+          
+
 
           </div>
 
@@ -217,24 +235,9 @@ function App() {
             {/* <Contact /> */}
           </div>
 
-
-
-
           {/* {!loading && (!isAuthenticated || user.role !== 'admin') && ( */}
           <Contact />
           {/* )} */}
-
-          {/* {showButton && (
-            <div class="scrollWrap" onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut}>
-              <img
-                onClick={scrollToTop}
-                className={hover ? 'back-to-topHovered' : 'back-to-top'}
-                src={hover ? scrollUpHovered : scrollUp}
-                alt="scroll up"
-              />
-            </div>
-          )
-          } */}
         </div>
       </main>
     </Router>
@@ -242,21 +245,3 @@ function App() {
 }
 
 export default App;
-
-
-// useEffect(() => {
-//   const page = "http://localhost:3000/riskmanagement";
-//   const activateBar = () => {
-//     setActive(true);
-
-
-//   }
-//   const disactivateBar = () => {
-
-//     setActive(false);
-//     console.log("User not at real estate page.........active is false")
-//   }
-
-
-//   (window.location.href === page && window.innerWidth >= 900) ? activateBar() : disactivateBar();
-// }, [])

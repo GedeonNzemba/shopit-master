@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 import { useSelector } from 'react-redux'
 import './drawer/drawer.css'
 import ProductView from './highlights/view/View'
@@ -24,6 +25,10 @@ import Amount from './amount/Amount';
 function Main({ drawerWidth, }) {
 
   const { user } = useSelector(state => state.auth)
+
+  
+
+
 
   return (
     <ThemeConfig>

@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import MetaData from "../layout/MetaData";
-
+import { useTranslation, Trans } from 'react-i18next';
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -33,6 +33,8 @@ const useStyles = makeStyles({
 });
 
 const UpdateProfile = ({ history }) => {
+  const { t, i18n } = useTranslation();
+
   const classes = useStyles();
 
   const [name, setName] = useState("");
@@ -128,7 +130,7 @@ const UpdateProfile = ({ history }) => {
             <Stack direction="column" spacing={2} className={classes.stack}>
               <Box>
                 <h1 className="mt-2 mb-5 updateprofile_title">
-                  Update Profile
+                  {t('update__profile')}
                 </h1>
               </Box>
               <TextField
@@ -137,7 +139,7 @@ const UpdateProfile = ({ history }) => {
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                label="Name"
+                label={t('name')}
                 variant="outlined"
               />
               <TextField
@@ -146,7 +148,7 @@ const UpdateProfile = ({ history }) => {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                label="Email"
+                label={t('email')}
                 variant="outlined"
               />
             </Stack>
@@ -158,7 +160,7 @@ const UpdateProfile = ({ history }) => {
                 id="customFile"
                 accept="image/*"
                 onChange={onChange}
-                label="image"
+                label={t('image')}
                 variant="standard"
               />
             </Stack>
@@ -169,7 +171,7 @@ const UpdateProfile = ({ history }) => {
                 type="submit"
                 disabled={loading ? true : false}
               >
-                Update
+                {t('update')}
               </Button>
             </Stack>
           </Box>

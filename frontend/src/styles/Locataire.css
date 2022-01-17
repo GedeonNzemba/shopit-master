@@ -616,7 +616,7 @@ form:focus ~ label {
 }
 #farmSHOP .featured_category .ft_cat_select {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-column: 1.4rem;
   padding: 0 !important;
   margin-top: 2rem;
@@ -655,7 +655,7 @@ form:focus ~ label {
 }
 #farmSHOP .featured_category .ft_cat_select .ft_cat_item .ft_cat-title span {
   color: #484848;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
 }
 #farmSHOP .purebred_container {
@@ -689,16 +689,14 @@ form:focus ~ label {
   text-transform: uppercase;
   margin-bottom: 1rem;
   text-align: center;
+  margin-top: 2rem;
 }
 #farmSHOP .purebred_container .purebred_content p {
   color: #484848;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-family: "Roboto";
   font-weight: 400;
-  word-break: break-word;
-  max-width: 70%;
-  letter-spacing: 0.2rem;
-  text-align: left;
-  margin: 0 auto;
+  text-align: justify;
 }
 #farmSHOP .hatching_wrap {
   display: grid;
@@ -834,8 +832,9 @@ form:focus ~ label {
   font-size: 1.6rem;
 }
 .productD__wrapper #input_quantity {
-  font-size: 1.6rem;
+  font-size: 2rem;
   width: 40%;
+  font-weight: bold;
 }
 .productD__wrapper .price_wrap {
   width: -webkit-fit-content;
@@ -965,18 +964,36 @@ form:focus ~ label {
   background-color: unset !important;
 }
 
-.order_succ {
-  transition: 1s ease-in;
-  background-image: url("../images/pay_success.png");
-  background-size: contain;
-  background-repeat: round;
-  padding-top: 8rem;
-  background-attachment: fixed;
-  background-position-x: -25rem;
+@media (max-width: 699px) {
+  .succes_msg {
+    display: none;
+  }
 }
-.order_succ #contactFormWrapper {
-  transition: 1s ease-out;
-  background-color: unset !important;
+.orderSuccess {
+  transition: 1s ease-in;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-top: 8rem;
+  height: 100vh;
+}
+.orderSuccess.commande_succ {
+  background-image: url("../images/paidb.png");
+}
+@media (max-width: 899px) {
+  .orderSuccess.commande_succ {
+    background-image: url("../images/MOB2.png");
+  }
+}
+.orderSuccess.order_succ {
+  background-image: url("../images/paida.png");
+}
+@media (max-width: 899px) {
+  .orderSuccess.order_succ {
+    background-image: url("../images/MOB1.png");
+  }
+}
+.orderSuccess #contactFormWrapper {
+  display: none !important;
 }
 
 .order_succ-inner {
@@ -1313,11 +1330,103 @@ div.farm_inner-wrap {
     max-width: 100% !important;
   }
 }
+div#shipping_info:not(.shipping_main-wrap) {
+  background: #070c26 !important;
+  color: #ffffff;
+}
+div#shipping_info:not(.shipping_main-wrap) div#shipping_info svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiSelect-iconOutlined.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  color: #ffffff !important;
+}
+div#shipping_info:not(.shipping_main-wrap) #shipping_field-wrapper label, div#shipping_info:not(.shipping_main-wrap) input, div#shipping_info:not(.shipping_main-wrap) .MuiInput-underlin, div#shipping_info:not(.shipping_main-wrap) textarea, div#shipping_info:not(.shipping_main-wrap) #update_product__color {
+  color: #ffffff !important;
+}
+div#shipping_info:not(.shipping_main-wrap) button#update-product_button {
+  text-transform: uppercase;
+}
+div#shipping_info:not(.shipping_main-wrap) .MuiInput-underline:before {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.42) !important;
+}
+
+@media (max-width: 899px) {
+  .App.product_page div.productD__wrapper .carousel-item {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .App.product_page div.productD__wrapper .product_description p {
+    text-align: justify;
+  }
+}
+@media (max-width: 899px) and (max-width: 425px) {
+  .App.product_page div.productD__wrapper .product_description p span {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) {
+  .App.product_page div.productD__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 5rem;
+    justify-items: center;
+  }
+  .App.product_page div.productD__wrapper section.productD__image {
+    height: 45rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) and (max-width: 599px) {
+  .App.product_page div.productD__wrapper section.productD__image {
+    height: 42rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) and (max-width: 499px) {
+  .App.product_page div.productD__wrapper section.productD__image {
+    height: 38rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) and (max-width: 399px) {
+  .App.product_page div.productD__wrapper section.productD__image {
+    height: 35rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) and (max-width: 360px) {
+  .App.product_page div.productD__wrapper section.productD__image {
+    height: 34rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) and (max-width: 299px) {
+  .App.product_page div.productD__wrapper section.productD__image {
+    height: 42vh;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) and (max-width: 360px) {
+  .App.product_page div.productD__wrapper .stack__product_action {
+    margin-bottom: 4rem;
+  }
+  .App.product_page div.productD__wrapper .stack__product_action .count {
+    place-self: center;
+  }
+  .App.product_page div.productD__wrapper .stack__product_action input#input_quantity {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: #000000;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) {
+  .App.product_page div.productD__wrapper .carousel-item {
+    height: 100% !important;
+  }
+}
+@media (max-width: 899px) and (max-width: 699px) {
+  .App.product_page div.productD__wrapper img.d-block.w-100 {
+    height: 100%;
+  }
+}
 #farmSHOP .product_listing--deepS span.product_listing__q {
   margin-left: unset !important;
 }
 #farmSHOP section.product_listing--bnt {
-  background-color: #ffffff;
+  background-color: #f5f5f5;
 }
 #farmSHOP .makeStyles-employ-5 span {
   margin-left: unset !important;
@@ -1356,6 +1465,10 @@ div.farm_inner-wrap {
 @media (max-width: 899px) and (max-width: 700px) {
   #farmSHOP .farm_about .product_listing__list-wrapper {
     grid-template-columns: auto auto !important;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
     row-gap: 1.6rem;
   }
 }
@@ -1371,7 +1484,7 @@ div.farm_inner-wrap {
 }
 @media (max-width: 899px) and (max-width: 700px) {
   #farmSHOP .farm_about .grid_num-wrap {
-    transform: translateX(2em);
+    transform: unset;
   }
 }
 @media (max-width: 899px) and (max-width: 700px) {
@@ -1560,7 +1673,7 @@ div.farm_inner-wrap {
 }
 @media (max-width: 899px) {
   #farmSHOP .farm_about .content_text p {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
   }
 }
 @media (max-width: 899px) {
@@ -1814,7 +1927,7 @@ div.farm_inner-wrap {
     text-align: center;
   }
   #farmSHOP .product_listing--content h4 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
   #farmSHOP .product_listing--deepS .product_listing--bg p {
     text-align: center;
@@ -1866,15 +1979,6 @@ div.farm_inner-wrap {
 @media (min-width: 1200px) {
   #farmSHOP section.product_listing--bnt {
     padding: 8rem 3em 8em;
-  }
-  #farmSHOP section.product_listing--bnt .grid_num-wrap {
-    grid-template-columns: 30rem 30rem;
-    row-gap: 8rem;
-  }
-}
-@media (min-width: 1200px) and (min-width: 1250px) {
-  #farmSHOP section.product_listing--bnt .grid_num-wrap {
-    grid-template-columns: 30rem 30rem 30rem;
   }
 }
 @media (min-width: 2000px) {
@@ -13209,6 +13313,7 @@ li {
      object-fit: cover;
   height: 19rem;
   border-radius: 4px;
+  width: auto;
   /* width: 100%; */
 }
 .listMode .bottom {
@@ -13930,6 +14035,15 @@ li {
   }
 }
 
+@media (min-width: 1300px) {
+  .farm_topSell-wrap .product.farmStyle {
+    width: 17rem;
+  }
+
+  .product .img-container img {
+    height: 17rem;
+  }
+}
 .content {
   display: block;
   width: 100%;

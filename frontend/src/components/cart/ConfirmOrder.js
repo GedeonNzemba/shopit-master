@@ -20,10 +20,12 @@ import HomeIcon from "@mui/icons-material/Home";
 
 import { useSelector } from "react-redux";
 import { Avatar, IconButton } from "@material-ui/core";
+import { useTranslation, Trans } from 'react-i18next';
 
 const ConfirmOrder = ({ history }) => {
     const { cartItems, shippingInfo } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.auth);
+    const { t, i18n } = useTranslation();
 
     // Calculate Order Prices
     const itemsPrice = cartItems.reduce(
@@ -81,7 +83,7 @@ const ConfirmOrder = ({ history }) => {
                             component="div"
                             gutterBottom
                         >
-                            Shipping Info
+                            {t('shipping_info')}
                         </Typography>
 
                         <List>
@@ -99,7 +101,7 @@ const ConfirmOrder = ({ history }) => {
                                                 style={{ lineHeight: "1.5" }}
                                             >
                                                 <BadgeIcon />
-                                                <strong className="subtitle_confirm">Name:</strong>
+                                                <strong className="subtitle_confirm">{t('farm.dashboard.products.all_products.products_modification.table.name')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={user && user.name}
@@ -121,10 +123,10 @@ const ConfirmOrder = ({ history }) => {
                                             <Stack direction="row" spacing={1}>
                                                 <ContactPhoneIcon />
                                                 {window.innerWidth < 401 ? (
-                                                    <strong className="subtitle_confirm">Phone:</strong>
+                                                    <strong className="subtitle_confirm">{t('phone')}:</strong>
                                                 ) : (
                                                     <strong className="subtitle_confirm">
-                                                        Phone Number:
+                                                        {t('phone_no')}:
                                                     </strong>
                                                 )}
                                             </Stack>
@@ -147,7 +149,7 @@ const ConfirmOrder = ({ history }) => {
                                         >
                                             <Stack direction="row" spacing={1}>
                                                 <HomeIcon />
-                                                <strong className="subtitle_confirm">Addres:</strong>
+                                                <strong className="subtitle_confirm">{t('address')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={`${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}`}
@@ -168,7 +170,7 @@ const ConfirmOrder = ({ history }) => {
                                         >
                                             <Stack direction="row" spacing={1}>
                                                 <FlagIcon />
-                                                <strong className="subtitle_confirm">Country:</strong>
+                                                <strong className="subtitle_confirm">{t('country')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={shippingInfo.country}
@@ -192,7 +194,7 @@ const ConfirmOrder = ({ history }) => {
                             component="div"
                             gutterBottom
                         >
-                            Order Summary
+                            {t('order_summary')}
                         </Typography>
 
                         <List>
@@ -210,7 +212,7 @@ const ConfirmOrder = ({ history }) => {
                                                 style={{ lineHeight: "1.5" }}
                                             >
                                                 <BadgeIcon />
-                                                <strong className="subtitle_confirm">Subtotal:</strong>
+                                                <strong className="subtitle_confirm">{t('subtotal')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={itemsPrice.toFixed(2)}
@@ -230,7 +232,7 @@ const ConfirmOrder = ({ history }) => {
                                         >
                                             <Stack direction="row" spacing={1}>
                                                 <ContactPhoneIcon />
-                                                <strong className="subtitle_confirm">Shipping:</strong>
+                                                <strong className="subtitle_confirm">{t('shipping')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={shippingPrice}
@@ -251,7 +253,7 @@ const ConfirmOrder = ({ history }) => {
                                         >
                                             <Stack direction="row" spacing={1}>
                                                 <HomeIcon />
-                                                <strong className="subtitle_confirm">Tax:</strong>
+                                                <strong className="subtitle_confirm">{t('tax')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={taxPrice}
@@ -272,7 +274,7 @@ const ConfirmOrder = ({ history }) => {
                                         >
                                             <Stack direction="row" spacing={1}>
                                                 <FlagIcon />
-                                                <strong className="subtitle_confirm">Total:</strong>
+                                                <strong className="subtitle_confirm">{t('total')}:</strong>
                                             </Stack>
                                             <ListItemText
                                                 primary={totalPrice}
@@ -320,7 +322,7 @@ const ConfirmOrder = ({ history }) => {
                             component="div"
                             gutterBottom
                         >
-                            Product Summary
+                            {t('product_summary')}
                         </Typography>
                         {cartItems.map((item, index) => {
                             return (
@@ -412,7 +414,7 @@ const ConfirmOrder = ({ history }) => {
                         style={{ fontSize: "1.6rem", margin: "5% auto 0" }}
                         onClick={processToPayment}
                     >
-                        Proceed to Payment
+                        {t('proceed_pay')}
                     </Button>
                 </Stack>
             </Box>

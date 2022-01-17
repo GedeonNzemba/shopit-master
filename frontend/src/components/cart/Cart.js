@@ -20,11 +20,11 @@ import { createTheme } from '@material-ui/core/styles';
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import Icon from '@material-ui/core/Icon';
-
+import axios from 'axios'
 
 import { ThemeProvider } from '@material-ui/styles';
 import Bank from '../Bank'
-
+import { useTranslation } from 'react-i18next';
 
 
 const theme = createTheme({
@@ -71,6 +71,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Cart = ({ history }) => {
+    const { t, i18n } = useTranslation();
+
     const classes = useStyles();
 
     const Cart = Styled.div`
@@ -158,7 +160,7 @@ const Cart = ({ history }) => {
     const Dflex = Styled.div`
         justify-content: space-between !important;
     `
-  
+
 
     const Small = Styled.small`
             color: #6c757d !important;
@@ -245,16 +247,56 @@ const Cart = ({ history }) => {
         }
     }, [])
 
+    const [transText, setTransText] = useState('')
+    const [transTextB, setTransTextB] = useState('')
+
+        useEffect(() => {
+            axios({
+                method: 'post',
+                url: 'https://translate.mentality.rip/translate',
+                headers: { "Content-Type": "application/json" },
+                data: {
+                    q: cartItems[0].color ? cartItems[0].color : "",
+                    source:  "en",
+                    target:  "fr",
+                    format: "text"
+                }
+            }).then(function (response) {
+                console.log(response.data)
+                console.log(response.data.translatedText)
+                setTransText(response.data.translatedText);
+    
+            })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }, [])
+
+        // ########################################### SECOND REQUEST #########################################
+
+
+
 
     return (
         <Fragment>
             <MetaData title={'Cart'} />
+            <Helmet>
+
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+
+                <link rel="stylesheet" href="./src/scss/bootstrap/bootstrap.css" />
+
+                {/* <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb-pro.min.css" /> */}
+
+                <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css" />
+
+            </Helmet>
             {cartItems.length === 0 ?
                 (
 
                     <>
                         <div id="cart__main">
-                            <main style={{marginBottom: '8%'}}>
+                            <main style={{ marginBottom: '8%' }}>
                                 <div className="container" id="container_cart-main">
 
                                     <section className="mt-5 mb-4">
@@ -263,7 +305,7 @@ const Cart = ({ history }) => {
 
                                                 <Cart className="card wish-list mb-4">
                                                     <div className="card-body">
-                                                        <h5 className="mb-4" id="cart__title"><span style={{marginLeft: 'unset'}} className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
+                                                        <h5 className="mb-4" id="cart__title"><span style={{ marginLeft: 'unset' }} className="yourcarttitle">{t('your_cart')}: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} {t('items')}</b></h5>
 
                                                         <div className="row mb-4 cart__product-rendered" >
                                                             <div className="col-md-5 col-lg-3 col-xl-3">
@@ -282,15 +324,15 @@ const Cart = ({ history }) => {
                                                                     </A>
                                                                 </View>
                                                             </div>
-                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap" style={{marginTop: '3rem'}}>
+                                                            <Dflex className="col-md-7 col-lg-9 col-xl-9 product__content-info-wrap" style={{ marginTop: '3rem' }}>
                                                                 <div>
                                                                     <Dflex className="d-flex justify-content-between" id="product_cart-descr">
                                                                         <div id="product_cart-desc-main" style={{ width: '100%' }}>
                                                                             <Skeleton variant="text" />
                                                                             <div className="product_cart-descr">
-                                                                                <p style={{fontFamily: 'Ginto regular'}} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Category: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
-                                                                                <p style={{fontFamily: 'Ginto regular'}} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Color: {" "}</span> <Skeleton variant="text" width="60%" /></p>
-                                                                                <p style={{fontFamily: 'Ginto regular'}} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">Size: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                                <p style={{ fontFamily: 'Ginto regular' }} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">{t('category')}: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
+                                                                                <p style={{ fontFamily: 'Ginto regular' }} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">{t('color')}: {" "}</span> <Skeleton variant="text" width="60%" /></p>
+                                                                                <p style={{ fontFamily: 'Ginto regular' }} className={classes.font + ' mb-3 text-muted text-uppercase small row'}><span className="subc">{t('size')}: {" "}</span>  <Skeleton variant="text" width="60%" /></p>
                                                                             </div>
                                                                         </div>
                                                                         <div>
@@ -307,20 +349,20 @@ const Cart = ({ history }) => {
                                                                             <div className={classes.moot}>
                                                                                 <ThemeProvider theme={theme}>
                                                                                     <ButtonGroup variant="text" color="secondary" aria-label="text primary button group">
-                                                                                        <Button className={classes.font}>decrease</Button>
+                                                                                        <Button className={classes.font}>{t('decrease')}</Button>
                                                                                         <Button>
                                                                                             <Skeleton variant="circle" width={40} height={40} />
                                                                                             {/* <form className={classes.root} noValidate autoComplete="off" id="add_sub">
                                                                                             <Inpute defaultValue={} type="input" readOnly inputProps={{ 'aria-label': 'description' }} />
                                                                                         </form> */}
                                                                                         </Button>
-                                                                                        <Button className={classes.font}>add</Button>
+                                                                                        <Button className={classes.font}>{t('add')}</Button>
                                                                                     </ButtonGroup>
                                                                                 </ThemeProvider>
                                                                             </div>
 
                                                                             <Small id="passwordHelpBlock" className="form-text text-muted text-center">
-                                                                                (Note, 0 piece)
+                                                                                ({t('note')}, 0 {t('pieces')})
                                                                             </Small>
                                                                         </div>
                                                                     </Dflex>
@@ -335,7 +377,7 @@ const Cart = ({ history }) => {
                                                                                     onClick={() => setShopnow(true)}
                                                                                 // startIcon={<DeleteIcon />}
                                                                                 >
-                                                                                    Shop Now
+                                                                                    {t('shop__now')}
                                                                                 </Button>
                                                                             </Link>
                                                                             <Button
@@ -359,66 +401,7 @@ const Cart = ({ history }) => {
                                             </div>
 
 
-                                            <div className={`col-lg-4 ${window.innerWidth < 769 ? " col-lg-8-no-padding" : ''}`} style={{ display: 'none' ,paddingRight: 'unset' }}>
 
-                                                <div className="card mb-4">
-                                                    <div className="card-body">
-
-                                                        <Md4 className="mb-3" id="totalamountof">The total amount of</Md4>
-
-                                                        <ul className="list-group list-group-flush" style={{ marginBottom: '2rem' }}>
-                                                            <li style={{fontSize: '2.5rem', fontFamily: 'Ginto regular'}}
-                                                                className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                                                Subtotal
-                                                                <span>      <Skeleton variant="text" width="80px" /></span>
-                                                            </li>
-                                                            <li style={{fontSize: '2.5rem', fontFamily: 'Ginto regular'}} className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
-                                                                Estimated Delivery Tax
-                                                                <span><Skeleton variant="text" width="80px" /></span>
-                                                            </li>
-                                                            <li
-                                                            
-                                                                className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                                                <div style={{fontSize: '2.5rem', fontFamily: 'Ginto bold'}}>
-                                                                    <strong>The total amount of</strong>
-                                                                    <strong>
-                                                                        <p style={{fontSize: '2.5rem', fontFamily: 'Ginto bold'}} className="mb-0">(including VAT)</p>
-                                                                    </strong>
-                                                                </div>
-                                                                <span><strong><Skeleton variant="text" width="80px" /></strong></span>
-                                                            </li>
-                                                        </ul>
-
-                                                        {/* <Button variant="contained" color="secondary" >Check Out</Button> */}
-                                                        <Skeleton variant="rect" width={110} height={40} color="secondary" />
-
-                                                    </div>
-                                                </div>
-
-                                                <div className="card mb-4">
-                                                    <div className="card-body">
-                                                        <Skeleton variant="circle" width={40} height={40} />
-                                                        <Skeleton variant="text" width={300} />
-
-                                                        {/* <a className="dark-grey-text d-flex justify-content-between" data-toggle="collapse"
-                                                    href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                    Add a discount code (optional)
-                                                                            <span><i className="fas fa-chevron-down pt-1"></i></span>
-                                                </a> */}
-
-                                                        {/* <div className="collapse" id="collapseExample">
-                                                    <div className="mt-3">
-                                                        <div className="md-form md-outline mb-0">
-                                                            <input type="text" id="discount-code" className="form-control font-weight-light"
-                                                                placeholder="Enter discount code" />
-                                                        </div>
-                                                    </div>
-                                                </div> */}
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
 
                                         </div>
                                     </section>
@@ -437,36 +420,26 @@ const Cart = ({ history }) => {
                     <>
                         <div id="cart__main">
                             <main>
-                                <Helmet>
 
-                                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-
-                                    <link rel="stylesheet" href="./src/scss/bootstrap/bootstrap.css" />
-
-                                    {/* <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb-pro.min.css" /> */}
-
-                                    <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css" />
-
-                                </Helmet>
-                                <Box sx={{ p: 4, mt: 2}} id="container_cart-main">
+                                <Box sx={{ p: 4, mt: 2 }} id="container_cart-main">
 
                                     <section>
                                         <Stack direction="column" spacing={2} >
                                             <Box>
 
                                                 <Cart className="card wish-list mb-4">
-                                                    <Box sx={{m: 2}} id="coupon_cart__page">
+                                                    <Box sx={{ m: 2 }} id="coupon_cart__page">
                                                         <div className="card-body">
                                                             <ThemeProvider theme={theme}>
                                                                 <form className={classes.root} id="discount_form" noValidate autoComplete="off">
-                                                                    <TextField id="standard-basic" color="primary" type="input" className="standard_discount" label="Have a discount? Add it here" />
+                                                                    <TextField id="standard-basic" color="primary" type="input" className="standard_discount" label={t('discount_text')} />
                                                                 </form>
                                                             </ThemeProvider>
                                                         </div>
                                                     </Box>
 
                                                     <div className="card-body">
-                                                        <h5 className="mb-4" id="cart__title"><span style={{marginLeft: 'unset'}} className="yourcarttitle">Your Cart: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} items</b></h5>
+                                                        <h5 className="mb-4" id="cart__title"><span style={{ marginLeft: 'unset' }} className="yourcarttitle">{t('your_cart')}: </span> <b style={{ fontSize: '2.6rem', paddingLeft: '1rem', lineHeight: '46px' }}>{cartItems.length} {t('items')}</b></h5>
                                                         {cartItems.map(item => (
                                                             <>
 
@@ -490,10 +463,10 @@ const Cart = ({ history }) => {
                                                                         <div id="product__inner-info-wrapper">
                                                                             <Dflex className="d-flex justify-content-between inner__product-item-wrap">
                                                                                 <div className="product-item-info__inner-wrap">
-                                                                                    <Md4>{item.name}</Md4>
-                                                                                    <p className="mb-3 text-muted text-uppercase small"><span className="subc">Category: {" "}</span>  {item.category}</p>
-                                                                                    <p className="mb-2 text-muted text-uppercase small"><span className="subc">Color: {" "}</span> {item.color}</p>
-                                                                                    <p className="mb-3 text-muted text-uppercase small"><span className="subc">Size: {" "}</span>  {item.size}</p>
+                                                                                    <Md4>{i18n.resolvedLanguage === 'fr' ? item.nom : item.name}</Md4>
+                                                                                    <p className="mb-3 text-muted text-uppercase small"><span className="subc">{t('category')}: {" "}</span>  {i18n.resolvedLanguage === 'fr' ? item.categorie : item.category}</p>
+                                                                                    <p className="mb-2 text-muted text-uppercase small"><span className="subc">{t('color')}: {" "}</span> {i18n.resolvedLanguage === 'fr' ? (item.color ? transText && transText : t('unavalaible')) : (item.color ? item.color : t('unavalaible'))}</p>
+                                                                                    <p className="mb-3 text-muted text-uppercase small"><span className="subc">{t('size')}: {" "}</span>  {item.size ? item.size : t('unavalaible')}</p>
                                                                                 </div>
                                                                                 <div className="product-item-nav__inner-wrap">
                                                                                     {/* <Dnumber className="def-number-input number-input safari_only mb-0 w-100">
@@ -508,18 +481,18 @@ const Cart = ({ history }) => {
                                                                     </Dnumber> */}
                                                                                     <div className={classes.moot}>
                                                                                         <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
-                                                                                            <Button className={classes.font} onClick={() => decreaseQty(item.product, item.quantity)}>decrease</Button>
+                                                                                            <Button className={classes.font} onClick={() => decreaseQty(item.product, item.quantity)}>{t('decrease')}</Button>
                                                                                             <Button id="button__qty">
                                                                                                 <form className={classes.root} noValidate autoComplete="off" id="add_sub">
                                                                                                     <Inpute defaultValue="Select" type="input" value={item.quantity} readOnly inputProps={{ 'aria-label': 'description' }} />
                                                                                                 </form>
                                                                                             </Button>
-                                                                                            <Button className={classes.font} onClick={() => increaseQty(item.product, item.quantity, item.stock)}>add</Button>
+                                                                                            <Button className={classes.font} onClick={() => increaseQty(item.product, item.quantity, item.stock)}>{t('add')}</Button>
                                                                                         </ButtonGroup>
                                                                                     </div>
 
-                                                                                    <Small id="passwordHelpBlock" className="form-text text-muted text-center" style={{fontSize: '1.6rem'}}>
-                                                                                        (Note, {item.quantity} piece)
+                                                                                    <Small id="passwordHelpBlock" className="form-text text-muted text-center" style={{ fontSize: '1.6rem' }}>
+                                                                                        ({t('note')}, {item.quantity} {t('piece')})
                                                                                     </Small>
                                                                                 </div>
                                                                             </Dflex>
@@ -532,17 +505,9 @@ const Cart = ({ history }) => {
                                                                                         className={classes.button}
                                                                                         startIcon={<DeleteIcon />}
                                                                                     >
-                                                                                        Remove Item
+                                                                                        {t('remove_item')}
                                                                                     </Button>
-                                                                                    <Button
-                                                                                        variant="contained"
-                                                                                        color="primary"
-                                                                                        className={classes.button}
-                                                                                        endIcon={<Icon>send</Icon>}
-                                                                                        style={{ display: 'none' }}
-                                                                                    >
-                                                                                        Move to wishlist
-                                                                                    </Button>
+                                                                                   
                                                                                 </div>
                                                                                 <p className="mb-0 cart_page__price"><span style={{ fontWeight: '500', fontFamily: 'Ginto bold', fontSize: '2.5rem' }}><strong>${item.price}</strong></span></p>
                                                                             </Dflex>
@@ -554,9 +519,7 @@ const Cart = ({ history }) => {
                                                         <hr className="mb-4" />
 
 
-                                                        <p className="text-primary mb-0"><i className="fas fa-info-circle mr-1"></i> Do not delay the
-                                                            purchase, adding
-                                                            items to your cart does not mean booking them.</p>
+                                                        <p className="text-primary mb-0"><i className="fas fa-info-circle mr-1"></i>{t('no_delay')}</p>
 
                                                     </div>
                                                 </Cart>
@@ -565,49 +528,49 @@ const Cart = ({ history }) => {
                                             </Box>
 
                                             <Box>
-                        
+
 
                                                 <div className="card mb-4">
                                                     <div className="card-body" id="card-body">
 
-                                                        <Md4 className="mb-3" id="totalamountof" style={{fontSize: '2.6rem', fontFamily: 'GT Super Ds Trial Bd'}}>The total amount of</Md4>
+                                                        <Md4 className="mb-3" id="totalamountof" style={{ fontSize: '2.6rem', fontFamily: 'GT Super Ds Trial Bd' }}>{t('total_amount_of')}</Md4>
 
                                                         <ul className="list-group list-group-flush" style={{ marginBottom: '2rem' }}>
-                                                            <li style={{fontSize: '2rem', fontFamily: 'Ginto regular'}}
+                                                            <li style={{ fontSize: '2rem', fontFamily: 'Ginto regular' }}
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                                                Subtotal
-                                                                <span>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span>
+                                                                {t('subtotal')}
+                                                                <span>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} ({t('units')})</span>
                                                             </li>
-                                                            <li style={{fontSize: '2rem', fontFamily: 'Ginto regular'}} className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
-                                                                Estimated Delivery Tax
-                                                                <span>Free</span>
+                                                            <li style={{ fontSize: '2rem', fontFamily: 'Ginto regular' }} className="list_group_card list-group-item d-flex justify-content-between align-items-center px-0">
+                                                                {t('tax_text')}
+                                                                <span>{t('free')}</span>
                                                             </li>
-                                                            <li 
-                                                                style={{fontSize: '2rem', fontFamily: 'Ginto bold'}}
+                                                            <li
+                                                                style={{ fontSize: '2rem', fontFamily: 'Ginto bold' }}
                                                                 className="list_group_card list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                                 <div>
-                                                                    <strong>The total amount of</strong>
+                                                                    <strong>{t('total_amount_of')}</strong>
                                                                     <strong>
-                                                                        <p className="mb-0">(including VAT)</p>
+                                                                        <p className="mb-0">({t('vat')})</p>
                                                                     </strong>
                                                                 </div>
                                                                 <span><strong>${cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</strong></span>
                                                             </li>
                                                         </ul>
 
-                                                        <Button id="checkout_button-cart" variant="contained" color="secondary" onClick={checkoutHandler}>Check Out</Button>
+                                                        <Button id="checkout_button-cart" variant="contained" color="secondary" onClick={checkoutHandler}>{t('check_out')}</Button>
 
                                                     </div>
                                                 </div>
 
-                                                
+
 
 
                                             </Box>
                                         </Stack>
                                     </section>
                                 </Box>
-                                <div className="card mb-4" style={{backgroundColor: 'unset'}} id="cart_bankLogo_slides">
+                                <div className="card mb-4" style={{ backgroundColor: 'unset' }} id="cart_bankLogo_slides">
                                     <div className="card-body">
 
                                         {/* <Md4 className="mb-4">We accept</Md4> */}

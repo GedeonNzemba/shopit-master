@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { allOrders } from '../../actions/orderActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { Translator } from 'react-auto-translate';
 import {
     Box,
     List,
@@ -27,6 +28,7 @@ import { Icon } from '@iconify/react';
 import doneAllFill from '@iconify/icons-eva/done-all-fill';
 import MetaData from '../layout/MetaData'
 import Stack from '@mui/material/Stack';
+import axios from 'axios'
 
 
 const drawerWidth = 300;
@@ -105,16 +107,18 @@ const Dashboard = () => {
         // dispatch(getAdminProducts())
         dispatch(allOrders())
         // dispatch(allUsers())
+      
     }, [dispatch])
 
     let screenWidth = window.innerWidth;
-
-
+   
+    
+    
 
     return (
-        <Fragment >
+        <Fragment>
             <MetaData title={'Admin Dashboard'} />
-            <Grid container spacing={2}>
+            <Grid container spacing={2} id="dashboard__top-container">
                 <CssBaseline />
                 {screenWidth <= 899 &&
                     <Grid item xs={12} className="admin__main-viewer">
@@ -133,7 +137,9 @@ const Dashboard = () => {
                         <Grid item xs={9} className="admin__main-viewer">
                             <Stack direction="column" spacing={2} className="main_dash">
                                 <Bar handleToggle='' drawerWidth={drawerWidth} />
-                                <Main drawerWidth={drawerWidth} nmo={orders} />
+                                
+                                    <Main drawerWidth={drawerWidth} nmo={orders} />
+                              
                             </Stack>
                         </Grid>
                     </>

@@ -1,0 +1,54 @@
+{
+    "farm": {
+        "dashboard": {
+            "products": {
+                "title": "products",
+                "all_products": {
+                    "products": {
+                        "title": "products grid",
+                        "title_sm": "products"
+                    },
+                    "products_modification": {
+                        "title": "modify products",
+                        "title_sm": "Edit products", 
+                        "table": {
+                            "name": "Name",
+                            "price": "Price",
+                            "stock": "Stock",
+                            "actions": "Actions"
+                        }
+                    }
+                }
+            },
+            "orders": {
+                "order_id": "order id",
+                "No_user": "No of items",
+                "amount": "amount",
+                "status": "status",
+                "actions": "Actions"
+            },
+            "total_users": {
+                "user_id": "user id",
+                "name": "name",
+                "email": "email",
+                "role": "role",
+                "actions": "Actions"
+            },
+            "reviews": {
+                "title": "enter product id",
+                "search": "search",
+                "items": {
+                    "table": {
+                        "review_id": "review id",
+                        "rating": "rating",
+                        "comment": "comment",
+                        "name": "name",
+                        "action": "Actions"
+                    }
+                }
+            },
+            "out_of_stock": "out of stock",
+            "total_amount":"total amount"
+        }
+    }
+}

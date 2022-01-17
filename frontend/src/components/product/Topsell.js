@@ -5,15 +5,14 @@ import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom'
 import Paper from '@mui/material/Paper';
 import './topstyle.css';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+import { addItemToCart } from "../../actions/cartActions";
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
+import { useTranslation, Trans } from 'react-i18next';
+import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
 
 
 import axios from 'axios';
@@ -28,7 +27,13 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Topsell = () => {
+    const { t, i18n } = useTranslation();
 
+    const dispatch = useDispatch();
+    const alert = useAlert();
+
+    const [Id, setId] = useState('');
+    const [quantity, setQuantity] = useState(1)
     const [randomProducts, setRandomProducts] = useState([]);
 
     useEffect(() => {
@@ -57,17 +62,29 @@ const Topsell = () => {
                                     <Link to={`/product/${product._id}`}>
                                         <img src={product.images[0].url} alt="products" />
                                     </Link>
-                                    <div className="addCart">
-                                        <i className="fas fa-shopping-cart"></i>
-                                    </div>
+                                    <div className="addCart" onClick={() => {
+                    setId(product._id)
+                    if (Id !== '') {
+                        dispatch(addItemToCart(Id, quantity))
+                        alert.success(t('add_to_cart'))
+                    } else {
+                        alert.info(t('alert_info'))  
+                    } 
+                }} variant="contained" color="success" id="add_to_card">
+                    <i className="fas fa-shopping-cart"></i>
+                </div>
 
                                 </div>
 
                                 <Link to={`/product/${product._id}`}>
                                     <div className="bottom">
-                                        <h4 className="product_title">{product.name}</h4>
+                                        <h4 className="product_title">
+                                            {i18n.resolvedLanguage === 'fr' ? product.french.name : product.name}
+                                        </h4>
                                         <div className="price">
-                                            <span>${product.price}</span>
+                                            <span>
+                                                {i18n.resolvedLanguage === 'fr' ? product.french.price + ' CFA' : '$' + product.price}
+                                            </span>
                                         </div>
                                     </div>
                                 </Link>

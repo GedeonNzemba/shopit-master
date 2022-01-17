@@ -1,4 +1,5 @@
 import React from 'react'
+import './nutrition.css'
 
 
 const Nutrition_hero = (props) => {

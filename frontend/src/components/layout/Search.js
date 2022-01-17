@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
+import { useTranslation, Trans } from 'react-i18next';
+
 
 const Search = ({ history }) => {
+    const { t, i18n  } = useTranslation();
 
     const [keyword, setKeyword] = useState('');
 
@@ -29,12 +32,12 @@ const Search = ({ history }) => {
                         id="search_field"
                         className="form-control"
                         onChange={(e) => setKeyword(e.target.value)}
-                        placeholder="Search products, brand and categories"
+                        placeholder={t('farm.header.navBar.search_inputHolder')}
                     />
 
                 </div>
                 <div className="input-group-append">
-                    <Button className="search_button bg-black" id="search_btn" onClick={searchHandler} >search</Button>
+                    <Button className="search_button bg-black" id="search_btn" onClick={searchHandler} >{t('farm.header.navBar.search_button')}</Button>
                 </div>
 
             </form>

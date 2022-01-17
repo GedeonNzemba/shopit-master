@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import './hover/hover.css'
 import IntroText from '../sectionIdentifier/IntroText';
 import Title from '../sectionIdentifier/Title';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import './about.css'
 
@@ -168,7 +168,7 @@ const Main = () => {
                         </p>
                     </div>
                     <div className="product_listing__list-wrapper">
-                        <div className="product_listing--item">
+                        <Box className="product_listing--item" elevation={3}>
                             <div className="product_listing--image --image_1" />
                             <div className="product_listing--content">
                                 <h4>Primary Objectives</h4>
@@ -177,8 +177,8 @@ const Main = () => {
                                     re-lease and management of these properties for maximum cash flow.
                                 </p>
                             </div>
-                        </div>
-                        <div className="product_listing--item">
+                        </Box>
+                        <Box className="product_listing--item" elevation={3}>
                             <div className="product_listing--image --image_3" />
                             <div className="product_listing--content">
                                 <h4>Our Commitment</h4>
@@ -187,8 +187,8 @@ const Main = () => {
                                     prepare for future responsibilities as wealth owners and leaders.
                                 </p>
                             </div>
-                        </div>
-                        <div className="product_listing--item">
+                        </Box>
+                        <Box className="product_listing--item" elevation={3}>
                             <div className="product_listing--image --image_4" />
                             <div className="product_listing--content">
                                 <h4>Our Values</h4>
@@ -197,7 +197,7 @@ const Main = () => {
                                     based on common values: Trust, Teamwork and Accountability.
                                 </p>
                             </div>
-                        </div>
+                        </Box>
                     </div>
                 </section>
 
@@ -212,7 +212,7 @@ const Main = () => {
                                 regulations of the country in which it operates and is liable only for their own acts and omissions.
                             </span>
                         </div>
-                        <Button variant="contained" color="secondary" className={classes.contact}>
+                        <Button variant="contained" id="btn__abt" color="secondary" className={classes.contact}>
                             Contact Locataire
                         </Button>
                     </div>
@@ -267,7 +267,7 @@ const Main = () => {
                                 </div>
                             </div>
                         </div>
-                        <Button variant="contained" color="secondary" className={classes.employ}>
+                        <Button variant="contained" id="btn__abt" color="secondary" sx={{mt: 3}} className={classes.employ}>
                         Let us know you are ready to work
                         </Button>
                     </div>

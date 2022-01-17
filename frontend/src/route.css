@@ -176,6 +176,7 @@ p.farm_header_nav_item {
   color: grey;
 } */
 
+
 /* Avatar */
 .avatar {
   display: inline-block;
@@ -730,7 +731,6 @@ background-color: #d2d2d2f9;
   place-self: center;
   font-size: 2rem;
   font-weight: bolder;
-  color: white;
 }
 [data-test="table-body"] tr td:nth-child(2) {
   text-align: center;

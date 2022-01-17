@@ -12,6 +12,7 @@ import { createOrder, clearErrors } from '../../actions/orderActions'
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js'
 
 import axios from 'axios'
+import { useTranslation, Trans } from 'react-i18next';
 
 const options = {
     style: {
@@ -25,7 +26,7 @@ const options = {
 }
 
 const Payment = ({ history }) => {
-
+    const { t, i18n } = useTranslation();
 
     const alert = useAlert();
     const stripe = useStripe();
@@ -113,7 +114,7 @@ const Payment = ({ history }) => {
 
                     history.push('/success')
                 } else {
-                    alert.error('There is some issue while payment processing')
+                    alert.error(t('error_pay'))
                 }
             }
 
@@ -146,9 +147,9 @@ const Payment = ({ history }) => {
             <div className="row wrapper form_pay_wrap">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg pay_form" onSubmit={submitHandler}>
-                        <h1 className="mb-4 pay_title">Card Info</h1>
+                        <h1 className="mb-4 pay_title">{t('card_info')}</h1>
                         <div className="form-group">
-                            <label htmlFor="card_num_field">Card Number</label>
+                            <label htmlFor="card_num_field">{t('card_number')}</label>
                             <CardNumberElement
                                 type="text"
                                 id="card_num_field"
@@ -158,7 +159,7 @@ const Payment = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="card_exp_field">Card Expiry</label>
+                            <label htmlFor="card_exp_field">{t('card_expiry')}</label>
                             <CardExpiryElement
                                 type="text"
                                 id="card_exp_field"
@@ -168,7 +169,7 @@ const Payment = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="card_cvc_field">Card CVC</label>
+                            <label htmlFor="card_cvc_field">{t('card_cvc')}</label>
                             <CardCvcElement
                                 type="text"
                                 id="card_cvc_field"
@@ -183,7 +184,7 @@ const Payment = ({ history }) => {
                             type="submit"
                             className="btn btn-block py-3"
                         >
-                            Pay {` - ${orderInfo && orderInfo.totalPrice}`}
+                            {t('pay')} {` - ${orderInfo && orderInfo.totalPrice}`}
                         </button>
 
                     </form>

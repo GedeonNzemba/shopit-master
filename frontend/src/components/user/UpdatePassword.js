@@ -14,6 +14,7 @@ import { UPDATE_PASSWORD_RESET } from '../../constants/userConstants'
 import login_bg from "../../images/login.jpg"
 import { makeStyles } from "@material-ui/core/styles";
 import updateImageIlls from "../../images/updateimageills.svg";
+import { useTranslation, Trans } from 'react-i18next';
 
 const useStyles = makeStyles({
     root: {
@@ -30,6 +31,8 @@ const useStyles = makeStyles({
 });
 
 const UpdatePassword = ({ history }) => {
+    const { t, i18n } = useTranslation();
+
     const classes = useStyles();
     useEffect(() => {
 
@@ -101,7 +104,7 @@ const UpdatePassword = ({ history }) => {
                     >
                         <Stack direction="column" spacing={2} className={classes.stack}>
                             <Box>
-                                <h1 className="mt-2 mb-5">Update Password</h1>
+                                <h1 className="mt-2 mb-5">{t('update__password')}</h1>
                             </Box>
                             <TextField
                                 type="password"
@@ -109,7 +112,7 @@ const UpdatePassword = ({ history }) => {
                                 className="form-control"
                                 value={oldPassword}
                                 onChange={(e) => setOldPassword(e.target.value)}
-                                label="Old Password"
+                                label={t('old__password')}
                                 variant="outlined"
                             />
                             <TextField
@@ -118,7 +121,7 @@ const UpdatePassword = ({ history }) => {
                                 className="form-control"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                label="New Password"
+                                label={t('new__password')}
                                 variant="outlined"
                             />
                         </Stack>
@@ -129,7 +132,7 @@ const UpdatePassword = ({ history }) => {
                                 type="submit"
                                 disabled={loading ? true : false}
                             >
-                                Update Password
+                                {t('update__password')}
                             </Button>
                         </Stack>
                     </Box>

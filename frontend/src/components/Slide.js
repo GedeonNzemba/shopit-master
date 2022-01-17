@@ -1,6 +1,8 @@
 import React, { useEffect, Fragment } from "react";
 import Helmet from 'react-helmet'
 import Styled from 'styled-components'
+import SliderUI from 'infinite-react-carousel';
+
 import './slide.css'
 import img1 from '../images/home_header/slide1.png'
 import img2 from '../images/home_header/slide2.png'
@@ -9,41 +11,30 @@ import img4 from '../images/home_header/slide4.png'
 
 const Slider = () => {
 
-    const loadWowScript = (url) => {
-        var script = document.createElement('script');
-        script.src = url
-        script.type = 'text/javascript'
-        script.async = true
-        document.body.appendChild(script);
-    }
-    useEffect(() => {
-        loadWowScript('https://npmcdn.com/flickity@2/dist/flickity.pkgd.js');
-
-    }, [])
-
-    useEffect(() => {
-        const script = document.createElement("script");
-
-        script.src = "https://res.cloudinary.com/locataire/raw/upload/v1640298065/flickity/flickityPArallax_futij8.js";
-        script.async = true;
-        script.type = 'text/javascript';
-
-        document.body.appendChild(script);
-
-    }, [])
+    const settings =  {
+        autoplay: false,
+        wheel: true,
+        arrows: false
+      };
 
     return (
         <Fragment>
-            <Helmet>
-                <link
-                    rel="stylesheet"
-                    type="text/css"
-                    href="https://npmcdn.com/flickity@2/dist/flickity.css"
-                />
-                <link rel="stylesheet" href="https://res.cloudinary.com/locataire/raw/upload/v1621704633/wow%20slider/style_zzarng.css" />
-            </Helmet>
+           <SliderUI {...settings}>
+                <div>
+                        <img src={img4} alt="orange tree"  style={{height: '45.8rem', width: '100%', borderRadius: '2.5rem'}}/>
+                    </div>
+                    <div>
+                        <img src={img1} alt="One World Trade" style={{height: '45.8rem', width: '100%', borderRadius: '2.5rem'}} />
+                    </div>
+                    <div>
+                        <img src={img3} alt="drizzle" style={{height: '45.8rem', width: '100%', borderRadius: '2.5rem'}} />
+                    </div>
+                    <div>
+                        <img src={img2} alt="cat nose" style={{height: '45.8rem', width: '100%', borderRadius: '2.5rem'}} />
+                </div>
+            </SliderUI>
 
-            <div class="carousel" data-flickity='{ "imagesLoaded": true  }'>
+            {/* <div class="carousel">
                 <div class="carousel-cell">
                     <img src={img4} alt="orange tree" />
                 </div>
@@ -56,19 +47,18 @@ const Slider = () => {
                 <div class="carousel-cell">
                     <img src={img2} alt="cat nose" />
                 </div>
-            </div>
+            </div> */}
+            {/* <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": false }' id="img_home_wrap">
+                <img src="https://res.cloudinary.com/locataire/image/upload/v1642358145/home%20banner%20images/resized-image-Promo_1_zx0t1d.jpg" alt="orange tree"  />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged"  />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out"  />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade"  />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle"  />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose"  />
+            </div> */}
         </Fragment>
     );
 
 }
 
 export default Slider;
-
-const MobileBannerItem = Styled.div`
-        height: 30rem;
-    `
-const IMG = Styled.img`
-         width: 100% !important;
-            height: 100% !important;
-            object-fit: fill;
-    `

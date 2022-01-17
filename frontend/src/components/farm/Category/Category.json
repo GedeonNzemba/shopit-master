@@ -1,77 +1,92 @@
 [
     {
         "title": "laying chick",
+        "title_en": "poussin de ponte",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223744/category/animal_tezmcb.svg",
-        "atl": "LaiWiv"
+        "atl": "laying chick"
     },
     {
         "title": "chick flesh",
+        "title_en": "poulets de chair",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/eggs_ca7brk.svg",
-        "atl": "KTrngrIo"
+        "atl": "chick flesh"
     },
     {
         "title": "laying hens",
+        "title_en": "Poules Pondeuses",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/pig_nmfagj.svg",
-        "atl": "EyCVOYElB"
+        "atl": "laying hens"
     },
     {
         "title": "broiler chickens",
+        "title_en": "poulets de chair",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223741/category/goat_bwpnmu.svg",
-        "atl": "EyCVOYElP"
+        "atl": "broiler chickens"
     },
     {
         "title": "rooster",
+        "title_en": "coq",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/paw-solid_nllgp5.svg",
-        "atl": "XgcabxkzflU"
+        "atl": "rooster"
     },
     {
         "title": "mullard duck - barbarian",
+        "title_en": "canard mulard - barbarie",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616223739/category/dna_pycfwt.svg",
-        "atl": "tkTOAnrTpGM"
+        "atl": "mullard duck - barbarian"
     },
     {
         "title": "runner duck",
+        "title_en": "canard coureur",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "runner duck"
     },
     {
         "title": "ornamental duck",
+        "title_en": "canard d'ornement",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "ornamental duck"
     },
     {
         "title": "white goose",
+        "title_en": "oie blanche",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "white goose"
     },
     {
         "title": "grey goose",
+        "title_en": "oie grise",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "grey goose"
     },
     {
         "title": "quail",
+        "title_en": "cailles",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "quail"
     },
     {
         "title": "chapon",
+         "title_en": "chapon",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "chapon"
     },
     {
         "title": "bronze turkey",
+         "title_en": "dinde bronze",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "bronze turkey"
     },
     {
         "title": "pigeons",
+         "title_en": "pigeons",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "pigeons"
     },
     {
         "title": "guinea fowl",
+         "title_en": "pintade",
         "icon": "https://res.cloudinary.com/locataire/image/upload/v1616220708/category/food_xmnbgo.webp",
-        "atl": "nnFiNyv"
+        "atl": "guinea fowl"
     }
 ]

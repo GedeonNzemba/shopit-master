@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
 import SideBarFielter from './sidebar/Sidebar'
-
+import { addItemToCart } from "../../../actions/cartActions";
 import Crumb from './breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
 import MetaData from '../../layout/MetaData'
@@ -19,6 +19,7 @@ import Button from '@mui/material/Button';
 import FilterCt from './breadcrumb/Filter';
 import Paper from '@mui/material/Paper';
 import { emphasize, withStyles } from '@material-ui/core/styles';
+
 import Chip from '@material-ui/core/Chip';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
@@ -32,11 +33,10 @@ import Buttone from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import Paginatione from 'react-js-pagination'
-import { Range } from 'rc-slider'
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
-import { getProductsCategory } from '../../../actions/productActions'
+import { getProductsCategory_Mammals, getProductsCategory_MammalsFR} from '../../../actions/productActions'
 import '../../../styles/Locataire.css'
 
 import ProductList from '../../product/ProductList';
@@ -45,6 +45,15 @@ import { HiViewGrid } from 'react-icons/hi'
 import { FaListUl } from 'react-icons/fa'
 import { createTheme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core'
+import { useTranslation, Trans } from 'react-i18next';
+import Slider from 'rc-slider'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Grid from 'react-loader-spinner/dist/loader/Grid.js'
+import { fCurrency, fCurrencyFR } from '../../admin/main/utils/number/number';
+
+const { createSliderWithTooltip } = Slider;
+const Range = createSliderWithTooltip(Slider.Range)
+
 
 const StyledBreadcrumb = withStyles((theme) => ({
     root: {
@@ -108,11 +117,18 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     paper: {
-        fontSize: '1.6rem!important', 
+        fontSize: '1.6rem!important',
     }
 }));
 
 export default function Mammals({ match }) {
+    const { t, i18n } = useTranslation();
+    const [Id, setId] = useState('');
+    const [quantity, setQuantity] = useState(1)
+
+    const rangeState = i18n.resolvedLanguage === 'fr' ? [1, 75000] : [1, 131.12]
+    const [rangeChaged, setRangeChanged] = useState(false)
+
 
     const classes = useStyles();
 
@@ -134,7 +150,7 @@ export default function Mammals({ match }) {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.products)
+    const {loading, products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.mammals)
     const keyword = match.params.keyword
 
     useEffect(() => {
@@ -142,10 +158,10 @@ export default function Mammals({ match }) {
             return alert.error(error)
         }
 
-        dispatch(getProductsCategory(keyword, currentPage, price, name, rating, size, color));
+        dispatch(i18n.resolvedLanguage === 'fr' ? getProductsCategory_MammalsFR(keyword, currentPage, price, name,  rating, size, color) : getProductsCategory_Mammals(keyword, currentPage, price, name,  rating, size, color));
 
 
-    }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color])
+    }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color, i18n.resolvedLanguage])
 
 
     function setCurrentPageNo(pageNumber) {
@@ -177,11 +193,39 @@ export default function Mammals({ match }) {
 
     // const reducedArray = array.reduce((acc, curr) => `${acc}${curr.lat},${curr.lon}|`, '')
 
+    const resetPriceRange = () => {
+        setPrice(prevState => prevState = rangeState)
+        setRangeChanged(prevState => prevState = false)
+    }
+
+    useEffect(() => {
+        resetPriceRange()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [i18n.resolvedLanguage]);
 
 
     const productSize = [
         'verrat',
         'trout',
+    ]
+
+    const pSize = [
+        "verrat",
+        "truie",
+    ]
+
+    const noms = [
+        "chevre du sahel",
+        "chevre naine",
+        " mouton du cameroun",
+        "caprin du sahel",
+        " ovins du sahel",
+        " mouton touabir",
+        " mouton targui",
+        " chevre de maradi",
+        "lapin blanc",
+        " lapin bleu de vienne",
+        "lapin lievre belge",
     ]
 
     const names = [
@@ -223,52 +267,71 @@ export default function Mammals({ match }) {
         <div>
             <List>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Price
+                    {t('filter_price')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box>
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
+                    <Range
+                            marks={i18n.resolvedLanguage === 'fr' ? {1: `1 CFA`,75000: `75000 CFA`} : {1: `$1`,131.12: `$131.12`}}
                             min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
+                            max={i18n.resolvedLanguage === 'fr' ? 75000 : 131.12}
+                            defaultValue={i18n.resolvedLanguage === 'fr' ? [1, 75000] : [1, 131.12]}
+                            tipFormatter={value => `$${value}`}
                             tipProps={{
                                 placement: "top",
-                                visible: true,
+                                visible: true
                             }}
                             value={price}
+                            onChange={price => {
+                                setPrice(price)
+                                setRangeChanged(prevState => prevState = true)
+                            }}
                         />
+                        {rangeChaged && <Button style={{fontSize: '1.6rem', marginTop: '3rem'}} variant="outlined" onClick={resetPriceRange}>{t('reset_price_range')}</Button>}
+                       
                     </Box>
                 </ListItem>
                 <br />
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Category
+                    {t('filter_category')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
-                    <Box component="div" sx={{ overflowY: 'scroll', height: 200}}>
-                        {names.map((name, index) => {
-                            return (
-                                <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
-                                    <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
-                                </ListItem>
+                    <Box component="div" sx={{ overflowY: 'scroll', height: 200 }}>
+                        {i18n.resolvedLanguage === 'fr' ?
+
+                            (
+                                noms.map((name, index) => {
+                                    return (
+                                        <ListItem key={index} style={{ padding: '0', cursor: 'pointer' }} className="shop_sidebar__item" onClick={() => { setName(name); handleDrawerToggle() }}>
+                                            <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                        </ListItem>
+                                    )
+                                })
                             )
-                        })}
+
+                            :
+
+                            (
+                                names.map((name, index) => {
+                                    return (
+                                        <ListItem key={index} style={{ padding: '0', cursor: 'pointer' }} className="shop_sidebar__item" onClick={() => { setName(name); handleDrawerToggle() }}>
+                                            <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                        </ListItem>
+                                    )
+                                })
+                            )}
                     </Box>
                 </ListItem>
-               
+
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Rating
+                   {t('filter_rating')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
                         <ul className="pl-0">
                             {[5, 4, 3, 2, 1].map((star) => (
                                 <li style={{ cursor: "pointer", listStyleType: "none", }} key={star} >
-                                    <div className="rating-outer" onClick={() => {setRating(star); handleDrawerToggle()}}>
+                                    <div className="rating-outer" onClick={() => { setRating(star); handleDrawerToggle() }}>
                                         <div className="rating-inner" style={{ width: `${star * 20}%` }} />
                                     </div>
                                 </li>
@@ -284,46 +347,53 @@ export default function Mammals({ match }) {
     // SIDEBAR
     const Sidebar = () => {
         return (
-            <aside  className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
+            <aside className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
                 <section className="filterByPrice mgt">
-                    <h2 style={{ marginBottom: "2.5rem" }}>filter by price</h2>
+                    <h2 style={{ marginBottom: "2.5rem" }}>{t('filter_price')}</h2>
                     <div className="filterRange">
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
+                    <Range
+                            marks={i18n.resolvedLanguage === 'fr' ? {1: `1 CFA`,75000: `75000 CFA`} : {1: `$1`,131.12: `$131.12`}}
                             min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
+                            max={i18n.resolvedLanguage === 'fr' ? 75000 : 131.12}
+                            defaultValue={i18n.resolvedLanguage === 'fr' ? [1, 75000] : [1, 131.12]}
+                            tipFormatter={value => `$${value}`}
                             tipProps={{
                                 placement: "top",
-                                visible: true,
+                                visible: true
                             }}
                             value={price}
+                            onChange={price => {
+                                setPrice(price)
+                                setRangeChanged(prevState => prevState = true)
+                            }}
                         />
+                        {rangeChaged && <Button style={{fontSize: '1.6rem', marginTop: '3rem'}} variant="outlined" onClick={resetPriceRange}>{t('reset_price_range')}</Button>}
+                       
                     </div>
                 </section>
                 <section className="filterbycategory mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by category</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_category')}</h2>
                     <div id="category-list-wrapper">
-                        {names.map(name => (
-                            <div className="category-item" key={name} onClick={() => setName(name)}>
-                                {/* <img
-                                    className="category-icon"
-                                    src={name.icon}
-                                    alt={name.atl}
-                                /> */}
+                    {i18n.resolvedLanguage === 'fr' ? noms.map((name, index) => (
+                            <div className="category-item" key={index} onClick={() => setName(name)}>
                                 {name}
-                                {/* <p onClick={() => setName(name)} className="ctg-name">{</p> */}
                             </div>
-                        ))}
+                        ))
+                        
+                        :
+                        
+                        (
+                            names.map((name, index) => (
+                                <div className="category-item" key={index} onClick={() => setName(name)}>
+                                    {name}
+                                </div>
+                            ))
+                        )}
                     </div>
                 </section>
 
                 <section className="filterbyrating mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by rating</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_rating')}</h2>
                     <div id="category-rating-wrapper">
                         <ul className="pl-0">
                             {[5, 4, 3, 2, 1].map((star) => (
@@ -350,52 +420,52 @@ export default function Mammals({ match }) {
                         </Link>
                     </div>
                     <div className="crumb-wrap">
-                        <Crumb navigationA="/" nameA="farm" nameB="Mammals" />
+                        <Crumb navigationA="/" nameA={t('crumb__farm')} nameB={t('crumb__ma')} />
                     </div>
                     {
-                       window.innerWidth < 700 ? 
-                      null
+                        window.innerWidth < 700 ?
+                            null
 
-                       :
+                            :
 
-                       (
-                        name || size || rating ?
-                        (
-                            <>
-                                <div className="userFilter" id="remove_filter">
-                                <StyledBreadcrumb
+                            (
+                                name || size || rating ?
+                                    (
+                                        <>
+                                            <div className="userFilter" id="remove_filter">
+                                                <StyledBreadcrumb
                                                     component="a"
-                                                    label="filter"
+                                                    label={t('filter')}
                                                     icon={<FilterAltIcon />}
                                                     onClick={handleClick}
                                                 />
-                                    <div className="remove_filter" >
-                                        <span><i>{name}</i></span>
-                                        <span><i>{size}</i></span>
-                                        <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+                                                <div className="remove_filter" >
+                                                    <span><i>{name}</i></span>
+                                                    <span><i>{size}</i></span>
+                                                    <span><i> {rating ? `${t('rating')}: ${rating}` : ''}</i></span>
 
-                                        <ThemeProvider theme={theme}>
-                                            <Buttone
-                                                variant="contained"
-                                                color="secondary"
-                                                className={classes.button + ' clear_filter'}
-                                                startIcon={<DeleteIcon />}
-                                                onClick={handleClearFilter}
-                                            >
-                                                Clear filter
-                                            </Buttone>
-                                        </ThemeProvider>
-                                    </div>
-                                </div>
-                            </>
-                        )
-                        :
-                        (
-                            <>
+                                                    <ThemeProvider theme={theme}>
+                                                        <Buttone
+                                                            variant="contained"
+                                                            color="secondary"
+                                                            className={classes.button + ' clear_filter'}
+                                                            startIcon={<DeleteIcon />}
+                                                            onClick={handleClearFilter}
+                                                        >
+                                                            {t('clear_filter')}
+                                                        </Buttone>
+                                                    </ThemeProvider>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <>
 
-                            </>
-                        )
-                       )
+                                        </>
+                                    )
+                            )
                     }
                 </div>
 
@@ -413,33 +483,33 @@ export default function Mammals({ match }) {
 
     const Filter = () => {
         return (
-           <div id="category__filter" style={{margin: '2rem 2rem'}}>
-               {
-                   name || size || rating ?
-                   (
-                    <ThemeProvider theme={theme}>
-                        <Buttone
-                            variant="contained"
-                            color="secondary"
-                            className={classes.button + ' clear_filter'}
-                            startIcon={<DeleteIcon />}
-                            onClick={handleClearFilter}
-                        >
-                            Clear filter
-                        </Buttone>
-                    </ThemeProvider>
-                   )
-                   :
-                   null
-               }
+            <div id="category__filter" style={{ margin: '2rem 2rem' }}>
+                {
+                    name || size || rating ?
+                        (
+                            <ThemeProvider theme={theme}>
+                                <Buttone
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.button + ' clear_filter'}
+                                    startIcon={<DeleteIcon />}
+                                    onClick={handleClearFilter}
+                                >
+                                    {t('clear_filter')}
+                                </Buttone>
+                            </ThemeProvider>
+                        )
+                        :
+                        null
+                }
                 <Button onClick={handleDrawerToggle} className={classes.button} variant="contained" color="success">
-                filters
-            </Button>
-           </div>
+                    {t('filter')}
+                </Button>
+            </div>
         )
     }
 
-    
+
 
 
     return (
@@ -447,9 +517,9 @@ export default function Mammals({ match }) {
             <MetaData title={'Mammals'} />
             {mobileOpen && <SideBarFielter drawerContent={sidedrawer} mobileView={mobileOpen} drawerToggle={handleDrawerToggle} />}
             <div id="poultry_banner" />
-            <div className={` poultry ${window.innerWidth < 700 ? 'cat_fielter' : '' } `}>
-            { window.innerWidth < 700 ?
-                        null
+            <div className={` poultry ${window.innerWidth < 700 ? 'cat_fielter' : ''} `}>
+                {window.innerWidth < 700 ?
+                    null
                     :
                     <div className='filter_category' id="filter_shop_desktop">
                         <Sidebar />
@@ -457,100 +527,114 @@ export default function Mammals({ match }) {
                 }
                 <div className="main_products">
                     <Breadcrumb />
-                    {window.innerWidth < 700 ? <Filter /> :  null}
-                    { window.innerWidth < 700 ? 
+                    {window.innerWidth < 700 ? <Filter /> : null}
+                    {window.innerWidth < 700 ?
                         (
                             name || size || rating ?
-                            (
-                                <>
-                                    <div className="userFilter" id="remove_filter">
-                                        {
-                                            window.innerWidth <= 420 ?
-                                            (
-                                                <>
-                                                    <Accordion elevation={4}>
-                                                        <AccordionSummary
-                                                        expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1a-content"
-                                                        id="panel1a-header"
-                                                        >
-                                                            <StyledBreadcrumb
-                                                                component="a"
-                                                                label="filter"
-                                                                icon={<FilterAltIcon />}
-                                                                onClick={handleClick}
-                                                            />
-                                                        </AccordionSummary>
-                                                        <AccordionDetails>
-                                                        {name ? <Typography>{name}</Typography> : null}
-                                                        {size ? <Typography>{size}</Typography> : null}
-                                                        {rating ? <Typography>{`rating: ${rating}`}</Typography> : null}
-                                                        </AccordionDetails>
-                                                    </Accordion>
-                                                </>
-                                            )
-                                            :
-                                            <Paper elevation={3} style={{paddingLeft: '1.5rem'}}>
-                                                <FilterCt  
-                                                    nameA="filter" 
-                                                    nameB={name}
-                                                    nameC={size}
-                                                    nameD={rating ? `rating: ${rating}` : ''} 
-                                                />
-                                            </Paper>
-                                        }
-                                    </div>
-                                </>
-                            )
-                            :
-                            (
-                                <>
+                                (
+                                    <>
+                                        <div className="userFilter" id="remove_filter">
+                                            {
+                                                window.innerWidth <= 420 ?
+                                                    (
+                                                        <>
+                                                            <Accordion elevation={4}>
+                                                                <AccordionSummary
+                                                                    expandIcon={<ExpandMoreIcon />}
+                                                                    aria-controls="panel1a-content"
+                                                                    id="panel1a-header"
+                                                                >
+                                                                    <StyledBreadcrumb
+                                                                        component="a"
+                                                                        label={t('filter')}
+                                                                        icon={<FilterAltIcon />}
+                                                                        onClick={handleClick}
+                                                                    />
+                                                                </AccordionSummary>
+                                                                <AccordionDetails>
+                                                                    {name ? <Typography>{name}</Typography> : null}
+                                                                    {size ? <Typography>{size}</Typography> : null}
+                                                                    {rating ? <Typography>{`${t('rating')}: ${rating}`}</Typography> : null}
+                                                                </AccordionDetails>
+                                                            </Accordion>
+                                                        </>
+                                                    )
+                                                    :
+                                                    <Paper elevation={3} style={{ paddingLeft: '1.5rem' }}>
+                                                        <FilterCt
+                                                            nameA={t('filter')}
+                                                            nameB={name}
+                                                            nameC={size}
+                                                            nameD={rating ? `${t('rating')}: ${rating}` : ''}
+                                                        />
+                                                    </Paper>
+                                            }
+                                        </div>
+                                    </>
+                                )
+                                :
+                                (
+                                    <>
 
-                                </>
-                            )
+                                    </>
+                                )
                         )
                         :
                         null
                     }
                     <div className="poultry_products">
                         <div className={grid ? "row producstWrapper" : "col listMode"}>
-                            {console.log("NAME:" + name)}
 
                             {
                                 grid ?
                                     (
-                                        products.map((eggProduct) => (
-                                            // <ProductList key={eggProduct._id} product={eggProduct} col={4} />
+                                        loading ? <Grid arialLabel="loading-indicator" /> : (
 
-                                            <div className="product farmStyle" key={eggProduct._id}>
-                                                <div className="img-container">
-                                                    <img src={eggProduct.images[0].url} alt={eggProduct.name} />
-                                                    <div className="addCart">
-                                                        <i className="fas fa-shopping-cart"></i>
+                                            products.map((eggProduct, index) => (
+                                                // <ProductList key={eggProduct._id} product={eggProduct} col={4} />
+    
+                                                <div className="product farmStyle" key={index}>
+                                                    <div className="img-container">
+                                                        <img src={eggProduct.images[0].url} alt={eggProduct.name} />
+                                                        <div className="addCart" onClick={() => { 
+                                                            setId(eggProduct._id)
+                                                            if (Id !== '') {
+                                                                dispatch(addItemToCart(Id, quantity))
+                                                                alert.success(t('add_to_cart'))
+                                                            } else {
+                                                                alert.info(t('alert_info'))  
+                                                            } 
+                                                            }} variant="contained" color="success" id="add_to_card">
+                                                            <i className="fas fa-shopping-cart"></i>
+                                                        </div>
                                                     </div>
-
-                                                    <div className="side-icons">
-                                                        <span><i className="fas fa-search"></i></span>
-                                                        <span><i className="far fa-heart"></i></span>
-                                                        <span><i className="fas fa-sliders-h"></i></span>
+    
+                                                    <div className="bottom">
+                                                        <h6 className="product_title">
+                                                            <Link to={`/product/${eggProduct._id}`}>
+                                                                {i18n.resolvedLanguage === 'fr' ? eggProduct.french.name : eggProduct.name}
+                                                            </Link>
+                                                        </h6>
+                                                        <div className="price">
+                                                            <span>
+                                                                    {i18n.resolvedLanguage === 'fr' ? fCurrencyFR(eggProduct.french.price) + ' CFA' :  fCurrency(eggProduct.price)}
+                                                                </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="bottom">
-                                                    <h6 className="product_title"><Link to={`/product/${eggProduct._id}`}>{eggProduct.name}</Link></h6>
-                                                    <div className="price">
-                                                        <span>${eggProduct.price}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))
+                                            ))
+                                        )
                                     )
 
                                     :
 
                                     (
-                                        products.map((eggProduct) => (
-                                            <ProductList key={eggProduct._id} product={eggProduct} col={4} />
-                                        ))
+                                        loading ? <Grid arialLabel="loading-indicator" /> : (
+
+                                            products.map((eggProduct) => (
+                                                <ProductList key={eggProduct._id} product={eggProduct} col={4} />
+                                            ))
+                                        )
                                     )
 
                             }

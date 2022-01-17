@@ -1,0 +1,104 @@
+#vacc_wrapper {
+    @media (min-width: 900px) {
+        & .slick-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            object-fit: fill;
+            text-align: center;
+        }
+        & p#__text {
+            font-size: 1.80rem!important;
+        }
+        .slick-slider .slick-list, .slick-slider .slick-track {
+            height: 23rem!important;
+        }
+        #hatch__img {
+            height: 100%;
+    border-radius: 4px;
+    object-fit: fill;
+    display: block;
+    text-align: center;
+        }
+
+        #__container_list {
+            
+            ul.hatching__list {
+                display: grid;
+                grid-template-columns: 1fr 1fr auto;
+            }
+        }
+
+    }
+
+    @media (max-width: 899px) {
+        @media (max-width: 599px) {
+            #vacchatch__grid-container {
+                flex-direction: column!important;
+
+                & .vacchatch__inner-item {
+                    flex: 1;
+                    max-width: 100%;
+                }
+            }
+            
+        }
+        & .slick-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            object-fit: fill;
+            text-align: center;
+        }
+        & p#__text {
+            font-size: 1.80rem!important;
+        }
+        .slick-slider .slick-list, .slick-slider .slick-track {
+            height: 23rem!important;
+        }
+        #__img {
+            height: 23rem;
+            @media (max-width: 599px) {
+                height: auto!important;
+            }
+        }
+        #hatch__img {
+            height: 100%;
+    border-radius: 4px;
+    object-fit: fill;
+    display: block;
+    text-align: center;
+        }
+
+        #__container_list {
+            
+            ul.hatching__list {
+                display: grid;
+                grid-template-columns: 1fr 1fr auto;
+                @media (max-width: 770px) {
+                    grid-template-columns: 1fr 1fr;
+                }
+                align-items: center;
+                @media (max-width: 599px) {
+                    justify-items: center;
+                    & li {
+                        max-width: fit-content!important;
+                    }
+                }
+            }
+        }
+       
+    }
+
+}
+
+div#vacchatch__grid-container {
+    align-content: center;
+justify-content: center;
+align-items: center;
+}
+.vacchatch__inner-item {
+    height: fit-content;
+}

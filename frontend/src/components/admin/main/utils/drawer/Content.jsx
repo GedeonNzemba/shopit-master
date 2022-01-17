@@ -6,28 +6,30 @@ import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import ReviewsRoundedIcon from '@mui/icons-material/ReviewsRounded';
 import './drawer.css'
+import { useTranslation, Trans } from 'react-i18next';
 
 function Content() {
+    const {i18n } = useTranslation();
 
     const items = [
         {
-            title: 'dashboard',
+            title: i18n.resolvedLanguage === 'fr' ? 'tableau de bord' : 'dashboard',
             icon: <DashboardCustomizeRoundedIcon />
         },
         {
-            title: 'product',
+            title: i18n.resolvedLanguage === 'fr' ? 'produit' : 'product',
             icon: <ProductionQuantityLimitsRoundedIcon />
         },
         {
-            title: 'user',
+            title: i18n.resolvedLanguage === 'fr' ? 'consommateur' : 'user',
             icon: <GroupRoundedIcon />
         },
         {
-            title: 'order',
+            title: i18n.resolvedLanguage === 'fr' ? 'commande' : 'order',
             icon: <LocalMallRoundedIcon />
         },
         {
-            title: 'reviews',
+            title: i18n.resolvedLanguage === 'fr' ? 'Commentaires' : 'reviews',
             icon: <ReviewsRoundedIcon />
         }
     ]

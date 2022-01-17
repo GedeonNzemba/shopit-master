@@ -5,11 +5,12 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, Card, Link, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // utils
-import { fCurrency } from '../../number/number';
+import { fCurrency, fCurrencyFR } from '../../number/number';
 //
 import Label from '../label/Label';
 import ColorPreview from '../color/ColorPreview';
 import Styled from 'styled-components'
+import { useTranslation } from 'react-i18next';
 
 // ----------------------------------------------------------------------
 const Star = Styled.div`
@@ -33,9 +34,11 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
+  const { t, i18n } = useTranslation();
+
   const [rating, setRating] = useState(0)
 
-  const { category, name, price, stock, ratings, images } = product;
+  const { category, name, price, stock, ratings, images, french } = product;
 
   return (
     <Card>
@@ -69,10 +72,10 @@ export default function ShopProductCard({ product }) {
 
         <Link to={`/product/${product._id}`} color="inherit" underline="hover" component={RouterLink}>
           <Typography variant="subtitle2" noWrap className="admin__product_text">
-            {name}
+            {i18n.resolvedLanguage === 'fr' ? french.name : name}
           </Typography>
           <Typography variant="subtitle2" noWrap className="admin__product_text">
-            {category}
+            {i18n.resolvedLanguage === 'fr' ? french.category : category}
           </Typography>
 
         </Link>
@@ -89,7 +92,7 @@ export default function ShopProductCard({ product }) {
               }}
               className="admin__product_priceText"
             >
-              {price && fCurrency(price)}
+              {i18n.resolvedLanguage === 'fr' ? fCurrencyFR(french.price) + ' CFA' :  fCurrency(price)}
             </Typography>
             {/* &nbsp;
             {fCurrency(price)} */}

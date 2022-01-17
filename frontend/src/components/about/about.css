@@ -66,13 +66,6 @@ div.farm_about {
   background-color: #f7f7f7;
   background-color: #ffffff;
 }
-div.farm_about #splide01-track {
-  background-image: url("../../images/cp2.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-y: 25rem;
-  z-index: 9999;
-}
 div.farm_about .splide__arrow {
   display: none;
 }
@@ -103,6 +96,9 @@ div.farm_about header.farm_header div.inner_Fheader {
   align-content: center;
   width: 90%;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container {
   height: -webkit-fit-content;
@@ -151,6 +147,7 @@ div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-cont
   word-wrap: break-word;
 }
 div.farm_about header.farm_header div.inner_Fheader section.Fheader_content-container div.Fheader_content div.Fabout_title h1 {
+  font-size: 4rem;
   color: #241f20;
   font-family: "GT Super Ds Trial Bd";
   font-family: "Cairo", sans-serif;
@@ -234,7 +231,7 @@ section.first_sec {
   grid-template-columns: 1fr 1fr;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
-  margin-bottom: 3rem;
+  background: #f5f5f5;
 }
 section.first_sec div.content_left {
   display: flex;
@@ -253,11 +250,11 @@ section.first_sec div.content_left div.content_top_wrapp div#vcl_line {
   width: fit-content;
   max-width: 0;
   float: left;
-  border: 0.2rem solid;
+  border: solid;
 }
 section.first_sec div.content_left div.content_top_wrapp div.content_wrap {
   color: #241f20;
-  font-family: "Ginto bold";
+  font-family: "roboto";
   font-weight: bold;
   font-size: 2.2rem;
   max-width: 89%;
@@ -265,7 +262,7 @@ section.first_sec div.content_left div.content_top_wrapp div.content_wrap {
 }
 section.first_sec div.content_left div.content_top_wrapp div.content_wrap span#content_span_color {
   color: #02843d;
-  font-family: "Ginto bold";
+  font-family: "roboto";
   font-family: "Cairo", sans-serif;
   font-weight: bold;
   font-size: 1.7rem;
@@ -281,14 +278,16 @@ section.first_sec div.content_left div.content_top_wrapp div.content_wrap span#c
 section.first_sec div.content_left div.content_text {
   display: block;
 }
+@media (max-width: 768px) {
+  section.first_sec div.content_left div.content_text {
+    padding: 2rem;
+  }
+}
 section.first_sec div.content_left div.content_text p {
   color: #231f20;
-  font-family: "Ginto regular";
+  font-family: "roboto";
   font-weight: 400;
   font-size: 2rem;
-  font-family: "Cairo", sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
 }
 section.first_sec div.content_right {
   display: block;
@@ -303,6 +302,14 @@ section.first_sec div.content_right div.content_image {
   grid-template-columns: 20rem 20rem;
   -moz-column-gap: 2rem;
        column-gap: 2rem;
+}
+@media (max-width: 499px) {
+  section.first_sec div.content_right div.content_image {
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
 }
 section.first_sec div.content_right div.content_image div.content_image_big {
   background-image: url("../../images/chicks.jpg");
@@ -331,11 +338,8 @@ section.first_sec div.content_right div.content_image div.content_image_med {
 }
 
 div.main_banner {
-  background: radial-gradient(circle, #00833c 15%, #313962 61%);
+  background: radial-gradient(circle, #00833c45 15%, #313962bf 61%);
   padding: 5rem 0;
-  -webkit-clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
-          clip-path: polygon(0 0, 100% 4%, 100% 100%, 0% 100%);
-  height: 20rem;
 }
 div.main_banner .splide {
   max-width: 100% !important;
@@ -356,9 +360,7 @@ div.main_banner div.main_banner_partern {
 div.main_banner div.main_banner_partern h4 {
   margin-left: 1.5em;
   color: #fff;
-  font-family: "GT Super Ds Trial Bd";
-  color: #241f20;
-  font-family: "Cairo", sans-serif;
+  font-family: "Roboto";
   font-weight: bold;
   font-size: 4rem;
   position: relative;
@@ -397,27 +399,30 @@ div.main_banner div.main_banner_partern div.main_banner_wrap div.main_banner__it
   z-index: 1;
 }
 
+.product_listing {
+  background: #ededed;
+}
+
 div.product_listing {
   height: 100%;
   padding: 8rem 3em 0em;
-  height: 250rem;
   padding: 8rem 3em 3em;
 }
 div.product_listing section.listing_wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 }
 div.product_listing div.product_listing__list-wrapper {
   display: grid;
-  grid-template-columns: 25rem 25rem 25rem;
-  grid-template-columns: 25rem 25rem 25rem 25rem;
+  grid-template-columns: 1fr 1fr 1fr;
   -moz-column-gap: 1.6rem;
        column-gap: 1.6rem;
   margin-top: 2em;
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item {
-  box-shadow: 0 0 12px 0 #0000001f !important;
+  width: 25rem;
   padding: 0.5em;
   background-color: #fff;
   border-radius: 4px;
@@ -438,29 +443,30 @@ div.product_listing div.product_listing__list-wrapper div.product_listing--item 
   background-image: url("../../images/clientlist.jpg");
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_4 {
-  background-image: url("../../images/team.jpg");
+  background-image: url("../../images/value.jpg");
   background-image: url("../../images/delivery.png");
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_2 {
   background-image: url("../../images/delivery.png");
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_3 {
-  background-image: url("../../images/delivery.png");
+  background-image: url("../../images/commit.jpg");
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--image.--image_4 {
-  background-image: url("../../images/delivery.png");
+  background-image: url("../../images/value.jpg");
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--content {
-  padding-top: 1em;
+  padding: 1em;
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--content h4 {
-  font-family: "Ginto bold";
+  font-family: "Roboto";
   font-size: 1.7rem;
-  font-weight: bold;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
 }
 div.product_listing div.product_listing__list-wrapper div.product_listing--item div.product_listing--content p {
-  font-family: "Ginto regular";
+  font-family: "Roboto";
+  text-align: justify;
   font-size: 1.6rem;
 }
 div.product_listing section.product_listing--deepS {
@@ -471,9 +477,9 @@ div.product_listing section.product_listing--deepS {
 }
 div.product_listing section.product_listing--deepS div.color_highlight {
   color: #241f20;
-  font-family: "Cairo";
-  font-family: "Cairo", sans-serif;
+  font-family: "Roboto";
   font-weight: bold;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
   font-size: 3.5rem;
 }
@@ -488,8 +494,7 @@ div.product_listing section.product_listing--deepS div.product_listing--bg {
   padding-top: 2em;
 }
 div.product_listing section.product_listing--deepS div.product_listing--bg p {
-  font-family: "Cairo";
-  font-family: "Cairo", sans-serif;
+  font-family: "Roboto";
   font-weight: 700;
   font-size: 1.8rem;
   max-width: 66%;
@@ -530,12 +535,12 @@ div.product_listing section.product_listing--deepS div.product_listing--pd div.p
 }
 div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_1 div.--pd_item-wrap p {
   padding: 1rem;
-  font-family: "Ginto regular";
+  font-family: "Roboto";
   text-align: left;
   text-transform: capitalize;
   word-break: break-word;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 400;
   -webkit-margin-after: 0;
           margin-block-end: 0;
 }
@@ -576,12 +581,12 @@ div.product_listing section.product_listing--deepS div.product_listing--pd div.p
 }
 div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_2 div.--pd_item-wrap p {
   padding: 1rem;
-  font-family: "Ginto regular";
+  font-family: "Roboto";
   text-align: left;
   text-transform: capitalize;
   word-break: break-word;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 400;
   -webkit-margin-after: 0;
           margin-block-end: 0;
 }
@@ -644,12 +649,12 @@ div.product_listing section.product_listing--deepS div.product_listing--pd div.p
 }
 div.product_listing section.product_listing--deepS div.product_listing--pd div.product_listing--pd_item.--pd_item_3 div.--pd_item-wrap p {
   padding: 1rem;
-  font-family: "Ginto regular";
+  font-family: "Roboto";
   text-align: left;
   text-transform: capitalize;
   word-break: break-word;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 400;
   -webkit-margin-after: 0;
           margin-block-end: 0;
 }
@@ -682,12 +687,34 @@ div.product_listing section.product_listing--bnt div.color_highlight {
 div.product_listing section.product_listing--bnt div.numGrid {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+}
+div.product_listing section.product_listing--bnt div.numGrid .grid_num-wrap {
+  display: grid;
+  align-content: center;
+  justify-content: center;
   align-items: center;
-  padding-top: 3em;
+  justify-items: center;
+  margin-bottom: 3rem;
+}
+div.product_listing section.product_listing--bnt div.numGrid .grid_num-wrap div.grid_num-item {
+  width: 89%;
+  display: flex;
+}
+div.product_listing section.product_listing--bnt div.numGrid .grid_num-wrap div.grid_num-item .grid_num-item--left {
+  padding-right: 1rem;
+}
+div.product_listing section.product_listing--bnt div.numGrid .grid_num-wrap div.grid_num-item .grid_num-item--left span {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+div.product_listing section.product_listing--bnt div.numGrid .grid_num-wrap .grid_num-item--left {
+  padding-right: 1rem;
 }
 div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap {
   display: grid;
-  grid-template-columns: 30rem 30rem 30rem;
+  grid-template-columns: 1fr 1fr 1fr;
   -moz-column-gap: 10rem;
        column-gap: 10rem;
   max-width: -webkit-fit-content;
@@ -699,6 +726,7 @@ div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap:f
 }
 div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item {
   display: flex;
+  width: 89%;
 }
 div.product_listing section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left {
   display: block;
@@ -745,7 +773,7 @@ div.product_listing section.product_listing--bnt div.numGrid section.product_lis
 }
 div.product_listing section.product_listing--bnt div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap {
   display: grid;
-  grid-template-columns: 30rem 30rem 30rem;
+  grid-template-columns: 1fr 1fr 1fr;
   -moz-column-gap: 10rem;
        column-gap: 10rem;
   max-width: -webkit-fit-content;
@@ -824,24 +852,21 @@ div.intro_text #intro_text--line {
 
 h1.headline {
   color: #241f20;
-  font-family: "GT Super Ds Trial Bd";
-  font-family: "Cairo", sans-serif;
+  font-family: "Roboto";
   font-weight: 700;
   text-rendering: optimizeLegibility;
   font-size: 3.5rem;
-  line-height: 2;
+  line-height: 1.5;
   text-transform: capitalize;
 }
 
 div.product_listing__text {
-  max-width: 55%;
+  max-width: 70%;
 }
 div.product_listing__text p.about_product_text {
-  font-weight: 500;
-  font-family: "Ginto regular";
+  font-weight: 400;
+  font-family: "Roboto";
   font-size: 2rem;
-  font-family: "Cairo", sans-serif;
-  font-size: 1.6rem;
 }
 div.product_listing__text #color_highlight {
   color: #02843d;
@@ -849,11 +874,12 @@ div.product_listing__text #color_highlight {
 
 div.color_highlight {
   color: #241f20;
-  font-family: "GT Super Ds Trial Bd";
-  font-family: "Cairo", sans-serif;
+  font-family: "Roboto";
   font-weight: bold;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
   font-size: 3.5rem;
+  margin-top: 1rem;
 }
 
 .headline_about {
@@ -861,4 +887,227 @@ div.color_highlight {
   max-width: 70%;
   -webkit-margin-before: 0;
           margin-block-start: 0;
+}
+
+div.numGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+}
+div.numGrid .grid_num-wrap {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 3rem;
+}
+div.numGrid .grid_num-wrap div.grid_num-item {
+  width: 89%;
+  display: flex;
+}
+div.numGrid .grid_num-wrap div.grid_num-item .grid_num-item--left {
+  padding-right: 1rem;
+}
+div.numGrid .grid_num-wrap div.grid_num-item .grid_num-item--left span {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+div.numGrid .grid_num-wrap .grid_num-item--left {
+  padding-right: 1rem;
+}
+div.numGrid div.grid_num-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 10rem;
+       column-gap: 10rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+div.numGrid div.grid_num-wrap:first-child {
+  margin-bottom: 5em;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item {
+  display: flex;
+  width: 89% !important;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left {
+  display: block;
+  position: relative;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left span {
+  float: right;
+  position: absolute;
+  right: 1em;
+  top: 0;
+  color: #02843d;
+  font-family: "Cairo";
+  text-rendering: optimizeLegibility;
+  font-size: 2.4rem;
+  font-weight: bolder;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right {
+  display: block;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right h4 {
+  color: #241f20;
+  font-family: "Ginto bold";
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right p {
+  color: #231f20;
+  font-family: "Ginto regular";
+  font-weight: 400;
+  font-size: 2rem;
+}
+div.numGrid section.product_listing--bnt {
+  display: block;
+  margin-top: 6em;
+}
+div.numGrid section.product_listing--bnt div.color_highlight {
+  max-width: 45%;
+}
+div.numGrid section.product_listing--bnt div.numGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 2em;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 10rem;
+       column-gap: 10rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap:first-child {
+  margin-bottom: 2em;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item {
+  display: flex;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left {
+  display: block;
+  position: relative;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left span {
+  float: right;
+  position: absolute;
+  right: 1em;
+  top: 0;
+  color: #02843d;
+  font-family: "Cairo", sans-serif;
+  text-rendering: optimizeLegibility;
+  font-size: 2.4rem;
+  font-weight: bolder;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right {
+  display: block;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right h4 {
+  color: #241f20;
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+div.numGrid section.product_listing--bnt div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right p {
+  color: #231f20;
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+div.numGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 2em;
+}
+div.numGrid div.grid_num-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 10rem;
+       column-gap: 10rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+div.numGrid div.grid_num-wrap:first-child {
+  margin-bottom: 2em;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item {
+  display: flex;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left {
+  display: block;
+  position: relative;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--left span {
+  float: right;
+  position: absolute;
+  right: 1em;
+  top: 0;
+  color: #02843d;
+  font-family: "Cairo", sans-serif;
+  text-rendering: optimizeLegibility;
+  font-size: 2.4rem;
+  font-weight: bolder;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right {
+  display: block;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right h4 {
+  color: #241f20;
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 2rem;
+}
+div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right p {
+  color: #231f20;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+#btn__about_hd span {
+  margin-left: 0 !important;
+}
+
+@media (max-width: 768px) {
+  div.grid_num-wrap {
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+}
+#btn__abt span {
+  margin-left: 0 !important;
+}
+
+@media (max-width: 400px) {
+  div.numGrid div.grid_num-wrap div.grid_num-item div.grid_num-item--right p {
+    font-size: 2rem !important;
+  }
+}
+@media (max-width: 280px) and (max-width: 240px) {
+  div.numGrid {
+    max-width: 100%;
+  }
+}
+@media (max-width: 280px) {
+  #farmSHOP .farm_about .grid_num-item {
+    width: 20rem;
+  }
+}
+@media (max-width: 500px) {
+  #farmSHOP .farm_about div.grid_num-wrap {
+    max-width: 100% !important;
+    width: 100%;
+  }
 }/*# sourceMappingURL=about.css.map */

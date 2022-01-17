@@ -16,8 +16,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateProduct, getProductDetails, clearErrors } from '../../actions/productActions'
 import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
 import { Container } from '@material-ui/core';
+import { useTranslation, Trans } from 'react-i18next';
 
 const UpdateProduct = ({ match, history }) => {
+    const { t, i18n } = useTranslation();
 
     // -------------------------------REMOVE HEADER AND FOOTER -------------------------------
     function removeHeader() {
@@ -81,13 +83,13 @@ const UpdateProduct = ({ match, history }) => {
     const [imagesPreview, setImagesPreview] = useState([])
 
     const categories = [
-        'Poultry',
-        'Fresh Eggs',
-        'Pigsty',
-        'Goats, Sheep & mammals',
-        'Park Animals',
-        'Purebred Seed - ARTIFICIAL INSEMINATION',
-        'Food & Livestock Products'
+        t('crumb__poultry'),
+        t('fresh_eggs'),
+        t('pigsty'),
+        t('goats_sheeps_mammels'),
+        t('parc_animals'),
+        t('purebred__seed'),
+        t('livestock_food')
     ]
 
     const productSize = [
@@ -97,22 +99,22 @@ const UpdateProduct = ({ match, history }) => {
         '3 L',
         '5 L',
         '10 L',
-        'Medium',
+        t('medium'),
         'Large',
-        'Verrat',
-        'Trout',
+        t('trout'),
+        t('verrat'),
         '1 Dose',
         '1 T'
     ]
 
     const productColor = [
-        'Grey',
-        'White',
-        'Brown',
-        'Maroon',
-        'Blue',
-        'Black',
-        'Yellow'
+        t('grey'),
+        t('white'),
+        t('brown'),
+        t('maroon'),
+        t('blue'),
+        t('black'),
+        t('yellow')
     ]
 
     const alert = useAlert();
@@ -151,8 +153,8 @@ const UpdateProduct = ({ match, history }) => {
 
 
         if (isUpdated) {
-            history.push('/admin/products');
-            alert.success('Product updated successfully');
+            history.push('/dashboard');
+            alert.success(t('update_product_info'));
             dispatch({ type: UPDATE_PRODUCT_RESET })
         }
 
@@ -218,12 +220,12 @@ const UpdateProduct = ({ match, history }) => {
                 className="update_product__form"
             >
                 <div id="shipping_info">
-                    <h1 className="mb-4 shipping_title">Update Product</h1>
+                    <h1 className="mb-4 shipping_title">{t('update_product')}</h1>
                     <Stack direction="column" spacing={4} id="shipping_field-wrapper">
                         <TextField
                             id="name_field"
                             htmlFor="name_field"
-                            label="Name"
+                            label={t('farm.dashboard.products.all_products.products_modification.table.name')}
                             variant="standard"
                             fullWidth
                             name="name"
@@ -234,7 +236,7 @@ const UpdateProduct = ({ match, history }) => {
                         <TextField
                             id="price_field"
                             htmlFor="price_field"
-                            label="Price"
+                            label={t('farm.dashboard.products.all_products.products_modification.table.price')}
                             variant="standard"
                             fullWidth
                             name="price"
@@ -243,12 +245,12 @@ const UpdateProduct = ({ match, history }) => {
 
                         />
                         <FormControl className="MuiTextField-root" >
-                            <InputLabel id="demo-simple-select-label">Color</InputLabel>
+                            <InputLabel id="demo-simple-select-label">{t('color')}</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
                             id="update_product__color"
                             value={category}
-                            label="Color"
+                            label={t('color')}
                             onChange={(e) => setColor(e.target.value)}
                             >
                                 {productColor.map(color => (
@@ -257,12 +259,12 @@ const UpdateProduct = ({ match, history }) => {
                             </Select>
                         </FormControl>
                         <FormControl className="MuiTextField-root" >
-                            <InputLabel id="demo-simple-select-label">Size</InputLabel>
+                            <InputLabel id="demo-simple-select-label">{t('size')}</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
                             id="update_product__color"
                             value={size}
-                            label="Color"
+                            label={t('size')}
                             onChange={(e) => setSize(e.target.value)}
                             >
                                 {productSize.map(size => (
@@ -273,7 +275,7 @@ const UpdateProduct = ({ match, history }) => {
                         <TextField
                             id="standard-multiline-static"
                             value={description}
-                            label="Description"
+                            label={t('description')}
                             onChange={(e) => setColor(e.target.value)}
                             multiline
                             rows={4}
@@ -281,12 +283,12 @@ const UpdateProduct = ({ match, history }) => {
                             variant="standard"
                         />
                         <FormControl className="MuiTextField-root" >
-                            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                            <InputLabel id="demo-simple-select-label">{t('category')}</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
                             id="update_product__category"
                             value={category}
-                            label="Category"
+                            label={t('category')}
                             onChange={(e) => setCategory(e.target.value)}
                             >
                                 {categories.map(category => (
@@ -297,7 +299,7 @@ const UpdateProduct = ({ match, history }) => {
                         <TextField
                             id="stock_field"
                             htmlFor="stock_field"
-                            label="Stock"
+                            label={t('stock')}
                             variant="standard"
                             fullWidth
                             name="stock"
@@ -305,17 +307,7 @@ const UpdateProduct = ({ match, history }) => {
                             onChange={(e) => setStock(e.target.value)}
                             
                         />
-                        <TextField
-                            id="seller_field"
-                            htmlFor="seller_field"
-                            label="Seller"
-                            variant="standard"
-                            fullWidth
-                            name="seller"
-                            value={seller}
-                            onChange={(e) => setSeller(e.target.value)}
-                            
-                        />
+                    
                         
                         <Stack direction="row" spacing={2} className="MuiTextField-root" sx={{p: 4}}>
                             {oldImages && oldImages.map(img => (
@@ -330,7 +322,7 @@ const UpdateProduct = ({ match, history }) => {
                                 id="customFile"
                                 accept="image/*"
                                 onChange={onChange}
-                                label="Product Images"
+                                label={t('product_image')}
                                 variant="standard"
                             />
                         </Stack>
@@ -344,8 +336,9 @@ const UpdateProduct = ({ match, history }) => {
                     variant="contained"
                     className="btn btn-block py-3"
                     disabled={loading ? true : false}
+                    style={{textTransform: 'uppercase'}}
                 >
-                    UPDATE
+                    {t('update')}
                 </Button>
             </center>
             </Box>

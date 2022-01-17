@@ -10,9 +10,10 @@ import { Card, Typography } from '@mui/material';
 import { getAdminProducts } from '../../../../../actions/productActions'
 import { allOrders } from '../../../../../actions/orderActions'
 import { allUsers } from '../../../../../actions/userActions'
+import { useTranslation, Trans } from 'react-i18next';
 
 export const Highlights = () => {
-
+    const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
 
     const { products } = useSelector(state => state.products)
@@ -74,7 +75,7 @@ export const Highlights = () => {
                 </IconWrapperStyle>
                 <Typography variant="h3" className="admin__boxText">{products && products.length}</Typography>
                 <Typography variant="subtitle2" sx={{ opacity: 0.72, fontSize: '1.6rem' }}  className="admin__boxText">
-                    Products
+                    {t('farm.dashboard.products.title')}
                 </Typography>
             </RootStyle>
         </Link>

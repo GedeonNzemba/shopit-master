@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, memo } from "react";
 import { Carousel } from "react-bootstrap";
 
 import Loader from "../layout/Loader";
@@ -9,8 +9,9 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Stack from "@mui/material/Stack";
 import Input from "@mui/material/Input";
-
+import axios from "axios"
 import { useAlert } from "react-alert";
+import { fCurrency, fCurrencyFR } from '../../components/admin/main/utils/number/number';
 import { useDispatch, useSelector } from "react-redux";
 import {
     getProductDetails,
@@ -19,21 +20,38 @@ import {
 } from "../../actions/productActions";
 import { addItemToCart } from "../../actions/cartActions";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import { useTranslation } from 'react-i18next';
 
 const ProductDetails = ({ match }) => {
+    const { t, i18n } = useTranslation();
     const [quantity, setQuantity] = useState(1)
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
+    const [getProductInfoFR, setGetProductInfoFR] = useState('')
 
     const dispatch = useDispatch();
     const alert = useAlert();
 
-    const { loading, error, product } = useSelector(state => state.productDetails)
+    const { loading, error, product, produit } = useSelector(state => state.productDetails)
     const { user } = useSelector(state => state.auth)
     const { error: reviewError, success } = useSelector(state => state.newReview)
 
+    const [transText, setTransText] = useState('')
+
+  
+
+    useEffect(() => {
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('product_page');
+
+        return () => {
+            app.classList.remove('product_page');
+        }
+    }, [])
+
     useEffect(() => {
         dispatch(getProductDetails(match.params.id))
+        setGetProductInfoFR(produit)
 
         if (error) {
             alert.error(error);
@@ -50,11 +68,31 @@ const ProductDetails = ({ match }) => {
             dispatch({ type: NEW_REVIEW_RESET })
         }
 
-    }, [dispatch, alert, error, reviewError, match.params.id, success])
+        axios({
+            method: 'post',
+            url: 'https://translate.mentality.rip/translate',
+            headers: { "Content-Type": "application/json" },
+            data: {
+                q: `${product.description}`,
+                source: "en",
+                target: "fr",
+                format: "text"
+            }
+        }).then(function (response) {
+            console.log(response.data)
+            console.log(response.data.translatedText)
+            setTransText(response.data.translatedText);
+
+        })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+    }, [dispatch, alert, error, reviewError, match.params.id, success, product.description])
 
     const addToCart = () => {
         dispatch(addItemToCart(match.params.id, quantity));
-        alert.success('Item Added to Cart')
+        alert.success(t('add_to_cart'))
     }
 
     const increaseQty = () => {
@@ -127,6 +165,8 @@ const ProductDetails = ({ match }) => {
 
     const ariaLabel = { "aria-label": "description" };
 
+   
+
     return (
         <Fragment>
             {loading ? (
@@ -152,7 +192,7 @@ const ProductDetails = ({ match }) => {
                                 </Carousel>
                             </section>
                             <section className="productD__content">
-                                <h1>{product.name}</h1>
+                                <h1>{i18n.resolvedLanguage === 'fr' ? produit.name : product.name}</h1>
                                 <div className="rating_wrapp">
                                     <div className="rating-outer">
                                         <div
@@ -161,11 +201,13 @@ const ProductDetails = ({ match }) => {
                                         ></div>
                                     </div>
                                     <span id="no_of_reviews">
-                                        ({product.numOfReviews} Reviews)
+                                        ({product.numOfReviews} {t('reviews')})
                                     </span>
                                 </div>
                                 <div className="price_wrap">
-                                    <p id="product_price">${product.price}</p>
+                                    <p id="product_price">
+                                        {i18n.resolvedLanguage === 'fr' ? fCurrencyFR(produit.price) + ' CFA' :  fCurrency(product.price)}
+                                    </p>
                                 </div>
                                 <div className="stockCounter" id="wrap_qpt" style={{ display: 'none!important' }}>
                                     <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
@@ -174,7 +216,7 @@ const ProductDetails = ({ match }) => {
 
                                     <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                                 </div>
-                                <Stack direction="row" spacing={2}>
+                                <Stack direction={window.innerWidth <= 359 ? "column" : "row"} className="stack__product_action" spacing={2}>
                                     <Button
                                         variant="contained"
                                         startIcon={<RemoveIcon />}
@@ -182,10 +224,9 @@ const ProductDetails = ({ match }) => {
                                         className="minus"
                                         onClick={decreaseQty}
                                     >
-                                        Decrease
+                                        {t('decrease')}
                                     </Button>
                                     <Input
-                                        defaultValue="Quantity"
                                         value={quantity}
                                         readOnly
                                         type={"number"}
@@ -200,35 +241,41 @@ const ProductDetails = ({ match }) => {
                                         endIcon={<AddIcon />}
                                         onClick={increaseQty}
                                     >
-                                        Increase
+                                        {t('increase')}
                                     </Button>
                                 </Stack>
                                 <Button disabled={product.stock === 0} onClick={addToCart} variant="contained" color="success" id="add_to_card">
-                                    Add to Card
+                                    {t('add_card')}
                                 </Button>
                                 <div className="product_status">
-                                    <p>
-                                        Status:{" "}
+                                    <h4 style={{fontSize: '1.8rem', fontFamily: 'Roboto'}}>
+                                        {t('farm.dashboard.orders.status')}:{" "}
                                         <span
                                             id="stock_status"
                                             className={product.stock > 0 ? "greenColor" : "redColor"}
                                         >
-                                            {product.stock > 0 ? "In Stock" : "Out of Stock"}
+                                            {product.stock > 0 ? t('in_stock') : t('out_stock')}
                                         </span>
-                                    </p>
+                                    </h4>
                                 </div>
                                 <div className="product_size">
-                                    <p>
-                                        Size:
+                                    <h4 style={{fontSize: '1.8rem', fontFamily: 'Roboto'}}>
+                                        {t('size')}:
                                         <span> {product.size}</span>
-                                    </p>
+                                    </h4>
+                                </div>
+                                <div className="product_size">
+                                    <h4 style={{fontSize: '1.8rem', fontFamily: 'Roboto'}}>
+                                        {t('color')}:
+                                        <span> {i18n.resolvedLanguage === 'fr' ? (produit.size ? produit.size : t('unavalaible')) : (product.size ? product.size : t('unavalaible'))}</span>
+                                    </h4>
                                 </div>
                                 <article className="product_description">
                                     <div className="description_header">
-                                        <h4 className="mt-2">Description:</h4>
+                                        <h4 className="mt-2" style={{fontFamily: 'Roboto'}}>{t('description')}:</h4>
                                     </div>
                                     <p>
-                                        <span>{product.description}</span>
+                                        <span style={{marginLeft: '0', fontFamily: 'Roboto', fontWeight: '500'}}>{i18n.resolvedLanguage === 'fr' ? transText : product.description}</span>
                                     </p>
                                 </article>
                                 <br />
@@ -241,11 +288,11 @@ const ProductDetails = ({ match }) => {
                                         data-target="#ratingModal"
                                         onClick={setUserRatings}
                                     >
-                                        Submit Your Review
+                                       {t('submit_review')}
                                     </Button>
                                 ) : (
                                     <div className="alert alert-danger mt-5" type="alert">
-                                        Login to post your review.
+                                        {t('login_post_review')}
                                     </div>
                                 )}
                             </section>
@@ -266,7 +313,7 @@ const ProductDetails = ({ match }) => {
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <h5 className="modal-title" id="ratingModalLabel">
-                                                Submit Review
+                                                {t('submit__review')}
                                             </h5>
                                             <button
                                                 type="button"
@@ -318,7 +365,7 @@ const ProductDetails = ({ match }) => {
                                                 data-dismiss="modal"
                                                 aria-label="Close"
                                                 id="add_to_card">
-                                                Submit
+                                                {t('submit')}
                                             </Button>
                                         </div>
                                     </div>
@@ -336,4 +383,4 @@ const ProductDetails = ({ match }) => {
     );
 };
 
-export default ProductDetails;
+export default memo(ProductDetails);

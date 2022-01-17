@@ -1,6 +1,10 @@
 import React, { Fragment, useState, useEffect, memo } from 'react'
 import HomeSlider from './Slide'
+import { useTranslation, Trans } from 'react-i18next';
 import Helmet from 'react-helmet'
+import ProductSlider from '../components/product/ProductSlider'
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 // import Header from "../components/layout/Header"
 import './layout/mCustomscrollbar.css'
 import Paginatione from 'react-js-pagination'
@@ -39,7 +43,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
 import { getProducts } from '../actions/productActions'
 import '../styles/Locataire.css'
-
+import VaccHatch from '../components/vacchatch/Vacchatch'
 import { StrollableContainer } from "react-stroller";
 import ProductList from './product/ProductList';
 // import { Alert } from '@material-ui/lab';
@@ -48,6 +52,7 @@ import ProductList from './product/ProductList';
 // import shopnow from '../images/shopnow.ico';
 // import aboutFarm from '../images/farm.svg';
 import poultrybanner from '../images/POULTRY MEAT BANNER.png';
+import poule from '../images/poul.svg';
 import poultrybannerVideo from '../images/NUTRITION SLIDE.mp4';
 
 import { ArtifficialSVG, FresheggsSVG, Shop, LivestockSVG, ParkSVG, PigstySVG, SheepSVG, Health, About, Realty, AuditRisk, Mammals, Career } from '../SVG/Svg';
@@ -55,6 +60,7 @@ import purebred from '../images/featured/purebred.gif';
 
 import DayOld from '../images/featured/Day Old Chick.png'
 import HatchingEgg from '../images/featured/hatching.png'
+import NSlider from './banners/Slider'
 
 
 
@@ -130,8 +136,13 @@ const productColor = [
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range)
 
-const Home = ({ match }) => {
+const lngs = {
+    en: { nativeName: 'English' },
+    fr: { nativeName: 'Frech' }
+  };
 
+const Home = ({ match }) => {
+    const { t, i18n  } = useTranslation();
 
     const [currentPage, setCurrentPage] = useState(1)
     const [price, setPrice] = useState([1, 450])
@@ -149,6 +160,39 @@ const Home = ({ match }) => {
     // })
 
 
+    const [lang, setLang] = useState();
+    const [isFrench, setFrench] = useState(false);
+    console.log(lang)
+    console.log('isFrench: ' + isFrench)
+    
+   
+
+    const ChangeLng = () => (
+        Object.keys(lngs).map((lng) => (
+            <button key={lng} style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }} type="submit" onClick={() => {
+                i18n.changeLanguage(lng);
+                setLang(lng);
+                lng === 'fr' ? setFrench(true) : setFrench(previousState => previousState = false)
+
+              
+                console.log(lang)
+                console.log('isFrench: ' + isFrench)
+            }}>
+            {lngs[lng].nativeName}
+            </button>
+        ))
+    )
+
+  
+
+    useEffect(() => {
+        const french =  i18n.changeLanguage('fr');
+        french === 'fr' ? setFrench(true) : setFrench(previousState => previousState = false)
+        
+       
+    }, [ i18n])
+    
+    
 
 
 
@@ -170,8 +214,9 @@ const Home = ({ match }) => {
 
         dispatch(getProducts(keyword, currentPage, price, category, rating, size, color));
 
+       
+    }, [dispatch, alert, error, keyword, currentPage, price, category, rating, size, color]);
 
-    }, [dispatch, alert, error, keyword, currentPage, price, category, rating, size, color])
 
     function setCurrentPageNo(pageNumber) {
         setCurrentPage(pageNumber)
@@ -223,14 +268,45 @@ const Home = ({ match }) => {
                         {props.shopTitlte} <span>&#62;</span>
                     </div>
                 </section>
-                <div className="nutrition_product_preview">
+                <section className="farm_topSell-wrap" style={{marginTop: 0}}>
+                    <div className="nutrition_product_preview">
+                        {window.innerWidth >= 1300 ? (
+                            <Grid
+                            container
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                            style={{ flexWrap: 'nowrap' }}
+                        >
+                            {
+                                poultry.map((livestock) => (
+                                    <ProductSlider key={livestock._id} product={livestock} col={5} />
+                                ))
+                            }
 
-                    {
-                        poultry.map((livestock) => (
-                            <Product key={livestock._id} product={livestock} col={5} />
-                        ))
-                    }
-                </div>
+                        </Grid>
+                        ) : (
+                            <SimpleBar style={{ width: '90vw' }}>
+                            <Grid
+                                container
+                                direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                style={{ flexWrap: 'nowrap' }}
+                            >
+                                {
+                                    poultry.map((livestock) => (
+                                        <ProductSlider key={livestock._id} product={livestock} col={5} />
+                                    ))
+                                }
+
+                            </Grid>
+                        </SimpleBar>
+                        )}
+                        
+
+                    </div>
+                </section>
             </div>
         )
     }
@@ -247,18 +323,90 @@ const Home = ({ match }) => {
                         {props.shopTitlte} <span>&#62;</span>
                     </div>
                 </section>
-                <div className="nutrition_product_preview">
+                <section className="farm_topSell-wrap poultry-sec">
+                    <div className="nutrition_product_preview">
+                        {window.innerWidth >= 1300 ? (
+                            <Grid
+                            container
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                            style={{ flexWrap: 'nowrap' }}
+                        >
 
-                    {
-                        livestock.map((livestock) => (
-                            <Product key={livestock._id} product={livestock} col={5} />
-                        ))
-                    }
-                </div>
+                            {
+                                livestock.map((livestock) => (
+                                    <ProductSlider key={livestock._id} product={livestock} col={5} />
+                                ))
+                            }
+                        </Grid>
+                        )
+                        : (
+                            <SimpleBar style={{ width: '90vw' }}>
+                            <Grid
+                                container
+                                direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                style={{ flexWrap: 'nowrap' }}
+                            >
+
+                                {
+                                    livestock.map((livestock) => (
+                                        <ProductSlider key={livestock._id} product={livestock} col={5} />
+                                    ))
+                                }
+                            </Grid>
+                        </SimpleBar>
+                        )}
+                    </div>
+                </section>
             </div>
         )
     }
 
+    const FeateredCategorySX = () => (
+        <div className="col featured_category">
+            <h3 className="fc_title">Featured Categories</h3>
+            <div className="ft_cat_select">
+                <div className="col ft_cat_item">
+                    <div className="ft_cat-img">
+                        <Link to='/product-category/fresh-eggs'>
+                            <FresheggsSVG />
+
+                        </Link>
+                    </div>
+                    <div className="ft_cat-title">
+                        <span>Fresh Eggs</span>
+                    </div>
+                </div>
+
+                <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/pigsty'>
+
+                                <PigstySVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Pigsty</span>
+                        </div>
+                    </div>
+
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/livestock'>
+
+                                <LivestockSVG />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Livestock</span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    )
 
 
     // FEATURED CATEGORY
@@ -299,17 +447,7 @@ const Home = ({ match }) => {
                             <span>Livestock</span>
                         </div>
                     </div>
-                    <div className="col ft_cat_item">
-                        <div className="ft_cat-img">
-                            <Link to='//product-category/park-animals'>
-
-                                <ParkSVG />
-                            </Link>
-                        </div>
-                        <div className="ft_cat-title">
-                            <span>Park Animals</span>
-                        </div>
-                    </div>
+                   
                     <div className="col ft_cat_item">
                         <div className="ft_cat-img">
                             <Link to='/product-category/pigsty'>
@@ -337,12 +475,12 @@ const Home = ({ match }) => {
         )
     }
 
-    const MainPlace = () => {
+    const MainPlaceSX = () => {
         return (
             <div className="col featured_category">
                 {/* <h3 className="fc_title">Featured Categories</h3> */}
                 <div className="ft_cat_select" style={{ marginTop: 'unset' }}>
-                    <div className="col ft_cat_item">
+                    {/* <div className="col ft_cat_item">
                         <div className="ft_cat-img">
                             <Link to='/health'>
                                 <Health />
@@ -351,7 +489,7 @@ const Home = ({ match }) => {
                         <div className="ft_cat-title">
                             <span>Health Care</span>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="col ft_cat_item">
                         <div className="ft_cat-img">
                             <Link to='/about'>
@@ -360,7 +498,7 @@ const Home = ({ match }) => {
                             </Link>
                         </div>
                         <div className="ft_cat-title">
-                            <span>About Farm</span>
+                            <span>{t('farm.header.navigation_buttons.title1')}</span>
                         </div>
                     </div>
                     <div className="col ft_cat_item">
@@ -371,7 +509,81 @@ const Home = ({ match }) => {
                             </Link>
                         </div>
                         <div className="ft_cat-title">
-                            <span>Real Estate</span>
+                            <span>{t('farm.header.nav_bottom.title3')}</span>
+                        </div>
+                    </div>
+                    {/* <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/rikmanagement'>
+
+                                <AuditRisk />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Audit and Risk Management</span>
+                        </div>
+                    </div> */}
+                    {/* <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/product-category/goat-sheep-mammals'>
+
+                                <Mammals />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Goats, Sheep and Others</span>
+                        </div>
+                    </div> */}
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/career'>
+
+                                <Career />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>{t('farm.header.nav_bottom.title6')}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    const MainPlace = () => {
+        return (
+            <div className="col featured_category">
+                {/* <h3 className="fc_title">Featured Categories</h3> */}
+                <div className="ft_cat_select" style={{ marginTop: 'unset' }}>
+                    {/* <div className="col ft_cat_item" aria-disabled>
+                        <div className="ft_cat-img">
+                            <Link to='/health'>
+                                <Health />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>Health Care</span>
+                        </div>
+                    </div> */}
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/about'>
+                                <About />
+
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>{t('farm.header.nav_bottom.title2')}</span>
+                        </div>
+                    </div>
+                    <div className="col ft_cat_item">
+                        <div className="ft_cat-img">
+                            <Link to='/real-estate'>
+
+                                <Realty />
+                            </Link>
+                        </div>
+                        <div className="ft_cat-title">
+                            <span>{t('farm.header.nav_bottom.title3')}</span>
                         </div>
                     </div>
                     <div className="col ft_cat_item">
@@ -382,7 +594,7 @@ const Home = ({ match }) => {
                             </Link>
                         </div>
                         <div className="ft_cat-title">
-                            <span>Audit and Risk Management</span>
+                            <span>{t('farm.header.nav_bottom.title4')}</span>
                         </div>
                     </div>
                     <div className="col ft_cat_item">
@@ -393,7 +605,7 @@ const Home = ({ match }) => {
                             </Link>
                         </div>
                         <div className="ft_cat-title">
-                            <span>Goats, Sheep and Others</span>
+                            <span>{t('farm.header.nav_bottom.title5')}</span>
                         </div>
                     </div>
                     <div className="col ft_cat_item">
@@ -404,7 +616,7 @@ const Home = ({ match }) => {
                             </Link>
                         </div>
                         <div className="ft_cat-title">
-                            <span>Locataire Career</span>
+                            <span>{t('farm.header.nav_bottom.title6')}</span>
                         </div>
                     </div>
                 </div>
@@ -419,20 +631,15 @@ const Home = ({ match }) => {
                     <img src={purebred} alt="purebred pig seed" />
                 </div>
                 <div className="purebred_content">
-                    <h1>purebred seed - artificial insemination</h1>
+                    <h1>{t('farm.header.purebred.heading')}</h1>
                     <p>
-                        We sell fresh (pure blood) pig seeds or refrigerated high
-                        qualities for artificial reproduction of pure bred and
-                        crossbred. The boars Duroc, Landrace, Berkshire, offered
-                        are intended to produce hybrid soars. These are elite
-                        genetic strains from recognized and accredited
-                        insemination centers in the United States.
+                       {t('farm.header.purebred.text')}
                     </p>
                 </div>
                 <br />
                 <Link to="/product-category/purebred-seed" className="lBanner__btn shop_now">
                     <Button variant="contained" color="secondary" className="btn-shop">
-                        Discover More
+                        {t('farm.header.poultry_fresh_eggs_shop.fresh_eggs.button_text')}
                     </Button>
                 </Link>
             </div>
@@ -457,44 +664,42 @@ const Home = ({ match }) => {
             <section className="bBanner">
                 <div className="bBanner__left bBanner__img onHoverBanner">
                     <div className="bBanner__content sub_-text">
-                        <span style={{ color: "#7fad39" }}>profit more</span>
+                        <span style={{ color: "#7fad39" }}>{t('farm.header.vegetables_delivery_banner.vegetables.subtitle')}</span>
                         <div className="bBanner_title sub_-text">
-                            <h2 style={{ color: "#ffffff" }}>poultry meat</h2>
+                            <h2 style={{ color: "#ffffff" }}>{t('farm.header.poultry_fresh_eggs_shop.poultry.text')}</h2>
                         </div>
                         {window.innerWidth < 800 ? null :
-                        <div className="bBanner_text">
-                            <p style={{ color: "#ffffff" }}>
-                                we sell domestic and commercial chickens, turkeys, ducks, guinea fowl, and geese.
-                                Various crossbred chickens are also available
-                            </p>
-                        </div>
+                            <div className="bBanner_text">
+                                <p style={{ color: "#ffffff" }}>
+                                    {t('farm.header.poultry_fresh_eggs_shop.fresh_eggs.text')}
+                                </p>
+                            </div>
                         }
                         <Link to="/product-category/poultry" className="lBanner__btn shop_now">
                             <Button variant="contained" color="secondary" className="btn-shop" >
-                                shop now
+                                {t('farm.header.poultry_fresh_eggs_shop.poultry.button_text')}
                             </Button>
                         </Link>
-                        {/* <Link to="/" className="lBanner__btn shop_now">shop now</Link> */}
+                        {/* <Link to="/" className="lBanner__btn shop_now">{t('farm.header.poultry_fresh_eggs_shop.poultry.button_text')}</Link> */}
                     </div>
                 </div>
 
                 <div className="bBanner__right bBanner__img onHoverBanner">
                     <div className="bBanner__content sub_-text">
-                        <span>profit more</span>
+                        <span>{t('farm.header.vegetables_delivery_banner.vegetables.subtitle')}</span>
                         <div className="bBanner_title">
                             <h2>fresh eggs</h2>
                         </div>
-                        {window.innerWidth <= 800 ? null : 
-                        <div className="bBanner_text">
-                            <p>
-                                we sell clean, sound and odor-free fresh eggs. The eggs are brown, white
-                                and weigh an average of 62.9 grams (or 2.21 ounces).
-                            </p>
-                        </div>
+                        {window.innerWidth <= 800 ? null :
+                            <div className="bBanner_text">
+                                <p>
+                                {t('farm.header.poultry_fresh_eggs_shop.fresh_eggs.text')}
+                                </p>
+                            </div>
                         }
                         <Link to="/product-category/fresh-eggs" className="lBanner__btn shop_now">
                             <Button variant="contained" color="secondary" className="btn-shop" >
-                                shop now
+                                {t('farm.header.poultry_fresh_eggs_shop.poultry.button_text')}
                             </Button>
                         </Link>
                     </div>
@@ -757,7 +962,7 @@ const Home = ({ match }) => {
 
                                             <div className="farm_inner-wrap row">
 
-                                                
+
 
                                                 <div className="top_container">
                                                     {window.innerWidth <= 599 ? null : (
@@ -768,9 +973,9 @@ const Home = ({ match }) => {
                                                         </div>
                                                     )}
 
-                                                   
+
                                                     <div className="home__banner">
-                                                        
+
                                                         <HomeSlider />
                                                     </div>
                                                     <div className="conv_farm">
@@ -791,7 +996,7 @@ const Home = ({ match }) => {
                                                                         <ListItemIcon className="home__list_icon">
                                                                             <About />
                                                                         </ListItemIcon>
-                                                                        <ListItemText primary={window.innerWidth < 430 ? 'About' : 'About Farm'} className="homebox__list_text" />
+                                                                        <ListItemText primary={window.innerWidth < 430 ? t('farm.header.navigation_buttons.titlea') : t('farm.header.navigation_buttons.title1')} className="homebox__list_text" />
                                                                     </ListItemButton>
                                                                 </Link>
                                                             </List>
@@ -804,7 +1009,7 @@ const Home = ({ match }) => {
                                                                         <ListItemIcon className="home__list_icon">
                                                                             <Shop />
                                                                         </ListItemIcon>
-                                                                        <ListItemText primary={window.innerWidth < 430 ? 'Shop' : 'Shop Now'} className="homebox__list_text" />
+                                                                        <ListItemText primary={window.innerWidth < 430 ? t('farm.header.navigation_buttons.titled') : `${t('farm.header.poultry_fresh_eggs_shop.poultry.button_text')}`} className="homebox__list_text" />
                                                                     </ListItemButton>
                                                                 </Link>
                                                             </List>
@@ -817,7 +1022,7 @@ const Home = ({ match }) => {
                                                                         <ListItemIcon className="home__list_icon">
                                                                             <Realty />
                                                                         </ListItemIcon>
-                                                                        <ListItemText primary={window.innerWidth < 430 ? 'Realty' : 'Real Estate'} className="homebox__list_text" />
+                                                                        <ListItemText primary={window.innerWidth < 430 ? t('farm.header.navigation_buttons.titleb') : t('farm.header.nav_bottom.title3')} className="homebox__list_text" />
                                                                     </ListItemButton>
                                                                 </Link>
                                                             </List>
@@ -830,7 +1035,7 @@ const Home = ({ match }) => {
                                                                         <ListItemIcon className="home__list_icon">
                                                                             <AuditRisk />
                                                                         </ListItemIcon>
-                                                                        <ListItemText primary={window.innerWidth < 430 ? 'Risk' : 'Risk Management'} className="homebox__list_text" />
+                                                                        <ListItemText primary={window.innerWidth < 430 ? t('farm.header.navigation_buttons.titlec') : t('farm.header.navigation_buttons.title4')} className="homebox__list_text" />
                                                                     </ListItemButton>
                                                                 </Link>
                                                             </List>
@@ -849,7 +1054,7 @@ const Home = ({ match }) => {
                                                                 </div>
                                                                 <div className="_select_item-text col">
                                                                     <span className="select_text">
-                                                                        About Farm
+                                                                       {t('farm.header.navigation_buttons.title1')}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -861,7 +1066,7 @@ const Home = ({ match }) => {
                                                                 </div>
                                                                 <div className="_select_item-text col">
                                                                     <span className="select_text">
-                                                                        Shop Now
+                                                                        {t('farm.header.navigation_buttons.title2')}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -874,7 +1079,7 @@ const Home = ({ match }) => {
                                                                 </div>
                                                                 <div className="_select_item-text col">
                                                                     <span className="select_text" >
-                                                                        Real Estate
+                                                                        {t('farm.header.navigation_buttons.title3')}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -886,7 +1091,7 @@ const Home = ({ match }) => {
                                                                 </div>
                                                                 <div className="_select_item-text col">
                                                                     <span className="select_text">
-                                                                        Risk Management
+                                                                        {t('farm.header.navigation_buttons.title4')}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -898,8 +1103,13 @@ const Home = ({ match }) => {
                                             <EggSection />
 
                                             {/* TOP SELLERS */}
+                                            
                                             <section className="farm_topSell-wrap">
-                                                <header><h2>Our Top sellers</h2></header>
+                                                <header>
+                                                <h2>
+                                               {t('farm.header.top_sellers.heading')}
+                                                    </h2>
+                                                </header>
                                                 <div className="container-fluid row" style={{ padding: '0', margin: '0' }}>
                                                     {/* <div className="topSell_item"></div> */}
                                                     <Topsell />
@@ -912,25 +1122,24 @@ const Home = ({ match }) => {
                                                 <div className="farm_lBanner__leftWrap onHoverBanner">
                                                     <aside className="__leftWrap_content">
                                                         <div className="lBanner__top-subTitle">
-                                                            <span>fresh products</span>
+                                                            <span>{t('farm.header.vegetables_delivery_banner.vegetables.subtitle')}</span>
                                                         </div>
                                                         <div className="lBanner__title">
                                                             <h2>
-                                                                vegetables 100% organic
+                                                                {t('farm.header.vegetables_delivery_banner.vegetables.title')}
                                                             </h2>
                                                         </div>
                                                         <div className="lBanner__text">
                                                             <p>
-                                                                We produce organic products of superior quality in accordance with
-                                                                food safety management standards such as the International Standard ISO 22000.
+                                                                {t('farm.header.vegetables_delivery_banner.vegetables.text')}
                                                             </p>
                                                         </div>
                                                         <Link to="/shop" className="lBanner__btn shop_now">
                                                             <Button variant="contained" color="secondary" className="btn-shop">
-                                                                shop now
+                                                                {t('farm.header.poultry_fresh_eggs_shop.poultry.button_text')}
                                                             </Button>
                                                         </Link>
-                                                        {/* <Link to="/" className="lBanner__btn shop_now">shop now</Link> */}
+                                                        {/* <Link to="/" className="lBanner__btn shop_now">{t('farm.header.poultry_fresh_eggs_shop.poultry.button_text')}</Link> */}
                                                     </aside>
                                                 </div>
                                                 <aside className="farm_lBanner__rightWrap onHoverBanner">
@@ -939,35 +1148,35 @@ const Home = ({ match }) => {
                                                     </div>
                                                     <div className="__rightWrap-content">
                                                         <p>
-                                                            Delivery at the expense of the customer. do not hesitate to contact us
+                                                           {t('farm.header.vegetables_delivery_banner.delivery.text')}
                                                         </p>
                                                     </div>
                                                     <Linke to="contactFormWrapper" className="lBanner__btn shop_now">
-                                                       {window.innerWidth <= 499 ? (
+                                                        {window.innerWidth <= 499 ? (
                                                             <Button variant="contained" color="secondary" className="btn-shop">
-                                                            contact us
-                                                        </Button>
-                                                       )
-                                                        :
-                                                        (
-                                                            <Button variant="outlined" color="primary" className="btn-contact">
-                                                            contact us
-                                                        </Button>
-                                                        )}
+                                                                {t('farm.header.vegetables_delivery_banner.delivery.contact_us')}
+                                                            </Button>
+                                                        )
+                                                            :
+                                                            (
+                                                                <Button variant="outlined" color="primary" className="btn-contact">
+                                                                    {t('farm.header.vegetables_delivery_banner.delivery.contact_us')}
+                                                                </Button>
+                                                            )}
                                                     </Linke>
-                                                    {/* <Link to="/" className="lBanner__btn shop_now">contact us</Link> */}
+                                                    {/* <Link to="/" className="lBanner__btn shop_now">{t('farm.header.vegetables_delivery_banner.delivery.contact_us')}</Link> */}
                                                 </aside>
                                             </section>
 
                                             {/* PRODUCTS */}
                                             <section className="fProduct">
                                                 <div className="fProduct-wrap">
-                                                    <h2>featured product</h2>
+                                                    <h2>{t('farm.header.featured_product.heading')}</h2>
                                                     {/* <span id="fProduct_subtext">
                                                             select our from superior quality products
                                                         </span> */}
                                                     <section class="section products">
-                                                    <div className="home__product-grid-sect"  >
+                                                        <div className="home__product-grid-sect"  >
                                                             {
                                                                 products.map(product => (
                                                                     <Product key={product._id} product={product} col={3} />
@@ -983,25 +1192,26 @@ const Home = ({ match }) => {
                                             {/* NUTRITION */}
                                             <section className="nutrition_slider">
                                                 <div className="animal_nutrition-image">
-                                                    <Link to="/product-category/livestock-food">
-                                                        <NutritionHero video={poultrybannerVideo} />
+                                                <Link to="/product-category/livestock-food">
+                                                    {i18n.resolvedLanguage === 'fr' ? <NSlider /> : (
+                                                            <NutritionHero video={poultrybannerVideo} />
+                                                    )}
                                                     </Link>
                                                 </div>
                                             </section>
-                                            <NutritionProduct styleName="category_preview" title="nutrition" subtitle="shop the look" shopTitlte="Sell all" />
+                                            <NutritionProduct styleName="category_preview" title={t('nutrition')} subtitle={t('nt_subtitle')} shopTitlte={t('nt_all')} />
 
-
-                                            <FeaturedCategory />
+                                            {window.innerWidth <= 575 ? <FeateredCategorySX /> : <FeaturedCategory />}
                                             <br />
 
                                             <div className="col poultry_banner_wrapper" style={{ padding: 'unset!important' }}>
                                                 <div className="inner_poultry_wrap">
                                                     <Link to="/product-category/poultry" className="onHoverBanner">
-                                                        <img className="poultrybanner" src={poultrybanner} alt="poultry banner" />
+                                                        <img className="poultrybanner" src={i18n.resolvedLanguage === 'fr' ? poule : poultrybanner} alt="poultry banner" />
                                                     </Link>
                                                 </div>
 
-                                                <CategoryPreview styleName="category_preview" title="Poultry Meat" subtitle="shop the look" shopTitlte="Sell all" />
+                                                <CategoryPreview styleName="category_preview" title={t('pl_poule')} subtitle={t('nt_subtitle')} shopTitlte={t('nt_all')} />
 
                                             </div>
 
@@ -1019,9 +1229,12 @@ const Home = ({ match }) => {
                                             <Purebred />
                                             <br />
 
-                                            <Hatching />
+                                            <VaccHatch />
 
-                                            <MainPlace />
+                                            {/* <Hatching /> */}
+
+                                           
+                                            {window.innerWidth <= 575 ?  <MainPlaceSX /> :  <MainPlace />}
                                             <br />
                                         </main>
                                     )

@@ -7,6 +7,45 @@ const productSchema = new mongoose.Schema({
         trim: true,
         maxLength: [100, 'Product name cannot exceed 100 characters']
     },
+    nom: {
+        type: String,
+        // required: [true, 'Veuillez saisir le nom du produit'],
+        trim: true,
+        maxLength: [100, 'Le nom du produit ne peut pas dépasser 100 caractères']
+    },
+    french: {
+        name: {
+            type: String,
+            // required: [true, 'Veuillez saisir le nom du produit'],
+            trim: true,
+            maxLength: [100, 'Le nom du produit ne peut pas dépasser 100 caractères']
+        },
+        price: {
+            type: Number,
+            // required: [true, 'Please enter product price'],
+            maxLength: [5, 'Product name cannot exceed 5 characters'],
+            default: 0
+        },
+        description: {
+            type: String,
+            // required: [true, 'Please enter product description'],
+        },
+        category: {
+            type: String,
+            enum: {
+                values: [
+                    'Poultry',
+                    'Fresh Eggs',
+                    'Pigsty',
+                    'Goats, Sheep & mammals',
+                    'Park Animals',
+                    'Purebred Seed - ARTIFICIAL INSEMINATION',
+                    'Food & Livestock Products'
+                ],
+                message: 'Please select correct category for product'
+            }
+        },
+    },
     price: {
         type: Number,
         // required: [true, 'Please enter product price'],
@@ -35,7 +74,7 @@ const productSchema = new mongoose.Schema({
     ],
     category: {
         type: String,
-        required: [true, 'Please select category for this product'],
+        required: [true, 'Veuillez sélectionner une catégorie pour ce produit'],
         enum: {
             values: [
                 'Poultry',
@@ -44,19 +83,25 @@ const productSchema = new mongoose.Schema({
                 'Goats, Sheep & mammals',
                 'Park Animals',
                 'Purebred Seed - ARTIFICIAL INSEMINATION',
-                'Food & Livestock Products'
+                'Food & Livestock Products',
+                "la volaille",
+                "Oeufs Frais",
+                "Porcherie",
+                "Chèvres, moutons et mammifères",
+                "Animaux du parc",
+                "Graine de race pure - INSEMINATION ARTIFICIELLE",
+                "Produits alimentaires et d'élevage"
             ],
-            message: 'Please select correct category for product'
+            message: 'Veuillez sélectionner la catégorie correcte pour le produit'
         }
     },
-    seller: {
-        type: String,
-        required: [true, 'Please enter product seller']
-    },
+    // seller: {
+    //     type: String,
+    //     required: [true, 'Please enter product seller']
+    // },
     stock: {
         type: Number,
         required: [true, 'Please enter product stock'],
-        maxLength: [5, 'Product name cannot exceed 5 characters'],
         default: 0
     },
     numOfReviews: {

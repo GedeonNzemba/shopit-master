@@ -10,6 +10,9 @@
 #farmSHOP .dataTables_wrapper .page-item.active .page-link:hover {
   color: #000000!important;
 }
+.rc-slider-tooltip-inner {
+  min-width: 68px!important;
+}
 /* Loader */
 .loader {
   display: block;
@@ -62,7 +65,7 @@
 } */
 html,
 body {
-  background-color: #ececec;
+  background-color: #ececec!important;
 }
 input:hover,
 input:focus,
@@ -311,6 +314,28 @@ div#processOrder__select {
     flex: auto;
   }
 }
+.carousel-track {
+  height: 45.8rem!important;
+}
+.product .img-container img {
+  width: 100%;
+  object-fit: fill;
+}
+.rating-outer::before {
+  font-size: 2rem;
+}
+.rating-inner::before {
+  font-size: 2rem;
+}
+#card__review p {
+  font-size: 1.6rem;
+}
+h6.admin__boxText {
+  text-transform: capitalize;
+}
+h4.admin__productsTab-title {
+  text-transform: capitalize;
+}
 @media (min-width: 500px) {
   #search__box {
     background-color: #02843d;
@@ -329,6 +354,22 @@ div#processOrder__select {
   #search__box:hover {
     background-color: #02843d;
   }
+}
+div[role="tooltip"] * {
+  font-size: 1.6rem!important;
+}
+#float_lng span {
+  margin-left: 0;
+}
+#floating_lang {
+  position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+}
+div img.nslide-img {
+  width: 100%;
+  height: unset!important;
 }
 .avatar_img_sidebar img {
   width: 85% !important;
@@ -376,6 +417,23 @@ div#drawer__container_content {
   justify-content: space-between;
   position: relative;
 }
+.shipping_main-wrap#shipping_info {
+  background: #d0d0d0!important;
+}
+#btn__order_in span {
+  margin-left: 0!important;
+}
+div#dashboard__top-container {
+  height: 100%;
+  margin-top: 0!important;
+  padding-top: 0;
+}
+div#update_product__category {
+  color: #ffffff;
+}
+.admin__sidedrawer-list {
+  height: 100vh!important;
+}
 .create_product-container {
   background-color: #ebf9f1;
   padding: 4rem;
@@ -386,8 +444,12 @@ div#drawer__container_content {
   text-align: center;
 }
 .admain__main-view {
-  padding-top: 10% !important;
   position: relative;
+  height: 100%;
+  max-height: 100%;
+}
+#admin__products_list .dataTables_info {
+  color: #141414 !important;
 }
 /* ######################################## */
 .admin__product-container {
@@ -420,6 +482,114 @@ div#drawer__container_content {
 }
 
 /* ######################################## */
+@media (max-width: 699px) {
+  .order_succ-inner {
+    display: none;
+  }
+  .btn__after_pay span {
+    margin-left: 0;
+  }
+  .content_order_success .succes_msg {
+    display: block;
+  }
+  .order_succ #contactFormWrapper{
+    display: none;
+  }
+  .mobile_success_wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+.content_order_success {
+  text-align: center;
+}
+div#mobile_order_success {
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+}
+.image_order_success {
+  width: 30rem;
+}
+main#order_success {
+  background-color: #dee2e6;
+}
+}
+
+.imgFR {
+  background-image: url('./images/MOB2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: auto;
+  height: 50rem;
+}
+.imgEN {
+  background-image: url('./images/MOB1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: auto;
+  height: 50rem;
+}
+
+@media (max-width: 499px) {
+  .imgFR {
+    height: 40rem;
+  }
+  .imgEN {
+    height: 40rem;
+  }
+}
+@media (max-width: 399px) {
+  .content_order_success {
+    max-width: 80%;
+}
+  .imgFR {
+    height: 35rem;
+  }
+  .imgEN {
+    height: 35rem;
+  }
+}
+@media (max-width: 299px) {
+  .image_order_success {
+    width: 90vw;
+  }
+}
+.product_page .container.container-fluid {
+  max-width: 100%!important;
+}
+section.productD__image {
+  height: fit-content;
+}
+.productD__wrapper .carousel {
+  border: 8px solid #ffffff!important;
+}
+.productD__wrapper .css-a88p61-MuiInputBase-root-MuiInput-root.Mui-error:after {
+  border-bottom-color: #02843d!important;
+}
+div.productD__wrapper {
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.productD__wrapper img.d-block.w-100 {
+  height: fit-content;
+}
+section.productD__content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 4px;
+}
+.product_page {
+  background-color: #e9ecef!important;
+}
+.minus, .plus {
+  background-color: #212529!important;
+}
 
 @media (max-width: 899px) {
   .main_dash {
@@ -787,7 +957,20 @@ div#loginswitch {
 }
 
 /* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM */
-
+.ads_fr {
+  background-image: url('./images/home_header/ads/fr_gif.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.ads_en {
+  background-image: url('./images/home_header/ads/en_gif.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
 main.farm_wrapper {
   padding-bottom: 56px;
   flex-grow: 1;
@@ -877,6 +1060,8 @@ label#demo-controlled-open-select-label {
 }
 section#dash_top\ {
   background: #ffffff;
+  width: 100%;
+  height: 18rem;
 }
 ul.category_render-wrap {
   display: flex;
@@ -964,7 +1149,7 @@ p.ctg-name {
   background: #fff;
 }
 section#dash_top\ {
-  padding: 1.5rem 1.5rem 1rem 1rem;
+  padding: 1rem;
 }
 section#dash_two {
   width: 100%;
@@ -1329,13 +1514,13 @@ button#checkout_button-cart span {
     overflow: hidden;
   }
 }
-
+/* 
 .onHoverBanner:hover {
   transform: scale(1.005);
 }
 .onHoverBanner:focus {
   transform: scale(1.005);
-}
+} */
 
 .btn-shop {
   background-color: #02843d !important;
@@ -1788,18 +1973,29 @@ svg.MuiStepIcon-root {
   text-transform: capitalize;
   margin-bottom: 1rem;
 }
-/* .animal_nutrition {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 8rem;
-} */
-/* .animal_nutrition-wrap {
-  width: 50%;
-  height: 47rem;
-} */
+
+@media (max-width: 400px) {
+  .farm_lBanner__leftWrap.onHoverBanner {
+    margin-bottom: 3rem!important;
+    margin-top: 1rem;
+  }
+  div.lBanner__text p {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 400px) {
+  .bBanner__left.bBanner__img {
+    height: 20rem!important;
+  }
+  .bBanner__right.bBanner__img {
+    height: 20rem!important;
+  }
+}
+.product .img-container .addCart {
+  font-size: 1.6rem;
+}
 .animal_nutrition-image {
-  height: 30rem;
+  height: auto;
   width: auto;
   overflow: hidden;
 }

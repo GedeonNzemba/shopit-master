@@ -1,6 +1,32 @@
 import {
     ALL_PRODUCTS_REQUEST,
     ALL_PRODUCTS_SUCCESS,
+    ALL_PUREBRED_PRODUCTS_REQUEST,
+    ALL_PUREBRED_PRODUCTS_SUCCESS,
+    ALL_PUREBRED_PRODUCTS_FAIL,
+    ALL_POULTRY_PRODUCTS_REQUEST,
+    ALL_POULTRY_PRODUCTS_SUCCESS,
+    ALL_POULTRY_PRODUCTS_FAIL,
+
+    ALL_FRESH_EGGS_PRODUCTS_REQUEST,
+    ALL_FRESH_EGGS_PRODUCTS_SUCCESS,
+    ALL_FRESH_EGGS_PRODUCTS_FAIL,
+
+    ALL_MAMMALS_PRODUCTS_REQUEST,
+    ALL_MAMMALS_PRODUCTS_SUCCESS,
+    ALL_MAMMALS_PRODUCTS_FAIL,
+
+    ALL_LIVESTOCK_PRODUCTS_REQUEST,
+    ALL_LIVESTOCK_PRODUCTS_SUCCESS,
+    ALL_LIVESTOCK_PRODUCTS_FAIL,
+
+    ALL_OTHERS_PRODUCTS_REQUEST,
+    ALL_OTHERS_PRODUCTS_SUCCESS,
+    ALL_OTHERS_PRODUCTS_FAIL,
+
+    ALL_PIGSTY_PRODUCTS_REQUEST,
+    ALL_PIGSTY_PRODUCTS_SUCCESS,
+    ALL_PIGSTY_PRODUCTS_FAIL,
     ALL_PRODUCTS_FAIL,
     ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
@@ -35,6 +61,8 @@ import {
 
 } from '../constants/productConstants'
 
+
+
 export const productsReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case ALL_PRODUCTS_REQUEST:
@@ -61,6 +89,241 @@ export const productsReducer = (state = { products: [] }, action) => {
 
         case ALL_PRODUCTS_FAIL:
         case ADMIN_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+
+// ########################################################################################################
+export const getProductsCategory_PoultryReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_POULTRY_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_POULTRY_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_POULTRY_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+export const getProductsCategory_PigstyReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_PIGSTY_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_PIGSTY_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_PIGSTY_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+export const getProductsCategory_OthersReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_OTHERS_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_OTHERS_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_OTHERS_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+export const getProductsCategory_MammalsReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_MAMMALS_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_MAMMALS_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_MAMMALS_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+export const getProductsCategory_LivestockReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_LIVESTOCK_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_LIVESTOCK_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_LIVESTOCK_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+export const getProductsCategory_EggsReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_FRESH_EGGS_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_FRESH_EGGS_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_FRESH_EGGS_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+// ########################################################################################################
+
+export const purebredReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case ALL_PUREBRED_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                products: []
+            }
+
+        case ALL_PUREBRED_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
+            }
+
+        case ALL_PUREBRED_PRODUCTS_FAIL:
             return {
                 loading: false,
                 error: action.payload
@@ -171,7 +434,7 @@ export const productReducer = (state = {}, action) => {
     }
 }
 
-export const productDetailsReducer = (state = { product: {} }, action) => {
+export const productDetailsReducer = (state = { product: {}, produit: {} }, action) => {
     switch (action.type) {
 
         case PRODUCT_DETAILS_REQUEST:
@@ -183,7 +446,8 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
         case PRODUCT_DETAILS_SUCCESS:
             return {
                 loading: false,
-                product: action.payload
+                product: action.payload,
+                produit: action.payload.french
             }
 
         case PRODUCT_DETAILS_FAIL:

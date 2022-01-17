@@ -183,7 +183,7 @@
 @media (min-width: 1366px) and (max-width: 1535px) {
   .poultry .producstWrapper {
     padding: 1.5rem;
-    grid-template-columns: 19rem 19rem 19rem 19rem auto;
+    grid-template-columns: repeat(5, 18.3rem);
   }
 }
 @media (min-width: 1366px) and (max-width: 1535px) and (min-width: 1390px) {

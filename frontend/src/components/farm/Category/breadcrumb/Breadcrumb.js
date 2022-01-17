@@ -3,6 +3,7 @@ import { emphasize, withStyles } from '@material-ui/core/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Chip from '@material-ui/core/Chip';
 import HomeIcon from '@material-ui/icons/Home';
+import { useTranslation, Trans } from 'react-i18next';
 
 const StyledBreadcrumb = withStyles((theme) => ({
     root: {
@@ -26,6 +27,7 @@ function handleClick(event) {
 }
 
 export default function CustomizedBreadcrumbs(props) {
+    const { t, i18n } = useTranslation();
     return (
         <Breadcrumbs aria-label="breadcrumb">
             <StyledBreadcrumb

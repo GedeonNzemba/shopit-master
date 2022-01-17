@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Paper from '@mui/material/Paper';
 import MetaData from '../layout/MetaData'
-
+import { useTranslation, Trans } from 'react-i18next';
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { register, clearErrors } from '../../actions/userActions'
@@ -76,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Register({ history }) {
+    const { t, i18n } = useTranslation();
 
     // 
     const [user, setUser] = useState({
@@ -162,7 +163,7 @@ export default function Register({ history }) {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5" className={classes.h1}>
-                    Sign up
+                    {t('login__signup')}
                 </Typography>
                 <form className={classes.form} Validate onSubmit={submitHandler} encType='multipart/form-data'>
                     <Grid container spacing={2}>
@@ -174,7 +175,7 @@ export default function Register({ history }) {
                                 required
                                 fullwidth
                                 id="firstName"
-                                label="First Name"
+                                label={t('first__name')}
                                 autoFocus
                                 value={name}
                                 onChange={onChange}
@@ -192,7 +193,7 @@ export default function Register({ history }) {
                                 required
                                 fullwidth
                                 id="lastName"
-                                label="last Name"
+                                label={t('last__name')}
 
                                 name="lastName"
                                 inputProps={{
@@ -209,7 +210,7 @@ export default function Register({ history }) {
                                 required
                                 fullwidth
                                 id="email"
-                                label="Email Address"
+                                label={t('login__e_address')}
                                 name="email"
                                 value={email}
                                 onChange={onChange}
@@ -227,7 +228,7 @@ export default function Register({ history }) {
                                 required
                                 fullwidth
                                 name="password"
-                                label="Password"
+                                label={t('login__password')}
                                 type="password"
                                 id="password"
                                 inputProps={{
@@ -252,7 +253,7 @@ export default function Register({ history }) {
                                             id="outlined-basic"
                                             type='file'
                                             name='avatar'
-                                            label="Choose Image"
+                                            label={t('choose image')}
                                             variant="outlined"
                                             accept="iamges/*"
                                             onChange={onChange}
@@ -276,7 +277,7 @@ export default function Register({ history }) {
                         <Grid item xs={12} style={{ display: 'none' }}>
                             <FormControlLabel
                                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                label="I want to receive inspiration, marketing promotions and updates via email."
+                                label={t('register__text')}
                             />
                         </Grid>
                     </Grid>
@@ -289,12 +290,12 @@ export default function Register({ history }) {
                         className={classes.submit + ' ' + classes.signUp}
                         disabled={loading ? true : false}
                     >
-                        Sign Up
+                        {t('login__signup')}
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link to="/login" variant="body2" className="css-wpssva-MuiTypography-root-MuiLink-root">
-                                <Btn variant="outlined"> { window.innerWidth < 432 ? 'Already have an account?' : '' } Sign in</Btn>
+                                <Btn variant="outlined"> { window.innerWidth < 432 ? 'Already have an account?' : '' } {t('login__signin')}</Btn>
                             </Link>
                         </Grid>
                     </Grid>

@@ -4,6 +4,7 @@ import './category_responsive.css'
 
 import Crumb from './breadcrumb/Breadcrumb'
 import { Link } from 'react-router-dom'
+
 import MetaData from '../../layout/MetaData'
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
@@ -16,7 +17,7 @@ import Paper from '@mui/material/Paper';
 import { emphasize, withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-
+import { addItemToCart } from "../../../actions/cartActions";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -24,11 +25,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 import Paginatione from 'react-js-pagination'
-import { Range } from 'rc-slider'
 import 'rc-slider/assets/index.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
-import { getProductsCategory } from '../../../actions/productActions'
+import { getProductsCategory_Pigsty, getProductsCategory_PigstyFR } from '../../../actions/productActions'
 import '../../../styles/Locataire.css'
 
 import ProductList from '../../product/ProductList';
@@ -46,6 +46,16 @@ import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
 import SideBarFielter from './sidebar/Sidebar'
+import { useTranslation, Trans } from 'react-i18next';
+import Slider from 'rc-slider'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Grid from 'react-loader-spinner/dist/loader/Grid.js'
+import { fCurrency, fCurrencyFR } from '../../admin/main/utils/number/number'
+
+
+const { createSliderWithTooltip } = Slider;
+const Range = createSliderWithTooltip(Slider.Range)
+
 
 const StyledBreadcrumb = withStyles((theme) => ({
     root: {
@@ -114,6 +124,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Pigsty({ match }) {
+    const { t, i18n } = useTranslation();
+
+    const [Id, setId] = useState('');
+    const [quantity, setQuantity] = useState(1)
+
+    const rangeState = i18n.resolvedLanguage === 'fr' ? [1, 25000] : [1, 46]
+    const [rangeChaged, setRangeChanged] = useState(false)
 
     const classes = useStyles();
 
@@ -124,18 +141,17 @@ export default function Pigsty({ match }) {
     }, [categoryFilter, setCategoryFilter, app.clientWidth])
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [price, setPrice] = useState([1, 450])
+    const [price, setPrice] = useState(rangeState)
     const [size, setSize] = useState('')
     const [color, setColor] = useState('')
     const [name, setName] = useState('')
     const [rating, setRating] = useState(0)
 
-    console.log('THE FILTER IS: ' + name)
 
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.products)
+    const {loading, products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(state => state.pigsty)
     const keyword = match.params.keyword
 
     useEffect(() => {
@@ -143,10 +159,10 @@ export default function Pigsty({ match }) {
             return alert.error(error)
         }
 
-        dispatch(getProductsCategory(keyword, currentPage, price, name, rating, size, color));
+        dispatch(i18n.resolvedLanguage === 'fr' ? getProductsCategory_PigstyFR(keyword, currentPage, price, name,  rating, size, color) : getProductsCategory_Pigsty(keyword, currentPage, price, name,  rating, size, color));
 
 
-    }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color])
+    }, [dispatch, alert, error, keyword, currentPage, price, name, rating, size, color, i18n.resolvedLanguage])
 
 
     function setCurrentPageNo(pageNumber) {
@@ -178,11 +194,25 @@ export default function Pigsty({ match }) {
 
     // const reducedArray = array.reduce((acc, curr) => `${acc}${curr.lat},${curr.lon}|`, '')
 
+    const resetPriceRange = () => {
+        setPrice(prevState => prevState = rangeState)
+        setRangeChanged(prevState => prevState = false)
+    }
+
+    useEffect(() => {
+        resetPriceRange()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [i18n.resolvedLanguage]);
 
 
     const productSize = [
         'verrat',
         'trout',
+    ]
+
+    const pSize = [
+        "verrat",
+        "truie",
     ]
 
     const names = [
@@ -192,6 +222,15 @@ export default function Pigsty({ match }) {
         "Pietrain",
         "chester",
         "crus",
+    ]
+
+    const noms = [
+        "landrace",
+        "landrace grand blanc",
+        "duroc",
+        "pietrain",
+        "chester",
+        "croisé",
     ]
 
     // const productColor = [
@@ -220,58 +259,98 @@ export default function Pigsty({ match }) {
         <div>
             <List>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Price
+                   {t('filter_price')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box>
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
+                    <Range
+                            marks={i18n.resolvedLanguage === 'fr' ? {1: `1 CFA`,3500: `3500 CFA`} : {1: `$1`,6.12: `$6.12`}}
                             min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
+                            max={i18n.resolvedLanguage === 'fr' ? 3500 : 6.12}
+                            defaultValue={i18n.resolvedLanguage === 'fr' ? [1, 3500] : [1, 6.12]}
+                            tipFormatter={value => `$${value}`}
                             tipProps={{
                                 placement: "top",
-                                visible: true,
+                                visible: true
                             }}
                             value={price}
+                            onChange={price => {
+                                setPrice(price)
+                                setRangeChanged(prevState => prevState = true)
+                            }}
                         />
+                        {rangeChaged && <Button style={{fontSize: '1.6rem', marginTop: '3rem'}} variant="outlined" onClick={resetPriceRange}>{t('reset_price_range')}</Button>}
+                       
                     </Box>
                 </ListItem>
                 <br />
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Category
+                {t('filter_category')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflowY: 'scroll', height: 200}}>
-                        {names.map((name, index) => {
+
+                    {i18n.resolvedLanguage === 'fr' ? 
+
+                        (
+                            noms.map((name, index) => {
+                                return (
+                                    <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
+                                        <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                    </ListItem>
+                                )
+                            })
+                        )
+                    
+                    :
+                    
+                    (
+                        names.map((name, index) => {
                             return (
                                 <ListItem key={index} style={{padding: '0', cursor: 'pointer'}} className="shop_sidebar__item" onClick={() => {setName(name); handleDrawerToggle()}}>
                                     <ListItemText primary={name} id="list_item_text" style={{ color: '#ffffff!important' }} />
                                 </ListItem>
                             )
-                        })}
+                        })
+                    )}
+
+                        
                     </Box>
                 </ListItem>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Size
+                    {t('filter_size')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
-                        {productSize.map((size, index) => {
+
+                    {i18n.resolvedLanguage === 'fr' ?  
+                        
+                        (
+                            pSize.map((size, index) => {
+                                return (
+                                    <ListItem key={index} onClick={() => {setSize(size); handleDrawerToggle()}} style={{cursor: 'pointer'}}>
+                                        <ListItemText primary={size} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                                    </ListItem>
+                                )
+                            })
+                        )
+                    
+                    :
+                    
+                    (
+                        productSize.map((size, index) => {
                             return (
                                 <ListItem key={index} onClick={() => {setSize(size); handleDrawerToggle()}} style={{cursor: 'pointer'}}>
                                     <ListItemText primary={size} id="list_item_text" style={{ color: '#ffffff!important' }} />
                                 </ListItem>
                             )
-                        })}
+                        })
+                    )}
+
                     </Box>
                 </ListItem>
                 <Divider style={{ margin: '8px 16px', borderColor: 'rgb(255 255 255 / 12%)' }} className="divider_sidebar">
-                    Filter By Rating
+                   {t('filter_rating')}
                 </Divider>
                 <ListItem style={{ display: 'block' }}>
                     <Box component="div" sx={{ overflow: 'auto', my: 2 }}>
@@ -297,53 +376,70 @@ export default function Pigsty({ match }) {
         return (
             <aside className={`category_list ${window.innerWidth < 700 ? ' isNull' : ''}`} id="filter_shop">
                 <section className="filterByPrice mgt">
-                    <h2 style={{ marginBottom: "2.5rem" }}>filter by price</h2>
+                    <h2 style={{ marginBottom: "2.5rem" }}>{t('filter_price')}</h2>
                     <div className="filterRange">
-                        <Range
-                            marks={{
-                                1: `$1`,
-                                450: `$450`,
-                            }}
+                    <Range
+                            marks={i18n.resolvedLanguage === 'fr' ? {1: `1 CFA`,3500: `3500 CFA`} : {1: `$1`,6.12: `$6.12`}}
                             min={1}
-                            max={450}
-                            defaultValue={[1, 450]}
-                            tipFormatter={(value) => `$${value}`}
+                            max={i18n.resolvedLanguage === 'fr' ? 3500 : 6.12}
+                            defaultValue={i18n.resolvedLanguage === 'fr' ? [1, 3500] : [1, 6.12]}
+                            tipFormatter={value => `$${value}`}
                             tipProps={{
                                 placement: "top",
-                                visible: true,
+                                visible: true
                             }}
                             value={price}
+                            onChange={price => {
+                                setPrice(price)
+                                setRangeChanged(prevState => prevState = true)
+                            }}
                         />
+                        {rangeChaged && <Button style={{fontSize: '1.6rem', marginTop: '3rem'}} variant="outlined" onClick={resetPriceRange}>{t('reset_price_range')}</Button>}
+                       
                     </div>
                 </section>
                 <section className="filterbycategory mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by category</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_category')}</h2>
                     <div id="category-list-wrapper">
-                        {names.map(name => (
+                    {i18n.resolvedLanguage === 'fr' ? noms.map(name => (
                             <div className="category-item" key={name} onClick={() => setName(name)}>
-                                {/* <img
-                                    className="category-icon"
-                                    src={name.icon}
-                                    alt={name.atl}
-                                /> */}
                                 {name}
-                                {/* <p onClick={() => setName(name)} className="ctg-name">{</p> */}
                             </div>
-                        ))}
+                        ))
+                        
+                        :
+                        
+                        (
+                            names.title.map((name, index) => (
+                                <div className="category-item" key={name} onClick={() => setName(name)}>
+                                    {name}
+                                </div>
+                            ))
+                        )}
                     </div>
                 </section>
                 <section className="filterbysize mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by size</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_size')}</h2>
                     <div id="category-size-wrapper">
-                        {productSize.map((size, key) => (
-                            <div className="size-item" key={key}>
-                                <p onClick={() => setSize(size)}>{size}</p>
-                            </div>
-                        ))}
+                        {i18n.resolvedLanguage === 'fr' ? 
+                        (
+                            pSize.map((size, key) => (
+                                <div className="size-item" key={key}>
+                                    <p onClick={() => setSize(size)}>{size}</p>
+                                </div>
+                            ))
+                        ) 
+                        : (
+                            productSize.map((size, key) => (
+                                <div className="size-item" key={key}>
+                                    <p onClick={() => setSize(size)}>{size}</p>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </section>
                 <section className="filterbyrating mgt">
-                    <h2 style={{ marginBottom: "1rem" }}>filter by rating</h2>
+                    <h2 style={{ marginBottom: "1rem" }}>{t('filter_rating')}</h2>
                     <div id="category-rating-wrapper">
                         <ul className="pl-0">
                             {[5, 4, 3, 2, 1].map((star) => (
@@ -370,7 +466,7 @@ export default function Pigsty({ match }) {
                         </Link>
                     </div>
                     <div className="crumb-wrap">
-                        <Crumb navigationA="/" nameA="farm" nameB="Pigsty" />
+                        <Crumb navigationA="/" nameA={t('crumb__farm')} nameB={t('crumb__pigsty')} />
                     </div>
                     {
                        window.innerWidth < 700 ? 
@@ -385,14 +481,14 @@ export default function Pigsty({ match }) {
                                 <div className="userFilter" id="remove_filter">
                                 <StyledBreadcrumb
                                                     component="a"
-                                                    label="filter"
+                                                    label={t('filter')}
                                                     icon={<FilterAltIcon />}
                                                     onClick={handleClick}
                                                 />
                                     <div className="remove_filter" >
                                         <span><i>{name}</i></span>
                                         <span><i>{size}</i></span>
-                                        <span><i> {rating ? `rating: ${rating}` : ''}</i></span>
+                                        <span><i> {rating ? `${t('rating')}: ${rating}` : ''}</i></span>
 
                                         <ThemeProvider theme={theme}>
                                             <Buttone
@@ -402,7 +498,7 @@ export default function Pigsty({ match }) {
                                                 startIcon={<DeleteIcon />}
                                                 onClick={handleClearFilter}
                                             >
-                                                Clear filter
+                                                {t('clear_filter')}
                                             </Buttone>
                                         </ThemeProvider>
                                     </div>
@@ -446,7 +542,7 @@ export default function Pigsty({ match }) {
                             startIcon={<DeleteIcon />}
                             onClick={handleClearFilter}
                         >
-                            Clear filter
+                            {t('clear_filter')}
                         </Buttone>
                     </ThemeProvider>
                    )
@@ -501,7 +597,7 @@ export default function Pigsty({ match }) {
                                                         >
                                                             <StyledBreadcrumb
                                                                 component="a"
-                                                                label="filter"
+                                                                label={t('filter')}
                                                                 icon={<FilterAltIcon />}
                                                                 onClick={handleClick}
                                                             />
@@ -509,7 +605,7 @@ export default function Pigsty({ match }) {
                                                         <AccordionDetails>
                                                         {name ? <Typography>{name}</Typography> : null}
                                                         {size ? <Typography>{size}</Typography> : null}
-                                                        {rating ? <Typography>{`rating: ${rating}`}</Typography> : null}
+                                                        {rating ? <Typography>{`${t('rating')}: ${rating}`}</Typography> : null}
                                                         </AccordionDetails>
                                                     </Accordion>
                                                 </>
@@ -517,10 +613,10 @@ export default function Pigsty({ match }) {
                                             :
                                             <Paper elevation={3} style={{paddingLeft: '1.5rem'}}>
                                                 <FilterCt  
-                                                    nameA="filter" 
+                                                    nameA={t('filter')} 
                                                     nameB={name}
                                                     nameC={size}
-                                                    nameD={rating ? `rating: ${rating}` : ''} 
+                                                    nameD={rating ? `${t('rating')}: ${rating}` : ''} 
                                                 />
                                             </Paper>
                                         }
@@ -539,43 +635,57 @@ export default function Pigsty({ match }) {
                     }
                     <div className="poultry_products">
                         <div className={grid ? "row producstWrapper" : "col listMode"}>
-                            {console.log("NAME:" + name)}
 
                             {
                                 grid ?
                                     (
-                                        products.map((eggProduct) => (
-                                            // <ProductList key={eggProduct._id} product={eggProduct} col={4} />
+                                        loading ? <Grid  arialLabel="loading-indicator" /> : (
 
-                                            <div className="product farmStyle" key={eggProduct._id}>
-                                                <div className="img-container">
-                                                    <img src={eggProduct.images[0].url} alt={eggProduct.name} />
-                                                    <div className="addCart">
-                                                        <i className="fas fa-shopping-cart"></i>
+                                            products.map((eggProduct, index) => (
+                                                // <ProductList key={eggProduct._id} product={eggProduct} col={4} />
+    
+                                                 <div className="product farmStyle" key={index}>
+                                                    <div className="img-container">
+                                                        <img src={eggProduct.images[0].url} alt={eggProduct.name} />
+                                                        <div className="addCart" onClick={() => { 
+                                                            setId(eggProduct._id)
+                                                            if (Id !== '') {
+                                                                dispatch(addItemToCart(Id, quantity))
+                                                                alert.success(t('add_to_cart'))
+                                                            } else {
+                                                                alert.info(t('alert_info'))  
+                                                            } 
+                                                        }} variant="contained" color="success" id="add_to_card">
+                                                            <i className="fas fa-shopping-cart"></i>
+                                                        </div>
                                                     </div>
-
-                                                    <div className="side-icons">
-                                                        <span><i className="fas fa-search"></i></span>
-                                                        <span><i className="far fa-heart"></i></span>
-                                                        <span><i className="fas fa-sliders-h"></i></span>
+    
+                                                    <div className="bottom">
+                                                        <h6 className="product_title">
+                                                            <Link to={`/product/${eggProduct._id}`}>
+                                                                {i18n.resolvedLanguage === 'fr' ? eggProduct.french.name : eggProduct.name}
+                                                            </Link>
+                                                        </h6>
+                                                        <div className="price">
+                                                            <span>
+                                                                {i18n.resolvedLanguage === 'fr' ? fCurrencyFR(eggProduct.french.price) + ' CFA' :  fCurrency(eggProduct.price)}
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="bottom">
-                                                    <h6 className="product_title"><Link to={`/product/${eggProduct._id}`}>{eggProduct.name}</Link></h6>
-                                                    <div className="price">
-                                                        <span>${eggProduct.price}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))
+                                            ))
+                                        )
                                     )
 
                                     :
 
                                     (
-                                        products.map((eggProduct) => (
-                                            <ProductList key={eggProduct._id} product={eggProduct} col={4} />
-                                        ))
+                                        loading ? <Grid  arialLabel="loading-indicator" /> : (
+
+                                            products.map((eggProduct) => (
+                                                <ProductList key={eggProduct._id} product={eggProduct} col={4} />
+                                            ))
+                                        )
                                     )
 
                             }

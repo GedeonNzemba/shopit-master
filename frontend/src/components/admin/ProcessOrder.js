@@ -33,6 +33,8 @@ import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
 import { ListItemIcon } from '@material-ui/core';
 import delivered from '../../images/delivered.png';
 import process from '../../images/processing.jpg'
+import { useTranslation, Trans } from 'react-i18next';
+import axios from 'axios'
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -42,6 +44,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const ProcessOrder = ({ match }) => {
+    const { t, i18n } = useTranslation();
 
        // -------------------------------REMOVE HEADER AND FOOTER -------------------------------
        function removeHeader() {
@@ -133,7 +136,7 @@ const ProcessOrder = ({ match }) => {
 
 
         if (isUpdated) {
-            alert.success('Order updated successfully');
+            alert.success(t('update_order_status'));
             dispatch({ type: UPDATE_ORDER_RESET })
         }
 
@@ -151,6 +154,29 @@ const ProcessOrder = ({ match }) => {
     const shippingDetails = shippingInfo && `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`
     const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
 
+    const [transorder, setTransOrder] = useState('')
+
+    useEffect(() => {
+        axios({
+            method: 'post',
+            url: 'https://translate.mentality.rip/translate',
+            headers: { "Content-Type": "application/json" },
+            data: {
+                q: orderStatus ? orderStatus : '',
+                source: "en",
+                target: "fr",
+                format: "text"
+            }
+        }).then(function (response) {
+            // console.log(response.data.translatedText);
+            setTransOrder(response.data.translatedText);
+            // isSubmitted && console.log('TESTING' + userComment + '\n' + trans)
+
+        })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }, [orderStatus]);
 
 
     return (
@@ -161,42 +187,42 @@ const ProcessOrder = ({ match }) => {
                     <Grid container className="processOrder__container_grid" justifyContent="center" alignItems="center" columns={16} spacing={3}>
                         <Grid item xs={8} className="processOrder__grid_item">
                             <Box style={{ padding: '2rem' }} className="processOrder__inner">
-                                <Typography variant="h3" sx={{mb: 1}}>Order # {order._id}</Typography>
+                                <Typography variant="h3" sx={{mb: 1}}>{t('orders')} # {order._id}</Typography>
                                 <List component="div" aria-label="mailbox folders">
-                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Shipping Info" /></Divider>
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label={t('shipping_info')} /></Divider>
                                     <ListItem button sx={{mt: 2}}>
                                         <Stack direction="row" spacing={2}>
-                                            <b><ListItemText className="po_item_title" primary="Name: " /></b>
+                                            <b><ListItemText className="po_item_title" primary={t('farm.dashboard.products.all_products.products_modification.table.name') + ':'} /></b>
                                             <ListItemText primary={user && user.name}  sx={{alignSelf: 'center'}} />
                                         </Stack>
                                     </ListItem>
 
                                     <ListItem button>
                                         <Stack direction="row" spacing={2}>
-                                            <b><ListItemText className="po_item_title" primary="Phone: " /></b>
+                                            <b><ListItemText className="po_item_title" primary={t('phone') + ':'} /></b>
                                             <ListItemText primary={shippingInfo && shippingInfo.phoneNo}  sx={{alignSelf: 'center'}} />
                                         </Stack>
                                     </ListItem>
 
                                     <ListItem button>
                                         <Stack direction="row" spacing={2}>
-                                            <b><ListItemText className="po_item_title" primary="Address: " /></b>
+                                            <b><ListItemText className="po_item_title" primary={t('address') + ':'} /></b>
                                             <ListItemText primary={shippingDetails}  sx={{alignSelf: 'center'}} />
                                         </Stack>
                                     </ListItem>
 
                                     <ListItem button sx={{mb: 2}}>
                                         <Stack direction="row" spacing={2}>
-                                            <b><ListItemText className="po_item_title" primary="Amount: " /></b>
+                                            <b><ListItemText className="po_item_title" primary={t('farm.dashboard.orders.amount') + ':'} /></b>
                                             <ListItemText primary={`$${totalPrice}`} sx={{alignSelf: 'center'}}  />
                                         </Stack>
                                     </ListItem>
 
-                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Payment" /></Divider>
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label={t('payment')} /></Divider>
                                     <ListItem button sx={{mt: 2, mb: 2}}>
                                         <ListItemText
                                             className={isPaid ? "greenColor" : "redColor"}
-                                            primary={isPaid ? "PAID" : "NOT PAID"}
+                                            primary={isPaid ? t('paid') : t('not_paid')}
                                         />
                                         {isPaid ?
                                          <ListItemIcon>
@@ -217,11 +243,11 @@ const ProcessOrder = ({ match }) => {
                                         />
                                     </ListItem>
 
-                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Order Status" /></Divider>
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label={t('order_status')} /></Divider>
                                     <ListItem button sx={{mt: 2, mb: 2}}>
                                         <ListItemText
                                             className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor"}
-                                            primary={orderStatus}
+                                            primary={i18n.resolvedLanguage === 'fr' ? transorder : orderStatus}
                                         />
                                         {order.orderStatus && String(order.orderStatus).includes('Delivered') ? 
                                             <img src={delivered} alt="delivered product" className="order-status__img" />
@@ -230,7 +256,7 @@ const ProcessOrder = ({ match }) => {
                                         }
                                     </ListItem>
 
-                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label="Order Items" /></Divider>
+                                    <Divider textAlign="left"><Chip sx={{fontSize: '1.4rem!important'}} label={t('order_items')} /></Divider>
                                     <Box sx={{mt: 2}}>
                                         {orderItems && orderItems.map(item => (
                                             <ListItem button  key={item.product} >
@@ -251,25 +277,25 @@ const ProcessOrder = ({ match }) => {
                         <Grid item xs={8} className="processOrder__grid_item">
                             <Item>
                                 <Stack direction="column" spacing={2}>
-                                    <Typography variant="h4">Status</Typography>
+                                    <Typography variant="h4">{t('farm.dashboard.orders.status')}</Typography>
                                     <FormControl className="MuiTextField-root" id="processOrder__field__select">
-                                        <InputLabel id="demo-simple-select-label" sx={{fontSize: '1.6rem'}}>Status</InputLabel>
+                                        <InputLabel id="demo-simple-select-label" sx={{fontSize: '1.6rem'}}>{t('farm.dashboard.orders.status')}</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="processOrder__select"
                                             value={status}
                                             name='status'
-                                            label="Status"
+                                            label={t('farm.dashboard.orders.status')}
                                             style={{ height: 'auto!important' }}
                                             onChange={(e) => setStatus(e.target.value)}
                                         >
-                                            <MenuItem value="Processing" className="processOrder__option" sx={{fontSize: '1.6rem'}}>Processing</MenuItem>
-                                            <MenuItem value="Shipped" className="processOrder__option" sx={{fontSize: '1.6rem'}}>Shipped</MenuItem>
-                                            <MenuItem value="Delivered" className="processOrder__option" sx={{fontSize: '1.6rem'}}>Delivered</MenuItem>
+                                            <MenuItem value="Processing" className="processOrder__option" sx={{fontSize: '1.6rem'}}>{t('processing')}</MenuItem>
+                                            <MenuItem value="Shipped" className="processOrder__option" sx={{fontSize: '1.6rem'}}>{t('shipped')}</MenuItem>
+                                            <MenuItem value="Delivered" className="processOrder__option" sx={{fontSize: '1.6rem'}}>{t('delivered')}</MenuItem>
                                         </Select>
                                     </FormControl>
 
-                                    <Button variant="contained" id="processOrder__bg" onClick={() => updateOrderHandler(order._id)}>Update Status</Button>
+                                    <Button variant="contained" id="processOrder__bg" onClick={() => updateOrderHandler(order._id)}>{t('update_status')}</Button>
                                 </Stack>
                             </Item>
                         </Grid>

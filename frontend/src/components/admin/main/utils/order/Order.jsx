@@ -14,7 +14,7 @@ import { fShortenNumber } from '../number/number';
 import { getAdminProducts } from '../../../../../actions/productActions'
 import { allOrders } from '../../../../../actions/orderActions'
 import { allUsers } from '../../../../../actions/userActions'
-
+import { useTranslation } from 'react-i18next';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({
@@ -42,6 +42,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
   }));
 
 export const OutOfStock = () => {
+  const { t, i18n } = useTranslation();
 
     const dispatch = useDispatch();
 
@@ -81,7 +82,7 @@ export const OutOfStock = () => {
         </IconWrapperStyle>
         <Typography variant="h3" className="admin__boxText">{orders && orders.length}</Typography>
         <Typography variant="subtitle2" sx={{ opacity: 0.72, fontSize: '1.6rem' }} className="admin__boxText">
-          Orders
+         {t('orders')}
         </Typography>
       </RootStyle>
       </Link>

@@ -33,12 +33,23 @@ button#pay_btn {
     color: #000000;
     line-height: 1;
 }
+@media (min-width: 900px) {
+    .succes_msg {
+        max-width: 28%;
+    }
+}
+
 .succes_msg {
     width: 30%;
     position: absolute;
     top: 0;
     right: 15rem;
    transform: translate(10rem, 20rem);
+}
+@media (max-width: 899px) {
+    .succes_msg {
+        width: 34%;
+    }
 }
 
 /* MY ORDER */

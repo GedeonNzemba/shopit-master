@@ -1,0 +1,95 @@
+#farmSHOP {
+    .preview_shop:hover {
+        cursor: pointer;
+    }
+    @media (max-width: 575px) {
+        .ft_cat_select {
+            grid-template-columns: repeat(3, 1fr)!important;
+            justify-items: center!important;
+        }
+    }
+    .nutrition_slider {
+        .animal_nutrition-image {
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+       
+    }
+
+    .nutrition_product_preview {
+        @media (max-width: 699px) {
+            .product {
+                width: 16rem;
+                & img {
+                    height: 16rem;
+                }
+            }
+        }
+    }
+
+    // 2
+
+    .farm_wrapper {
+        @media (min-width: 900px) {
+            .featured_category h3 {
+                font-size: 2.75rem;
+            }
+        }
+    
+        @media (max-width: 899px) {
+            
+            .featured_category h3 {
+                font-size: 2.75rem;
+            }
+            .featured_category {
+               
+                border-radius: 8px;
+                padding: 2rem;
+                & .ft_cat_select .ft_cat_item:hover {
+                    padding: 1.5rem;
+                    border-radius: 4px;
+                }
+                & .ft_cat_select  {
+                    height: 18rem;
+                    .ft_cat-img {
+                        height: 8rem;
+                        @media (max-width: 300px) {
+                            height: 6rem;
+                        }
+                    }
+                }
+               & .ft_cat_item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+               }
+            }
+            
+        }
+
+        // 3
+        .farm_topSell-wrap.poultry-sec {
+            margin-top: 0!important
+        }
+        .poultry_banner_wrapper {
+            .poultrybanner {
+                height: 25rem;
+            }
+            .preview_shop:hover {
+                cursor: pointer;
+            }
+
+            @media (max-width: 699px) {
+                .product {
+                    width: 16rem;
+                    & img {
+                        height: 16rem;
+                    }
+                }
+            }
+        }
+    }
+}
