@@ -12,7 +12,7 @@ import img4 from '../images/home_header/slide4.png'
 const Slider = () => {
 
     const settings =  {
-        autoplay: false,
+        autoplay: true,
         wheel: true,
         arrows: false
       };
