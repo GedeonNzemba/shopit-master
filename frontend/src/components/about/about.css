@@ -2,8 +2,15 @@ header.farm-header {
   z-index: 99 !important;
 }
 
+#typewriter * span {
+  margin-left: 0;
+}
+
 section.Fheader_image {
   z-index: 9;
+}
+section.Fheader_image ul#splide01-list {
+  margin-top: 7rem !important;
 }
 
 .product_listing--quote {
@@ -60,7 +67,6 @@ div.--pd_item_img_h {
 }
 
 div.farm_about {
-  margin-top: 7rem;
   height: auto;
   width: 100%;
   background-color: #f7f7f7;
@@ -83,9 +89,6 @@ div.farm_about ul#splide02-list {
 div.farm_about header.farm_header {
   height: 90vh;
   display: block;
-  background-image: url("../../images/about_head.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 div.farm_about header.farm_header div.inner_Fheader {
   display: grid;

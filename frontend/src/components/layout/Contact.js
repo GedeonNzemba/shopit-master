@@ -1,12 +1,38 @@
-import React, { Fragment, useEffect } from "react"
+import React, { Fragment, useEffect, useState, memo } from "react"
 import "../../styles/Locataire.css"
 import Footer from "./Footer"
+import Form from './form/Form'
+import Button from '@mui/material/Button';
+import contact_cover from '../../images/footer_cover.png'
+import { useTranslation } from 'react-i18next';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import isFrench from '../../language/locales/en.json'
 
-
-
-
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '90vw',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: '2rem',
+  overflowY: "scroll",
+  height: "90vh"
+};
 
 const Contact = props => {
+    const { i18n } = useTranslation();
+
+    const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
+
 
     useEffect(() => {
         const handleContactBg = () => {
@@ -20,8 +46,34 @@ const Contact = props => {
         window.location.href !== 'http://localhost:3000/' ? handleContactBg() : console.log('at home screen ...');
     }, [])
 
+    const ModalUI = () => (
+        <div>
+            <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Stack direction="column" spacing={3}>
+            <Form />
+          </Stack>
+        </Box>
+      </Modal>
+        </div>
+    )
 
 
+    const WelcomeForm = () => (
+        <>
+            <ModalUI />
+            <div className="contact_us__cover">
+                <img  onClick={handleOpen} className="contact_us_img" src={contact_cover} alt="contact us cover" />
+            </div>
+
+            <Button onClick={handleOpen} style={{marginTop: '5rem'}} variant="contained">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.contact_us : "Contact Us"}</Button>
+        </>
+    )
 
 
 
@@ -36,19 +88,14 @@ const Contact = props => {
 
             <div className="contactFormWrapper" id="contactFormWrapper">
 
-                <div className="contactFormHeader">Contact Us</div>
-                <div className="contactFormContainer">
+                <div className="contactFormHeader">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.contact_us : "Contact Us"}</div>
+                <div className='contactFormContainer' >
+                    
                     <div className="contactFormInternalContainer">
-                        <h2 className="contactFormHeading">
-                            Get in touch !
-                        </h2>
-
-                        {/* <Ct /> */}
-
+                        <WelcomeForm />
                         {/* <ContactB /> */}
-
-
                     </div>
+
                     <div className="contactFormMapDiv">
                         <div
                             className="contactFormMap"
@@ -65,4 +112,4 @@ const Contact = props => {
         </Fragment>
     )
 }
-export default Contact
+export default memo(Contact)

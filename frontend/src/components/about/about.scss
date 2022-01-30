@@ -8,9 +8,14 @@ $grey2: #828282;
 header.farm-header {
     z-index: 99 !important;
 }
-
+#typewriter * span {
+    margin-left: 0;
+  }
 section.Fheader_image {
     z-index: 9;
+    & ul#splide01-list {
+        margin-top: 7rem!important;
+    }
 }
 .product_listing--quote {
     max-width: 45%;
@@ -57,7 +62,7 @@ div.--pd_item_img_h {
 }
 
 div.farm_about {
-    margin-top: 7rem;
+    // margin-top: 7rem;
     // border: 1px solid red;
     height: auto;
     width: 100%;
@@ -95,10 +100,10 @@ div.farm_about {
 
         // background-image: url("../../images/reaalty/about_hd.png");
 
-        background-image: url("../../images/about_head.svg");
+        // background-image: url("../../images/about_head.svg");
 
-        background-repeat: no-repeat;
-        background-size: cover;
+        // background-repeat: no-repeat;
+        // background-size: cover;
 
         & div.inner_Fheader {
             display: grid;

@@ -56,7 +56,7 @@ const Personal = () => {
                     label="Last Name"
                     variant="standard"
                     className={classes.input + ' inputField'}
-                    type="number"
+                    type="text"
                 />
             </Stack>
 

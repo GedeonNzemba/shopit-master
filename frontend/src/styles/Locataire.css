@@ -3081,7 +3081,7 @@ header.riskHeader__smallDesktop .__image #riskHeader_illustr {
 }
 
 div#risk-content-up {
-  margin-bottom: 8%;
+  padding-bottom: 3%;
   margin-top: 3rem;
 }
 
@@ -6800,7 +6800,7 @@ form:focus ~ label {
 
   .contactFormContainer {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.9fr;
     align-items: center;
   }
 
@@ -6942,6 +6942,16 @@ form#ct_form .MuiBox-root .MuiBox-root-8 {
   form#ct_form .MuiBox-root .MuiBox-root-8 {
     bottom: 0;
   }
+}
+
+.contactFormInternalContainer button {
+  background: #fff !important;
+  color: #000000 !important;
+  font-size: 1.6rem !important;
+}
+.contactFormInternalContainer button:hover {
+  background: #212529 !important;
+  color: #fff !important;
 }
 
 .footerWrapper {

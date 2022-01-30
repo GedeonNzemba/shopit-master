@@ -15,9 +15,13 @@ import logo from "../images/logo_main.png";
 import Sidebar from './farm/Category/sidebar/Sidebar'
 import hamburgerLight from "../images/reaalty/hamburgerLight.svg"
 import hamburger from "../images/reaalty/hamburger.svg"
+import isFrench from '../language/locales/en.json'
+import { useTranslation } from 'react-i18next';
+
 
 function Navbar() {
-
+  const {  i18n } = useTranslation();
+ 
   const [isRisk, setIsRisk] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -73,7 +77,7 @@ function Navbar() {
                 <Link to={item.path} classNane="link_sidebar_realty">
                   <Stack direction='row' spacing={2} >
                       {item.icon}
-                    <ListItemText primary={item.title} id="list_item_text" style={{ color: '#ffffff!important' }} />
+                    <ListItemText primary={i18n.resolvedLanguage === 'fr' ? (item.titre) : (item.title)} id="list_item_text" style={{ color: '#ffffff!important' }} />
                   </Stack>
                 </Link>
               </ListItem>

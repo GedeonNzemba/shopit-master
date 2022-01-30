@@ -42,8 +42,7 @@ const Organisation = () => {
     return (
         <section className={classes.root} id="organiser_form">
             <Stack direction="row" spacing={2} className={classes.stack}>
-                <Field
-                    component={TextField}
+                <TextField
                     id="standard-basic"
                     label="Address"
                     variant="standard"
@@ -51,8 +50,7 @@ const Organisation = () => {
                     name="address"
                    
                 />
-                <Field
-                    component={TextField}
+                <TextField
                     id="standard-basic"
                     label="Country"
                     variant="standard"
@@ -62,8 +60,7 @@ const Organisation = () => {
                 />
             </Stack>
             <Stack direction="row" spacing={2} className={classes.stack}>
-                <Field
-                    component={TextField}
+                <TextField
                     id="standard-basic"
                     label="Company Name"
                     variant="standard"
@@ -71,8 +68,7 @@ const Organisation = () => {
                     name="companyName"
                     
                 />
-                <Field
-                    component={TextField}
+                <TextField
                     id="standard-basic"
                     label="Company Website"
                     variant="standard"

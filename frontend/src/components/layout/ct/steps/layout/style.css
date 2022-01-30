@@ -79,7 +79,8 @@
 .form {
   background: #ffffff;
   border-radius: 2.35rem;
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
+  height: 100%;
 }
 
 .form-step {

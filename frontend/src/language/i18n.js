@@ -3,8 +3,11 @@ import HttpBackend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
+
+
 const apiKey = "qDwx8pDT5JfM4BDmzDCA_A";
 const loadPath = `https://api.i18nexus.com/project_resources/translations/{{lng}}/{{ns}}.json?api_key=${apiKey}`;
+
 
 i18next
     .use(HttpBackend)
@@ -31,6 +34,8 @@ i18next
         lookupSessionStorage: 'i18nextLng',
         lookupFromPathIndex: 0,
         lookupFromSubdomainIndex: 0,
+
+        
 
         // cache user language on
         caches: ['localStorage', 'cookie'],

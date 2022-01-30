@@ -1,0 +1,194 @@
+{
+    "first_name": {
+        "required": "Le Prenom est requis"
+    },
+    "last_name": {
+        "required": "Le nom est requis"
+    },
+    "email": {
+        "required": "Le E-mail est requis"
+    },
+    "address": {
+        "required": "Address est requis"
+    },
+    "country": {
+        "required": "Pays est requis"
+    },
+    "company_name": {
+        "name": "Nom de l’entreprise",
+        "required": "Le nom de l’entreprise est requis"
+    },
+    "company_website": {
+        "name": "Site web de l’entreprise",
+        "required": "Le site Web est requis"
+    },
+    "subject": {
+        "name": "Sujet",
+        "list": {
+            "one": "Locataire Ferme",
+            "two": "Locataire Immobilier",
+            "three": "Locataire Audit & Gestion des Risques",
+            "four": "Locataire Carrières"
+        },
+        "required": "Le sujet est requis"
+    },
+    "phone": {
+        "name": "Numéro de téléphone",
+        "required": "Le numéro de téléphone est requis"
+    },
+    "message": {
+        "name": "Message",
+        "required": "Le message est requis"
+    },
+    "after_submit": {
+        "success": {
+            "title": "Merci",
+            "message": "NOUS AVONS REÇU VOTRE MESSAGE"
+        },
+        "failed": {
+            "title": "Désolé",
+            "message": "UNE ERREUR S’EST PRODUITE"
+        },
+        "close": "Fermer"
+    },
+    "realty": {
+        "navbar": {
+            "home": "Domicile",
+            "real_estate": "Immobilier",
+            "risk": "Gestion des risques",
+            "about": "À propos",
+            "career": "Carrière",
+            "contact_us": "Contactez-nous"
+        },
+        "header": {
+            "title": "LOCATAIRE IMMOBILIER",
+            "text": "Locataire Immobilier propose une large gamme de services immobiliers aux clients potentiels cherchant à acheter, vendre ou louer un ou des biens immobiliers résidentiels et/ou commerciaux aux Etats Unis, et au Canada.",
+            "learn_more": "Savoir plus"
+        },
+        "main_desktop": {
+            "title": "LOCATAIRE IMMOBILIER",
+            "sub_title": "Locataire Immobilier propose une large gamme de services immobiliers aux clients potentiels cherchant à acheter, vendre ou louer un ou des biens immobiliers résidentiels et/ou commerciaux aux Etats Unis, et au Canada.",
+            "section_one": "Notre activité principale comprend la gestion et l’administration de propriétés résidentielles et commerciales, et notre objectif principal est de maximiser au mieux le rendement total pour les propriétaires, par l’acquisition stratégique, le réaménagement, et la gestion de ces propriétés pour un flux de trésorerie maitrisé.",
+            "section_two": "Notre équipe comprend les services financiers, la gestion de patrimoine et l’étendue des risques liés au rendement des placements que les propriétaires immobiliers sont prêts à supporter. Nous nous engageons à aider nos clients à préserver leur patrimoine pour vous-même et votre famille, et à nous préparer à de futures responsabilités en tant que propriétaires et dirigeants de patrimoine.",
+            "invest": {
+                "title": "Investissement Locatifs",
+                "text_one": "Acheter un logement nécessite une étude rigoureuse pour opérer la meilleure sélection en matière de solvabilité.",
+                "text_two": "Nous tirons parti de notre expérience et de notre connaissance du marché local pour produire des rendements ajustés au risque de qualité supérieure pour les investisseurs.",
+                "image_texts": {
+                    "image_one": {
+                        "title": "Immobilier résidentiel multifamilial",
+                        "text": "Locataire Immobilier fournit des services immobiliers à des clients potentiels qui cherchent à acheter, vendre ou louer des biens immobiliers résidentiels et commerciaux aux États-Unis et au Canada."
+                    },
+                    "image_two": {
+                        "title": "Condominiums",
+                        "text": "Nous tirons parti de notre expérience et de notre connaissance du marché local pour produire des rendements ajustés au risque de qualité supérieure pour les investisseurs."
+                    },
+                    "image_three": {
+                        "title": "Commercial",
+                        "text": "Nous sommes payés après que vous ayez été payés. Ce qui signifie que si nous ne percevons pas le loyer comme convenu, vous ne nous payez pas de frais de gestion."
+                    },
+                    "services": {
+                        "servise_heading": "Les services d’investissement immobilier comprennent les éléments suivants."
+                    }
+                }
+            },
+            "porperty": {
+                "title": "Gestion des Logements",
+                "text_one": "Locataire immobilier est spécialisé dans la gestion des logements résidentiels et commerciaux. Pour ce faire, nous avons une équipe internationale dynamique aux États-Unis, et au Canada, qui se distingue de la compétition par nos offres de services de qualités, ainsi vous épargnez les soucis que représente la gestion des immeubles au quotidien.",
+                "image_texts": {
+                    "image_one": {
+                        "title": "Immobilier résidentiel multifamilial",
+                        "text": "Locataire Immobilier fournit des services immobiliers à des clients potentiels qui cherchent à acheter, vendre ou louer des biens immobiliers résidentiels et commerciaux aux États-Unis et au Canada."
+                    },
+                    "image_two": {
+                        "title": "Condominiums",
+                        "text": "Nous tirons parti de notre expérience et de notre connaissance du marché local pour produire des rendements ajustés au risque de qualité supérieure pour les investisseurs."
+                    },
+                    "image_three": {
+                        "title": "Commercial",
+                        "text": "Nous sommes payés après que vous ayez été payés. Ce qui signifie que si nous ne percevons pas le loyer comme convenu, vous ne nous payez pas de frais de gestion."
+                    },
+                    "services": {
+                        "servise_heading": "Services de gestion immobilièreinclure ce qui suit."
+                    }
+                }
+            }
+        }
+    },
+    "about": {
+        "header": {
+            "subtit": "NOTRE SERVICES ET VALEUR",
+            "tite_a": "Entité agroalimentaire et ingrédients alimentaires.",
+            "title_b": "Locataire Gestion des risques.",
+            "america": "Une société conglomérale américaine, à responsabilité limitée, basée à New York, aux États-Unis.",
+            "btn": "Savoir Plus"
+        },
+        "main": {
+            "subtitle": "vision et mission",
+            "vision": {
+                "vision_mission": "Locataire est une marque sous laquelle des dizaines de",
+                "vision_mission_b" : "professionnels spécialisés des établissements indépendants collaborent mutuellement", 
+                "vision_mission_c":  "pour fournir des produits et services auprès des entreprises des secteurs privé et public dans les domaines de l’immobiliers, agro-alimentaires et agricoles, audit et gestion des risques",
+                "entities": "Ces établissements font partie de Locataire Group, Limited Liability Company (LLC), une société conglomérale américaine, à responsabilité limitée, basée à New York, aux États-Unis.",
+                "acts": "Chaque établissement membre fournit des services conformes aux lois et règlements professionnels propres aux pays où il exerce. Les établissements membre sont des entités juridiques distinctes les unes des autres quoique formant un group. Chaque établissement assume indépendamment ses actes, ses responsabilités, ses omissions, ses vertus et ses qualités."
+            },
+            "our_service": "notre service",
+            "our_obj": {
+                "subtitle": "notre objectif",
+                "obj": "Notre objectif est d'aider nos clients à réaliser ce qui est important pour eux.",
+                "values": "Notre capacité à créer de la valeur ajoutée pour toutes les entités composantes repose sur une culture d’entreprise fondée sur des valeurs communes et humaines : Confiance, Travail d’Équipe et Responsabilité Partagée.",
+                "items": {
+                    "item_a": {
+                        "title": "objectif principal",
+                        "text": "D’optimiser les retours sur investissement et de surpasser les attentes de nos clients."
+                    },
+                    "item_b": {
+                        "title": "notre engagement",
+                        "text": "Aider nos clients à préserver leur patrimoine et à se préparer à leurs futures responsabilités en tant que propriétaires et dirigeants de patrimoine."
+                    },
+                    "item_c": {
+                        "title": "nos valeurs",
+                        "text": "Culture d’entreprise fondée sur des valeurs communes et humaines : Confiance, Travail d’Équipe et Responsabilité Partagée."
+                    }
+                }
+
+            },
+            "services": {
+                "title": "produits et services",
+                "text": "Locataire fournit des produits et services à des clients privés et publics couvrant plusieurs secteurs, notamment :",
+                "subtext": "Chaque établissement membre fournit des services conformes aux lois et règlements professionnels propres aux pays où il exerce. Les établissements membre sont des entités juridiques distinctes les unes des autres quoique formant un group. Chaque établissement assume indépendamment ses actes, ses responsabilités, ses omissions, ses vertus et ses qualités.",
+                "btn": "Contacter Locataire",
+                "items": {
+                    "invest": "Services d'investissement",
+                    "property": "Gestion de la propriété",
+                    "realty": "Immobilier",
+                    "agri": "Agriculture et élevage",
+                    "poultry": "Élevage de volaille et production d'œufs",
+                    "audit": "Audit & Gestion des risques",
+                    "eggs": "Oeufs frais",
+                    "livestock": "Bétail"
+                }
+            },
+            "career": {
+                "subtitle": "Carrières Locataire",
+                "title": "Avantages de travailler chez Locataire",
+                "items": {
+                    "item_a": {
+                        "title": "Mobilité",
+                        "text": "Locataire s’engage à créer et à maintenir un environnement de travail inclusif et diversifié où tous les employés sont traités avec dignité et respect."
+                    },
+                    "item_b": {
+                        "title": "Employment Policy",
+                        "text": "À ce titre et conformément à nos principes sur l’égalité des chances en matière d’égalité d’emploi interdit la discrimination et le harcèlement à l’égard de tout employé ou demandeur"
+                    },
+                    "item_c": {
+                        "title": "Votre voyage",
+                        "text": "En envoyant votre CV, vous serez automatiquement considéré pour les emplois qui correspondent à vos compétences et votre expérience. État de disponibilité."
+                    }
+                },
+                "btn": "FAITES-NOUS SAVOIR QUE VOUS ÊTES PRÊT À TRAVAILLER"
+            }
+        }
+    }
+    
+}

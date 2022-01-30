@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, memo } from 'react'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import './hover/hover.css'
 import IntroText from '../sectionIdentifier/IntroText';
@@ -6,6 +6,8 @@ import Title from '../sectionIdentifier/Title';
 import { Button, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import './about.css'
+import isFrench from '../../language/locales/en.json'
+import { useTranslation, Trans } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Main = () => {
+    const { t, i18n } = useTranslation();
 
     const classes = useStyles();
     let appWrap = document.getElementById('root');
@@ -50,28 +53,119 @@ const Main = () => {
         }
     }, [])
 
+    const deskTop_CMP = () => {
+        return (
+            <div className="product_listing--pd">
+            <div className="product_listing--pd_item --pd_item_1">
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_a" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.invest : "investment services"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_b" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.property : "property management"}</p>
+                </div>
+            </div>
+            <div className="product_listing--pd_item --pd_item_2">
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_c" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.realty : "Real Estate"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_d" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.agri : "agriculture & livestock production"}</p>
+                </div><div className="--pd_item-wrap">
+                    <div className="--pd_item_img_e" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.poultry : "poultry farming & egg production"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_f" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.audit : "audit & risk management"}</p>
+                </div>
+            </div>
+            <div className="product_listing--pd_item --pd_item_3">
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_g" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.eggs : "fresh eggs"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_h" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.livestock : "livestock"}</p>
+                </div>
+            </div>
+        </div>
+        )
+    }
+
+    const mobile_CMP = () => {
+        return (
+            <div className="product_listing--pd">
+            <div className="product_listing--pd_item --pd_item_2">
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_c" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.realty : "Real Estate"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_d" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.agri : "agriculture & livestock productio"}n</p>
+                </div><div className="--pd_item-wrap">
+                    <div className="--pd_item_img_e" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.poultry : "poultry farming & egg production"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_f" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.audit : "audit & risk management"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_a" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.invest : "investment services"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_b" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.property : "property management"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_g" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.eggs : "fresh eggs"}</p>
+                </div>
+                <div className="--pd_item-wrap">
+                    <div className="--pd_item_img_h" />
+                    <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.items.livestock : "livestock"}</p>
+                </div>
+            </div>
+        </div>
+        )
+    }
+
     return (
 
         <Fragment>
-            <h3 id="first_sec-title">Vision and Mission</h3>
+            <h3 id="first_sec-title">{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.subtitle : "Vision and Mission"}</h3>
             <section className="first_sec" id="main_service" style={{ zIndex: '1' }}>
                 <div className="content_left">
                     <div className="content_top_wrapp">
                         <div id="vcl_line" />
                         <div className="content_wrap">
-                            Locataire is a brand under which thousands of
-                            <span style={{fontSize: '2.2rem'}} id="content_span_color"> {" "} dedicated professionals in independent entities </span>
-                            to provide products and services to private and public clients spanning multiple industries, including real
-                            estate, agriculture &amp; livestock production, poultry farming and egg production, audit &amp; risk management.
+                            {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.vision.vision_mission : "Locataire is a brand under which thousands of"}
+                            <span style={{fontSize: '2.2rem'}} id="content_span_color"> {" "} {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.vision.vision_mission_b : "dedicated professionals in independent entities"} </span>
+                            {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.vision.vision_mission_c : "to provide products and services to private and public clients spanning multiple industries, including real estate, agriculture &amp; livestock production, poultry farming and egg production, audit &amp; risk management."}
                         </div>
                     </div>
                     <div className="content_text">
-                        <p>
-                            These entities are members of Locataire Group, Limited Liability Company (LLC), an American multinational
-                            conglomerate holding company headquartered in New York, United States.<br /><br />
-                            Each independent entity provides services geographic regions and is subject to the laws and professional
-                            ons of the country in which it operates and is liable only for their own acts and omissions.
-                        </p>
+                        {i18n.resolvedLanguage === 'fr' ? (
+                            <>
+                            <p>{isFrench.about.main.vision.entities}</p>
+                            <br /><br />
+                            <p>Chaque établissement assume indépendamment ses actes, ses responsabilités, ses omissions, ses vertus et ses qualités</p>
+                            </>
+                            ) : (
+                            <p>
+                                These entities are members of Locataire Group, Limited Liability Company (LLC), an American multinational
+                                conglomerate holding company headquartered in New York, United States.<br /><br />
+                                Each independent entity provides services geographic regions and is subject to the laws and professional
+                                ons of the country in which it operates and is liable only for their own acts and omissions.
+                            </p>
+                        )}
                     </div>
                 </div>
                 <div className="content_right">
@@ -85,7 +179,7 @@ const Main = () => {
 
             <div className="main_banner" style={{ zIndex: '1' }}>
                 <div className="main_banner_partern">
-                    <h4 id="main_banner_title">Our Service</h4>
+                    <h4 id="main_banner_title">{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_service : "Our Service"}</h4>
                     <div className="main_banner-wrap">
                         <Splide
                             className="row"
@@ -157,44 +251,46 @@ const Main = () => {
             </div>
 
             <div className="product_listing" style={{ zIndex: '1' }}>
-                <IntroText title="Our objective" />
+                <IntroText title={i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.subtitle : "Our objective"} />
                 <section className="listing_wrap" style={{ zIndex: '1' }}>
-                    <Title title="Our objective is to help our clients achieve what is important to them." className="headline_about" id="headline__about" />
+                    <Title title={i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.obj : "Our objective is to help our clients achieve what is important to them."} className="headline_about" id="headline__about" />
                     <div className="product_listing__text">
-                        <p className="about_product_text">
+                        {i18n.resolvedLanguage === 'fr' ? (
+                            <p>{isFrench.about.main.our_obj.values}</p>
+                        ) : (
+<p className="about_product_text">
                             Our values illustrate our commitment
                             to principles of personal and professional behaviors, guiding how our people relate to each other, what we
                             expect from our clients and what they expect of us.
                         </p>
+                        )}
+                        
                     </div>
                     <div className="product_listing__list-wrapper">
                         <Box className="product_listing--item" elevation={3}>
                             <div className="product_listing--image --image_1" />
                             <div className="product_listing--content">
-                                <h4>Primary Objectives</h4>
+                                <h4>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.items.item_a.title : "Primary Objectives"}</h4>
                                 <p>
-                                    Maximize the total return to property owners, throught
-                                    re-lease and management of these properties for maximum cash flow.
+                                    {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.items.item_a.text : "Maximize the total return to property owners, throught re-lease and management of these properties for maximum cash flow."}
                                 </p>
                             </div>
                         </Box>
                         <Box className="product_listing--item" elevation={3}>
                             <div className="product_listing--image --image_3" />
                             <div className="product_listing--content">
-                                <h4>Our Commitment</h4>
+                                <h4>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.items.item_b.title : "Our Commitment"}</h4>
                                 <p>
-                                    Helping our clients preserve wealth for yourself and 
-                                    prepare for future responsibilities as wealth owners and leaders.
+                                    {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.items.item_b.text : "Helping our clients preserve wealth for yourself and prepare for future responsibilities as wealth owners and leaders."}
                                 </p>
                             </div>
                         </Box>
                         <Box className="product_listing--item" elevation={3}>
                             <div className="product_listing--image --image_4" />
                             <div className="product_listing--content">
-                                <h4>Our Values</h4>
+                                <h4>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.items.item_c.title : "Our Values"}</h4>
                                 <p>
-                                    Driven by a business culture
-                                    based on common values: Trust, Teamwork and Accountability.
+                                    {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.our_obj.items.item_c.text : "Driven by a business culture based on common values: Trust, Teamwork and Accountability."}
                                 </p>
                             </div>
                         </Box>
@@ -202,18 +298,17 @@ const Main = () => {
                 </section>
 
                 <section className="product_listing--deepS" style={{ zIndex: '1' }}>
-                    <IntroText title=" Locataire" cssName="wK" />
-                    <div className="color_highlight"> - Products & Services</div>
+                    <IntroText title="Locataire" cssName="wK" />
+                    <div className="color_highlight"> - {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.title : "Products & Services"}</div>
                     <div className="product_listing--bg">
-                        <p>Locataire provide products and services to private and public clients spanning multiple industries, including: </p>
+                        <p>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.text : "Locataire provide products and services to private and public clients spanning multiple industries, including"}: </p>
                         <div className="product_listing--quote">
                             <span id="product_listing__q">
-                                Each independent entity provides services geographic regions and is subject to the laws and professional
-                                regulations of the country in which it operates and is liable only for their own acts and omissions.
+                                {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.subtext : "Each independent entity provides services geographic regions and is subject to the laws and professional regulations of the country in which it operates and is liable only for their own acts and omissions."}
                             </span>
                         </div>
                         <Button variant="contained" id="btn__abt" color="secondary" className={classes.contact}>
-                            Contact Locataire
+                            {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.services.btn : "Contact Locataire"}
                         </Button>
                     </div>
                      {/* eslint-disable-next-line eqeqeq */}
@@ -222,8 +317,8 @@ const Main = () => {
             </div>
             <section className="product_listing--bnt" style={{ zIndex: '1' }}>
                   <div className="__product-listing-wrapper">
-                  <IntroText title="Locataire Careers" cssName="" />
-                    <div className="color_highlight">Benefits of working at Locataire</div>
+                  <IntroText title={i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.subtitle : "Locataire Careers"} cssName="" />
+                    <div className="color_highlight">{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.title : "Benefits of working at Locataire"}</div>
 
                     <div className="numGrid">
                         <div className="grid_num-wrap">
@@ -232,10 +327,9 @@ const Main = () => {
                                     <span>01</span>
                                 </div>
                                 <div className="grid_num-item--right">
-                                    <h4>Mobility</h4>
+                                    <h4>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.items.item_a.title : "Mobility"}</h4>
                                     <p>
-                                        We are committed to creating and sustaining an inclusive and diverse work
-                                        environment where all employees are treated with dignity and respect.
+                                        {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.items.item_a.text : "We are committed to creating and sustaining an inclusive and diverse work environment where all employees are treated with dignity and respect."}
                                     </p>
                                 </div>
                             </div>
@@ -244,12 +338,17 @@ const Main = () => {
                                     <span>02</span>
                                 </div>
                                 <div className="grid_num-item--right">
-                                    <h4>Employment Policy</h4>
-                                    <p>
+                                    <h4>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.items.item_b.title : "Employment Policy"}</h4>
+                                    {i18n.resolvedLanguage === 'fr' ? (
+                                        <p>{isFrench.about.main.career.items.item_b.text}</p>
+                                    ) : (
+                                        <p>
                                         Locataire’ s long-standing equal employment
                                         opportunity policy prohibits discrimination and harassment 
                                         against any employee or applicant.
                                     </p>
+                                    )}
+                                    
                                 </div>
                             </div>
                             <div className="grid_num-item">
@@ -257,18 +356,27 @@ const Main = () => {
                                     <span>03</span>
                                 </div>
                                 <div className="grid_num-item--right">
-                                    <h4>Your Journey</h4>
-                                    <p>
+                                    <h4>{i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.items.item_c.title : "Your Journey"}</h4>
+                                    {i18n.resolvedLanguage === 'fr' ? (
+                                        <p>
+                                            {isFrench.about.main.career.items.item_c.text} <br />
+                                            <br />
+                                            <a href="mailto:info@locataire.net?subject=Locataire Career" ><strong>info@locataire.net</strong></a>
+                                        </p>
+                                    ) : (
+                                        <p>
                                         Your journey with Locataire begins here. By sending
                                         your resume to <a href="mailto:info@locataire.net?subject=Locataire Career" ><strong>info@locataire.net</strong></a>, you will
                                         automatically be considered for jobs that match your
                                         skills and experience. Availability Status.
                                     </p>
+                                    )}
+                                   
                                 </div>
                             </div>
                         </div>
                         <Button variant="contained" id="btn__abt" color="secondary" sx={{mt: 3}} className={classes.employ}>
-                        Let us know you are ready to work
+                        {i18n.resolvedLanguage === 'fr' ? isFrench.about.main.career.btn : "Let us know you are ready to work"}
                         </Button>
                     </div>
                   </div>
@@ -277,88 +385,5 @@ const Main = () => {
     )
 }
 
-export default Main
-
-function deskTop_CMP() {
-    return (
-        <div className="product_listing--pd">
-        <div className="product_listing--pd_item --pd_item_1">
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_a" />
-                <p>investment services</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_b" />
-                <p>property management</p>
-            </div>
-        </div>
-        <div className="product_listing--pd_item --pd_item_2">
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_c" />
-                <p>Real Estate</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_d" />
-                <p>agriculture &amp; livestock production</p>
-            </div><div className="--pd_item-wrap">
-                <div className="--pd_item_img_e" />
-                <p>poultry farming &amp; egg production</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_f" />
-                <p>audit &amp; risk management</p>
-            </div>
-        </div>
-        <div className="product_listing--pd_item --pd_item_3">
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_g" />
-                <p>fresh eggs</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_h" />
-                <p>livestock</p>
-            </div>
-        </div>
-    </div>
-    )
-}
-function mobile_CMP() {
-    return (
-        <div className="product_listing--pd">
-        <div className="product_listing--pd_item --pd_item_2">
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_c" />
-                <p>Real Estate</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_d" />
-                <p>agriculture &amp; livestock production</p>
-            </div><div className="--pd_item-wrap">
-                <div className="--pd_item_img_e" />
-                <p>poultry farming &amp; egg production</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_f" />
-                <p>audit &amp; risk management</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_a" />
-                <p>investment services</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_b" />
-                <p>property management</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_g" />
-                <p>fresh eggs</p>
-            </div>
-            <div className="--pd_item-wrap">
-                <div className="--pd_item_img_h" />
-                <p>livestock</p>
-            </div>
-        </div>
-    </div>
-    )
-}
+export default memo(Main)
 

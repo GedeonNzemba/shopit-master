@@ -6,11 +6,15 @@ import Bootstrap from './Boostrapp'
 export const Risk = () => {
 
     useEffect(() => {
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('isRisk');
+
         var farmNav = document.getElementById('homeView');
-        farmNav.style.display = 'none';
+        farmNav && (farmNav.style.display = 'none');
 
         return () => {
-            farmNav.style.display = 'block';
+            app.classList.remove('isRisk');
+            farmNav && (farmNav.style.display = 'block');
         }
     }, [])
 

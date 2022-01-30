@@ -41,13 +41,20 @@ import {
 import "../styles/hover.css";
 import logo from "../images/logo.png";
 import imgF from "../images/reaalty/all types/house_purshase.jpg";
+import isFrench from '../language/locales/en.json'
+import { useTranslation } from 'react-i18next';
 
 
 export default function RealEstate() {
+    const { i18n } = useTranslation();
 
     useEffect(() => {
 
-        document.getElementById('homeView').style.display = 'none'
+        const app = document.getElementsByClassName('App')[0];
+        app.classList.add('isRealty');
+
+        const homeNav = document.getElementById('homeView')
+        homeNav && (homeNav.style.display = 'none')
         const addFlickity = (url) => {
             const script = document.createElement("script");
             script.src = url;
@@ -58,7 +65,8 @@ export default function RealEstate() {
         addFlickity("https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js");
 
         return () => {
-            document.getElementById('homeView').style.display = 'block';
+            homeNav && (homeNav.style.display = 'block')
+            app.classList.remove('isRealty');
         }
     }, []);
 
@@ -143,24 +151,24 @@ export default function RealEstate() {
                                 <div className="realEstate_navItem">
                                     <ul>
                                         <li>
-                                            <Link to="/">Home</Link>
+                                            <Link to="/">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.home : "Home"}</Link>
                                         </li>
                                         <Active>
-                                            <Link id={active ? "activeA" : ""} to="/real-estate">real estate</Link>
+                                            <Link id={active ? "activeA" : ""} to="/real-estate">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.real_estate : "real estate"}</Link>
                                         </Active>
                                         <li>
-                                            <Link to="/riskmanagement">risk management</Link>
+                                            <Link to="/riskmanagement">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.risk : "risk management"}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/about">about</Link>
+                                            <Link to="/about">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.about : "about"}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/career">Career</Link>
+                                            <Link to="/career">{i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.career : "Career"}</Link>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="realEstate_contactBtn">
-                                    <ButtonEight name="contact us" />
+                                    <ButtonEight name={i18n.resolvedLanguage === 'fr' ? isFrench.realty.navbar.contact_us : "contact us"} />
                                 </div>
                             </nav>
 
@@ -168,20 +176,22 @@ export default function RealEstate() {
                                 <div className="realEstate_leftContainer">
                                     <div className="realEstate_innerLeftContainer">
                                         <div className="realEstate_title-wrap">
-                                            <h1>locataire realty</h1>
+                                            <h1>{i18n.resolvedLanguage === 'fr' ? isFrench.realty.header.title : "locataire realty"}</h1>
                                         </div>
                                         <div className="realEstate_text-wrap">
-                                            <p>
-                                                Locataire Realty provides real estate services to
-                                                prospective clients looking to buy, sell or lease
-                                                residential and commercial real estates in the United
-                                                States and Canada.
-                                            </p>
+                                            {i18n.resolvedLanguage === 'fr' ? (<p>{isFrench.realty.header.text}</p>) : (
+                                                <p>
+                                                    Locataire Realty provides real estate services to
+                                                    prospective clients looking to buy, sell or lease
+                                                    residential and commercial real estates in the United
+                                                    States and Canada.
+                                                </p>
+                                            )}
                                         </div>
 
                                         <section id="header-bottomLeftContent">
                                             <div className="realEstate_getMoreInfoBtn">
-                                                <ButtonSevenB name="learn more" />
+                                                <ButtonSevenB name={i18n.resolvedLanguage === 'fr' ? isFrench.realty.header.learn_more : "learn more"} />
                                             </div>
 
                                             <div className="realEstate_flag-wrap">
@@ -258,13 +268,25 @@ export default function RealEstate() {
                                                 <div className="invest-img" />
                                             </Col>
                                             <Col md={4} className="realty-content_left border_right">
-                                                <h1>investment service</h1>
-                                                <p>
-                                                    Locataire offers to prospective partners opportunities
-                                                    to invest in dozens of high-growth residential and
-                                                    commercial properties in the United States, and
-                                                    Canada.
-                                                </p>
+                                                <h1>{i18n.resolvedLanguage === 'fr' ? isFrench.realty.main_desktop.invest.title : "investment service"}</h1>
+                                                {i18n.resolvedLanguage === 'fr' ? (
+                                                    <>
+                                                        <p>
+                                                            {isFrench.realty.main_desktop.invest.text_one}
+                                                        </p>
+
+
+                                                    </>
+                                                ) : (
+                                                    <p>
+                                                        Locataire Realty provides real estate
+                                                        services to prospective clients looking
+                                                        to buy, sell or lease residential and
+                                                        commercial real estates in the United
+                                                        States, and Canada.
+                                                    </p>
+
+                                                )}
                                             </Col>
                                         </Row>
                                     </Container>
@@ -277,10 +299,22 @@ export default function RealEstate() {
                                             <div className="p1_img" />
                                         </Col>
                                         <Col className="sub_text-p1">
-                                            <p className="p1">
-                                                We leverage experience and local market knowledge to
-                                                produce top quality risk-adjusted returns for investors.
-                                            </p>
+                                            {i18n.resolvedLanguage === 'fr' ? (
+                                                <>
+                                                    <p>
+                                                        {isFrench.realty.main_desktop.invest.text_two}
+                                                    </p>
+
+
+                                                </>
+                                            ) : (
+
+                                                <p>
+                                                    We leverage experience and local market
+                                                    knowledge to produce top quality risk-adjusted
+                                                    returns for investors.
+                                                </p>
+                                            )}
                                         </Col>
                                     </Row>
                                 </Container>
@@ -453,13 +487,20 @@ export default function RealEstate() {
                                                 <div className="property-img" />
                                             </Col>
                                             <Col md={4} className="realty-content_left">
-                                                <h1>Property management</h1>
-                                                <p>
-                                                    Locataire real estate property managers offer hands-on
-                                                    experience management of single-family homes,
-                                                    multi-family homes, condominiums, townhouses, and
-                                                    commercial properties.
-                                                </p>
+                                                <h1>{i18n.resolvedLanguage === 'fr' ? isFrench.realty.main_desktop.porperty.title : "property management"}</h1>
+                                                {i18n.resolvedLanguage === 'fr' ? (
+                                                    <p>
+                                                        {isFrench.realty.main_desktop.porperty.text_one}
+                                                    </p>
+                                                ) : (
+                                                    <p>
+                                                        Locataire real estate property managers offer hands-on
+                                                        experience management of single-family homes,
+                                                        multi-family homes, condominiums, townhouses, and
+                                                        commercial properties.
+                                                    </p>
+
+                                                )}
                                             </Col>
                                         </Row>
                                     </Container>
@@ -478,26 +519,50 @@ export default function RealEstate() {
                                                 alt="Generic placeholder"
                                             />
                                             <Media.Body>
-                                                <h5 className="media_title">
-                                                    Property management services include the following:
-                                                </h5>
-                                                <p style={{ fontSize: "2rem" }}>
-                                                    Whether you own one unit or many in an apartment
-                                                    building, our agents can assist you maximize profit
-                                                    and keep operating expenses low.
-                                                </p>
+                                                {i18n.resolvedLanguage === 'fr' ? (
+                                                    <h5 className="media_title">
+                                                        {isFrench.realty.main_desktop.porperty.image_texts.services.servise_heading}
+                                                    </h5>
+                                                ) : (
+
+                                                    <h5 className="media_title">
+                                                        Property management services include the following:
+                                                    </h5>
+                                                )}
+
+                                                {i18n.resolvedLanguage === 'fr' ? (
+                                                    <p style={{ fontSize: "2rem" }}>
+                                                        Locataire vous assure le maintien de stabilité de vos revenus aux files de l’eau dans le temps et délais.
+                                                    </p>
+                                                ) : (
+                                                    <p style={{ fontSize: "2rem" }}>
+                                                        Whether you own one unit or many in an apartment
+                                                        building, our agents can assist you maximize profit
+                                                        and keep operating expenses low.
+                                                    </p>
+                                                )}
+
+
                                                 <br />
                                             </Media.Body>
                                         </Media>
 
-                                        <p style={{ fontSize: "2rem" }}>
-                                            Our objective is to maximize the total return to property
-                                            owners, through strategic acquisition, re-development,
-                                            re-lease and management of these properties for maximum
-                                            cash flow. We get paid after you get paid. Which means, if
-                                            we don’t collect rent as agreed, you don’t pay us a
-                                            management fee.
-                                        </p>
+                                        {i18n.resolvedLanguage === 'fr' ? (
+                                            <p style={{ fontSize: "2rem" }}>
+                                                Notre mission est que nos partenaires puissent profiter de notre expertise dans le domaine immobilier afin d’optimiser les retours sur investissement et de surpasser les attentes de nos clients.
+                                            </p>
+                                        ) : (
+
+                                            <p style={{ fontSize: "2rem" }}>
+                                                Our objective is to maximize the total return to property
+                                                owners, through strategic acquisition, re-development,
+                                                re-lease and management of these properties for maximum
+                                                cash flow. We get paid after you get paid. Which means, if
+                                                we don’t collect rent as agreed, you don’t pay us a
+                                                management fee.
+                                            </p>
+                                        )}
+
                                     </Col>
                                 </Row>
                             </Container>
@@ -508,10 +573,17 @@ export default function RealEstate() {
                                         <div className="p1_img" />
                                     </Col>
                                     <Col className="sub_text-p1">
-                                        <p className="p1">
-                                            our agents can assist you maximize profit and keep
-                                            operating expenses low.
-                                        </p>
+                                        {i18n.resolvedLanguage === 'fr' ? (
+                                            <p className="p1">
+                                                Locataire vous assure le maintien de stabilité de vos revenus aux files de l’eau dans le temps et délais.
+                                            </p>
+                                        ) : (
+                                            <p className="p1">
+                                                our agents can assist you maximize profit and keep
+                                                operating expenses low.
+                                            </p>
+                                        )}
+
                                     </Col>
                                 </Row>
                             </Container>

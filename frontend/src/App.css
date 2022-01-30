@@ -971,6 +971,15 @@ div#loginswitch {
   width: 100%;
   height: 100%;
 }
+input#name_field {
+  font-size: 1.6rem!important;
+  text-transform: capitalize;
+}
+label#name_field-label {
+  font-size: 1.6rem!important;
+  text-transform: capitalize;
+
+}
 main.farm_wrapper {
   padding-bottom: 56px;
   flex-grow: 1;
@@ -1819,7 +1828,10 @@ section.bBanner {
 } */
 .poultrybanner {
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
+}
+#footer_form p {
+  font-size: 1.6rem!important;
 }
 .poutry-meat-banner {
   background: rgb(0 0 0 / 75%) url("./images/POULTRY MEAT BANNER.png");
@@ -2447,10 +2459,14 @@ h2.ratefilter {
     overflow-x: hidden;
   }
 }
-div#list_item_text {
+.Fabout_title {
+  min-height: 15rem;
+  max-height: 100%;
+}
+/* div#list_item_text {
   width: fit-content;
   max-width: fit-content;
-}
+} */
 .farm-sidebar__stack_item {
   justify-content: flex-start;
 }
@@ -2992,10 +3008,75 @@ h5 span.yourcarttitle {
     justify-content: flex-end;
   }
 }
-@media (min-width: 993px) {
+.isRealty #contactFormWrapper {
+  background-color: #fff;
+}
+.isRisk #contactFormWrapper {
+  background-color: #f8f9fa;
+}
+.isRealty .realEstate_header .carousel {
+  height: 100%!important;
+}
+.realEstate .realty header.realty__heading div.realty__headerContainer div.realty__bigTitle h1 {
+  max-width: 70%;
+  margin: 0 auto
+}
+.realty_services-option--imageContainer {
+  filter: drop-shadow(1px 2px 5px black);
+}
+.realty__heading {
+  height: auto!important;
+}
+@media (max-width: 500px) {
+  ._2iWL7 {
+    width: 80vw!important;
+  }
+  ._2iWL7 span{
+    margin-left: 0!important;
+  }
+  ._eRm_Y {
+    margin-left: 0!important;
+  }
+  ._1Ixzy {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+  }
+  ._nYEjV {
+    max-width: calc(100% - 80px)!important
+  }
+  #farmSHOP .farm_wrapper .poultry_banner_wrapper .poultrybanner {
+    height: 17rem;
+  }
+}
+/* @media (min-width: 993px) {
   #contactFormWrapper {
     background-color: #313962 !important;
   }
+} */
+/* .ct_form {
+  display: block;
+}
+.ct_form .contactFormInternalContainer {
+  transition: 1s ease-out;
+  display: none;
+}
+.ct_form .contactFormMapDiv {
+  transition: 1s ease-out;
+  display: none;
+} */
+.contactFormInternalContainer {
+  height: fit-content;
+  text-align: center;
+}
+img.contact_us_img {
+  width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.contactFormContainer {
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 /* UPDATE PROFILE */
 .profile_wrapper * span {

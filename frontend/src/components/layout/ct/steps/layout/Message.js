@@ -79,8 +79,8 @@ const Message = () => {
                         <MenuItem value='Locataire careers' className="select__item-ct">Locataire careers</MenuItem>
                     </Select>
                 </Box>
-                <Field
-                    component={TextField}
+                <TextField
+
                     id="standard-basic"
                     label="Phone Number"
                     variant="standard"
@@ -91,13 +91,12 @@ const Message = () => {
                 />
             </Stack>
             <Stack direction="column" spacing={2} className={classes.stack}>
-            <Field
-                component={TextField}
+            <TextField
                 id="standard-multiline-static"
                 label="Message"
                 multiline
                 rows={6}
-                defaultValue="Write your message..."
+                placeHolder="Write your message..."
                 variant="standard"
                 className={classes.textarea}
                 name="message"

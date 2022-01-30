@@ -14,7 +14,9 @@ const Slider = () => {
     const settings =  {
         autoplay: true,
         wheel: true,
-        arrows: false
+        arrows: false,
+        duration: 50,
+        autoplaySpeed: 5000
       };
 
     return (

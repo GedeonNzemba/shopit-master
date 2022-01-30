@@ -14,7 +14,7 @@ const Whatsapp = () => {
     wrap.style.zIndex = '99999999'
 
     if (window.innerWidth <= 500 ) {
-      wrap.style.right = '5rem';
+      wrap.style.right = '3.5rem';
     } else {
       wrap.style.right = '2rem';
     }
