@@ -5,6 +5,10 @@ import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import image_1 from "../../images/all.png";
+import image_2 from "../../images/risk_.png";
+// import image_7 from "../../images/realty_.jpg";
+import image_5 from "../../images/realty_b.png";
+import image_6 from "../../images/com_.png";
 import image_3 from "../../images/abb.png";
 import Typist from 'react-typist';
 import image_4 from "../../images/about_3.png";
@@ -48,7 +52,7 @@ const Header = () => {
             delay: 75,
             deleteAll: 1
           });
-    }, []);
+    }, [i18n.resolvedLanguage]);
 
     // const AgriTitle = () => (<div className="Fabout_title"><h1>Agribusiness and Food Ingredient Entity <span id="Fabout_unc">dedicated to improving</span> the global food supply chain.</h1></div>)
     // const RealtyTitle = () => (<div className="Fabout_title"><h1>Locataire Risk Management provides <span id="Fabout_unc">tailored solutions</span>  to help private companies improve business strategies and practices.</h1></div>)
@@ -65,7 +69,10 @@ const Header = () => {
 
     const about_images = [
         image_1,
+        image_5,
         image_3,
+        image_2,
+        image_6,
         image_4
     ]
 

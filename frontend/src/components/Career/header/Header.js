@@ -28,7 +28,7 @@ export default function Header() {
     const classes = useStyles();
 
     return (
-        <header className="career">
+        <header className="career" style={{zIndex: '1'}}>
             <div className="career__inner-header">
                 <h1>start your career with <strong>locataire</strong></h1>
                 <br />
