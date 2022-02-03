@@ -188,6 +188,77 @@
                 },
                 "btn": "FAITES-NOUS SAVOIR QUE VOUS ÊTES PRÊT À TRAVAILLER"
             }
+          
+        }
+    },
+    "career_page": {
+        "header": {
+            "title": "Débutez votre carrière chez",
+            "subtitle": "Locataire, tout le monde compte. Nous nous engageons à créer et à maintenir un environnement de travail inclusif et diversifié où tous les employés sont traités avec dignité et respect.",
+            "btn": "Contacter Locataire"
+        },
+        "main": {
+            "who": {
+                "title": "Qui sommes nous",
+                "text": "Locataire est une marque sous laquelle des dizaines de professionnels spécialisés des établissements indépendants collaborent mutuellement pour fournir des produits et services auprès des entreprises des secteurs privé et public dans les domaines de l’immobiliers, agro-alimentaires et agricoles, audit et gestion des risques."
+            },
+            "where": {
+                "title": "D'où nous venons",
+                "entity": "Ces établissements font partie de Locataire Group, Limited Liability Company (LLC), une société conglomérale américaine, à responsabilité limitée, basée à New York, aux États-Unis.",
+                "locataion": "La ferme est située à Pointe-Noire, ville portuaire et plaque tournante de l'industrie pétrolière en République du Congo."
+            },
+            "benefits": {
+                "title": "Avantages",
+                "text": "Notre capacité à créer de la valeur est portée par une culture d'entreprise basée sur des valeurs communes : Confiance, Travail d'équipe et Responsabilité.",
+                "items": {
+                    "stability": {
+                        "title": "stabilité et planification",
+                        "text": "Locataire est une marque sous laquelle des dizaines de professionnels spécialisés des établissements indépendants collaborent mutuellement pour fournir des produits et services auprès des entreprises des secteurs privé et public dans les domaines de l’immobiliers, agro-alimentaires et agricoles, audit et gestion des risques."
+                    },
+                    "community": {
+                        "title": "Communauté et bienveillance",
+                        "text": "Locataire, tout le monde compte. Nous nous engageons à créer et à maintenir un environnement de travail inclusif et diversifié où tous les employés sont traités avec dignité et respect."
+                    },
+                    "professional": {
+                        "title": "croissance professionnelle",
+                        "text": "Notre objectif est d'aider nos clients à réaliser ce qui est important pour eux. Nos valeurs illustrent notre engagement envers les principes de comportement personnel et professionnel, guidant les relations entre nos employés, ce que nous attendons de nos clients et ce qu'ils attendent de nous."
+                    },
+                    "equal": {
+                        "title": "Opportunités égales",
+                        "text": "À ce titre et conformément à nos principes sur l’égalité des chances en matière d’égalité d’emploi interdit la discrimination et le harcèlement à l’égard de tout employé ou demandeur en raison de sa race, de son origine ethnique, de sa couleur, de sa religion, de son origine nationale, de son ascendance, du sexe, de l’identité de genre, de l’expression sexuelle, de l’orientation sexuelle, de l’âge, de l’incapacité, de la grossesse, de l’état matrimonial, de l’état familial, de l’état de citoyenneté, du statut d’ancien combattant, de l’état militaire, de l’affiliation syndicale ou de tout autre statut protégé par la loi."
+                    }
+                }
+            }
+        }
+    },
+    "risk": {
+        "header": {
+            "nav": {
+                "home": "Accueil",
+                "risk_management": "Risques",
+                "about": "À propos",
+                "career": "Carrière"
+            },
+            "slides": {
+                "third_part": {
+                    "title": "",
+                    "text": ""
+                },
+                "audit": {
+                    "title": "",
+                    "text": ""
+                },
+                "assurance": {
+                    "title": "",
+                    "text": ""
+                },
+                "operation": {
+                    "title": "",
+                    "text": ""
+                },
+                "btn_a": "",
+                "btn": "Contacter Locataire"
+            }
         }
     }
     

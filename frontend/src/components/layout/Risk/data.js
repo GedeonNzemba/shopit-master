@@ -22,43 +22,15 @@ const Content = [
         subtitleA: 'Internal',
         subtitleB: 'External',
         subtitleC: 'Internal Revenue service ( IRS )',
-        paragraph: <p>
-        The purpose is to enhance the degree of confidence in the
-                                financial statements, to improve internal controls. This is
-                                achieved by our expression of an opinion on whether the
-                                financial statements are prepared in accordance with the
-                                applicable reporting framework. 
-                               <br /> <br />
-                                Our Audit services go beyond merely meeting statutory
-                                requirements. We help our clients perform better. We listen to
-                                their needs, think about the business implications and tailor
-                                our approach accordingly. Because the Audit professionals of
-                                Locataire take the time to understand our client's business as
-                                well as the industries in which they operate, we can help them
-                                identify major risks and opportunities over and above
-                                performance of the traditional financial reporting function.
-                                </p>,
+        paragraph: <p>an audit is generally needed when outside third parties such as regulators, banks, creditors, potential purchasers and outside investors require an auditor’s opinion on the financial statements. The purpose is to enhance the degree of confidence in the financial statements, to improve internal controls. This is achieved by our expression of an opinion on whether the financial statements are prepared in accordance with the applicable reporting framework.</p>,
             img: audit_1,
             imgA: audit_2,
             imgB: audit_3,
     },
     {
         title: 'assurance',
-        subtitle: 'Aspire with risk management',
-        paragraph: <p>
-        Our Assurance professionals gather information during a
-                                Locataire Audit in order to understand fully our client's
-                                business, internal controls and risk spectrum. Before making
-                                Audit decisions we conduct objective diagnostic tests and
-                                analytical reviews. <br />
-                                <br />
-                                Our methods help enable our clients to meet the growing demand
-                                for enhanced disclosure and accountability. We work closely
-                                with our clients, yet independently, and encourage open
-                                communication. Locataire Audit goes beyond testing
-                                transactions and balances to providing insights that help our
-                                clients better understand their business.
-                                </p>,
+        subtitle: 'Aspire with assurance',
+        paragraph: <p>we provide information technology audit services to deliver risk and controls, audit analytics to extract insights from data, as well as third-party assurance to manage risks from the extended enterprise.</p>,
         img: assurance_2,
         imgA: assurance_1,
         imgB: assurance_3,
@@ -66,19 +38,7 @@ const Content = [
     {
         title: 'Operational Risk & Transformation',
         subtitle: 'Managing risk to drive performance',
-        paragraph: <p>
-        Risk is unavoidable, but it is manageable and—when viewed with
-                                an eye on growth—potentially profitable. Locataire's
-                                Operational Risk and Transformation services help clients
-                                transform the ways in which they leverage people, technology,
-                                data, processes and controls to address their operational
-                                risks and drive performance. <br />
-                                <br />
-                                Locataire develops frameworks that include common risk
-                                taxonomies, risk assessments and reporting, business and IT
-                                process and controls assessment methods, and enabling tools
-                                and technologies.
-                                </p>,
+        paragraph: <p>we help clients transform the ways in which they leverage people, technology, data, business processes and controls to address their operational risks and drive business performance.</p>,
         img: transform_2,
         imgA: transform_1,
         imgB: transform_3,
@@ -86,20 +46,49 @@ const Content = [
     {
         title: 'Third Party Risk Management ',
         subtitle: 'Aspire with risk management',
-        paragraph: <p>
-        we help clients evaluate and manage third-party risk related to outsourcing, and other business partnerships across the organization to maximize effectiveness <br />
-                                <br />
-                                Our methods help enable our clients to meet the growing demand
-                                for enhanced disclosure and accountability. We work closely
-                                with our clients, yet independently, and encourage open
-                                communication. Locataire Audit goes beyond testing
-                                transactions and balances to providing insights that help our
-                                clients better understand their business.
-                                </p>,
+        paragraph: <p>we help clients evaluate and manage third-party risk related to outsourcing, and other business partnerships across the organization to maximize effectiveness.</p>,
         img: party_1,
         imgA: party_2,
         imgB: party_3,
     }
 ]
 
-export  {Content};
+const isFrench = [
+    {
+        title: 'audit',
+        subtitle: 'Interne | Externe | Service des recettes internes ( IRS )',
+        subtitleA: 'Interne',
+        subtitleB: 'Externe',
+        subtitleC: 'Service des recettes internes ( IRS )',
+        paragraph: <p>On procède généralement à un audit lorsque les organismes réglementaires, les banques, les créanciers, les acheteurs potentiels et/ou les investisseurs ont plus besoin de savoir les états opérationnels et financiers de leurs entreprises. L’objectif de ces audits est d’accroître la confiance et d’apporter les améliorations adéquates aux process de contrôles internes tout en restant conforme dans la réglementation en vigueur.</p>,
+        img: audit_1,
+            imgA: audit_2,
+            imgB: audit_3,
+    },
+    {
+        title: 'Assurance ',
+        subtitle: 'Aspirez avec assurance',
+        paragraph: <p>Nous proposons des services d’audits spécialisés sur les technologies de l’information afin de fournir une analyse de risques et de contrôles capable de fournir les informations et les données susceptibles de rassurer dans la quiétude.</p>,
+        img: assurance_2,
+        imgA: assurance_1,
+        imgB: assurance_3,
+    },
+    {
+        title: 'Risque opérationnel et transformation ',
+        subtitle: 'Gérer les risques pour stimuler les performances',
+        paragraph: <p>Nous aidons nos clients à transformer leurs façons de tirer parti des personnes, des technologies, des données, des processus opérationnels et des contrôles afin de gérer leurs risques opérationnels et de favoriser le rendement d’entreprise.</p>,
+        img: transform_2,
+        imgA: transform_1,
+        imgB: transform_3,
+    },
+    {
+        title: 'Gestion des risques tiers',
+        subtitle: 'Aspirez avec la gestion des risques',
+        paragraph: <p>Nous évaluons et gérons les risques de tiers liés à l’externalisation, et autres partenariats commerciaux au sein de l’organisation afin de maximiser le rendement d’entreprise, de réduire les coûts liés à l’informatique, et optimiser les chaînes d’approvisionnement.</p>,
+        img: party_1,
+        imgA: party_2,
+        imgB: party_3,
+    },
+]
+
+export  {Content, isFrench};

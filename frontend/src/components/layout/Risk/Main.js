@@ -8,12 +8,13 @@ import Box from '@mui/material/Box';
 
 import CardContent from '@mui/material/CardContent';
 
-import { Content } from './data'
+import { Content, isFrench } from './data'
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-
 import Grid from '@mui/material/Grid';
+import { useTranslation } from 'react-i18next';
+
 
 const GridItem = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -31,6 +32,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Main = () => {
+    const { i18n } = useTranslation();
 
     const loadWowScript = (url) => {
         var script = document.createElement('script');
@@ -133,7 +135,9 @@ const Main = () => {
                 (
                     <>
                         <div id="risk-content-up">
-                            {Content.map((item, index) => {
+                            {i18n.resolvedLanguage === 'fr' ? (
+                                <>
+                                    {isFrench.map((item, index) => {
                                 return (
                                     <Box className="wrapper_box__risk_content" sx={{ width: '95%', margin: '0 auto' }} key={index}>
                                         <Grid className="grid_item_wrapper__risk" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -196,20 +200,7 @@ const Main = () => {
                                                     <Box className="box_paragraph_risk">
                                                         <div className="_item_text">
                                                             <p>
-                                                                The purpose is to enhance the degree of confidence in the
-                                                                financial statements, to improve internal controls. This is
-                                                                achieved by our expression of an opinion on whether the
-                                                                financial statements are prepared in accordance with the
-                                                                applicable reporting framework. <br />
-                                                                <br />
-                                                                Our Audit services go beyond merely meeting statutory
-                                                                requirements. We help our clients perform better. We listen to
-                                                                their needs, think about the business implications and tailor
-                                                                our approach accordingly. Because the Audit professionals of
-                                                                Locataire take the time to understand our client's business as
-                                                                well as the industries in which they operate, we can help them
-                                                                identify major risks and opportunities over and above
-                                                                performance of the traditional financial reporting function.
+                                                                {item.paragraph}
                                                             </p>
                                                         </div>
                                                     </Box>
@@ -219,6 +210,85 @@ const Main = () => {
                                     </Box>
                                 )
                             })}
+                                </>
+                            ) : (
+                                <>
+                                    {Content.map((item, index) => {
+                                return (
+                                    <Box className="wrapper_box__risk_content" sx={{ width: '95%', margin: '0 auto' }} key={index}>
+                                        <Grid className="grid_item_wrapper__risk" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                                            <Grid item xs={6} id="gridItem_risk-image">
+                                                <GridItem >
+                                                    <div className="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded": true  }'>
+                                                        <div className="carousel-cell">
+                                                            <img
+                                                                src={item.img}
+                                                                alt="green iguana"
+                                                            />
+                                                        </div>
+                                                        <div className="carousel-cell">
+                                                            <img
+                                                                src={item.imgA}
+                                                                alt="green iguana"
+                                                            />
+                                                        </div>
+                                                        <div className="carousel-cell">
+                                                            <img
+                                                                src={item.imgB}
+                                                                alt="green iguana"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </GridItem>
+                                            </Grid>
+                                            <Grid item xs={6} id="gridItem_risk-content">
+                                                <GridItem id="gridItem_risk">
+                                                    <Box>
+                                                        <div className="_item_text-header">
+                                                            <h1>{item.title}</h1>
+                                                        </div>
+                                                    </Box>
+                                                    {(item.subtitleA || item.subtitleB || item.subtitleC) && (
+                                                        <Stack direction="row" spacing={2}>
+                                                            <div className="sub-item">
+                                                                <p>{item.subtitleA}</p>
+                                                            </div>
+                                                            <div id="sub_divider" />
+                                                            <div className="sub-item">
+                                                                <p>{item.subtitleB}</p>
+                                                            </div>
+                                                            <div id="sub_divider" />
+                                                            <div className="sub-item" id="sub-item">
+                                                                <p>
+                                                                    {item.subtitleC}
+                                                                </p>
+                                                            </div>
+                                                        </Stack>
+                                                    )}
+                                                    {item.subtitle && (
+                                                        <Stack direction="row" spacing={2}>
+                                                            <div className="sub-item">
+                                                                <p>{item.subtitle}</p>
+                                                            </div>
+                                                        </Stack>
+                                                    )}
+
+                                                    <Box className="box_paragraph_risk">
+                                                        <div className="_item_text">
+                                                            <p>
+                                                                {item.paragraph}
+                                                            </p>
+                                                        </div>
+                                                    </Box>
+                                                </GridItem>
+                                            </Grid>
+                                        </Grid>
+                                    </Box>
+                                )
+                            })}
+                                </>
+                            )}
+                            
                         </div>
 
 
